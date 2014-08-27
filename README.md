@@ -1,8 +1,8 @@
 Images
 ======
 
-CppUTest testrunner plugin for Eclipse Juno CDT and later
----------------------------------------------------------
+CppUTest Testrunner Plugin for Eclipse
+--------------------------------------
 
 Six tests in two test groups passed:
 
