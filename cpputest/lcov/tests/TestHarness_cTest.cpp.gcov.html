@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">150</td>
-            <td class="headerCovTableEntry">165</td>
-            <td class="headerCovTableEntryHi">90.9 %</td>
+            <td class="headerCovTableEntry">166</td>
+            <td class="headerCovTableEntry">174</td>
+            <td class="headerCovTableEntryHi">95.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">251</td>
-            <td class="headerCovTableEntry">275</td>
-            <td class="headerCovTableEntryHi">91.3 %</td>
+            <td class="headerCovTableEntry">144</td>
+            <td class="headerCovTableEntry">167</td>
+            <td class="headerCovTableEntryMed">86.2 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -107,7 +107,7 @@
 <span class="lineNum">      45 </span><span class="lineCov">          2 :     TEST_GROUP_C_TEARDOWN_WRAPPER(TestGroupInC)</span>
 <a name="46"><span class="lineNum">      46 </span>            : };</a>
 <span class="lineNum">      47 </span>            : 
-<span class="lineNum">      48 </span><span class="lineCov">         15 : TEST_C_WRAPPER(TestGroupInC, checkThatTheTestHasRun)</span>
+<span class="lineNum">      48 </span><span class="lineCov">          8 : TEST_C_WRAPPER(TestGroupInC, checkThatTheTestHasRun)</span>
 <span class="lineNum">      49 </span>            : 
 <span class="lineNum">      50 </span>            : /*
 <span class="lineNum">      51 </span>            :  * This test is a bit strange. They use the fact that you can do -r2 for repeating the same run.
@@ -115,11 +115,11 @@
 <span class="lineNum">      53 </span>            :  * correctly.
 <a name="54"><span class="lineNum">      54 </span>            :  */</a>
 <span class="lineNum">      55 </span>            : 
-<span class="lineNum">      56 </span><span class="lineCov">         14 : TEST(TestGroupInC, setupHasBeenCalled)</span>
+<span class="lineNum">      56 </span><span class="lineCov">          8 : TEST(TestGroupInC, setupHasBeenCalled)</span>
 <span class="lineNum">      57 </span>            : {
 <span class="lineNum">      58 </span><span class="lineCov">          1 :     test_was_called_in_test_group_in_C++;</span>
 <span class="lineNum">      59 </span>            :     /* Increased in setup, decreased in teardown. So at this point it must be 1 also on a multiple run */
-<span class="lineNum">      60 </span><span class="lineCov">          2 :     LONGS_EQUAL(1, setup_teardown_was_called_in_test_group_in_C);</span>
+<span class="lineNum">      60 </span><span class="lineCov">          1 :     LONGS_EQUAL(1, setup_teardown_was_called_in_test_group_in_C);</span>
 <span class="lineNum">      61 </span><span class="lineCov">          1 : }</span>
 <span class="lineNum">      62 </span>            : 
 <span class="lineNum">      63 </span>            : static bool hasDestructorOfTheDestructorCheckedBeenCalled;
@@ -127,171 +127,171 @@
 <span class="lineNum">      65 </span>            : class HasTheDestructorBeenCalledChecker
 <a name="66"><span class="lineNum">      66 </span>            : {</a>
 <a name="67"><span class="lineNum">      67 </span>            : public:</a>
-<span class="lineNum">      68 </span><span class="lineCov">         14 :     HasTheDestructorBeenCalledChecker(){}</span>
+<span class="lineNum">      68 </span><span class="lineCov">          7 :     HasTheDestructorBeenCalledChecker(){}</span>
 <span class="lineNum">      69 </span><span class="lineNoCov">          0 :     ~HasTheDestructorBeenCalledChecker() { hasDestructorOfTheDestructorCheckedBeenCalled = true; }</span>
 <a name="70"><span class="lineNum">      70 </span>            : };</a>
 <span class="lineNum">      71 </span>            : 
 <span class="lineNum">      72 </span><span class="lineCov">         32 : TEST_GROUP(TestHarness_c)</span>
 <a name="73"><span class="lineNum">      73 </span>            : {</a>
 <span class="lineNum">      74 </span>            :     TestTestingFixture* fixture;
-<span class="lineNum">      75 </span>            :     TEST_SETUP()
+<span class="lineNum">      75 </span><span class="lineCov">         16 :     TEST_SETUP()</span>
 <span class="lineNum">      76 </span>            :     {
 <span class="lineNum">      77 </span><span class="lineCov">         16 :         hasDestructorOfTheDestructorCheckedBeenCalled = false;</span>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">         32 :         fixture = new TestTestingFixture();</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">         16 :         fixture = new TestTestingFixture();</span></a>
 <span class="lineNum">      79 </span><span class="lineCov">         16 :     }</span>
-<span class="lineNum">      80 </span>            :     TEST_TEARDOWN()
+<span class="lineNum">      80 </span><span class="lineCov">         16 :     TEST_TEARDOWN()</span>
 <span class="lineNum">      81 </span>            :     {
-<span class="lineNum">      82 </span><span class="lineCov">         32 :         delete fixture;</span>
+<span class="lineNum">      82 </span><span class="lineCov">         16 :         delete fixture;</span>
 <span class="lineNum">      83 </span><span class="lineCov">         16 :     }</span>
 <a name="84"><span class="lineNum">      84 </span>            : };</a>
 <span class="lineNum">      85 </span>            : 
-<span class="lineNum">      86 </span>            : static void _failIntMethod()
+<span class="lineNum">      86 </span><span class="lineCov">          1 : static void _failIntMethod()</span>
 <span class="lineNum">      87 </span>            : {
 <span class="lineNum">      88 </span><span class="lineCov">          1 :     HasTheDestructorBeenCalledChecker checker;</span>
-<span class="lineNum">      89 </span><span class="lineNoCov">          0 :     CHECK_EQUAL_C_INT(1, 2);</span>
+<span class="lineNum">      89 </span><span class="lineCov">          1 :     CHECK_EQUAL_C_INT(1, 2);</span>
 <a name="90"><span class="lineNum">      90 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">      91 </span>            : 
-<span class="lineNum">      92 </span><span class="lineCov">         14 : TEST(TestHarness_c, checkInt)</span>
+<span class="lineNum">      92 </span><span class="lineCov">          8 : TEST(TestHarness_c, checkInt)</span>
 <span class="lineNum">      93 </span>            : {
 <span class="lineNum">      94 </span><span class="lineCov">          1 :     CHECK_EQUAL_C_INT(2, 2);</span>
 <span class="lineNum">      95 </span><span class="lineCov">          1 :     fixture-&gt;setTestFunction(_failIntMethod);</span>
 <span class="lineNum">      96 </span><span class="lineCov">          1 :     fixture-&gt;runAllTests();</span>
-<span class="lineNum">      97 </span><span class="lineCov">          2 :     fixture-&gt;assertPrintContains(&quot;expected &lt;1 0x1&gt;\n      but was  &lt;2 0x2&gt;&quot;);</span>
-<span class="lineNum">      98 </span><span class="lineCov">          2 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
-<span class="lineNum">      99 </span><span class="lineCov">          2 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
+<span class="lineNum">      97 </span><span class="lineCov">          1 :     fixture-&gt;assertPrintContains(&quot;expected &lt;1 0x1&gt;\n      but was  &lt;2 0x2&gt;&quot;);</span>
+<span class="lineNum">      98 </span><span class="lineCov">          1 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
+<span class="lineNum">      99 </span><span class="lineCov">          1 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
 <a name="100"><span class="lineNum">     100 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     101 </span>            : 
-<span class="lineNum">     102 </span>            : static void _failRealMethod()
+<span class="lineNum">     102 </span><span class="lineCov">          1 : static void _failRealMethod()</span>
 <span class="lineNum">     103 </span>            : {
 <span class="lineNum">     104 </span><span class="lineCov">          1 :     HasTheDestructorBeenCalledChecker checker;</span>
-<span class="lineNum">     105 </span><span class="lineNoCov">          0 :     CHECK_EQUAL_C_REAL(1.0, 2.0, 0.5);</span>
+<span class="lineNum">     105 </span><span class="lineCov">          1 :     CHECK_EQUAL_C_REAL(1.0, 2.0, 0.5);</span>
 <a name="106"><span class="lineNum">     106 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     107 </span>            : 
-<span class="lineNum">     108 </span><span class="lineCov">         14 : TEST(TestHarness_c, checkReal)</span>
+<span class="lineNum">     108 </span><span class="lineCov">          8 : TEST(TestHarness_c, checkReal)</span>
 <span class="lineNum">     109 </span>            : {
 <span class="lineNum">     110 </span><span class="lineCov">          1 :     CHECK_EQUAL_C_REAL(1.0, 1.1, 0.5);</span>
 <span class="lineNum">     111 </span><span class="lineCov">          1 :     fixture-&gt;setTestFunction(_failRealMethod);</span>
 <span class="lineNum">     112 </span><span class="lineCov">          1 :     fixture-&gt;runAllTests();</span>
-<span class="lineNum">     113 </span><span class="lineCov">          2 :     fixture-&gt;assertPrintContains(&quot;expected &lt;1&gt;\n  but was  &lt;2&gt;&quot;);</span>
-<span class="lineNum">     114 </span><span class="lineCov">          2 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
-<span class="lineNum">     115 </span><span class="lineCov">          2 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
+<span class="lineNum">     113 </span><span class="lineCov">          1 :     fixture-&gt;assertPrintContains(&quot;expected &lt;1&gt;\n  but was  &lt;2&gt;&quot;);</span>
+<span class="lineNum">     114 </span><span class="lineCov">          1 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
+<span class="lineNum">     115 </span><span class="lineCov">          1 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
 <a name="116"><span class="lineNum">     116 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     117 </span>            : 
-<span class="lineNum">     118 </span>            : static void _failCharMethod()
+<span class="lineNum">     118 </span><span class="lineCov">          1 : static void _failCharMethod()</span>
 <span class="lineNum">     119 </span>            : {
 <span class="lineNum">     120 </span><span class="lineCov">          1 :     HasTheDestructorBeenCalledChecker checker;</span>
-<span class="lineNum">     121 </span><span class="lineNoCov">          0 :     CHECK_EQUAL_C_CHAR('a', 'c');</span>
+<span class="lineNum">     121 </span><span class="lineCov">          1 :     CHECK_EQUAL_C_CHAR('a', 'c');</span>
 <a name="122"><span class="lineNum">     122 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     123 </span>            : 
-<span class="lineNum">     124 </span><span class="lineCov">         14 : TEST(TestHarness_c, checkChar)</span>
+<span class="lineNum">     124 </span><span class="lineCov">          8 : TEST(TestHarness_c, checkChar)</span>
 <span class="lineNum">     125 </span>            : {
 <span class="lineNum">     126 </span><span class="lineCov">          1 :     CHECK_EQUAL_C_CHAR('a', 'a');</span>
 <span class="lineNum">     127 </span><span class="lineCov">          1 :     fixture-&gt;setTestFunction(_failCharMethod);</span>
 <span class="lineNum">     128 </span><span class="lineCov">          1 :     fixture-&gt;runAllTests();</span>
-<span class="lineNum">     129 </span><span class="lineCov">          2 :     fixture-&gt;assertPrintContains(&quot;expected &lt;a&gt;\n  but was  &lt;c&gt;&quot;);</span>
-<span class="lineNum">     130 </span><span class="lineCov">          2 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
-<span class="lineNum">     131 </span><span class="lineCov">          2 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
+<span class="lineNum">     129 </span><span class="lineCov">          1 :     fixture-&gt;assertPrintContains(&quot;expected &lt;a&gt;\n  but was  &lt;c&gt;&quot;);</span>
+<span class="lineNum">     130 </span><span class="lineCov">          1 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
+<span class="lineNum">     131 </span><span class="lineCov">          1 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
 <a name="132"><span class="lineNum">     132 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     133 </span>            : 
-<span class="lineNum">     134 </span>            : static void _failStringMethod()
+<span class="lineNum">     134 </span><span class="lineCov">          1 : static void _failStringMethod()</span>
 <span class="lineNum">     135 </span>            : {
 <span class="lineNum">     136 </span><span class="lineCov">          1 :     HasTheDestructorBeenCalledChecker checker;</span>
-<span class="lineNum">     137 </span><span class="lineNoCov">          0 :     CHECK_EQUAL_C_STRING(&quot;Hello&quot;, &quot;Hello World&quot;);</span>
+<span class="lineNum">     137 </span><span class="lineCov">          1 :     CHECK_EQUAL_C_STRING(&quot;Hello&quot;, &quot;Hello World&quot;);</span>
 <a name="138"><span class="lineNum">     138 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     139 </span>            : 
-<span class="lineNum">     140 </span><span class="lineCov">         14 : TEST(TestHarness_c, checkString)</span>
+<span class="lineNum">     140 </span><span class="lineCov">          8 : TEST(TestHarness_c, checkString)</span>
 <span class="lineNum">     141 </span>            : {
 <span class="lineNum">     142 </span><span class="lineCov">          1 :     CHECK_EQUAL_C_STRING(&quot;Hello&quot;, &quot;Hello&quot;);</span>
 <span class="lineNum">     143 </span><span class="lineCov">          1 :     fixture-&gt;setTestFunction(_failStringMethod);</span>
 <span class="lineNum">     144 </span><span class="lineCov">          1 :     fixture-&gt;runAllTests();</span>
 <span class="lineNum">     145 </span>            : 
 <span class="lineNum">     146 </span><span class="lineCov">          1 :     StringEqualFailure failure(UtestShell::getCurrent(), &quot;file&quot;, 1, &quot;Hello&quot;, &quot;Hello World&quot;);</span>
-<span class="lineNum">     147 </span><span class="lineCov">          3 :     fixture-&gt;assertPrintContains(failure.getMessage());</span>
-<span class="lineNum">     148 </span><span class="lineCov">          3 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
-<span class="lineNum">     149 </span><span class="lineCov">          3 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
+<span class="lineNum">     147 </span><span class="lineCov">          1 :     fixture-&gt;assertPrintContains(failure.getMessage());</span>
+<span class="lineNum">     148 </span><span class="lineCov">          1 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
+<span class="lineNum">     149 </span><span class="lineCov">          1 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
 <a name="150"><span class="lineNum">     150 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     151 </span>            : 
-<span class="lineNum">     152 </span>            : static void _failTextMethod()
+<span class="lineNum">     152 </span><span class="lineCov">          1 : static void _failTextMethod()</span>
 <span class="lineNum">     153 </span>            : {
 <span class="lineNum">     154 </span><span class="lineCov">          1 :     HasTheDestructorBeenCalledChecker checker;</span>
-<span class="lineNum">     155 </span><span class="lineNoCov">          0 :     FAIL_TEXT_C(&quot;Booo&quot;);</span>
+<span class="lineNum">     155 </span><span class="lineCov">          1 :     FAIL_TEXT_C(&quot;Booo&quot;);</span>
 <a name="156"><span class="lineNum">     156 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     157 </span>            : 
-<span class="lineNum">     158 </span><span class="lineCov">         14 : TEST(TestHarness_c, checkFailText)</span>
+<span class="lineNum">     158 </span><span class="lineCov">          8 : TEST(TestHarness_c, checkFailText)</span>
 <span class="lineNum">     159 </span>            : {
 <span class="lineNum">     160 </span><span class="lineCov">          1 :     fixture-&gt;setTestFunction(_failTextMethod);</span>
 <span class="lineNum">     161 </span><span class="lineCov">          1 :     fixture-&gt;runAllTests();</span>
-<span class="lineNum">     162 </span><span class="lineCov">          2 :     fixture-&gt;assertPrintContains(&quot;Booo&quot;);</span>
-<span class="lineNum">     163 </span><span class="lineCov">          2 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
-<span class="lineNum">     164 </span><span class="lineCov">          2 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
+<span class="lineNum">     162 </span><span class="lineCov">          1 :     fixture-&gt;assertPrintContains(&quot;Booo&quot;);</span>
+<span class="lineNum">     163 </span><span class="lineCov">          1 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
+<span class="lineNum">     164 </span><span class="lineCov">          1 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
 <a name="165"><span class="lineNum">     165 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     166 </span>            : 
-<span class="lineNum">     167 </span>            : static void _failMethod()
+<span class="lineNum">     167 </span><span class="lineCov">          1 : static void _failMethod()</span>
 <span class="lineNum">     168 </span>            : {
 <span class="lineNum">     169 </span><span class="lineCov">          1 :     HasTheDestructorBeenCalledChecker checker;</span>
-<span class="lineNum">     170 </span><span class="lineNoCov">          0 :     FAIL_C();</span>
+<span class="lineNum">     170 </span><span class="lineCov">          1 :     FAIL_C();</span>
 <a name="171"><span class="lineNum">     171 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     172 </span>            : 
-<span class="lineNum">     173 </span><span class="lineCov">         14 : TEST(TestHarness_c, checkFail)</span>
+<span class="lineNum">     173 </span><span class="lineCov">          8 : TEST(TestHarness_c, checkFail)</span>
 <span class="lineNum">     174 </span>            : {
 <span class="lineNum">     175 </span><span class="lineCov">          1 :     fixture-&gt;setTestFunction(_failMethod);</span>
 <span class="lineNum">     176 </span><span class="lineCov">          1 :     fixture-&gt;runAllTests();</span>
-<span class="lineNum">     177 </span><span class="lineCov">          2 :     LONGS_EQUAL(1, fixture-&gt;getFailureCount());</span>
-<span class="lineNum">     178 </span><span class="lineCov">          2 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
-<span class="lineNum">     179 </span><span class="lineCov">          2 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
+<span class="lineNum">     177 </span><span class="lineCov">          1 :     LONGS_EQUAL(1, fixture-&gt;getFailureCount());</span>
+<span class="lineNum">     178 </span><span class="lineCov">          1 :     fixture-&gt;assertPrintContains(&quot;arness_c&quot;);</span>
+<span class="lineNum">     179 </span><span class="lineCov">          1 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
 <a name="180"><span class="lineNum">     180 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     181 </span>            : 
-<span class="lineNum">     182 </span>            : static void _CheckMethod()
+<span class="lineNum">     182 </span><span class="lineCov">          1 : static void _CheckMethod()</span>
 <span class="lineNum">     183 </span>            : {
 <span class="lineNum">     184 </span><span class="lineCov">          1 :     HasTheDestructorBeenCalledChecker checker;</span>
-<span class="lineNum">     185 </span><span class="lineNoCov">          0 :     CHECK_C(false);</span>
+<span class="lineNum">     185 </span><span class="lineCov">          1 :     CHECK_C(false);</span>
 <a name="186"><span class="lineNum">     186 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     187 </span>            : 
-<span class="lineNum">     188 </span><span class="lineCov">         14 : TEST(TestHarness_c, checkCheck)</span>
+<span class="lineNum">     188 </span><span class="lineCov">          8 : TEST(TestHarness_c, checkCheck)</span>
 <span class="lineNum">     189 </span>            : {
 <span class="lineNum">     190 </span><span class="lineCov">          1 :     CHECK_C(true);</span>
 <span class="lineNum">     191 </span><span class="lineCov">          1 :     fixture-&gt;setTestFunction(_CheckMethod);</span>
 <span class="lineNum">     192 </span><span class="lineCov">          1 :     fixture-&gt;runAllTests();</span>
-<span class="lineNum">     193 </span><span class="lineCov">          2 :     LONGS_EQUAL(1, fixture-&gt;getFailureCount());</span>
-<span class="lineNum">     194 </span><span class="lineCov">          2 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
+<span class="lineNum">     193 </span><span class="lineCov">          1 :     LONGS_EQUAL(1, fixture-&gt;getFailureCount());</span>
+<span class="lineNum">     194 </span><span class="lineCov">          1 :     CHECK(!hasDestructorOfTheDestructorCheckedBeenCalled)</span>
 <span class="lineNum">     195 </span><span class="lineCov">          1 : }</span>
 <span class="lineNum">     196 </span>            : 
 <a name="197"><span class="lineNum">     197 </span>            : #if CPPUTEST_USE_MEM_LEAK_DETECTION</a>
 <span class="lineNum">     198 </span>            : 
-<span class="lineNum">     199 </span><span class="lineCov">         14 : TEST(TestHarness_c, cpputest_malloc_out_of_memory)</span>
+<span class="lineNum">     199 </span><span class="lineCov">          8 : TEST(TestHarness_c, cpputest_malloc_out_of_memory)</span>
 <span class="lineNum">     200 </span>            : {
 <span class="lineNum">     201 </span><span class="lineCov">          1 :     cpputest_malloc_set_out_of_memory();</span>
-<span class="lineNum">     202 </span><span class="lineCov">          2 :     CHECK(0 == cpputest_malloc(100));</span>
+<span class="lineNum">     202 </span><span class="lineCov">          1 :     CHECK(0 == cpputest_malloc(100));</span>
 <span class="lineNum">     203 </span>            : 
 <span class="lineNum">     204 </span><span class="lineCov">          1 :     cpputest_malloc_set_not_out_of_memory();</span>
 <span class="lineNum">     205 </span><span class="lineCov">          1 :     void * mem = cpputest_malloc(100);</span>
-<span class="lineNum">     206 </span><span class="lineCov">          2 :     CHECK(0 != mem);</span>
+<span class="lineNum">     206 </span><span class="lineCov">          1 :     CHECK(0 != mem);</span>
 <span class="lineNum">     207 </span><span class="lineCov">          1 :     cpputest_free(mem);</span>
 <a name="208"><span class="lineNum">     208 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     209 </span>            : 
-<span class="lineNum">     210 </span><span class="lineCov">         14 : TEST(TestHarness_c, cpputest_malloc_out_of_memory_after_n_mallocs)</span>
+<span class="lineNum">     210 </span><span class="lineCov">          8 : TEST(TestHarness_c, cpputest_malloc_out_of_memory_after_n_mallocs)</span>
 <span class="lineNum">     211 </span>            : {
 <span class="lineNum">     212 </span><span class="lineCov">          1 :     cpputest_malloc_set_out_of_memory_countdown(3);</span>
 <span class="lineNum">     213 </span><span class="lineCov">          1 :     void * m1 = cpputest_malloc(10);</span>
 <span class="lineNum">     214 </span><span class="lineCov">          1 :     void * m2 = cpputest_malloc(11);</span>
 <span class="lineNum">     215 </span><span class="lineCov">          1 :     void * m3 = cpputest_malloc(12);</span>
-<span class="lineNum">     216 </span><span class="lineCov">          2 :     CHECK(m1);</span>
-<span class="lineNum">     217 </span><span class="lineCov">          2 :     CHECK(m2);</span>
+<span class="lineNum">     216 </span><span class="lineCov">          1 :     CHECK(m1);</span>
+<span class="lineNum">     217 </span><span class="lineCov">          1 :     CHECK(m2);</span>
 <span class="lineNum">     218 </span><span class="lineCov">          1 :     POINTERS_EQUAL(0, m3);</span>
 <span class="lineNum">     219 </span><span class="lineCov">          1 :     cpputest_malloc_set_not_out_of_memory();</span>
 <span class="lineNum">     220 </span><span class="lineCov">          1 :     cpputest_free(m1);</span>
 <span class="lineNum">     221 </span><span class="lineCov">          1 :     cpputest_free(m2);</span>
 <a name="222"><span class="lineNum">     222 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     223 </span>            : 
-<span class="lineNum">     224 </span><span class="lineCov">         14 : TEST(TestHarness_c, cpputest_malloc_out_of_memory_after_0_mallocs)</span>
+<span class="lineNum">     224 </span><span class="lineCov">          8 : TEST(TestHarness_c, cpputest_malloc_out_of_memory_after_0_mallocs)</span>
 <span class="lineNum">     225 </span>            : {
 <span class="lineNum">     226 </span><span class="lineCov">          1 :     cpputest_malloc_set_out_of_memory_countdown(0);</span>
 <span class="lineNum">     227 </span><span class="lineCov">          1 :     void * m1 = cpputest_malloc(10);</span>
-<span class="lineNum">     228 </span><span class="lineCov">          2 :     CHECK(m1 == 0);</span>
+<span class="lineNum">     228 </span><span class="lineCov">          1 :     CHECK(m1 == 0);</span>
 <span class="lineNum">     229 </span><span class="lineCov">          1 :     cpputest_malloc_set_not_out_of_memory();</span>
 <a name="230"><span class="lineNum">     230 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     231 </span>            : 
-<span class="lineNum">     232 </span><span class="lineCov">         14 : TEST(TestHarness_c, count_mallocs)</span>
+<span class="lineNum">     232 </span><span class="lineCov">          8 : TEST(TestHarness_c, count_mallocs)</span>
 <span class="lineNum">     233 </span>            : {
 <span class="lineNum">     234 </span><span class="lineCov">          1 :     cpputest_malloc_count_reset();</span>
 <span class="lineNum">     235 </span><span class="lineCov">          1 :     void * m1 = cpputest_malloc(10);</span>
@@ -300,17 +300,17 @@
 <span class="lineNum">     238 </span><span class="lineCov">          1 :     cpputest_free(m1);</span>
 <span class="lineNum">     239 </span><span class="lineCov">          1 :     cpputest_free(m2);</span>
 <span class="lineNum">     240 </span><span class="lineCov">          1 :     cpputest_free(m3);</span>
-<span class="lineNum">     241 </span><span class="lineCov">          2 :     LONGS_EQUAL(3, cpputest_malloc_get_count());</span>
+<span class="lineNum">     241 </span><span class="lineCov">          1 :     LONGS_EQUAL(3, cpputest_malloc_get_count());</span>
 <a name="242"><span class="lineNum">     242 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     243 </span>            : 
-<span class="lineNum">     244 </span><span class="lineCov">         14 : TEST(TestHarness_c, cpputest_calloc)</span>
+<span class="lineNum">     244 </span><span class="lineCov">          8 : TEST(TestHarness_c, cpputest_calloc)</span>
 <span class="lineNum">     245 </span>            : {
 <span class="lineNum">     246 </span><span class="lineCov">          1 :     void * mem = cpputest_calloc(10, 10);</span>
-<span class="lineNum">     247 </span><span class="lineCov">          2 :     CHECK(0 != mem);</span>
+<span class="lineNum">     247 </span><span class="lineCov">          1 :     CHECK(0 != mem);</span>
 <span class="lineNum">     248 </span><span class="lineCov">          1 :     cpputest_free(mem);</span>
 <a name="249"><span class="lineNum">     249 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     250 </span>            : 
-<span class="lineNum">     251 </span><span class="lineCov">         14 : TEST(TestHarness_c, cpputest_realloc_larger)</span>
+<span class="lineNum">     251 </span><span class="lineCov">          8 : TEST(TestHarness_c, cpputest_realloc_larger)</span>
 <span class="lineNum">     252 </span>            : {
 <span class="lineNum">     253 </span><span class="lineCov">          1 :     const char* number_string = &quot;123456789&quot;;</span>
 <span class="lineNum">     254 </span>            : 
@@ -318,19 +318,19 @@
 <span class="lineNum">     256 </span>            : 
 <span class="lineNum">     257 </span><span class="lineCov">          1 :     SimpleString::StrNCpy(mem1, number_string, 10);</span>
 <span class="lineNum">     258 </span>            : 
-<span class="lineNum">     259 </span><span class="lineCov">          2 :     CHECK(mem1 != 0);</span>
+<span class="lineNum">     259 </span><span class="lineCov">          1 :     CHECK(mem1 != 0);</span>
 <span class="lineNum">     260 </span>            : 
 <span class="lineNum">     261 </span><span class="lineCov">          1 :     char* mem2 = (char*) cpputest_realloc(mem1, 1000);</span>
 <span class="lineNum">     262 </span>            : 
-<span class="lineNum">     263 </span><span class="lineCov">          2 :     CHECK(mem2 != 0);</span>
-<span class="lineNum">     264 </span><span class="lineCov">          2 :     STRCMP_EQUAL(number_string, mem2);</span>
+<span class="lineNum">     263 </span><span class="lineCov">          1 :     CHECK(mem2 != 0);</span>
+<span class="lineNum">     264 </span><span class="lineCov">          1 :     STRCMP_EQUAL(number_string, mem2);</span>
 <span class="lineNum">     265 </span>            : 
 <span class="lineNum">     266 </span><span class="lineCov">          1 :     cpputest_free(mem2);</span>
 <span class="lineNum">     267 </span><span class="lineCov">          1 : }</span>
 <span class="lineNum">     268 </span>            : 
 <a name="269"><span class="lineNum">     269 </span>            : #include &quot;CppUTest/MemoryLeakDetector.h&quot;</a>
 <span class="lineNum">     270 </span>            : 
-<span class="lineNum">     271 </span><span class="lineCov">         14 : TEST(TestHarness_c, macros)</span>
+<span class="lineNum">     271 </span><span class="lineCov">          8 : TEST(TestHarness_c, macros)</span>
 <span class="lineNum">     272 </span>            : {
 <span class="lineNum">     273 </span>            : #if CPPUTEST_USE_MALLOC_MACROS
 <span class="lineNum">     274 </span><span class="lineCov">          1 :     MemoryLeakDetector* memLeakDetector = MemoryLeakWarningPlugin::getGlobalDetector();</span>
@@ -340,31 +340,31 @@
 <span class="lineNum">     278 </span><span class="lineCov">          1 :     void* mem2 = calloc(10, 20);</span>
 <span class="lineNum">     279 </span><span class="lineCov">          1 :     void* mem3 = realloc(mem2, 100);</span>
 <span class="lineNum">     280 </span>            : #if CPPUTEST_USE_MALLOC_MACROS
-<span class="lineNum">     281 </span><span class="lineCov">          2 :     LONGS_EQUAL(memLeaks + 2, memLeakDetector-&gt;totalMemoryLeaks(mem_leak_period_checking));</span>
+<span class="lineNum">     281 </span><span class="lineCov">          1 :     LONGS_EQUAL(memLeaks + 2, memLeakDetector-&gt;totalMemoryLeaks(mem_leak_period_checking));</span>
 <span class="lineNum">     282 </span>            : #endif
 <span class="lineNum">     283 </span><span class="lineCov">          1 :     free(mem1);</span>
 <span class="lineNum">     284 </span><span class="lineCov">          1 :     free(mem3);</span>
 <span class="lineNum">     285 </span>            : #if CPPUTEST_USE_MALLOC_MACROS
-<span class="lineNum">     286 </span><span class="lineCov">          2 :     LONGS_EQUAL(memLeaks, memLeakDetector-&gt;totalMemoryLeaks(mem_leak_period_checking));</span>
+<span class="lineNum">     286 </span><span class="lineCov">          1 :     LONGS_EQUAL(memLeaks, memLeakDetector-&gt;totalMemoryLeaks(mem_leak_period_checking));</span>
 <span class="lineNum">     287 </span>            : #endif
 <span class="lineNum">     288 </span>            : 
 <a name="289"><span class="lineNum">     289 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     290 </span>            : 
-<span class="lineNum">     291 </span><span class="lineCov">         14 : TEST(TestHarness_c, callocInitializedToZero)</span>
+<span class="lineNum">     291 </span><span class="lineCov">          8 : TEST(TestHarness_c, callocInitializedToZero)</span>
 <span class="lineNum">     292 </span>            : {
 <span class="lineNum">     293 </span><span class="lineCov">          1 :     char* mem = (char*) calloc(20, sizeof(char));</span>
-<span class="lineNum">     294 </span><span class="lineCov">         42 :     for (int i = 0; i &lt; 20; i++)</span>
-<span class="lineNum">     295 </span><span class="lineCov">         40 :         CHECK(mem[i] == 0);</span>
+<span class="lineNum">     294 </span><span class="lineCov">         21 :     for (int i = 0; i &lt; 20; i++)</span>
+<span class="lineNum">     295 </span><span class="lineCov">         20 :         CHECK(mem[i] == 0);</span>
 <span class="lineNum">     296 </span><span class="lineCov">          1 :     free(mem);</span>
 <a name="297"><span class="lineNum">     297 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     298 </span>            : 
-<span class="lineNum">     299 </span><span class="lineCov">         14 : TEST(TestHarness_c, callocShouldReturnNULLWhenOutOfMeory)</span>
+<span class="lineNum">     299 </span><span class="lineCov">          8 : TEST(TestHarness_c, callocShouldReturnNULLWhenOutOfMeory)</span>
 <span class="lineNum">     300 </span>            : {
 <span class="lineNum">     301 </span><span class="lineCov">          1 :     cpputest_malloc_set_out_of_memory_countdown(0);</span>
 <span class="lineNum">     302 </span><span class="lineCov">          1 :     void * m = cpputest_calloc(1, 1);</span>
-<span class="lineNum">     303 </span><span class="lineCov">          2 :     CHECK(m == 0);</span>
+<a name="303"><span class="lineNum">     303 </span><span class="lineCov">          1 :     CHECK(m == 0);</span></a>
 <span class="lineNum">     304 </span><span class="lineCov">          1 :     cpputest_malloc_set_not_out_of_memory();</span>
-<span class="lineNum">     305 </span><span class="lineCov">          1 : }</span>
+<span class="lineNum">     305 </span><span class="lineCov">          4 : }</span>
 <span class="lineNum">     306 </span>            : #endif
 <span class="lineNum">     307 </span>            : 
 </pre>

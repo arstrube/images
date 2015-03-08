@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">214</td>
-            <td class="headerCovTableEntry">225</td>
-            <td class="headerCovTableEntryHi">95.1 %</td>
+            <td class="headerCovTableEntry">226</td>
+            <td class="headerCovTableEntry">232</td>
+            <td class="headerCovTableEntryHi">97.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">58</td>
-            <td class="headerCovTableEntry">60</td>
-            <td class="headerCovTableEntryHi">96.7 %</td>
+            <td class="headerCovTableEntry">50</td>
+            <td class="headerCovTableEntry">52</td>
+            <td class="headerCovTableEntryHi">96.2 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -99,60 +99,60 @@
 <span class="lineNum">      37 </span><span class="lineCov">       2962 :     defaultRepository_ = repository;</span>
 <a name="38"><span class="lineNum">      38 </span><span class="lineCov">       2962 : }</span></a>
 <span class="lineNum">      39 </span>            : 
-<span class="lineNum">      40 </span><span class="lineCov">       1628 : MockNamedValue::MockNamedValue(const SimpleString&amp; name) : name_(name), type_(&quot;int&quot;), comparator_(NULL)</span>
-<span class="lineNum">      41 </span><span class="lineCov">       1850 : {</span>
+<span class="lineNum">      40 </span><span class="lineCov">        925 : MockNamedValue::MockNamedValue(const SimpleString&amp; name) : name_(name), type_(&quot;int&quot;), comparator_(NULL)</span>
+<span class="lineNum">      41 </span>            : {
 <span class="lineNum">      42 </span><span class="lineCov">        925 :     value_.intValue_ = 0;</span>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">       1628 : }</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">        925 : }</span></a>
 <span class="lineNum">      44 </span>            : 
-<span class="lineNum">      45 </span>            : MockNamedValue::~MockNamedValue()
-<span class="lineNum">      46 </span><span class="lineCov">       2748 : {</span>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">       4089 : }</span></a>
+<span class="lineNum">      45 </span><span class="lineCov">       1485 : MockNamedValue::~MockNamedValue()</span>
+<span class="lineNum">      46 </span>            : {
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">       1485 : }</span></a>
 <span class="lineNum">      48 </span>            : 
 <span class="lineNum">      49 </span><span class="lineCov">         36 : void MockNamedValue::setValue(unsigned int value)</span>
 <span class="lineNum">      50 </span>            : {
-<span class="lineNum">      51 </span><span class="lineCov">         72 :     type_ = &quot;unsigned int&quot;;</span>
+<span class="lineNum">      51 </span><span class="lineCov">         36 :     type_ = &quot;unsigned int&quot;;</span>
 <span class="lineNum">      52 </span><span class="lineCov">         36 :     value_.unsignedIntValue_ = value;</span>
 <a name="53"><span class="lineNum">      53 </span><span class="lineCov">         36 : }</span></a>
 <span class="lineNum">      54 </span>            : 
 <span class="lineNum">      55 </span><span class="lineCov">        171 : void MockNamedValue::setValue(int value)</span>
 <span class="lineNum">      56 </span>            : {
-<span class="lineNum">      57 </span><span class="lineCov">        342 :     type_ = &quot;int&quot;;</span>
+<span class="lineNum">      57 </span><span class="lineCov">        171 :     type_ = &quot;int&quot;;</span>
 <span class="lineNum">      58 </span><span class="lineCov">        171 :     value_.intValue_ = value;</span>
 <a name="59"><span class="lineNum">      59 </span><span class="lineCov">        171 : }</span></a>
 <span class="lineNum">      60 </span>            : 
 <span class="lineNum">      61 </span><span class="lineCov">         21 : void MockNamedValue::setValue(long int value)</span>
 <span class="lineNum">      62 </span>            : {
-<span class="lineNum">      63 </span><span class="lineCov">         42 :     type_ = &quot;long int&quot;;</span>
+<span class="lineNum">      63 </span><span class="lineCov">         21 :     type_ = &quot;long int&quot;;</span>
 <span class="lineNum">      64 </span><span class="lineCov">         21 :     value_.longIntValue_ = value;</span>
 <a name="65"><span class="lineNum">      65 </span><span class="lineCov">         21 : }</span></a>
 <span class="lineNum">      66 </span>            : 
 <span class="lineNum">      67 </span><span class="lineCov">         20 : void MockNamedValue::setValue(unsigned long int value)</span>
 <span class="lineNum">      68 </span>            : {
-<span class="lineNum">      69 </span><span class="lineCov">         40 :     type_ = &quot;unsigned long int&quot;;</span>
+<span class="lineNum">      69 </span><span class="lineCov">         20 :     type_ = &quot;unsigned long int&quot;;</span>
 <span class="lineNum">      70 </span><span class="lineCov">         20 :     value_.unsignedLongIntValue_ = value;</span>
 <a name="71"><span class="lineNum">      71 </span><span class="lineCov">         20 : }</span></a>
 <span class="lineNum">      72 </span>            : 
 <span class="lineNum">      73 </span><span class="lineCov">         30 : void MockNamedValue::setValue(double value)</span>
 <span class="lineNum">      74 </span>            : {
-<span class="lineNum">      75 </span><span class="lineCov">         60 :     type_ = &quot;double&quot;;</span>
+<span class="lineNum">      75 </span><span class="lineCov">         30 :     type_ = &quot;double&quot;;</span>
 <span class="lineNum">      76 </span><span class="lineCov">         30 :     value_.doubleValue_ = value;</span>
 <a name="77"><span class="lineNum">      77 </span><span class="lineCov">         30 : }</span></a>
 <span class="lineNum">      78 </span>            : 
 <span class="lineNum">      79 </span><span class="lineCov">         91 : void MockNamedValue::setValue(void* value)</span>
 <span class="lineNum">      80 </span>            : {
-<span class="lineNum">      81 </span><span class="lineCov">        182 :     type_ = &quot;void*&quot;;</span>
+<span class="lineNum">      81 </span><span class="lineCov">         91 :     type_ = &quot;void*&quot;;</span>
 <span class="lineNum">      82 </span><span class="lineCov">         91 :     value_.pointerValue_ = value;</span>
 <a name="83"><span class="lineNum">      83 </span><span class="lineCov">         91 : }</span></a>
 <span class="lineNum">      84 </span>            : 
 <span class="lineNum">      85 </span><span class="lineCov">         31 : void MockNamedValue::setValue(const void* value)</span>
 <span class="lineNum">      86 </span>            : {
-<span class="lineNum">      87 </span><span class="lineCov">         62 :     type_ = &quot;const void*&quot;;</span>
+<span class="lineNum">      87 </span><span class="lineCov">         31 :     type_ = &quot;const void*&quot;;</span>
 <span class="lineNum">      88 </span><span class="lineCov">         31 :     value_.constPointerValue_ = value;</span>
 <a name="89"><span class="lineNum">      89 </span><span class="lineCov">         31 : }</span></a>
 <span class="lineNum">      90 </span>            : 
 <span class="lineNum">      91 </span><span class="lineCov">         40 : void MockNamedValue::setValue(const char* value)</span>
 <span class="lineNum">      92 </span>            : {
-<span class="lineNum">      93 </span><span class="lineCov">         80 :     type_ = &quot;const char*&quot;;</span>
+<span class="lineNum">      93 </span><span class="lineCov">         40 :     type_ = &quot;const char*&quot;;</span>
 <span class="lineNum">      94 </span><span class="lineCov">         40 :     value_.stringValue_ = value;</span>
 <a name="95"><span class="lineNum">      95 </span><span class="lineCov">         40 : }</span></a>
 <span class="lineNum">      96 </span>            : 
@@ -160,7 +160,7 @@
 <span class="lineNum">      98 </span>            : {
 <span class="lineNum">      99 </span><span class="lineCov">        111 :     type_ = type;</span>
 <span class="lineNum">     100 </span><span class="lineCov">        111 :     value_.objectPointerValue_ = objectPtr;</span>
-<span class="lineNum">     101 </span><span class="lineCov">        222 :     if (! comparator_ &amp;&amp; defaultRepository_)</span>
+<span class="lineNum">     101 </span><span class="lineCov">        111 :     if (! comparator_ &amp;&amp; defaultRepository_)</span>
 <span class="lineNum">     102 </span><span class="lineCov">        111 :         comparator_ = defaultRepository_-&gt;getComparatorForType(type);</span>
 <a name="103"><span class="lineNum">     103 </span><span class="lineCov">        111 : }</span></a>
 <span class="lineNum">     104 </span>            : 
@@ -171,94 +171,94 @@
 <span class="lineNum">     109 </span>            : 
 <span class="lineNum">     110 </span><span class="lineCov">         58 : void MockNamedValue::setName(const char* name)</span>
 <span class="lineNum">     111 </span>            : {
-<span class="lineNum">     112 </span><span class="lineCov">        116 :     name_ = name;</span>
+<span class="lineNum">     112 </span><span class="lineCov">         58 :     name_ = name;</span>
 <a name="113"><span class="lineNum">     113 </span><span class="lineCov">         58 : }</span></a>
 <span class="lineNum">     114 </span>            : 
-<span class="lineNum">     115 </span>            : SimpleString MockNamedValue::getName() const
+<span class="lineNum">     115 </span><span class="lineCov">       2639 : SimpleString MockNamedValue::getName() const</span>
 <span class="lineNum">     116 </span>            : {
 <span class="lineNum">     117 </span><span class="lineCov">       2639 :     return name_;</span>
 <a name="118"><span class="lineNum">     118 </span>            : }</a>
 <span class="lineNum">     119 </span>            : 
-<span class="lineNum">     120 </span>            : SimpleString MockNamedValue::getType() const
+<span class="lineNum">     120 </span><span class="lineCov">       1202 : SimpleString MockNamedValue::getType() const</span>
 <span class="lineNum">     121 </span>            : {
 <span class="lineNum">     122 </span><span class="lineCov">       1202 :     return type_;</span>
 <a name="123"><span class="lineNum">     123 </span>            : }</a>
 <span class="lineNum">     124 </span>            : 
-<span class="lineNum">     125 </span>            : unsigned int MockNamedValue::getUnsignedIntValue() const
+<span class="lineNum">     125 </span><span class="lineCov">         21 : unsigned int MockNamedValue::getUnsignedIntValue() const</span>
 <span class="lineNum">     126 </span>            : {
-<span class="lineNum">     127 </span><span class="lineCov">         64 :     if(type_ == &quot;int&quot; &amp;&amp; value_.intValue_ &gt;= 0)</span>
+<span class="lineNum">     127 </span><span class="lineCov">         21 :     if(type_ == &quot;int&quot; &amp;&amp; value_.intValue_ &gt;= 0)</span>
 <span class="lineNum">     128 </span><span class="lineCov">          1 :         return (unsigned int)value_.intValue_;</span>
 <span class="lineNum">     129 </span>            :     else
 <span class="lineNum">     130 </span>            :     {
-<span class="lineNum">     131 </span><span class="lineCov">         40 :         STRCMP_EQUAL(&quot;unsigned int&quot;, type_.asCharString());</span>
+<span class="lineNum">     131 </span><span class="lineCov">         20 :         STRCMP_EQUAL(&quot;unsigned int&quot;, type_.asCharString());</span>
 <span class="lineNum">     132 </span><span class="lineCov">         20 :         return value_.unsignedIntValue_;</span>
 <span class="lineNum">     133 </span>            :     }
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">         21 : }</span></a>
+<a name="134"><span class="lineNum">     134 </span>            : }</a>
 <span class="lineNum">     135 </span>            : 
-<span class="lineNum">     136 </span>            : int MockNamedValue::getIntValue() const
+<span class="lineNum">     136 </span><span class="lineCov">         35 : int MockNamedValue::getIntValue() const</span>
 <span class="lineNum">     137 </span>            : {
-<span class="lineNum">     138 </span><span class="lineCov">         70 :     STRCMP_EQUAL(&quot;int&quot;, type_.asCharString());</span>
+<span class="lineNum">     138 </span><span class="lineCov">         35 :     STRCMP_EQUAL(&quot;int&quot;, type_.asCharString());</span>
 <span class="lineNum">     139 </span><span class="lineCov">         35 :     return value_.intValue_;</span>
-<a name="140"><span class="lineNum">     140 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="140"><span class="lineNum">     140 </span>            : }</a>
 <span class="lineNum">     141 </span>            : 
-<span class="lineNum">     142 </span>            : long int MockNamedValue::getLongIntValue() const
+<span class="lineNum">     142 </span><span class="lineCov">         19 : long int MockNamedValue::getLongIntValue() const</span>
 <span class="lineNum">     143 </span>            : {
-<span class="lineNum">     144 </span><span class="lineCov">         38 :     if(type_ == &quot;int&quot;)</span>
+<span class="lineNum">     144 </span><span class="lineCov">         19 :     if(type_ == &quot;int&quot;)</span>
 <span class="lineNum">     145 </span><span class="lineCov">          1 :         return value_.intValue_;</span>
-<span class="lineNum">     146 </span><span class="lineCov">         36 :     else if(type_ == &quot;unsigned int&quot;)</span>
+<span class="lineNum">     146 </span><span class="lineCov">         18 :     else if(type_ == &quot;unsigned int&quot;)</span>
 <span class="lineNum">     147 </span><span class="lineCov">          1 :         return (long int)value_.unsignedIntValue_;</span>
 <span class="lineNum">     148 </span>            :     else
 <span class="lineNum">     149 </span>            :     {
-<span class="lineNum">     150 </span><span class="lineCov">         34 :         STRCMP_EQUAL(&quot;long int&quot;, type_.asCharString());</span>
+<span class="lineNum">     150 </span><span class="lineCov">         17 :         STRCMP_EQUAL(&quot;long int&quot;, type_.asCharString());</span>
 <span class="lineNum">     151 </span><span class="lineCov">         17 :         return value_.longIntValue_;</span>
 <span class="lineNum">     152 </span>            :     }
-<a name="153"><span class="lineNum">     153 </span><span class="lineCov">         19 : }</span></a>
+<a name="153"><span class="lineNum">     153 </span>            : }</a>
 <span class="lineNum">     154 </span>            : 
-<span class="lineNum">     155 </span>            : unsigned long int MockNamedValue::getUnsignedLongIntValue() const
+<span class="lineNum">     155 </span><span class="lineCov">         20 : unsigned long int MockNamedValue::getUnsignedLongIntValue() const</span>
 <span class="lineNum">     156 </span>            : {
-<span class="lineNum">     157 </span><span class="lineCov">         40 :     if(type_ == &quot;unsigned int&quot;)</span>
+<span class="lineNum">     157 </span><span class="lineCov">         20 :     if(type_ == &quot;unsigned int&quot;)</span>
 <span class="lineNum">     158 </span><span class="lineCov">          1 :         return value_.unsignedIntValue_;</span>
-<span class="lineNum">     159 </span><span class="lineCov">         58 :     else if(type_ == &quot;int&quot; &amp;&amp; value_.intValue_ &gt;= 0)</span>
+<span class="lineNum">     159 </span><span class="lineCov">         19 :     else if(type_ == &quot;int&quot; &amp;&amp; value_.intValue_ &gt;= 0)</span>
 <span class="lineNum">     160 </span><span class="lineCov">          1 :         return (unsigned long int)value_.intValue_;</span>
-<span class="lineNum">     161 </span><span class="lineCov">         55 :     else if(type_ == &quot;long int&quot; &amp;&amp; value_.longIntValue_ &gt;= 0)</span>
+<span class="lineNum">     161 </span><span class="lineCov">         18 :     else if(type_ == &quot;long int&quot; &amp;&amp; value_.longIntValue_ &gt;= 0)</span>
 <span class="lineNum">     162 </span><span class="lineCov">          1 :         return (unsigned long int)value_.longIntValue_;</span>
 <span class="lineNum">     163 </span>            :     else
 <span class="lineNum">     164 </span>            :     {
-<span class="lineNum">     165 </span><span class="lineCov">         34 :         STRCMP_EQUAL(&quot;unsigned long int&quot;, type_.asCharString());</span>
+<span class="lineNum">     165 </span><span class="lineCov">         17 :         STRCMP_EQUAL(&quot;unsigned long int&quot;, type_.asCharString());</span>
 <span class="lineNum">     166 </span><span class="lineCov">         17 :         return value_.unsignedLongIntValue_;</span>
 <span class="lineNum">     167 </span>            :     }
-<a name="168"><span class="lineNum">     168 </span><span class="lineCov">         20 : }</span></a>
+<a name="168"><span class="lineNum">     168 </span>            : }</a>
 <span class="lineNum">     169 </span>            : 
-<span class="lineNum">     170 </span>            : double MockNamedValue::getDoubleValue() const
+<span class="lineNum">     170 </span><span class="lineCov">         13 : double MockNamedValue::getDoubleValue() const</span>
 <span class="lineNum">     171 </span>            : {
-<span class="lineNum">     172 </span><span class="lineCov">         26 :     STRCMP_EQUAL(&quot;double&quot;, type_.asCharString());</span>
+<span class="lineNum">     172 </span><span class="lineCov">         13 :     STRCMP_EQUAL(&quot;double&quot;, type_.asCharString());</span>
 <span class="lineNum">     173 </span><span class="lineCov">         13 :     return value_.doubleValue_;</span>
-<a name="174"><span class="lineNum">     174 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="174"><span class="lineNum">     174 </span>            : }</a>
 <span class="lineNum">     175 </span>            : 
-<span class="lineNum">     176 </span>            : const char* MockNamedValue::getStringValue() const
+<span class="lineNum">     176 </span><span class="lineCov">         13 : const char* MockNamedValue::getStringValue() const</span>
 <span class="lineNum">     177 </span>            : {
-<span class="lineNum">     178 </span><span class="lineCov">         26 :     STRCMP_EQUAL(&quot;const char*&quot;, type_.asCharString());</span>
+<span class="lineNum">     178 </span><span class="lineCov">         13 :     STRCMP_EQUAL(&quot;const char*&quot;, type_.asCharString());</span>
 <span class="lineNum">     179 </span><span class="lineCov">         13 :     return value_.stringValue_;</span>
-<a name="180"><span class="lineNum">     180 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="180"><span class="lineNum">     180 </span>            : }</a>
 <span class="lineNum">     181 </span>            : 
-<span class="lineNum">     182 </span>            : void* MockNamedValue::getPointerValue() const
+<span class="lineNum">     182 </span><span class="lineCov">         12 : void* MockNamedValue::getPointerValue() const</span>
 <span class="lineNum">     183 </span>            : {
-<span class="lineNum">     184 </span><span class="lineCov">         24 :     STRCMP_EQUAL(&quot;void*&quot;, type_.asCharString());</span>
+<span class="lineNum">     184 </span><span class="lineCov">         12 :     STRCMP_EQUAL(&quot;void*&quot;, type_.asCharString());</span>
 <span class="lineNum">     185 </span><span class="lineCov">         12 :     return value_.pointerValue_;</span>
-<a name="186"><span class="lineNum">     186 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="186"><span class="lineNum">     186 </span>            : }</a>
 <span class="lineNum">     187 </span>            : 
-<span class="lineNum">     188 </span>            : const void* MockNamedValue::getConstPointerValue() const
+<span class="lineNum">     188 </span><span class="lineCov">         26 : const void* MockNamedValue::getConstPointerValue() const</span>
 <span class="lineNum">     189 </span>            : {
-<span class="lineNum">     190 </span><span class="lineCov">         52 :     STRCMP_EQUAL(&quot;const void*&quot;, type_.asCharString());</span>
+<span class="lineNum">     190 </span><span class="lineCov">         26 :     STRCMP_EQUAL(&quot;const void*&quot;, type_.asCharString());</span>
 <span class="lineNum">     191 </span><span class="lineCov">         26 :     return value_.pointerValue_;</span>
-<a name="192"><span class="lineNum">     192 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="192"><span class="lineNum">     192 </span>            : }</a>
 <span class="lineNum">     193 </span>            : 
-<span class="lineNum">     194 </span>            : const void* MockNamedValue::getObjectPointer() const
+<span class="lineNum">     194 </span><span class="lineCov">        834 : const void* MockNamedValue::getObjectPointer() const</span>
 <span class="lineNum">     195 </span>            : {
 <span class="lineNum">     196 </span><span class="lineCov">        834 :     return value_.objectPointerValue_;</span>
 <a name="197"><span class="lineNum">     197 </span>            : }</a>
 <span class="lineNum">     198 </span>            : 
-<span class="lineNum">     199 </span>            : size_t MockNamedValue::getSize() const
+<span class="lineNum">     199 </span><span class="lineCov">         16 : size_t MockNamedValue::getSize() const</span>
 <span class="lineNum">     200 </span>            : {
 <span class="lineNum">     201 </span><span class="lineCov">         16 :     return size_;</span>
 <a name="202"><span class="lineNum">     202 </span>            : }</a>
@@ -268,80 +268,80 @@
 <span class="lineNum">     206 </span><span class="lineNoCov">          0 :     comparator_ = comparator;</span>
 <a name="207"><span class="lineNum">     207 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     208 </span>            : 
-<span class="lineNum">     209 </span>            : MockNamedValueComparator* MockNamedValue::getComparator() const
+<span class="lineNum">     209 </span><span class="lineCov">         21 : MockNamedValueComparator* MockNamedValue::getComparator() const</span>
 <span class="lineNum">     210 </span>            : {
 <span class="lineNum">     211 </span><span class="lineCov">         21 :     return comparator_;</span>
 <a name="212"><span class="lineNum">     212 </span>            : }</a>
 <span class="lineNum">     213 </span>            : 
 <span class="lineNum">     214 </span><span class="lineCov">        169 : bool MockNamedValue::equals(const MockNamedValue&amp; p) const</span>
 <span class="lineNum">     215 </span>            : {
-<span class="lineNum">     216 </span><span class="lineCov">        517 :     if((type_ == &quot;long int&quot;) &amp;&amp; (p.type_ == &quot;int&quot;))</span>
+<span class="lineNum">     216 </span><span class="lineCov">        169 :     if((type_ == &quot;long int&quot;) &amp;&amp; (p.type_ == &quot;int&quot;))</span>
 <span class="lineNum">     217 </span><span class="lineCov">          1 :         return value_.longIntValue_ == p.value_.intValue_;</span>
-<span class="lineNum">     218 </span><span class="lineCov">        626 :     else if((type_ == &quot;int&quot;) &amp;&amp; (p.type_ == &quot;long int&quot;))</span>
+<span class="lineNum">     218 </span><span class="lineCov">        168 :     else if((type_ == &quot;int&quot;) &amp;&amp; (p.type_ == &quot;long int&quot;))</span>
 <span class="lineNum">     219 </span><span class="lineCov">          1 :         return value_.intValue_ == p.value_.longIntValue_;</span>
-<span class="lineNum">     220 </span><span class="lineCov">        519 :     else if((type_ == &quot;unsigned int&quot;) &amp;&amp; (p.type_ == &quot;int&quot;))</span>
+<span class="lineNum">     220 </span><span class="lineCov">        167 :     else if((type_ == &quot;unsigned int&quot;) &amp;&amp; (p.type_ == &quot;int&quot;))</span>
 <span class="lineNum">     221 </span><span class="lineCov">          1 :         return (long)value_.unsignedIntValue_ == (long)p.value_.intValue_;</span>
-<span class="lineNum">     222 </span><span class="lineCov">        618 :     else if((type_ == &quot;int&quot;) &amp;&amp; (p.type_ == &quot;unsigned int&quot;))</span>
+<span class="lineNum">     222 </span><span class="lineCov">        166 :     else if((type_ == &quot;int&quot;) &amp;&amp; (p.type_ == &quot;unsigned int&quot;))</span>
 <span class="lineNum">     223 </span><span class="lineCov">          1 :         return (long)value_.intValue_ == (long)p.value_.unsignedIntValue_;</span>
-<span class="lineNum">     224 </span><span class="lineCov">        505 :     else if((type_ == &quot;unsigned long int&quot;) &amp;&amp; (p.type_ == &quot;int&quot;))</span>
+<span class="lineNum">     224 </span><span class="lineCov">        165 :     else if((type_ == &quot;unsigned long int&quot;) &amp;&amp; (p.type_ == &quot;int&quot;))</span>
 <span class="lineNum">     225 </span><span class="lineCov">          1 :         return value_.unsignedLongIntValue_ == (unsigned long)p.value_.intValue_;</span>
-<span class="lineNum">     226 </span><span class="lineCov">        610 :     else if((type_ == &quot;int&quot;) &amp;&amp; (p.type_ == &quot;unsigned long int&quot;))</span>
+<span class="lineNum">     226 </span><span class="lineCov">        164 :     else if((type_ == &quot;int&quot;) &amp;&amp; (p.type_ == &quot;unsigned long int&quot;))</span>
 <span class="lineNum">     227 </span><span class="lineCov">          1 :         return (unsigned long)value_.intValue_ == p.value_.unsignedLongIntValue_;</span>
-<span class="lineNum">     228 </span><span class="lineCov">        505 :     else if((type_ == &quot;unsigned int&quot;) &amp;&amp; (p.type_ == &quot;long int&quot;))</span>
+<span class="lineNum">     228 </span><span class="lineCov">        163 :     else if((type_ == &quot;unsigned int&quot;) &amp;&amp; (p.type_ == &quot;long int&quot;))</span>
 <span class="lineNum">     229 </span><span class="lineCov">          1 :         return (long int)value_.unsignedIntValue_ == p.value_.longIntValue_;</span>
-<span class="lineNum">     230 </span><span class="lineCov">        494 :     else if((type_ == &quot;long int&quot;) &amp;&amp; (p.type_ == &quot;unsigned int&quot;))</span>
+<span class="lineNum">     230 </span><span class="lineCov">        162 :     else if((type_ == &quot;long int&quot;) &amp;&amp; (p.type_ == &quot;unsigned int&quot;))</span>
 <span class="lineNum">     231 </span><span class="lineCov">          1 :         return value_.longIntValue_ == (long int)p.value_.unsignedIntValue_;</span>
-<span class="lineNum">     232 </span><span class="lineCov">        497 :     else if((type_ == &quot;unsigned int&quot;) &amp;&amp; (p.type_ == &quot;unsigned long int&quot;))</span>
+<span class="lineNum">     232 </span><span class="lineCov">        161 :     else if((type_ == &quot;unsigned int&quot;) &amp;&amp; (p.type_ == &quot;unsigned long int&quot;))</span>
 <span class="lineNum">     233 </span><span class="lineCov">          1 :         return value_.unsignedIntValue_ == p.value_.unsignedLongIntValue_;</span>
-<span class="lineNum">     234 </span><span class="lineCov">        488 :     else if((type_ == &quot;unsigned long int&quot;) &amp;&amp; (p.type_ == &quot;unsigned int&quot;))</span>
+<span class="lineNum">     234 </span><span class="lineCov">        160 :     else if((type_ == &quot;unsigned long int&quot;) &amp;&amp; (p.type_ == &quot;unsigned int&quot;))</span>
 <span class="lineNum">     235 </span><span class="lineCov">          1 :         return value_.unsignedLongIntValue_ == p.value_.unsignedIntValue_;</span>
-<span class="lineNum">     236 </span><span class="lineCov">        483 :     else if((type_ == &quot;long int&quot;) &amp;&amp; (p.type_ == &quot;unsigned long int&quot;))</span>
-<span class="lineNum">     237 </span><span class="lineCov">          3 :         return (value_.longIntValue_ &gt;= 0) &amp;&amp; (value_.longIntValue_ == (long) p.value_.unsignedLongIntValue_);</span>
-<span class="lineNum">     238 </span><span class="lineCov">        477 :     else if((type_ == &quot;unsigned long int&quot;) &amp;&amp; (p.type_ == &quot;long int&quot;))</span>
-<span class="lineNum">     239 </span><span class="lineCov">          3 :         return (p.value_.longIntValue_ &gt;= 0) &amp;&amp; ((long)value_.unsignedLongIntValue_ == p.value_.longIntValue_);</span>
+<span class="lineNum">     236 </span><span class="lineCov">        159 :     else if((type_ == &quot;long int&quot;) &amp;&amp; (p.type_ == &quot;unsigned long int&quot;))</span>
+<span class="lineNum">     237 </span><span class="lineCov">          2 :         return (value_.longIntValue_ &gt;= 0) &amp;&amp; (value_.longIntValue_ == (long) p.value_.unsignedLongIntValue_);</span>
+<span class="lineNum">     238 </span><span class="lineCov">        157 :     else if((type_ == &quot;unsigned long int&quot;) &amp;&amp; (p.type_ == &quot;long int&quot;))</span>
+<span class="lineNum">     239 </span><span class="lineCov">          2 :         return (p.value_.longIntValue_ &gt;= 0) &amp;&amp; ((long)value_.unsignedLongIntValue_ == p.value_.longIntValue_);</span>
 <span class="lineNum">     240 </span>            : 
-<span class="lineNum">     241 </span><span class="lineCov">        157 :     if (type_ != p.type_) return false;</span>
+<span class="lineNum">     241 </span><span class="lineCov">        155 :     if (type_ != p.type_) return false;</span>
 <span class="lineNum">     242 </span>            : 
-<span class="lineNum">     243 </span><span class="lineCov">        306 :     if (type_ == &quot;int&quot;)</span>
+<span class="lineNum">     243 </span><span class="lineCov">        153 :     if (type_ == &quot;int&quot;)</span>
 <span class="lineNum">     244 </span><span class="lineCov">         57 :         return value_.intValue_ == p.value_.intValue_;</span>
-<span class="lineNum">     245 </span><span class="lineCov">        192 :     else if (type_ == &quot;unsigned int&quot;)</span>
+<span class="lineNum">     245 </span><span class="lineCov">         96 :     else if (type_ == &quot;unsigned int&quot;)</span>
 <span class="lineNum">     246 </span><span class="lineCov">          6 :         return value_.unsignedIntValue_ == p.value_.unsignedIntValue_;</span>
-<span class="lineNum">     247 </span><span class="lineCov">        180 :     else if (type_ == &quot;long int&quot;)</span>
+<span class="lineNum">     247 </span><span class="lineCov">         90 :     else if (type_ == &quot;long int&quot;)</span>
 <span class="lineNum">     248 </span><span class="lineCov">          1 :         return value_.longIntValue_ == p.value_.longIntValue_;</span>
-<span class="lineNum">     249 </span><span class="lineCov">        178 :     else if (type_ == &quot;unsigned long int&quot;)</span>
+<span class="lineNum">     249 </span><span class="lineCov">         89 :     else if (type_ == &quot;unsigned long int&quot;)</span>
 <span class="lineNum">     250 </span><span class="lineCov">          1 :         return value_.unsignedLongIntValue_ == p.value_.unsignedLongIntValue_;</span>
-<span class="lineNum">     251 </span><span class="lineCov">        176 :     else if (type_ == &quot;const char*&quot;)</span>
-<span class="lineNum">     252 </span><span class="lineCov">         36 :         return SimpleString(value_.stringValue_) == SimpleString(p.value_.stringValue_);</span>
-<span class="lineNum">     253 </span><span class="lineCov">        158 :     else if (type_ == &quot;void*&quot;)</span>
+<span class="lineNum">     251 </span><span class="lineCov">         88 :     else if (type_ == &quot;const char*&quot;)</span>
+<span class="lineNum">     252 </span><span class="lineCov">          9 :         return SimpleString(value_.stringValue_) == SimpleString(p.value_.stringValue_);</span>
+<span class="lineNum">     253 </span><span class="lineCov">         79 :     else if (type_ == &quot;void*&quot;)</span>
 <span class="lineNum">     254 </span><span class="lineCov">         37 :         return value_.pointerValue_ == p.value_.pointerValue_;</span>
-<span class="lineNum">     255 </span><span class="lineCov">         84 :     else if (type_ == &quot;const void*&quot;)</span>
+<span class="lineNum">     255 </span><span class="lineCov">         42 :     else if (type_ == &quot;const void*&quot;)</span>
 <span class="lineNum">     256 </span><span class="lineCov">          1 :         return value_.constPointerValue_ == p.value_.constPointerValue_;</span>
-<span class="lineNum">     257 </span><span class="lineCov">         82 :     else if (type_ == &quot;double&quot;)</span>
+<span class="lineNum">     257 </span><span class="lineCov">         41 :     else if (type_ == &quot;double&quot;)</span>
 <span class="lineNum">     258 </span><span class="lineCov">         19 :         return (doubles_equal(value_.doubleValue_, p.value_.doubleValue_, 0.005));</span>
 <span class="lineNum">     259 </span>            : 
 <span class="lineNum">     260 </span><span class="lineCov">         22 :     if (comparator_)</span>
 <span class="lineNum">     261 </span><span class="lineCov">         19 :         return comparator_-&gt;isEqual(value_.objectPointerValue_, p.value_.objectPointerValue_);</span>
 <span class="lineNum">     262 </span>            : 
 <span class="lineNum">     263 </span><span class="lineCov">          3 :     return false;</span>
-<a name="264"><span class="lineNum">     264 </span><span class="lineCov">        169 : }</span></a>
+<a name="264"><span class="lineNum">     264 </span>            : }</a>
 <span class="lineNum">     265 </span>            : 
-<span class="lineNum">     266 </span>            : SimpleString MockNamedValue::toString() const
+<span class="lineNum">     266 </span><span class="lineCov">         75 : SimpleString MockNamedValue::toString() const</span>
 <span class="lineNum">     267 </span>            : {
-<span class="lineNum">     268 </span><span class="lineCov">        150 :     if (type_ == &quot;int&quot;)</span>
+<span class="lineNum">     268 </span><span class="lineCov">         75 :     if (type_ == &quot;int&quot;)</span>
 <span class="lineNum">     269 </span><span class="lineCov">         34 :         return StringFrom(value_.intValue_);</span>
-<span class="lineNum">     270 </span><span class="lineCov">         82 :     else if (type_ == &quot;unsigned int&quot;)</span>
+<span class="lineNum">     270 </span><span class="lineCov">         41 :     else if (type_ == &quot;unsigned int&quot;)</span>
 <span class="lineNum">     271 </span><span class="lineCov">         11 :         return StringFrom(value_.unsignedIntValue_);</span>
-<span class="lineNum">     272 </span><span class="lineCov">         60 :     else if (type_ == &quot;long int&quot;)</span>
+<span class="lineNum">     272 </span><span class="lineCov">         30 :     else if (type_ == &quot;long int&quot;)</span>
 <span class="lineNum">     273 </span><span class="lineCov">          6 :         return StringFrom(value_.longIntValue_);</span>
-<span class="lineNum">     274 </span><span class="lineCov">         48 :     else if (type_ == &quot;unsigned long int&quot;)</span>
+<span class="lineNum">     274 </span><span class="lineCov">         24 :     else if (type_ == &quot;unsigned long int&quot;)</span>
 <span class="lineNum">     275 </span><span class="lineCov">          6 :         return StringFrom(value_.unsignedLongIntValue_);</span>
-<span class="lineNum">     276 </span><span class="lineCov">         36 :     else if (type_ == &quot;const char*&quot;)</span>
+<span class="lineNum">     276 </span><span class="lineCov">         18 :     else if (type_ == &quot;const char*&quot;)</span>
 <span class="lineNum">     277 </span><span class="lineCov">         15 :         return value_.stringValue_;</span>
-<span class="lineNum">     278 </span><span class="lineCov">          6 :     else if (type_ == &quot;void*&quot;)</span>
+<span class="lineNum">     278 </span><span class="lineCov">          3 :     else if (type_ == &quot;void*&quot;)</span>
 <span class="lineNum">     279 </span><span class="lineNoCov">          0 :         return StringFrom(value_.pointerValue_);</span>
-<span class="lineNum">     280 </span><span class="lineCov">          6 :     else if (type_ == &quot;const void*&quot;)</span>
+<span class="lineNum">     280 </span><span class="lineCov">          3 :     else if (type_ == &quot;const void*&quot;)</span>
 <span class="lineNum">     281 </span><span class="lineNoCov">          0 :         return StringFrom(value_.constPointerValue_);</span>
-<span class="lineNum">     282 </span><span class="lineCov">          6 :     else if (type_ == &quot;double&quot;)</span>
+<span class="lineNum">     282 </span><span class="lineCov">          3 :     else if (type_ == &quot;double&quot;)</span>
 <span class="lineNum">     283 </span><span class="lineNoCov">          0 :         return StringFrom(value_.doubleValue_);</span>
 <span class="lineNum">     284 </span>            : 
 <span class="lineNum">     285 </span><span class="lineCov">          3 :     if (comparator_)</span>
@@ -349,125 +349,125 @@
 <span class="lineNum">     287 </span>            : 
 <span class="lineNum">     288 </span><span class="lineCov">          2 :     return StringFromFormat(&quot;No comparator found for type: \&quot;%s\&quot;&quot;, type_.asCharString());</span>
 <span class="lineNum">     289 </span>            : 
-<a name="290"><span class="lineNum">     290 </span><span class="lineCov">         75 : }</span></a>
+<a name="290"><span class="lineNum">     290 </span>            : }</a>
 <span class="lineNum">     291 </span>            : 
 <span class="lineNum">     292 </span><span class="lineCov">         70 : void MockNamedValueListNode::setNext(MockNamedValueListNode* node)</span>
 <span class="lineNum">     293 </span>            : {
 <span class="lineNum">     294 </span><span class="lineCov">         70 :     next_ = node;</span>
 <a name="295"><span class="lineNum">     295 </span><span class="lineCov">         70 : }</span></a>
 <span class="lineNum">     296 </span>            : 
-<span class="lineNum">     297 </span>            : MockNamedValueListNode* MockNamedValueListNode::next()
+<span class="lineNum">     297 </span><span class="lineCov">       2815 : MockNamedValueListNode* MockNamedValueListNode::next()</span>
 <span class="lineNum">     298 </span>            : {
 <span class="lineNum">     299 </span><span class="lineCov">       2815 :     return next_;</span>
 <a name="300"><span class="lineNum">     300 </span>            : }</a>
 <span class="lineNum">     301 </span>            : 
-<span class="lineNum">     302 </span>            : MockNamedValue* MockNamedValueListNode::item()
+<span class="lineNum">     302 </span><span class="lineCov">       3536 : MockNamedValue* MockNamedValueListNode::item()</span>
 <span class="lineNum">     303 </span>            : {
 <span class="lineNum">     304 </span><span class="lineCov">       3536 :     return data_;</span>
 <a name="305"><span class="lineNum">     305 </span>            : }</a>
 <span class="lineNum">     306 </span>            : 
-<span class="lineNum">     307 </span>            : void MockNamedValueListNode::destroy()
+<span class="lineNum">     307 </span><span class="lineCov">        294 : void MockNamedValueListNode::destroy()</span>
 <span class="lineNum">     308 </span>            : {
-<span class="lineNum">     309 </span><span class="lineCov">        588 :     delete data_;</span>
+<span class="lineNum">     309 </span><span class="lineCov">        294 :     delete data_;</span>
 <a name="310"><span class="lineNum">     310 </span><span class="lineCov">        294 : }</span></a>
 <span class="lineNum">     311 </span>            : 
-<span class="lineNum">     312 </span><span class="lineCov">        588 : MockNamedValueListNode::MockNamedValueListNode(MockNamedValue* newValue)</span>
-<span class="lineNum">     313 </span>            :     : data_(newValue), next_(NULL)
-<span class="lineNum">     314 </span><span class="lineCov">        294 : {</span>
-<a name="315"><span class="lineNum">     315 </span><span class="lineCov">        588 : }</span></a>
+<span class="lineNum">     312 </span><span class="lineCov">        294 : MockNamedValueListNode::MockNamedValueListNode(MockNamedValue* newValue)</span>
+<span class="lineNum">     313 </span><span class="lineCov">        294 :     : data_(newValue), next_(NULL)</span>
+<span class="lineNum">     314 </span>            : {
+<a name="315"><span class="lineNum">     315 </span><span class="lineCov">        294 : }</span></a>
 <span class="lineNum">     316 </span>            : 
-<span class="lineNum">     317 </span>            : SimpleString MockNamedValueListNode::getName() const
+<span class="lineNum">     317 </span><span class="lineCov">       2118 : SimpleString MockNamedValueListNode::getName() const</span>
 <span class="lineNum">     318 </span>            : {
 <span class="lineNum">     319 </span><span class="lineCov">       2118 :     return data_-&gt;getName();</span>
 <a name="320"><span class="lineNum">     320 </span>            : }</a>
 <span class="lineNum">     321 </span>            : 
-<span class="lineNum">     322 </span>            : SimpleString MockNamedValueListNode::getType() const
+<span class="lineNum">     322 </span><span class="lineCov">        878 : SimpleString MockNamedValueListNode::getType() const</span>
 <span class="lineNum">     323 </span>            : {
 <span class="lineNum">     324 </span><span class="lineCov">        878 :     return data_-&gt;getType();</span>
 <a name="325"><span class="lineNum">     325 </span>            : }</a>
 <span class="lineNum">     326 </span>            : 
-<span class="lineNum">     327 </span>            : MockNamedValueList::MockNamedValueList() : head_(NULL)
-<span class="lineNum">     328 </span><span class="lineCov">        878 : {</span>
-<a name="329"><span class="lineNum">     329 </span><span class="lineCov">       1756 : }</span></a>
+<span class="lineNum">     327 </span><span class="lineCov">        878 : MockNamedValueList::MockNamedValueList() : head_(NULL)</span>
+<span class="lineNum">     328 </span>            : {
+<a name="329"><span class="lineNum">     329 </span><span class="lineCov">        878 : }</span></a>
 <span class="lineNum">     330 </span>            : 
-<span class="lineNum">     331 </span>            : void MockNamedValueList::clear()
+<span class="lineNum">     331 </span><span class="lineCov">       1187 : void MockNamedValueList::clear()</span>
 <span class="lineNum">     332 </span>            : {
 <span class="lineNum">     333 </span><span class="lineCov">       2668 :     while (head_) {</span>
 <span class="lineNum">     334 </span><span class="lineCov">        294 :         MockNamedValueListNode* n = head_-&gt;next();</span>
 <span class="lineNum">     335 </span><span class="lineCov">        294 :         head_-&gt;destroy();</span>
-<span class="lineNum">     336 </span><span class="lineCov">        588 :         delete head_;</span>
+<span class="lineNum">     336 </span><span class="lineCov">        294 :         delete head_;</span>
 <span class="lineNum">     337 </span><span class="lineCov">        294 :         head_ = n;</span>
-<span class="lineNum">     338 </span><span class="lineCov">        294 :     }</span>
+<span class="lineNum">     338 </span>            :     }
 <a name="339"><span class="lineNum">     339 </span><span class="lineCov">       1187 : }</span></a>
 <span class="lineNum">     340 </span>            : 
 <span class="lineNum">     341 </span><span class="lineCov">        294 : void MockNamedValueList::add(MockNamedValue* newValue)</span>
 <span class="lineNum">     342 </span>            : {
-<span class="lineNum">     343 </span><span class="lineCov">        588 :     MockNamedValueListNode* newNode = new MockNamedValueListNode(newValue);</span>
+<span class="lineNum">     343 </span><span class="lineCov">        294 :     MockNamedValueListNode* newNode = new MockNamedValueListNode(newValue);</span>
 <span class="lineNum">     344 </span><span class="lineCov">        294 :     if (head_ == NULL)</span>
 <span class="lineNum">     345 </span><span class="lineCov">        224 :         head_ = newNode;</span>
 <span class="lineNum">     346 </span>            :     else {
 <span class="lineNum">     347 </span><span class="lineCov">         70 :         MockNamedValueListNode* lastNode = head_;</span>
-<span class="lineNum">     348 </span><span class="lineCov">        168 :         while (lastNode-&gt;next()) lastNode = lastNode-&gt;next();</span>
+<span class="lineNum">     348 </span><span class="lineCov">         70 :         while (lastNode-&gt;next()) lastNode = lastNode-&gt;next();</span>
 <span class="lineNum">     349 </span><span class="lineCov">         70 :         lastNode-&gt;setNext(newNode);</span>
 <span class="lineNum">     350 </span>            :     }
 <a name="351"><span class="lineNum">     351 </span><span class="lineCov">        294 : }</span></a>
 <span class="lineNum">     352 </span>            : 
 <span class="lineNum">     353 </span><span class="lineCov">        935 : MockNamedValue* MockNamedValueList::getValueByName(const SimpleString&amp; name)</span>
 <span class="lineNum">     354 </span>            : {
-<span class="lineNum">     355 </span><span class="lineCov">       2410 :     for (MockNamedValueListNode * p = head_; p; p = p-&gt;next())</span>
-<span class="lineNum">     356 </span><span class="lineCov">       2028 :         if (p-&gt;getName() == name)</span>
-<span class="lineNum">     357 </span><span class="lineCov">       1014 :             return p-&gt;item();</span>
+<span class="lineNum">     355 </span><span class="lineCov">       1205 :     for (MockNamedValueListNode * p = head_; p; p = p-&gt;next())</span>
+<span class="lineNum">     356 </span><span class="lineCov">       1014 :         if (p-&gt;getName() == name)</span>
+<span class="lineNum">     357 </span><span class="lineCov">        744 :             return p-&gt;item();</span>
 <span class="lineNum">     358 </span><span class="lineCov">        191 :     return NULL;</span>
-<a name="359"><span class="lineNum">     359 </span><span class="lineCov">        935 : }</span></a>
+<a name="359"><span class="lineNum">     359 </span>            : }</a>
 <span class="lineNum">     360 </span>            : 
-<span class="lineNum">     361 </span>            : MockNamedValueListNode* MockNamedValueList::begin()
+<span class="lineNum">     361 </span><span class="lineCov">       8113 : MockNamedValueListNode* MockNamedValueList::begin()</span>
 <span class="lineNum">     362 </span>            : {
 <span class="lineNum">     363 </span><span class="lineCov">       8113 :     return head_;</span>
 <a name="364"><span class="lineNum">     364 </span>            : }</a>
 <span class="lineNum">     365 </span>            : 
-<a name="366"><span class="lineNum">     366 </span><span class="lineCov">         72 : struct MockNamedValueComparatorRepositoryNode</span></a>
+<a name="366"><span class="lineNum">     366 </span><span class="lineCov">         36 : struct MockNamedValueComparatorRepositoryNode</span></a>
 <span class="lineNum">     367 </span>            : {
-<span class="lineNum">     368 </span><span class="lineCov">         72 :     MockNamedValueComparatorRepositoryNode(const SimpleString&amp; name, MockNamedValueComparator&amp; comparator, MockNamedValueComparatorRepositoryNode* next)</span>
-<span class="lineNum">     369 </span><span class="lineCov">         72 :         : name_(name), comparator_(comparator), next_(next) {}</span>
+<span class="lineNum">     368 </span><span class="lineCov">         36 :     MockNamedValueComparatorRepositoryNode(const SimpleString&amp; name, MockNamedValueComparator&amp; comparator, MockNamedValueComparatorRepositoryNode* next)</span>
+<span class="lineNum">     369 </span><span class="lineCov">         36 :         : name_(name), comparator_(comparator), next_(next) {}</span>
 <span class="lineNum">     370 </span>            :     SimpleString name_;
 <span class="lineNum">     371 </span>            :     MockNamedValueComparator&amp; comparator_;
 <span class="lineNum">     372 </span>            :     MockNamedValueComparatorRepositoryNode* next_;
 <a name="373"><span class="lineNum">     373 </span>            : };</a>
 <span class="lineNum">     374 </span>            : 
-<span class="lineNum">     375 </span>            : MockNamedValueComparatorRepository::MockNamedValueComparatorRepository() : head_(NULL)
-<span class="lineNum">     376 </span><span class="lineCov">         69 : {</span>
+<span class="lineNum">     375 </span><span class="lineCov">         69 : MockNamedValueComparatorRepository::MockNamedValueComparatorRepository() : head_(NULL)</span>
+<span class="lineNum">     376 </span>            : {
 <span class="lineNum">     377 </span>            : 
-<a name="378"><span class="lineNum">     378 </span><span class="lineCov">        138 : }</span></a>
+<a name="378"><span class="lineNum">     378 </span><span class="lineCov">         69 : }</span></a>
 <span class="lineNum">     379 </span>            : 
-<span class="lineNum">     380 </span>            : MockNamedValueComparatorRepository::~MockNamedValueComparatorRepository()
-<span class="lineNum">     381 </span><span class="lineCov">        138 : {</span>
+<span class="lineNum">     380 </span><span class="lineCov">         69 : MockNamedValueComparatorRepository::~MockNamedValueComparatorRepository()</span>
+<span class="lineNum">     381 </span>            : {
 <span class="lineNum">     382 </span><span class="lineCov">         69 :     clear();</span>
-<a name="383"><span class="lineNum">     383 </span><span class="lineCov">        138 : }</span></a>
+<a name="383"><span class="lineNum">     383 </span><span class="lineCov">         69 : }</span></a>
 <span class="lineNum">     384 </span>            : 
-<span class="lineNum">     385 </span>            : void MockNamedValueComparatorRepository::clear()
+<span class="lineNum">     385 </span><span class="lineCov">        378 : void MockNamedValueComparatorRepository::clear()</span>
 <span class="lineNum">     386 </span>            : {
 <span class="lineNum">     387 </span><span class="lineCov">        792 :     while (head_) {</span>
 <span class="lineNum">     388 </span><span class="lineCov">         36 :         MockNamedValueComparatorRepositoryNode* next = head_-&gt;next_;</span>
-<span class="lineNum">     389 </span><span class="lineCov">        108 :         delete head_;</span>
+<span class="lineNum">     389 </span><span class="lineCov">         36 :         delete head_;</span>
 <span class="lineNum">     390 </span><span class="lineCov">         36 :         head_ = next;</span>
-<span class="lineNum">     391 </span><span class="lineCov">         36 :     }</span>
+<span class="lineNum">     391 </span>            :     }
 <a name="392"><span class="lineNum">     392 </span><span class="lineCov">        378 : }</span></a>
 <span class="lineNum">     393 </span>            : 
 <span class="lineNum">     394 </span><span class="lineCov">         36 : void MockNamedValueComparatorRepository::installComparator(const SimpleString&amp; name, MockNamedValueComparator&amp; comparator)</span>
 <span class="lineNum">     395 </span>            : {
-<span class="lineNum">     396 </span><span class="lineCov">         72 :     head_ = new MockNamedValueComparatorRepositoryNode(name, comparator, head_);</span>
+<span class="lineNum">     396 </span><span class="lineCov">         36 :     head_ = new MockNamedValueComparatorRepositoryNode(name, comparator, head_);</span>
 <a name="397"><span class="lineNum">     397 </span><span class="lineCov">         36 : }</span></a>
 <span class="lineNum">     398 </span>            : 
 <span class="lineNum">     399 </span><span class="lineCov">        116 : MockNamedValueComparator* MockNamedValueComparatorRepository::getComparatorForType(const SimpleString&amp; name)</span>
 <span class="lineNum">     400 </span>            : {
-<span class="lineNum">     401 </span><span class="lineCov">        270 :     for (MockNamedValueComparatorRepositoryNode* p = head_; p; p = p-&gt;next_)</span>
-<span class="lineNum">     402 </span><span class="lineCov">        124 :             if (p-&gt;name_ == name) return &amp;p-&gt;comparator_;</span>
+<span class="lineNum">     401 </span><span class="lineCov">        135 :     for (MockNamedValueComparatorRepositoryNode* p = head_; p; p = p-&gt;next_)</span>
+<span class="lineNum">     402 </span><span class="lineCov">         62 :             if (p-&gt;name_ == name) return &amp;p-&gt;comparator_;</span>
 <span class="lineNum">     403 </span><span class="lineCov">         73 :     return NULL;</span>
-<a name="404"><span class="lineNum">     404 </span><span class="lineCov">        116 : }</span></a>
+<a name="404"><span class="lineNum">     404 </span>            : }</a>
 <span class="lineNum">     405 </span>            : 
 <span class="lineNum">     406 </span><span class="lineCov">        349 : void MockNamedValueComparatorRepository::installComparators(const MockNamedValueComparatorRepository&amp; repository)</span>
 <span class="lineNum">     407 </span>            : {
-<span class="lineNum">     408 </span><span class="lineCov">        708 :     for (MockNamedValueComparatorRepositoryNode* p = repository.head_; p; p = p-&gt;next_)</span>
+<span class="lineNum">     408 </span><span class="lineCov">        354 :     for (MockNamedValueComparatorRepositoryNode* p = repository.head_; p; p = p-&gt;next_)</span>
 <span class="lineNum">     409 </span><span class="lineCov">          5 :             installComparator(p-&gt;name_, p-&gt;comparator_);</span>
 <span class="lineNum">     410 </span><span class="lineCov">        349 : }</span>
 <span class="lineNum">     411 </span>            : 

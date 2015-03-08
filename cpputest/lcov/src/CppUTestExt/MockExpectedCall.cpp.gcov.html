@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">272</td>
-            <td class="headerCovTableEntry">360</td>
-            <td class="headerCovTableEntryMed">75.6 %</td>
+            <td class="headerCovTableEntry">276</td>
+            <td class="headerCovTableEntry">347</td>
+            <td class="headerCovTableEntryMed">79.5 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">75</td>
-            <td class="headerCovTableEntry">97</td>
-            <td class="headerCovTableEntryMed">77.3 %</td>
+            <td class="headerCovTableEntry">69</td>
+            <td class="headerCovTableEntry">90</td>
+            <td class="headerCovTableEntryMed">76.7 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -90,12 +90,12 @@
 <span class="lineNum">      28 </span>            : #include &quot;CppUTest/TestHarness.h&quot;
 <a name="29"><span class="lineNum">      29 </span>            : #include &quot;CppUTestExt/MockCheckedExpectedCall.h&quot;</a>
 <span class="lineNum">      30 </span>            : 
-<span class="lineNum">      31 </span>            : MockExpectedCall::MockExpectedCall()
-<span class="lineNum">      32 </span><span class="lineCov">        468 : {</span>
+<span class="lineNum">      31 </span><span class="lineCov">        468 : MockExpectedCall::MockExpectedCall()</span>
+<span class="lineNum">      32 </span>            : {
 <a name="33"><span class="lineNum">      33 </span><span class="lineCov">        468 : }</span></a>
 <span class="lineNum">      34 </span>            : 
-<span class="lineNum">      35 </span>            : MockExpectedCall::~MockExpectedCall()
-<span class="lineNum">      36 </span><span class="lineNoCov">          0 : {</span>
+<span class="lineNum">      35 </span><span class="lineCov">        468 : MockExpectedCall::~MockExpectedCall()</span>
+<span class="lineNum">      36 </span>            : {
 <a name="37"><span class="lineNum">      37 </span><span class="lineCov">        468 : }</span></a>
 <span class="lineNum">      38 </span>            : 
 <span class="lineNum">      39 </span><span class="lineCov">         75 : SimpleString StringFrom(const MockNamedValue&amp; parameter)</span>
@@ -108,25 +108,25 @@
 <span class="lineNum">      46 </span><span class="lineCov">        379 :     functionName_ = name;</span>
 <a name="47"><span class="lineNum">      47 </span><span class="lineCov">        379 : }</span></a>
 <span class="lineNum">      48 </span>            : 
-<span class="lineNum">      49 </span>            : SimpleString MockCheckedExpectedCall::getName() const
+<span class="lineNum">      49 </span><span class="lineCov">        794 : SimpleString MockCheckedExpectedCall::getName() const</span>
 <span class="lineNum">      50 </span>            : {
 <span class="lineNum">      51 </span><span class="lineCov">        794 :     return functionName_;</span>
 <a name="52"><span class="lineNum">      52 </span>            : }</a>
 <span class="lineNum">      53 </span>            : 
-<span class="lineNum">      54 </span>            : MockCheckedExpectedCall::MockCheckedExpectedCall()
-<span class="lineNum">      55 </span>            :     : ignoreOtherParameters_(false), parametersWereIgnored_(false), callOrder_(0), expectedCallOrder_(NO_EXPECTED_CALL_ORDER), outOfOrder_(true), returnValue_(&quot;&quot;), objectPtr_(NULL), wasPassedToObject_(true)
-<span class="lineNum">      56 </span><span class="lineCov">       2055 : {</span>
-<span class="lineNum">      57 </span><span class="lineCov">       1233 :     inputParameters_ = new MockNamedValueList();</span>
-<span class="lineNum">      58 </span><span class="lineCov">       1233 :     outputParameters_ = new MockNamedValueList();</span>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">        822 : }</span></a>
+<span class="lineNum">      54 </span><span class="lineCov">        411 : MockCheckedExpectedCall::MockCheckedExpectedCall()</span>
+<span class="lineNum">      55 </span><span class="lineCov">        411 :     : ignoreOtherParameters_(false), parametersWereIgnored_(false), callOrder_(0), expectedCallOrder_(NO_EXPECTED_CALL_ORDER), outOfOrder_(true), returnValue_(&quot;&quot;), objectPtr_(NULL), wasPassedToObject_(true)</span>
+<span class="lineNum">      56 </span>            : {
+<span class="lineNum">      57 </span><span class="lineCov">        411 :     inputParameters_ = new MockNamedValueList();</span>
+<span class="lineNum">      58 </span><span class="lineCov">        411 :     outputParameters_ = new MockNamedValueList();</span>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">        411 : }</span></a>
 <span class="lineNum">      60 </span>            : 
-<span class="lineNum">      61 </span>            : MockCheckedExpectedCall::~MockCheckedExpectedCall()
-<span class="lineNum">      62 </span><span class="lineCov">       1642 : {</span>
+<span class="lineNum">      61 </span><span class="lineCov">       1232 : MockCheckedExpectedCall::~MockCheckedExpectedCall()</span>
+<span class="lineNum">      62 </span>            : {
 <span class="lineNum">      63 </span><span class="lineCov">        411 :     inputParameters_-&gt;clear();</span>
-<span class="lineNum">      64 </span><span class="lineCov">        822 :     delete inputParameters_;</span>
+<span class="lineNum">      64 </span><span class="lineCov">        411 :     delete inputParameters_;</span>
 <span class="lineNum">      65 </span><span class="lineCov">        411 :     outputParameters_-&gt;clear();</span>
-<span class="lineNum">      66 </span><span class="lineCov">        822 :     delete outputParameters_;</span>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">       2054 : }</span></a>
+<span class="lineNum">      66 </span><span class="lineCov">        411 :     delete outputParameters_;</span>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">        821 : }</span></a>
 <span class="lineNum">      68 </span>            : 
 <span class="lineNum">      69 </span><span class="lineCov">        379 : MockExpectedCall&amp; MockCheckedExpectedCall::withName(const SimpleString&amp; name)</span>
 <span class="lineNum">      70 </span>            : {
@@ -137,89 +137,89 @@
 <span class="lineNum">      75 </span>            : 
 <span class="lineNum">      76 </span><span class="lineCov">         15 : MockExpectedCall&amp; MockCheckedExpectedCall::withUnsignedIntParameter(const SimpleString&amp; name, unsigned int value)</span>
 <span class="lineNum">      77 </span>            : {
-<span class="lineNum">      78 </span><span class="lineCov">         30 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
+<span class="lineNum">      78 </span><span class="lineCov">         15 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
 <span class="lineNum">      79 </span><span class="lineCov">         15 :     inputParameters_-&gt;add(newParameter);</span>
 <span class="lineNum">      80 </span><span class="lineCov">         15 :     newParameter-&gt;setValue(value);</span>
 <span class="lineNum">      81 </span><span class="lineCov">         15 :     return *this;</span>
-<a name="82"><span class="lineNum">      82 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="82"><span class="lineNum">      82 </span>            : }</a>
 <span class="lineNum">      83 </span>            : 
 <span class="lineNum">      84 </span><span class="lineCov">         77 : MockExpectedCall&amp; MockCheckedExpectedCall::withIntParameter(const SimpleString&amp; name, int value)</span>
 <span class="lineNum">      85 </span>            : {
-<span class="lineNum">      86 </span><span class="lineCov">        154 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
+<span class="lineNum">      86 </span><span class="lineCov">         77 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
 <span class="lineNum">      87 </span><span class="lineCov">         77 :     inputParameters_-&gt;add(newParameter);</span>
 <span class="lineNum">      88 </span><span class="lineCov">         77 :     newParameter-&gt;setValue(value);</span>
 <span class="lineNum">      89 </span><span class="lineCov">         77 :     return *this;</span>
-<a name="90"><span class="lineNum">      90 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="90"><span class="lineNum">      90 </span>            : }</a>
 <span class="lineNum">      91 </span>            : 
 <span class="lineNum">      92 </span><span class="lineCov">          7 : MockExpectedCall&amp; MockCheckedExpectedCall::withLongIntParameter(const SimpleString&amp; name, long int value)</span>
 <span class="lineNum">      93 </span>            : {
-<span class="lineNum">      94 </span><span class="lineCov">         14 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
+<span class="lineNum">      94 </span><span class="lineCov">          7 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
 <span class="lineNum">      95 </span><span class="lineCov">          7 :     inputParameters_-&gt;add(newParameter);</span>
 <span class="lineNum">      96 </span><span class="lineCov">          7 :     newParameter-&gt;setValue(value);</span>
 <span class="lineNum">      97 </span><span class="lineCov">          7 :     return *this;</span>
-<a name="98"><span class="lineNum">      98 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="98"><span class="lineNum">      98 </span>            : }</a>
 <span class="lineNum">      99 </span>            : 
 <span class="lineNum">     100 </span><span class="lineCov">          7 : MockExpectedCall&amp; MockCheckedExpectedCall::withUnsignedLongIntParameter(const SimpleString&amp; name, unsigned long int value)</span>
 <span class="lineNum">     101 </span>            : {
-<span class="lineNum">     102 </span><span class="lineCov">         14 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
+<span class="lineNum">     102 </span><span class="lineCov">          7 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
 <span class="lineNum">     103 </span><span class="lineCov">          7 :     inputParameters_-&gt;add(newParameter);</span>
 <span class="lineNum">     104 </span><span class="lineCov">          7 :     newParameter-&gt;setValue(value);</span>
 <span class="lineNum">     105 </span><span class="lineCov">          7 :     return *this;</span>
-<a name="106"><span class="lineNum">     106 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="106"><span class="lineNum">     106 </span>            : }</a>
 <span class="lineNum">     107 </span>            : 
 <span class="lineNum">     108 </span><span class="lineCov">         13 : MockExpectedCall&amp; MockCheckedExpectedCall::withDoubleParameter(const SimpleString&amp; name, double value)</span>
 <span class="lineNum">     109 </span>            : {
-<span class="lineNum">     110 </span><span class="lineCov">         26 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
+<span class="lineNum">     110 </span><span class="lineCov">         13 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
 <span class="lineNum">     111 </span><span class="lineCov">         13 :     inputParameters_-&gt;add(newParameter);</span>
 <span class="lineNum">     112 </span><span class="lineCov">         13 :     newParameter-&gt;setValue(value);</span>
 <span class="lineNum">     113 </span><span class="lineCov">         13 :     return *this;</span>
-<a name="114"><span class="lineNum">     114 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="114"><span class="lineNum">     114 </span>            : }</a>
 <span class="lineNum">     115 </span>            : 
 <span class="lineNum">     116 </span><span class="lineCov">         16 : MockExpectedCall&amp; MockCheckedExpectedCall::withStringParameter(const SimpleString&amp; name, const char* value)</span>
 <span class="lineNum">     117 </span>            : {
-<span class="lineNum">     118 </span><span class="lineCov">         32 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
+<span class="lineNum">     118 </span><span class="lineCov">         16 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
 <span class="lineNum">     119 </span><span class="lineCov">         16 :     inputParameters_-&gt;add(newParameter);</span>
 <span class="lineNum">     120 </span><span class="lineCov">         16 :     newParameter-&gt;setValue(value);</span>
 <span class="lineNum">     121 </span><span class="lineCov">         16 :     return *this;</span>
-<a name="122"><span class="lineNum">     122 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="122"><span class="lineNum">     122 </span>            : }</a>
 <span class="lineNum">     123 </span>            : 
 <span class="lineNum">     124 </span><span class="lineCov">         34 : MockExpectedCall&amp; MockCheckedExpectedCall::withPointerParameter(const SimpleString&amp; name, void* value)</span>
 <span class="lineNum">     125 </span>            : {
-<span class="lineNum">     126 </span><span class="lineCov">         68 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
+<span class="lineNum">     126 </span><span class="lineCov">         34 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
 <span class="lineNum">     127 </span><span class="lineCov">         34 :     inputParameters_-&gt;add(newParameter);</span>
 <span class="lineNum">     128 </span><span class="lineCov">         34 :     newParameter-&gt;setValue(value);</span>
 <span class="lineNum">     129 </span><span class="lineCov">         34 :     return *this;</span>
-<a name="130"><span class="lineNum">     130 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="130"><span class="lineNum">     130 </span>            : }</a>
 <span class="lineNum">     131 </span>            : 
 <span class="lineNum">     132 </span><span class="lineCov">          2 : MockExpectedCall&amp; MockCheckedExpectedCall::withConstPointerParameter(const SimpleString&amp; name, const void* value)</span>
 <span class="lineNum">     133 </span>            : {
-<span class="lineNum">     134 </span><span class="lineCov">          4 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
+<span class="lineNum">     134 </span><span class="lineCov">          2 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
 <span class="lineNum">     135 </span><span class="lineCov">          2 :     inputParameters_-&gt;add(newParameter);</span>
 <span class="lineNum">     136 </span><span class="lineCov">          2 :     newParameter-&gt;setValue(value);</span>
 <span class="lineNum">     137 </span><span class="lineCov">          2 :     return *this;</span>
-<a name="138"><span class="lineNum">     138 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="138"><span class="lineNum">     138 </span>            : }</a>
 <span class="lineNum">     139 </span>            : 
 <span class="lineNum">     140 </span><span class="lineCov">         29 : MockExpectedCall&amp; MockCheckedExpectedCall::withParameterOfType(const SimpleString&amp; type, const SimpleString&amp; name, const void* value)</span>
 <span class="lineNum">     141 </span>            : {
-<span class="lineNum">     142 </span><span class="lineCov">         58 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
+<span class="lineNum">     142 </span><span class="lineCov">         29 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
 <span class="lineNum">     143 </span><span class="lineCov">         29 :     inputParameters_-&gt;add(newParameter);</span>
 <span class="lineNum">     144 </span><span class="lineCov">         29 :     newParameter-&gt;setObjectPointer(type, value);</span>
 <span class="lineNum">     145 </span><span class="lineCov">         29 :     return *this;</span>
-<a name="146"><span class="lineNum">     146 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="146"><span class="lineNum">     146 </span>            : }</a>
 <span class="lineNum">     147 </span>            : 
 <span class="lineNum">     148 </span><span class="lineCov">         22 : MockExpectedCall&amp; MockCheckedExpectedCall::withOutputParameterReturning(const SimpleString&amp; name, const void* value, size_t size)</span>
 <span class="lineNum">     149 </span>            : {
-<span class="lineNum">     150 </span><span class="lineCov">         44 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
+<span class="lineNum">     150 </span><span class="lineCov">         22 :     MockNamedValue* newParameter = new MockExpectedFunctionParameter(name);</span>
 <span class="lineNum">     151 </span><span class="lineCov">         22 :     outputParameters_-&gt;add(newParameter);</span>
 <span class="lineNum">     152 </span><span class="lineCov">         22 :     newParameter-&gt;setValue(value);</span>
 <span class="lineNum">     153 </span><span class="lineCov">         22 :     newParameter-&gt;setSize(size);</span>
 <span class="lineNum">     154 </span><span class="lineCov">         22 :     return *this;</span>
-<a name="155"><span class="lineNum">     155 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="155"><span class="lineNum">     155 </span>            : }</a>
 <span class="lineNum">     156 </span>            : 
 <span class="lineNum">     157 </span><span class="lineCov">         17 : SimpleString MockCheckedExpectedCall::getInputParameterType(const SimpleString&amp; name)</span>
 <span class="lineNum">     158 </span>            : {
 <span class="lineNum">     159 </span><span class="lineCov">         17 :     MockNamedValue * p = inputParameters_-&gt;getValueByName(name);</span>
-<span class="lineNum">     160 </span><span class="lineCov">         51 :     return (p) ? p-&gt;getType() : &quot;&quot;;</span>
+<span class="lineNum">     160 </span><span class="lineCov">         17 :     return (p) ? p-&gt;getType() : &quot;&quot;;</span>
 <a name="161"><span class="lineNum">     161 </span>            : }</a>
 <span class="lineNum">     162 </span>            : 
 <span class="lineNum">     163 </span><span class="lineCov">         30 : bool MockCheckedExpectedCall::hasInputParameterWithName(const SimpleString&amp; name)</span>
@@ -231,48 +231,48 @@
 <span class="lineNum">     169 </span><span class="lineCov">         18 : MockNamedValue MockCheckedExpectedCall::getInputParameter(const SimpleString&amp; name)</span>
 <span class="lineNum">     170 </span>            : {
 <span class="lineNum">     171 </span><span class="lineCov">         18 :     MockNamedValue * p = inputParameters_-&gt;getValueByName(name);</span>
-<span class="lineNum">     172 </span><span class="lineCov">         74 :     return (p) ? *p : MockNamedValue(&quot;&quot;);</span>
-<a name="173"><span class="lineNum">     173 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     172 </span><span class="lineCov">         18 :     return (p) ? *p : MockNamedValue(&quot;&quot;);</span>
+<a name="173"><span class="lineNum">     173 </span>            : }</a>
 <span class="lineNum">     174 </span>            : 
 <span class="lineNum">     175 </span><span class="lineCov">         32 : MockNamedValue MockCheckedExpectedCall::getOutputParameter(const SimpleString&amp; name)</span>
 <span class="lineNum">     176 </span>            : {
 <span class="lineNum">     177 </span><span class="lineCov">         32 :     MockNamedValue * p = outputParameters_-&gt;getValueByName(name);</span>
-<span class="lineNum">     178 </span><span class="lineCov">        128 :     return (p) ? *p : MockNamedValue(&quot;&quot;);</span>
-<a name="179"><span class="lineNum">     179 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     178 </span><span class="lineCov">         32 :     return (p) ? *p : MockNamedValue(&quot;&quot;);</span>
+<a name="179"><span class="lineNum">     179 </span>            : }</a>
 <span class="lineNum">     180 </span>            : 
-<span class="lineNum">     181 </span>            : bool MockCheckedExpectedCall::areParametersFulfilled()
+<span class="lineNum">     181 </span><span class="lineCov">       2239 : bool MockCheckedExpectedCall::areParametersFulfilled()</span>
 <span class="lineNum">     182 </span>            : {
-<span class="lineNum">     183 </span><span class="lineCov">       6720 :     for (MockNamedValueListNode* p = inputParameters_-&gt;begin(); p; p = p-&gt;next())</span>
+<span class="lineNum">     183 </span><span class="lineCov">       3360 :     for (MockNamedValueListNode* p = inputParameters_-&gt;begin(); p; p = p-&gt;next())</span>
 <span class="lineNum">     184 </span><span class="lineCov">       1736 :         if (! item(p)-&gt;isFulfilled())</span>
-<span class="lineNum">     185 </span><span class="lineCov">       1736 :             return false;</span>
-<span class="lineNum">     186 </span><span class="lineCov">       3478 :     for (MockNamedValueListNode* p = outputParameters_-&gt;begin(); p; p = p-&gt;next())</span>
+<span class="lineNum">     185 </span><span class="lineCov">        615 :             return false;</span>
+<span class="lineNum">     186 </span><span class="lineCov">       1739 :     for (MockNamedValueListNode* p = outputParameters_-&gt;begin(); p; p = p-&gt;next())</span>
 <span class="lineNum">     187 </span><span class="lineCov">        159 :         if (! item(p)-&gt;isFulfilled())</span>
-<span class="lineNum">     188 </span><span class="lineCov">        159 :             return false;</span>
+<span class="lineNum">     188 </span><span class="lineCov">         44 :             return false;</span>
 <span class="lineNum">     189 </span><span class="lineCov">       1580 :     return true;</span>
-<a name="190"><span class="lineNum">     190 </span><span class="lineCov">       2239 : }</span></a>
+<a name="190"><span class="lineNum">     190 </span>            : }</a>
 <span class="lineNum">     191 </span>            : 
-<span class="lineNum">     192 </span>            : bool MockCheckedExpectedCall::areIgnoredParametersFulfilled()
+<span class="lineNum">     192 </span><span class="lineCov">       1074 : bool MockCheckedExpectedCall::areIgnoredParametersFulfilled()</span>
 <span class="lineNum">     193 </span>            : {
 <span class="lineNum">     194 </span><span class="lineCov">       1074 :     if (ignoreOtherParameters_)</span>
 <span class="lineNum">     195 </span><span class="lineCov">        227 :         return parametersWereIgnored_;</span>
 <span class="lineNum">     196 </span><span class="lineCov">        847 :     return true;</span>
-<a name="197"><span class="lineNum">     197 </span><span class="lineCov">       1074 : }</span></a>
+<a name="197"><span class="lineNum">     197 </span>            : }</a>
 <span class="lineNum">     198 </span>            : 
-<span class="lineNum">     199 </span>            : MockExpectedCall&amp; MockCheckedExpectedCall::ignoreOtherParameters()
+<span class="lineNum">     199 </span><span class="lineCov">         31 : MockExpectedCall&amp; MockCheckedExpectedCall::ignoreOtherParameters()</span>
 <span class="lineNum">     200 </span>            : {
 <span class="lineNum">     201 </span><span class="lineCov">         31 :     ignoreOtherParameters_ = true;</span>
 <span class="lineNum">     202 </span><span class="lineCov">         31 :     return *this;</span>
 <a name="203"><span class="lineNum">     203 </span>            : }</a>
 <span class="lineNum">     204 </span>            : 
-<span class="lineNum">     205 </span>            : bool MockCheckedExpectedCall::isFulfilled()
+<span class="lineNum">     205 </span><span class="lineCov">       2189 : bool MockCheckedExpectedCall::isFulfilled()</span>
 <span class="lineNum">     206 </span>            : {
-<span class="lineNum">     207 </span><span class="lineCov">       3263 :     return isFulfilledWithoutIgnoredParameters() &amp;&amp; areIgnoredParametersFulfilled();</span>
-<a name="208"><span class="lineNum">     208 </span><span class="lineCov">       2189 : }</span></a>
+<span class="lineNum">     207 </span><span class="lineCov">       2189 :     return isFulfilledWithoutIgnoredParameters() &amp;&amp; areIgnoredParametersFulfilled();</span>
+<a name="208"><span class="lineNum">     208 </span>            : }</a>
 <span class="lineNum">     209 </span>            : 
-<span class="lineNum">     210 </span>            : bool MockCheckedExpectedCall::isFulfilledWithoutIgnoredParameters()
+<span class="lineNum">     210 </span><span class="lineCov">       2870 : bool MockCheckedExpectedCall::isFulfilledWithoutIgnoredParameters()</span>
 <span class="lineNum">     211 </span>            : {
-<span class="lineNum">     212 </span><span class="lineCov">       6674 :     return callOrder_ != NOT_CALLED_YET &amp;&amp; areParametersFulfilled() &amp;&amp; wasPassedToObject_;</span>
-<span class="lineNum">     213 </span><span class="lineCov">       2870 : }</span>
+<span class="lineNum">     212 </span><span class="lineCov">       2870 :     return callOrder_ != NOT_CALLED_YET &amp;&amp; areParametersFulfilled() &amp;&amp; wasPassedToObject_;</span>
+<span class="lineNum">     213 </span>            : }
 <a name="214"><span class="lineNum">     214 </span>            : </a>
 <span class="lineNum">     215 </span>            : 
 <span class="lineNum">     216 </span><span class="lineCov">        292 : void MockCheckedExpectedCall::callWasMade(int callOrder)</span>
@@ -286,115 +286,115 @@
 <span class="lineNum">     224 </span><span class="lineCov">         14 :         outOfOrder_ = true;</span>
 <a name="225"><span class="lineNum">     225 </span><span class="lineCov">        292 : }</span></a>
 <span class="lineNum">     226 </span>            : 
-<span class="lineNum">     227 </span>            : void MockCheckedExpectedCall::parametersWereIgnored()
+<span class="lineNum">     227 </span><span class="lineCov">         24 : void MockCheckedExpectedCall::parametersWereIgnored()</span>
 <span class="lineNum">     228 </span>            : {
 <span class="lineNum">     229 </span><span class="lineCov">         24 :     parametersWereIgnored_ = true;</span>
 <span class="lineNum">     230 </span><span class="lineCov">         24 : }</span>
 <a name="231"><span class="lineNum">     231 </span>            : </a>
 <span class="lineNum">     232 </span>            : 
-<span class="lineNum">     233 </span>            : void MockCheckedExpectedCall::wasPassedToObject()
+<span class="lineNum">     233 </span><span class="lineCov">          4 : void MockCheckedExpectedCall::wasPassedToObject()</span>
 <span class="lineNum">     234 </span>            : {
 <span class="lineNum">     235 </span><span class="lineCov">          4 :     wasPassedToObject_ = true;</span>
 <a name="236"><span class="lineNum">     236 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">     237 </span>            : 
-<span class="lineNum">     238 </span>            : void MockCheckedExpectedCall::resetExpectation()
+<span class="lineNum">     238 </span><span class="lineCov">         31 : void MockCheckedExpectedCall::resetExpectation()</span>
 <span class="lineNum">     239 </span>            : {
 <span class="lineNum">     240 </span><span class="lineCov">         31 :     callOrder_ = NOT_CALLED_YET;</span>
 <span class="lineNum">     241 </span><span class="lineCov">         31 :     wasPassedToObject_ = (objectPtr_ == NULL);</span>
-<span class="lineNum">     242 </span><span class="lineCov">        104 :     for (MockNamedValueListNode* p = inputParameters_-&gt;begin(); p; p = p-&gt;next())</span>
+<span class="lineNum">     242 </span><span class="lineCov">         52 :     for (MockNamedValueListNode* p = inputParameters_-&gt;begin(); p; p = p-&gt;next())</span>
 <span class="lineNum">     243 </span><span class="lineCov">         21 :         item(p)-&gt;setFulfilled(false);</span>
-<span class="lineNum">     244 </span><span class="lineCov">         64 :     for (MockNamedValueListNode* p = outputParameters_-&gt;begin(); p; p = p-&gt;next())</span>
+<span class="lineNum">     244 </span><span class="lineCov">         32 :     for (MockNamedValueListNode* p = outputParameters_-&gt;begin(); p; p = p-&gt;next())</span>
 <span class="lineNum">     245 </span><span class="lineCov">          1 :         item(p)-&gt;setFulfilled(false);</span>
 <a name="246"><span class="lineNum">     246 </span><span class="lineCov">         31 : }</span></a>
 <span class="lineNum">     247 </span>            : 
 <span class="lineNum">     248 </span><span class="lineCov">        195 : void MockCheckedExpectedCall::inputParameterWasPassed(const SimpleString&amp; name)</span>
 <span class="lineNum">     249 </span>            : {
-<span class="lineNum">     250 </span><span class="lineCov">        984 :     for (MockNamedValueListNode* p = inputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
-<span class="lineNum">     251 </span><span class="lineCov">        594 :         if (p-&gt;getName() == name)</span>
+<span class="lineNum">     250 </span><span class="lineCov">        492 :     for (MockNamedValueListNode* p = inputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
+<span class="lineNum">     251 </span><span class="lineCov">        297 :         if (p-&gt;getName() == name)</span>
 <span class="lineNum">     252 </span><span class="lineCov">        152 :             item(p)-&gt;setFulfilled(true);</span>
-<span class="lineNum">     253 </span><span class="lineCov">        297 :     }</span>
+<span class="lineNum">     253 </span>            :     }
 <a name="254"><span class="lineNum">     254 </span><span class="lineCov">        195 : }</span></a>
 <span class="lineNum">     255 </span>            : 
 <span class="lineNum">     256 </span><span class="lineCov">         18 : void MockCheckedExpectedCall::outputParameterWasPassed(const SimpleString&amp; name)</span>
 <span class="lineNum">     257 </span>            : {
-<span class="lineNum">     258 </span><span class="lineCov">         76 :     for (MockNamedValueListNode* p = outputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
-<span class="lineNum">     259 </span><span class="lineCov">         40 :         if (p-&gt;getName() == name)</span>
+<span class="lineNum">     258 </span><span class="lineCov">         38 :     for (MockNamedValueListNode* p = outputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
+<span class="lineNum">     259 </span><span class="lineCov">         20 :         if (p-&gt;getName() == name)</span>
 <span class="lineNum">     260 </span><span class="lineCov">         18 :             item(p)-&gt;setFulfilled(true);</span>
-<span class="lineNum">     261 </span><span class="lineCov">         20 :     }</span>
+<span class="lineNum">     261 </span>            :     }
 <a name="262"><span class="lineNum">     262 </span><span class="lineCov">         18 : }</span></a>
 <span class="lineNum">     263 </span>            : 
 <span class="lineNum">     264 </span><span class="lineCov">         41 : SimpleString MockCheckedExpectedCall::getInputParameterValueString(const SimpleString&amp; name)</span>
 <span class="lineNum">     265 </span>            : {
 <span class="lineNum">     266 </span><span class="lineCov">         41 :     MockNamedValue * p = inputParameters_-&gt;getValueByName(name);</span>
-<span class="lineNum">     267 </span><span class="lineCov">        123 :     return (p) ? StringFrom(*p) : &quot;failed&quot;;</span>
+<span class="lineNum">     267 </span><span class="lineCov">         41 :     return (p) ? StringFrom(*p) : &quot;failed&quot;;</span>
 <a name="268"><span class="lineNum">     268 </span>            : }</a>
 <span class="lineNum">     269 </span>            : 
 <span class="lineNum">     270 </span><span class="lineCov">        215 : bool MockCheckedExpectedCall::hasInputParameter(const MockNamedValue&amp; parameter)</span>
 <span class="lineNum">     271 </span>            : {
-<span class="lineNum">     272 </span><span class="lineCov">        430 :     MockNamedValue * p = inputParameters_-&gt;getValueByName(parameter.getName());</span>
-<span class="lineNum">     273 </span><span class="lineCov">        645 :     return (p) ? p-&gt;equals(parameter) : ignoreOtherParameters_;</span>
-<a name="274"><span class="lineNum">     274 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     272 </span><span class="lineCov">        215 :     MockNamedValue * p = inputParameters_-&gt;getValueByName(parameter.getName());</span>
+<span class="lineNum">     273 </span><span class="lineCov">        215 :     return (p) ? p-&gt;equals(parameter) : ignoreOtherParameters_;</span>
+<a name="274"><span class="lineNum">     274 </span>            : }</a>
 <span class="lineNum">     275 </span>            : 
 <span class="lineNum">     276 </span><span class="lineCov">         21 : bool MockCheckedExpectedCall::hasOutputParameter(const MockNamedValue&amp; parameter)</span>
 <span class="lineNum">     277 </span>            : {
-<span class="lineNum">     278 </span><span class="lineCov">         42 :     MockNamedValue * p = outputParameters_-&gt;getValueByName(parameter.getName());</span>
-<span class="lineNum">     279 </span><span class="lineCov">         63 :     return (p) ? true : ignoreOtherParameters_;</span>
-<a name="280"><span class="lineNum">     280 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     278 </span><span class="lineCov">         21 :     MockNamedValue * p = outputParameters_-&gt;getValueByName(parameter.getName());</span>
+<span class="lineNum">     279 </span><span class="lineCov">         21 :     return (p) ? true : ignoreOtherParameters_;</span>
+<a name="280"><span class="lineNum">     280 </span>            : }</a>
 <span class="lineNum">     281 </span>            : 
-<span class="lineNum">     282 </span>            : SimpleString MockCheckedExpectedCall::callToString()
+<span class="lineNum">     282 </span><span class="lineCov">        103 : SimpleString MockCheckedExpectedCall::callToString()</span>
 <span class="lineNum">     283 </span>            : {
 <span class="lineNum">     284 </span><span class="lineCov">        103 :     SimpleString str;</span>
 <span class="lineNum">     285 </span><span class="lineCov">        103 :     if (objectPtr_)</span>
-<span class="lineNum">     286 </span><span class="lineCov">         56 :         str = StringFromFormat(&quot;(object address: %p)::&quot;, objectPtr_);</span>
+<span class="lineNum">     286 </span><span class="lineCov">         14 :         str = StringFromFormat(&quot;(object address: %p)::&quot;, objectPtr_);</span>
 <span class="lineNum">     287 </span>            : 
-<span class="lineNum">     288 </span><span class="lineCov">        309 :     str += getName();</span>
+<span class="lineNum">     288 </span><span class="lineCov">        103 :     str += getName();</span>
 <span class="lineNum">     289 </span><span class="lineCov">        103 :     str += &quot; -&gt; &quot;;</span>
 <span class="lineNum">     290 </span><span class="lineCov">        103 :     if (expectedCallOrder_ != NO_EXPECTED_CALL_ORDER) {</span>
-<span class="lineNum">     291 </span><span class="lineCov">         33 :         str += StringFromFormat(&quot;expected call order: &lt;%d&gt; -&gt; &quot;, expectedCallOrder_);</span>
-<span class="lineNum">     292 </span><span class="lineCov">         11 :     }</span>
+<span class="lineNum">     291 </span><span class="lineCov">         11 :         str += StringFromFormat(&quot;expected call order: &lt;%d&gt; -&gt; &quot;, expectedCallOrder_);</span>
+<span class="lineNum">     292 </span>            :     }
 <span class="lineNum">     293 </span>            : 
-<span class="lineNum">     294 </span><span class="lineCov">        346 :     if (inputParameters_-&gt;begin() == NULL &amp;&amp; outputParameters_-&gt;begin() == NULL) {</span>
+<span class="lineNum">     294 </span><span class="lineCov">        103 :     if (inputParameters_-&gt;begin() == NULL &amp;&amp; outputParameters_-&gt;begin() == NULL) {</span>
 <span class="lineNum">     295 </span><span class="lineCov">         64 :         str += (ignoreOtherParameters_) ? &quot;all parameters ignored&quot; : &quot;no parameters&quot;;</span>
 <span class="lineNum">     296 </span><span class="lineCov">         64 :         return str;</span>
 <span class="lineNum">     297 </span>            :     }
 <span class="lineNum">     298 </span>            : 
-<span class="lineNum">     299 </span><span class="lineCov">        231 :     for (MockNamedValueListNode* p = inputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
-<span class="lineNum">     300 </span><span class="lineCov">        532 :         str += StringFromFormat(&quot;%s %s: &lt;%s&gt;&quot;, p-&gt;getType().asCharString(), p-&gt;getName().asCharString(), getInputParameterValueString(p-&gt;getName()).asCharString());</span>
-<span class="lineNum">     301 </span><span class="lineCov">         86 :         if (p-&gt;next()) str += &quot;, &quot;;</span>
-<span class="lineNum">     302 </span><span class="lineCov">         38 :     }</span>
+<span class="lineNum">     299 </span><span class="lineCov">         77 :     for (MockNamedValueListNode* p = inputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
+<span class="lineNum">     300 </span><span class="lineCov">         38 :         str += StringFromFormat(&quot;%s %s: &lt;%s&gt;&quot;, p-&gt;getType().asCharString(), p-&gt;getName().asCharString(), getInputParameterValueString(p-&gt;getName()).asCharString());</span>
+<span class="lineNum">     301 </span><span class="lineCov">         38 :         if (p-&gt;next()) str += &quot;, &quot;;</span>
+<span class="lineNum">     302 </span>            :     }
 <span class="lineNum">     303 </span>            : 
-<span class="lineNum">     304 </span><span class="lineCov">        135 :     for (MockNamedValueListNode* p = outputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
-<span class="lineNum">     305 </span><span class="lineCov">         54 :         str += StringFromFormat(&quot;%s %s: &lt;output&gt;&quot;, p-&gt;getType().asCharString(), p-&gt;getName().asCharString());</span>
-<span class="lineNum">     306 </span><span class="lineCov">         12 :         if (p-&gt;next()) str += &quot;, &quot;;</span>
-<span class="lineNum">     307 </span><span class="lineCov">          6 :     }</span>
+<span class="lineNum">     304 </span><span class="lineCov">         45 :     for (MockNamedValueListNode* p = outputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
+<span class="lineNum">     305 </span><span class="lineCov">          6 :         str += StringFromFormat(&quot;%s %s: &lt;output&gt;&quot;, p-&gt;getType().asCharString(), p-&gt;getName().asCharString());</span>
+<span class="lineNum">     306 </span><span class="lineCov">          6 :         if (p-&gt;next()) str += &quot;, &quot;;</span>
+<span class="lineNum">     307 </span>            :     }
 <span class="lineNum">     308 </span>            : 
 <span class="lineNum">     309 </span><span class="lineCov">         39 :     if (ignoreOtherParameters_)</span>
-<span class="lineNum">     310 </span><span class="lineCov">          6 :         str += &quot;, other parameters are ignored&quot;;</span>
+<span class="lineNum">     310 </span><span class="lineCov">          3 :         str += &quot;, other parameters are ignored&quot;;</span>
 <span class="lineNum">     311 </span><span class="lineCov">         39 :     return str;</span>
-<a name="312"><span class="lineNum">     312 </span><span class="lineCov">        206 : }</span></a>
+<a name="312"><span class="lineNum">     312 </span>            : }</a>
 <span class="lineNum">     313 </span>            : 
-<span class="lineNum">     314 </span>            : SimpleString MockCheckedExpectedCall::missingParametersToString()
+<span class="lineNum">     314 </span><span class="lineCov">         11 : SimpleString MockCheckedExpectedCall::missingParametersToString()</span>
 <span class="lineNum">     315 </span>            : {
 <span class="lineNum">     316 </span><span class="lineCov">         11 :     SimpleString str;</span>
-<span class="lineNum">     317 </span><span class="lineCov">         63 :     for (MockNamedValueListNode* p = inputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
-<span class="lineNum">     318 </span><span class="lineCov">         30 :         if (! item(p)-&gt;isFulfilled()) {</span>
-<span class="lineNum">     319 </span><span class="lineCov">         42 :             if (str != &quot;&quot;) str += &quot;, &quot;;</span>
-<span class="lineNum">     320 </span><span class="lineCov">         90 :             str += StringFromFormat(&quot;%s %s&quot;, p-&gt;getType().asCharString(), p-&gt;getName().asCharString());</span>
-<span class="lineNum">     321 </span><span class="lineCov">         10 :         }</span>
-<span class="lineNum">     322 </span><span class="lineCov">         10 :     }</span>
-<span class="lineNum">     323 </span><span class="lineCov">         39 :     for (MockNamedValueListNode* p = outputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
-<span class="lineNum">     324 </span><span class="lineCov">          6 :         if (! item(p)-&gt;isFulfilled()) {</span>
-<span class="lineNum">     325 </span><span class="lineCov">          8 :             if (str != &quot;&quot;) str += &quot;, &quot;;</span>
-<span class="lineNum">     326 </span><span class="lineCov">         18 :             str += StringFromFormat(&quot;%s %s&quot;, p-&gt;getType().asCharString(), p-&gt;getName().asCharString());</span>
-<span class="lineNum">     327 </span><span class="lineCov">          2 :         }</span>
-<span class="lineNum">     328 </span><span class="lineCov">          2 :     }</span>
+<span class="lineNum">     317 </span><span class="lineCov">         21 :     for (MockNamedValueListNode* p = inputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
+<span class="lineNum">     318 </span><span class="lineCov">         10 :         if (! item(p)-&gt;isFulfilled()) {</span>
+<span class="lineNum">     319 </span><span class="lineCov">         10 :             if (str != &quot;&quot;) str += &quot;, &quot;;</span>
+<span class="lineNum">     320 </span><span class="lineCov">         10 :             str += StringFromFormat(&quot;%s %s&quot;, p-&gt;getType().asCharString(), p-&gt;getName().asCharString());</span>
+<span class="lineNum">     321 </span>            :         }
+<span class="lineNum">     322 </span>            :     }
+<span class="lineNum">     323 </span><span class="lineCov">         13 :     for (MockNamedValueListNode* p = outputParameters_-&gt;begin(); p; p = p-&gt;next()) {</span>
+<span class="lineNum">     324 </span><span class="lineCov">          2 :         if (! item(p)-&gt;isFulfilled()) {</span>
+<span class="lineNum">     325 </span><span class="lineCov">          2 :             if (str != &quot;&quot;) str += &quot;, &quot;;</span>
+<span class="lineNum">     326 </span><span class="lineCov">          2 :             str += StringFromFormat(&quot;%s %s&quot;, p-&gt;getType().asCharString(), p-&gt;getName().asCharString());</span>
+<span class="lineNum">     327 </span>            :         }
+<span class="lineNum">     328 </span>            :     }
 <span class="lineNum">     329 </span><span class="lineCov">         11 :     return str;</span>
-<a name="330"><span class="lineNum">     330 </span><span class="lineCov">         22 : }</span></a>
+<a name="330"><span class="lineNum">     330 </span>            : }</a>
 <span class="lineNum">     331 </span>            : 
 <span class="lineNum">     332 </span><span class="lineCov">        691 : bool MockCheckedExpectedCall::relatesTo(const SimpleString&amp; functionName)</span>
 <span class="lineNum">     333 </span>            : {
-<span class="lineNum">     334 </span><span class="lineCov">       1382 :     return functionName == getName();</span>
-<a name="335"><span class="lineNum">     335 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     334 </span><span class="lineCov">        691 :     return functionName == getName();</span>
+<a name="335"><span class="lineNum">     335 </span>            : }</a>
 <span class="lineNum">     336 </span>            : 
 <span class="lineNum">     337 </span><span class="lineCov">          3 : bool MockCheckedExpectedCall::relatesToObject(void*objectPtr) const</span>
 <span class="lineNum">     338 </span>            : {
@@ -406,17 +406,17 @@
 <span class="lineNum">     344 </span><span class="lineCov">       2099 :     return (MockExpectedFunctionParameter*) node-&gt;item();</span>
 <a name="345"><span class="lineNum">     345 </span>            : }</a>
 <span class="lineNum">     346 </span>            : 
-<span class="lineNum">     347 </span><span class="lineCov">        444 : MockCheckedExpectedCall::MockExpectedFunctionParameter::MockExpectedFunctionParameter(const SimpleString&amp; name)</span>
-<span class="lineNum">     348 </span>            :             : MockNamedValue(name), fulfilled_(false)
-<span class="lineNum">     349 </span><span class="lineCov">        222 : {</span>
-<a name="350"><span class="lineNum">     350 </span><span class="lineCov">        444 : }</span></a>
+<span class="lineNum">     347 </span><span class="lineCov">        222 : MockCheckedExpectedCall::MockExpectedFunctionParameter::MockExpectedFunctionParameter(const SimpleString&amp; name)</span>
+<span class="lineNum">     348 </span><span class="lineCov">        222 :             : MockNamedValue(name), fulfilled_(false)</span>
+<span class="lineNum">     349 </span>            : {
+<a name="350"><span class="lineNum">     350 </span><span class="lineCov">        222 : }</span></a>
 <span class="lineNum">     351 </span>            : 
 <span class="lineNum">     352 </span><span class="lineCov">        192 : void MockCheckedExpectedCall::MockExpectedFunctionParameter::setFulfilled(bool b)</span>
 <span class="lineNum">     353 </span>            : {
 <span class="lineNum">     354 </span><span class="lineCov">        192 :     fulfilled_ = b;</span>
 <a name="355"><span class="lineNum">     355 </span><span class="lineCov">        192 : }</span></a>
 <span class="lineNum">     356 </span>            : 
-<span class="lineNum">     357 </span>            : bool MockCheckedExpectedCall::MockExpectedFunctionParameter::isFulfilled() const
+<span class="lineNum">     357 </span><span class="lineCov">       1907 : bool MockCheckedExpectedCall::MockExpectedFunctionParameter::isFulfilled() const</span>
 <span class="lineNum">     358 </span>            : {
 <span class="lineNum">     359 </span><span class="lineCov">       1907 :     return fulfilled_;</span>
 <a name="360"><span class="lineNum">     360 </span>            : }</a>
@@ -484,17 +484,17 @@
 <span class="lineNum">     422 </span><span class="lineCov">         14 :     return *this;</span>
 <a name="423"><span class="lineNum">     423 </span>            : }</a>
 <span class="lineNum">     424 </span>            : 
-<span class="lineNum">     425 </span>            : bool MockCheckedExpectedCall::hasReturnValue()
+<span class="lineNum">     425 </span><span class="lineNoCov">          0 : bool MockCheckedExpectedCall::hasReturnValue()</span>
 <span class="lineNum">     426 </span>            : {
 <span class="lineNum">     427 </span><span class="lineNoCov">          0 :     return !returnValue_.getName().isEmpty();</span>
-<a name="428"><span class="lineNum">     428 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="428"><span class="lineNum">     428 </span>            : }</a>
 <span class="lineNum">     429 </span>            : 
-<span class="lineNum">     430 </span>            : MockNamedValue MockCheckedExpectedCall::returnValue()
+<span class="lineNum">     430 </span><span class="lineCov">        148 : MockNamedValue MockCheckedExpectedCall::returnValue()</span>
 <span class="lineNum">     431 </span>            : {
 <span class="lineNum">     432 </span><span class="lineCov">        148 :     return returnValue_;</span>
 <a name="433"><span class="lineNum">     433 </span>            : }</a>
 <span class="lineNum">     434 </span>            : 
-<span class="lineNum">     435 </span>            : int MockCheckedExpectedCall::getCallOrder() const
+<span class="lineNum">     435 </span><span class="lineCov">        137 : int MockCheckedExpectedCall::getCallOrder() const</span>
 <span class="lineNum">     436 </span>            : {
 <span class="lineNum">     437 </span><span class="lineCov">        137 :     return callOrder_;</span>
 <a name="438"><span class="lineNum">     438 </span>            : }</a>
@@ -505,40 +505,40 @@
 <span class="lineNum">     443 </span><span class="lineCov">         26 :     return *this;</span>
 <a name="444"><span class="lineNum">     444 </span>            : }</a>
 <span class="lineNum">     445 </span>            : 
-<span class="lineNum">     446 </span>            : bool MockCheckedExpectedCall::isOutOfOrder() const
+<span class="lineNum">     446 </span><span class="lineCov">        398 : bool MockCheckedExpectedCall::isOutOfOrder() const</span>
 <span class="lineNum">     447 </span>            : {
 <span class="lineNum">     448 </span><span class="lineCov">        398 :     return outOfOrder_;</span>
 <span class="lineNum">     449 </span>            : }
 <span class="lineNum">     450 </span>            : 
 <a name="451"><span class="lineNum">     451 </span>            : struct MockExpectedCallCompositeNode</a>
 <span class="lineNum">     452 </span>            : {
-<span class="lineNum">     453 </span><span class="lineCov">         24 :     MockExpectedCallCompositeNode(MockExpectedCall&amp; functionCall, MockExpectedCallCompositeNode* next) : next_(next), call_(functionCall){}</span>
+<span class="lineNum">     453 </span><span class="lineCov">         12 :     MockExpectedCallCompositeNode(MockExpectedCall&amp; functionCall, MockExpectedCallCompositeNode* next) : next_(next), call_(functionCall){}</span>
 <span class="lineNum">     454 </span>            : 
 <span class="lineNum">     455 </span>            :     MockExpectedCallCompositeNode* next_;
 <span class="lineNum">     456 </span>            :     MockExpectedCall&amp; call_;
 <a name="457"><span class="lineNum">     457 </span>            : };</a>
 <span class="lineNum">     458 </span>            : 
-<span class="lineNum">     459 </span>            : MockExpectedCallComposite::MockExpectedCallComposite() : head_(NULL)
-<span class="lineNum">     460 </span><span class="lineCov">         56 : {</span>
-<a name="461"><span class="lineNum">     461 </span><span class="lineCov">        112 : }</span></a>
+<span class="lineNum">     459 </span><span class="lineCov">         56 : MockExpectedCallComposite::MockExpectedCallComposite() : head_(NULL)</span>
+<span class="lineNum">     460 </span>            : {
+<a name="461"><span class="lineNum">     461 </span><span class="lineCov">         56 : }</span></a>
 <span class="lineNum">     462 </span>            : 
-<span class="lineNum">     463 </span>            : MockExpectedCallComposite::~MockExpectedCallComposite()
-<span class="lineNum">     464 </span><span class="lineCov">         56 : {</span>
+<span class="lineNum">     463 </span><span class="lineCov">         56 : MockExpectedCallComposite::~MockExpectedCallComposite()</span>
+<span class="lineNum">     464 </span>            : {
 <span class="lineNum">     465 </span>            : 
-<a name="466"><span class="lineNum">     466 </span><span class="lineCov">        112 : }</span></a>
+<a name="466"><span class="lineNum">     466 </span><span class="lineCov">         56 : }</span></a>
 <span class="lineNum">     467 </span>            : 
 <span class="lineNum">     468 </span><span class="lineCov">         12 : void MockExpectedCallComposite::add(MockExpectedCall&amp; call)</span>
 <span class="lineNum">     469 </span>            : {
-<span class="lineNum">     470 </span><span class="lineCov">         24 :     head_ = new MockExpectedCallCompositeNode(call, head_);</span>
+<span class="lineNum">     470 </span><span class="lineCov">         12 :     head_ = new MockExpectedCallCompositeNode(call, head_);</span>
 <a name="471"><span class="lineNum">     471 </span><span class="lineCov">         12 : }</span></a>
 <span class="lineNum">     472 </span>            : 
-<span class="lineNum">     473 </span>            : void MockExpectedCallComposite::clear()
+<span class="lineNum">     473 </span><span class="lineCov">        371 : void MockExpectedCallComposite::clear()</span>
 <span class="lineNum">     474 </span>            : {
 <span class="lineNum">     475 </span><span class="lineCov">        754 :     while (head_) {</span>
 <span class="lineNum">     476 </span><span class="lineCov">         12 :         MockExpectedCallCompositeNode* next = head_-&gt;next_;</span>
-<span class="lineNum">     477 </span><span class="lineCov">         24 :         delete head_;</span>
+<span class="lineNum">     477 </span><span class="lineCov">         12 :         delete head_;</span>
 <span class="lineNum">     478 </span><span class="lineCov">         12 :         head_ = next;</span>
-<span class="lineNum">     479 </span><span class="lineCov">         12 :     }</span>
+<span class="lineNum">     479 </span>            :     }
 <a name="480"><span class="lineNum">     480 </span><span class="lineCov">        371 : }</span></a>
 <span class="lineNum">     481 </span>            : 
 <span class="lineNum">     482 </span><span class="lineNoCov">          0 : MockExpectedCall&amp; MockExpectedCallComposite::withName(const SimpleString&amp; name)</span>
@@ -552,18 +552,18 @@
 <span class="lineNum">     490 </span>            : {
 <span class="lineNum">     491 </span><span class="lineNoCov">          0 :     FAIL(&quot;withCallOrder not supported for CompositeCalls&quot;);</span>
 <span class="lineNum">     492 </span><span class="lineNoCov">          0 :     return *this;</span>
-<a name="493"><span class="lineNum">     493 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="493"><span class="lineNum">     493 </span>            : }</a>
 <span class="lineNum">     494 </span>            : 
 <span class="lineNum">     495 </span><span class="lineCov">          1 : MockExpectedCall&amp; MockExpectedCallComposite::withUnsignedIntParameter(const SimpleString&amp; name, unsigned int value)</span>
 <span class="lineNum">     496 </span>            : {
-<span class="lineNum">     497 </span><span class="lineCov">          6 :     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node-&gt;next_)</span>
+<span class="lineNum">     497 </span><span class="lineCov">          3 :     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node-&gt;next_)</span>
 <span class="lineNum">     498 </span><span class="lineCov">          2 :         node-&gt;call_.withParameter(name, value);</span>
 <span class="lineNum">     499 </span><span class="lineCov">          1 :     return *this;</span>
 <a name="500"><span class="lineNum">     500 </span>            : }</a>
 <span class="lineNum">     501 </span>            : 
 <span class="lineNum">     502 </span><span class="lineCov">          1 : MockExpectedCall&amp; MockExpectedCallComposite::withIntParameter(const SimpleString&amp; name, int value)</span>
 <span class="lineNum">     503 </span>            : {
-<span class="lineNum">     504 </span><span class="lineCov">          6 :     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node-&gt;next_)</span>
+<span class="lineNum">     504 </span><span class="lineCov">          3 :     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node-&gt;next_)</span>
 <span class="lineNum">     505 </span><span class="lineCov">          2 :         node-&gt;call_.withParameter(name, value);</span>
 <span class="lineNum">     506 </span><span class="lineCov">          1 :     return *this;</span>
 <a name="507"><span class="lineNum">     507 </span>            : }</a>
@@ -584,7 +584,7 @@
 <span class="lineNum">     522 </span>            : 
 <span class="lineNum">     523 </span><span class="lineCov">          4 : MockExpectedCall&amp; MockExpectedCallComposite::withDoubleParameter(const SimpleString&amp; name, double value)</span>
 <span class="lineNum">     524 </span>            : {
-<span class="lineNum">     525 </span><span class="lineCov">         24 :     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node-&gt;next_)</span>
+<span class="lineNum">     525 </span><span class="lineCov">         12 :     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node-&gt;next_)</span>
 <span class="lineNum">     526 </span><span class="lineCov">          8 :         node-&gt;call_.withParameter(name, value);</span>
 <span class="lineNum">     527 </span><span class="lineCov">          4 :     return *this;</span>
 <span class="lineNum">     528 </span>            : 
@@ -592,7 +592,7 @@
 <span class="lineNum">     530 </span>            : 
 <span class="lineNum">     531 </span><span class="lineCov">          1 : MockExpectedCall&amp; MockExpectedCallComposite::withStringParameter(const SimpleString&amp; name, const char* value)</span>
 <span class="lineNum">     532 </span>            : {
-<span class="lineNum">     533 </span><span class="lineCov">          6 :     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node-&gt;next_)</span>
+<span class="lineNum">     533 </span><span class="lineCov">          3 :     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node-&gt;next_)</span>
 <span class="lineNum">     534 </span><span class="lineCov">          2 :         node-&gt;call_.withParameter(name, value);</span>
 <span class="lineNum">     535 </span><span class="lineCov">          1 :     return *this;</span>
 <a name="536"><span class="lineNum">     536 </span>            : }</a>
@@ -625,9 +625,9 @@
 <span class="lineNum">     563 </span><span class="lineNoCov">          0 :     return *this;</span>
 <a name="564"><span class="lineNum">     564 </span>            : }</a>
 <span class="lineNum">     565 </span>            : 
-<span class="lineNum">     566 </span>            : MockExpectedCall&amp; MockExpectedCallComposite::ignoreOtherParameters()
+<span class="lineNum">     566 </span><span class="lineCov">          3 : MockExpectedCall&amp; MockExpectedCallComposite::ignoreOtherParameters()</span>
 <span class="lineNum">     567 </span>            : {
-<span class="lineNum">     568 </span><span class="lineCov">         18 :     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node-&gt;next_)</span>
+<span class="lineNum">     568 </span><span class="lineCov">          9 :     for (MockExpectedCallCompositeNode* node = head_; node != NULL; node = node-&gt;next_)</span>
 <span class="lineNum">     569 </span><span class="lineCov">          6 :         node-&gt;call_.ignoreOtherParameters();</span>
 <span class="lineNum">     570 </span><span class="lineCov">          3 :     return *this;</span>
 <a name="571"><span class="lineNum">     571 </span>            : }</a>
@@ -688,7 +688,7 @@
 <span class="lineNum">     626 </span><span class="lineNoCov">          0 :     return *this;</span>
 <a name="627"><span class="lineNum">     627 </span>            : }</a>
 <span class="lineNum">     628 </span>            : 
-<span class="lineNum">     629 </span>            : bool MockExpectedCallComposite::hasReturnValue()
+<span class="lineNum">     629 </span><span class="lineNoCov">          0 : bool MockExpectedCallComposite::hasReturnValue()</span>
 <span class="lineNum">     630 </span>            : {
 <span class="lineNum">     631 </span><span class="lineNoCov">          0 :     return head_-&gt;call_.hasReturnValue();</span>
 <a name="632"><span class="lineNum">     632 </span>            : }</a>
@@ -700,11 +700,11 @@
 <span class="lineNum">     638 </span><span class="lineNoCov">          0 :     return *this;</span>
 <a name="639"><span class="lineNum">     639 </span>            : }</a>
 <span class="lineNum">     640 </span>            : 
-<span class="lineNum">     641 </span>            : MockExpectedCall&amp; MockIgnoredExpectedCall::instance()
+<span class="lineNum">     641 </span><span class="lineCov">          3 : MockExpectedCall&amp; MockIgnoredExpectedCall::instance()</span>
 <span class="lineNum">     642 </span>            : {
-<span class="lineNum">     643 </span><span class="lineCov">          6 :     static MockIgnoredExpectedCall call;</span>
+<span class="lineNum">     643 </span><span class="lineCov">          3 :     static MockIgnoredExpectedCall call;</span>
 <span class="lineNum">     644 </span><span class="lineCov">          3 :     return call;</span>
-<span class="lineNum">     645 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     645 </span>            : }
 </pre>
       </td>
     </tr>

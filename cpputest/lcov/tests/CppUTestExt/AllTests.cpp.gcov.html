@@ -31,13 +31,13 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">6</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -104,9 +104,9 @@
 <span class="lineNum">      42 </span>            : #endif
 <span class="lineNum">      43 </span>            : 
 <span class="lineNum">      44 </span><span class="lineCov">          1 :     MemoryReporterPlugin plugin;</span>
-<span class="lineNum">      45 </span><span class="lineCov">          3 :     MockSupportPlugin mockPlugin;</span>
-<span class="lineNum">      46 </span><span class="lineCov">          2 :     TestRegistry::getCurrentRegistry()-&gt;installPlugin(&amp;plugin);</span>
-<span class="lineNum">      47 </span><span class="lineCov">          2 :     TestRegistry::getCurrentRegistry()-&gt;installPlugin(&amp;mockPlugin);</span>
+<span class="lineNum">      45 </span><span class="lineCov">          2 :     MockSupportPlugin mockPlugin;</span>
+<span class="lineNum">      46 </span><span class="lineCov">          1 :     TestRegistry::getCurrentRegistry()-&gt;installPlugin(&amp;plugin);</span>
+<span class="lineNum">      47 </span><span class="lineCov">          1 :     TestRegistry::getCurrentRegistry()-&gt;installPlugin(&amp;mockPlugin);</span>
 <span class="lineNum">      48 </span>            : 
 <span class="lineNum">      49 </span>            : #ifndef GMOCK_RENAME_MAIN
 <span class="lineNum">      50 </span><span class="lineCov">          2 :     return CommandLineTestRunner::RunAllTests(ac, av);</span>
@@ -119,7 +119,7 @@
 <span class="lineNum">      57 </span>            :     CommandLineTestRunner runner(ac, av, &amp;output, TestRegistry::getCurrentRegistry());
 <span class="lineNum">      58 </span>            :     return runner.runAllTestsMain();
 <span class="lineNum">      59 </span>            : #endif
-<span class="lineNum">      60 </span><span class="lineCov">          2 : }</span>
+<span class="lineNum">      60 </span>            : }
 <span class="lineNum">      61 </span>            : 
 </pre>
       </td>

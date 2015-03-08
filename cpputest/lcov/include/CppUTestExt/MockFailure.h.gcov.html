@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">24</td>
-            <td class="headerCovTableEntry">36</td>
-            <td class="headerCovTableEntryLo">66.7 %</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntry">27</td>
+            <td class="headerCovTableEntryLo">55.6 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -103,8 +103,8 @@
 <span class="lineNum">      41 </span>            : protected:
 <a name="42"><span class="lineNum">      42 </span>            :     bool crashOnFailure_;</a>
 <a name="43"><span class="lineNum">      43 </span>            : public:</a>
-<span class="lineNum">      44 </span><span class="lineCov">        429 :     MockFailureReporter() : crashOnFailure_(false){}</span>
-<span class="lineNum">      45 </span><span class="lineCov">        429 :     virtual ~MockFailureReporter() {}</span>
+<span class="lineNum">      44 </span><span class="lineCov">        362 :     MockFailureReporter() : crashOnFailure_(false){}</span>
+<span class="lineNum">      45 </span><span class="lineCov">        362 :     virtual ~MockFailureReporter() {}</span>
 <span class="lineNum">      46 </span>            : 
 <span class="lineNum">      47 </span>            :     virtual void failTest(const MockFailure&amp; failure);
 <a name="48"><span class="lineNum">      48 </span>            :     virtual UtestShell* getTestToFail();</a>
@@ -116,7 +116,7 @@
 <span class="lineNum">      54 </span>            : {
 <a name="55"><span class="lineNum">      55 </span>            : public:</a>
 <span class="lineNum">      56 </span>            :     MockFailure(UtestShell* test);
-<span class="lineNum">      57 </span><span class="lineCov">         86 :     virtual ~MockFailure(){}</span>
+<span class="lineNum">      57 </span><span class="lineCov">         85 :     virtual ~MockFailure(){}</span>
 <span class="lineNum">      58 </span>            : protected:
 <span class="lineNum">      59 </span>            :     void addExpectationsAndCallHistory(const MockExpectedCallsList&amp; expectations);
 <span class="lineNum">      60 </span>            :     void addExpectationsAndCallHistoryRelatedTo(const SimpleString&amp; function, const MockExpectedCallsList&amp; expectations);
@@ -126,63 +126,63 @@
 <span class="lineNum">      64 </span>            : {
 <a name="65"><span class="lineNum">      65 </span>            : public:</a>
 <span class="lineNum">      66 </span>            :     MockExpectedCallsDidntHappenFailure(UtestShell* test, const MockExpectedCallsList&amp; expectations);
-<span class="lineNum">      67 </span><span class="lineCov">         26 :     virtual ~MockExpectedCallsDidntHappenFailure(){}</span>
+<span class="lineNum">      67 </span><span class="lineCov">         13 :     virtual ~MockExpectedCallsDidntHappenFailure(){}</span>
 <span class="lineNum">      68 </span>            : };
 <span class="lineNum">      69 </span>            : 
 <span class="lineNum">      70 </span>            : class MockUnexpectedCallHappenedFailure : public MockFailure
 <span class="lineNum">      71 </span>            : {
 <a name="72"><span class="lineNum">      72 </span>            : public:</a>
 <span class="lineNum">      73 </span>            :     MockUnexpectedCallHappenedFailure(UtestShell* test, const SimpleString&amp; name, const MockExpectedCallsList&amp; expectations);
-<span class="lineNum">      74 </span><span class="lineCov">         30 :     virtual ~MockUnexpectedCallHappenedFailure(){}</span>
+<span class="lineNum">      74 </span><span class="lineCov">         15 :     virtual ~MockUnexpectedCallHappenedFailure(){}</span>
 <span class="lineNum">      75 </span>            : };
 <span class="lineNum">      76 </span>            : 
 <span class="lineNum">      77 </span>            : class MockCallOrderFailure : public MockFailure
 <span class="lineNum">      78 </span>            : {
 <a name="79"><span class="lineNum">      79 </span>            : public:</a>
 <span class="lineNum">      80 </span>            :     MockCallOrderFailure(UtestShell* test, const MockExpectedCallsList&amp; expectations);
-<span class="lineNum">      81 </span><span class="lineCov">         10 :     virtual ~MockCallOrderFailure(){}</span>
+<span class="lineNum">      81 </span><span class="lineCov">          5 :     virtual ~MockCallOrderFailure(){}</span>
 <span class="lineNum">      82 </span>            : };
 <span class="lineNum">      83 </span>            : 
 <span class="lineNum">      84 </span>            : class MockUnexpectedInputParameterFailure : public MockFailure
 <span class="lineNum">      85 </span>            : {
 <a name="86"><span class="lineNum">      86 </span>            : public:</a>
 <span class="lineNum">      87 </span>            :     MockUnexpectedInputParameterFailure(UtestShell* test, const SimpleString&amp; functionName, const MockNamedValue&amp; parameter, const MockExpectedCallsList&amp; expectations);
-<span class="lineNum">      88 </span><span class="lineCov">         42 :     virtual ~MockUnexpectedInputParameterFailure(){}</span>
+<span class="lineNum">      88 </span><span class="lineCov">         21 :     virtual ~MockUnexpectedInputParameterFailure(){}</span>
 <span class="lineNum">      89 </span>            : };
 <span class="lineNum">      90 </span>            : 
 <span class="lineNum">      91 </span>            : class MockUnexpectedOutputParameterFailure : public MockFailure
 <span class="lineNum">      92 </span>            : {
 <a name="93"><span class="lineNum">      93 </span>            : public:</a>
 <span class="lineNum">      94 </span>            :     MockUnexpectedOutputParameterFailure(UtestShell* test, const SimpleString&amp; functionName, const MockNamedValue&amp; parameter, const MockExpectedCallsList&amp; expectations);
-<span class="lineNum">      95 </span><span class="lineCov">          6 :     virtual ~MockUnexpectedOutputParameterFailure(){}</span>
+<span class="lineNum">      95 </span><span class="lineCov">          3 :     virtual ~MockUnexpectedOutputParameterFailure(){}</span>
 <span class="lineNum">      96 </span>            : };
 <span class="lineNum">      97 </span>            : 
 <span class="lineNum">      98 </span>            : class MockExpectedParameterDidntHappenFailure : public MockFailure
 <span class="lineNum">      99 </span>            : {
 <a name="100"><span class="lineNum">     100 </span>            : public:</a>
 <span class="lineNum">     101 </span>            :     MockExpectedParameterDidntHappenFailure(UtestShell* test, const SimpleString&amp; functionName, const MockExpectedCallsList&amp; expectations);
-<span class="lineNum">     102 </span><span class="lineCov">         22 :     virtual ~MockExpectedParameterDidntHappenFailure(){}</span>
+<span class="lineNum">     102 </span><span class="lineCov">         11 :     virtual ~MockExpectedParameterDidntHappenFailure(){}</span>
 <span class="lineNum">     103 </span>            : };
 <span class="lineNum">     104 </span>            : 
 <span class="lineNum">     105 </span>            : class MockNoWayToCompareCustomTypeFailure : public MockFailure
 <span class="lineNum">     106 </span>            : {
 <a name="107"><span class="lineNum">     107 </span>            : public:</a>
 <span class="lineNum">     108 </span>            :     MockNoWayToCompareCustomTypeFailure(UtestShell* test, const SimpleString&amp; typeName);
-<span class="lineNum">     109 </span><span class="lineCov">         14 :     virtual ~MockNoWayToCompareCustomTypeFailure(){}</span>
+<span class="lineNum">     109 </span><span class="lineCov">          7 :     virtual ~MockNoWayToCompareCustomTypeFailure(){}</span>
 <span class="lineNum">     110 </span>            : };
 <span class="lineNum">     111 </span>            : 
 <span class="lineNum">     112 </span>            : class MockUnexpectedObjectFailure : public MockFailure
 <span class="lineNum">     113 </span>            : {
 <a name="114"><span class="lineNum">     114 </span>            : public:</a>
 <span class="lineNum">     115 </span>            :     MockUnexpectedObjectFailure(UtestShell* test, const SimpleString&amp; functionName, void* expected, const MockExpectedCallsList&amp; expectations);
-<span class="lineNum">     116 </span><span class="lineCov">          6 :     virtual ~MockUnexpectedObjectFailure(){}</span>
+<span class="lineNum">     116 </span><span class="lineCov">          3 :     virtual ~MockUnexpectedObjectFailure(){}</span>
 <span class="lineNum">     117 </span>            : };
 <span class="lineNum">     118 </span>            : 
 <span class="lineNum">     119 </span>            : class MockExpectedObjectDidntHappenFailure : public MockFailure
 <span class="lineNum">     120 </span>            : {
 <a name="121"><span class="lineNum">     121 </span>            : public:</a>
 <span class="lineNum">     122 </span>            :     MockExpectedObjectDidntHappenFailure(UtestShell* test, const SimpleString&amp; functionName, const MockExpectedCallsList&amp; expectations);
-<span class="lineNum">     123 </span><span class="lineCov">         12 :     virtual ~MockExpectedObjectDidntHappenFailure(){}</span>
+<span class="lineNum">     123 </span><span class="lineCov">          6 :     virtual ~MockExpectedObjectDidntHappenFailure(){}</span>
 <span class="lineNum">     124 </span>            : };
 <span class="lineNum">     125 </span>            : 
 <span class="lineNum">     126 </span>            : #endif

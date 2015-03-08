@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntry">38</td>
-            <td class="headerCovTableEntryLo">26.3 %</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">35</td>
+            <td class="headerCovTableEntryLo">20.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -184,8 +184,8 @@
 <span class="lineNum">     122 </span>            :         void* ptr_;
 <a name="123"><span class="lineNum">     123 </span>            : </a>
 <span class="lineNum">     124 </span>            :         MockOutputParametersListNode* next_;
-<span class="lineNum">     125 </span><span class="lineCov">         32 :         MockOutputParametersListNode(SimpleString* name, void* ptr)</span>
-<span class="lineNum">     126 </span><span class="lineCov">         32 :             : name_(name), ptr_(ptr), next_(NULL) {}</span>
+<span class="lineNum">     125 </span><span class="lineCov">         16 :         MockOutputParametersListNode(SimpleString* name, void* ptr)</span>
+<span class="lineNum">     126 </span><span class="lineCov">         16 :             : name_(name), ptr_(ptr), next_(NULL) {}</span>
 <span class="lineNum">     127 </span>            :     };
 <span class="lineNum">     128 </span>            : 
 <span class="lineNum">     129 </span>            :     MockOutputParametersListNode* outputParameterExpectations_;
@@ -252,7 +252,7 @@
 <span class="lineNum">     190 </span>            :     void addParameterName(const SimpleString&amp; name);
 <a name="191"><span class="lineNum">     191 </span>            : };</a>
 <span class="lineNum">     192 </span>            : 
-<span class="lineNum">     193 </span><span class="lineCov">          4 : class MockIgnoredActualCall: public MockActualCall</span>
+<span class="lineNum">     193 </span><span class="lineCov">          2 : class MockIgnoredActualCall: public MockActualCall</span>
 <a name="194"><span class="lineNum">     194 </span>            : {</a>
 <a name="195"><span class="lineNum">     195 </span>            : public:</a>
 <a name="196"><span class="lineNum">     196 </span><span class="lineNoCov">          0 :     virtual MockActualCall&amp; withName(const SimpleString&amp;) _override { return *this;}</span></a>

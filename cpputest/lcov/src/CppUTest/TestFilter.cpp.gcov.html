@@ -31,17 +31,17 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">33</td>
-            <td class="headerCovTableEntry">33</td>
+            <td class="headerCovTableEntry">31</td>
+            <td class="headerCovTableEntry">31</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">14</td>
-            <td class="headerCovTableEntry">14</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntry">11</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -90,19 +90,19 @@
 <span class="lineNum">      28 </span>            : #include &quot;CppUTest/CppUTestConfig.h&quot;
 <a name="29"><span class="lineNum">      29 </span>            : #include &quot;CppUTest/TestFilter.h&quot;</a>
 <span class="lineNum">      30 </span>            : 
-<span class="lineNum">      31 </span>            : TestFilter::TestFilter() : strictMatching_(false), next_(NULL)
-<span class="lineNum">      32 </span><span class="lineCov">          3 : {</span>
-<a name="33"><span class="lineNum">      33 </span><span class="lineCov">          6 : }</span></a>
+<span class="lineNum">      31 </span><span class="lineCov">          3 : TestFilter::TestFilter() : strictMatching_(false), next_(NULL)</span>
+<span class="lineNum">      32 </span>            : {
+<a name="33"><span class="lineNum">      33 </span><span class="lineCov">          3 : }</span></a>
 <span class="lineNum">      34 </span>            : 
-<span class="lineNum">      35 </span><span class="lineCov">         42 : TestFilter::TestFilter(const SimpleString&amp; filter) : strictMatching_(false), next_(NULL)</span>
-<span class="lineNum">      36 </span><span class="lineCov">         21 : {</span>
+<span class="lineNum">      35 </span><span class="lineCov">         21 : TestFilter::TestFilter(const SimpleString&amp; filter) : strictMatching_(false), next_(NULL)</span>
+<span class="lineNum">      36 </span>            : {
 <span class="lineNum">      37 </span><span class="lineCov">         21 :     filter_ = filter;</span>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">         42 : }</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">         21 : }</span></a>
 <span class="lineNum">      39 </span>            : 
-<span class="lineNum">      40 </span><span class="lineCov">         60 : TestFilter::TestFilter(const char* filter) : strictMatching_(false), next_(NULL)</span>
-<span class="lineNum">      41 </span><span class="lineCov">         30 : {</span>
-<span class="lineNum">      42 </span><span class="lineCov">         90 :     filter_ = filter;</span>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">         60 : }</span></a>
+<span class="lineNum">      40 </span><span class="lineCov">         30 : TestFilter::TestFilter(const char* filter) : strictMatching_(false), next_(NULL)</span>
+<span class="lineNum">      41 </span>            : {
+<span class="lineNum">      42 </span><span class="lineCov">         30 :     filter_ = filter;</span>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">         30 : }</span></a>
 <span class="lineNum">      44 </span>            : 
 <span class="lineNum">      45 </span><span class="lineCov">         22 : TestFilter* TestFilter::add(TestFilter* filter)</span>
 <span class="lineNum">      46 </span>            : {
@@ -110,12 +110,12 @@
 <span class="lineNum">      48 </span><span class="lineCov">         22 :     return this;</span>
 <a name="49"><span class="lineNum">      49 </span>            : }</a>
 <span class="lineNum">      50 </span>            : 
-<span class="lineNum">      51 </span>            : TestFilter* TestFilter::getNext() const
+<span class="lineNum">      51 </span><span class="lineCov">         36 : TestFilter* TestFilter::getNext() const</span>
 <span class="lineNum">      52 </span>            : {
 <span class="lineNum">      53 </span><span class="lineCov">         36 :     return next_;</span>
 <a name="54"><span class="lineNum">      54 </span>            : }</a>
 <span class="lineNum">      55 </span>            : 
-<span class="lineNum">      56 </span>            : void TestFilter::strictMatching()
+<span class="lineNum">      56 </span><span class="lineCov">         28 : void TestFilter::strictMatching()</span>
 <span class="lineNum">      57 </span>            : {
 <span class="lineNum">      58 </span><span class="lineCov">         28 :     strictMatching_ = true;</span>
 <a name="59"><span class="lineNum">      59 </span><span class="lineCov">         28 : }</span></a>
@@ -125,25 +125,25 @@
 <span class="lineNum">      63 </span><span class="lineCov">         19 :     if(strictMatching_)</span>
 <span class="lineNum">      64 </span><span class="lineCov">          3 :         return name == filter_;</span>
 <span class="lineNum">      65 </span><span class="lineCov">         16 :     return name.contains(filter_);</span>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">         19 : }</span></a>
+<a name="66"><span class="lineNum">      66 </span>            : }</a>
 <span class="lineNum">      67 </span>            : 
 <span class="lineNum">      68 </span><span class="lineCov">         18 : bool TestFilter::operator==(const TestFilter&amp; filter) const</span>
 <span class="lineNum">      69 </span>            : {
-<span class="lineNum">      70 </span><span class="lineCov">         34 :     return (filter_ == filter.filter_ &amp;&amp; strictMatching_ == filter.strictMatching_);</span>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">         18 : }</span></a>
+<span class="lineNum">      70 </span><span class="lineCov">         18 :     return (filter_ == filter.filter_ &amp;&amp; strictMatching_ == filter.strictMatching_);</span>
+<a name="71"><span class="lineNum">      71 </span>            : }</a>
 <span class="lineNum">      72 </span>            : 
 <span class="lineNum">      73 </span><span class="lineCov">         15 : bool TestFilter::operator!=(const TestFilter&amp; filter) const</span>
 <span class="lineNum">      74 </span>            : {
 <span class="lineNum">      75 </span><span class="lineCov">         15 :     return !(filter == *this);</span>
 <a name="76"><span class="lineNum">      76 </span>            : }</a>
 <span class="lineNum">      77 </span>            : 
-<span class="lineNum">      78 </span>            : SimpleString TestFilter::asString() const
+<span class="lineNum">      78 </span><span class="lineCov">          4 : SimpleString TestFilter::asString() const</span>
 <span class="lineNum">      79 </span>            : {
 <span class="lineNum">      80 </span><span class="lineCov">          4 :     SimpleString textFilter =  StringFromFormat(&quot;TestFilter: \&quot;%s\&quot;&quot;, filter_.asCharString());</span>
 <span class="lineNum">      81 </span><span class="lineCov">          4 :     if (strictMatching_)</span>
-<span class="lineNum">      82 </span><span class="lineCov">          2 :         textFilter += &quot; with strict matching&quot;;</span>
+<span class="lineNum">      82 </span><span class="lineCov">          1 :         textFilter += &quot; with strict matching&quot;;</span>
 <span class="lineNum">      83 </span><span class="lineCov">          4 :     return textFilter;</span>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">          8 : }</span></a>
+<a name="84"><span class="lineNum">      84 </span>            : }</a>
 <span class="lineNum">      85 </span>            : 
 <span class="lineNum">      86 </span><span class="lineCov">          4 : SimpleString StringFrom(const TestFilter&amp; filter)</span>
 <span class="lineNum">      87 </span>            : {

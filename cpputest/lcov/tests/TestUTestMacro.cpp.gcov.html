@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">342</td>
-            <td class="headerCovTableEntry">382</td>
-            <td class="headerCovTableEntryMed">89.5 %</td>
+            <td class="headerCovTableEntry">346</td>
+            <td class="headerCovTableEntry">420</td>
+            <td class="headerCovTableEntryMed">82.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">839</td>
-            <td class="headerCovTableEntry">987</td>
-            <td class="headerCovTableEntryMed">85.0 %</td>
+            <td class="headerCovTableEntry">461</td>
+            <td class="headerCovTableEntry">587</td>
+            <td class="headerCovTableEntryMed">78.5 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -107,10 +107,10 @@
 <span class="lineNum">      45 </span>            : 
 <a name="46"><span class="lineNum">      46 </span><span class="lineCov">         46 : }</span></a>
 <span class="lineNum">      47 </span>            : 
-<span class="lineNum">      48 </span><span class="lineCov">        216 : TEST_GROUP(UnitTestMacros)</span>
+<span class="lineNum">      48 </span><span class="lineCov">        108 : TEST_GROUP(UnitTestMacros)</span>
 <a name="49"><span class="lineNum">      49 </span>            : {</a>
 <span class="lineNum">      50 </span>            :     TestTestingFixture fixture;
-<span class="lineNum">      51 </span>            :     void setup()
+<span class="lineNum">      51 </span><span class="lineCov">         54 :     void setup()</span>
 <span class="lineNum">      52 </span>            :     {
 <span class="lineNum">      53 </span><span class="lineCov">         54 :         lineOfCodeExecutedAfterCheck = false;</span>
 <a name="54"><span class="lineNum">      54 </span><span class="lineCov">         54 :     }</span></a>
@@ -122,536 +122,536 @@
 <span class="lineNum">      60 </span><span class="lineCov">         37 :     }</span>
 <a name="61"><span class="lineNum">      61 </span>            : };</a>
 <span class="lineNum">      62 </span>            : 
-<span class="lineNum">      63 </span>            : static void _failingTestMethodWithFAIL()
+<span class="lineNum">      63 </span><span class="lineCov">          2 : static void _failingTestMethodWithFAIL()</span>
 <span class="lineNum">      64 </span>            : {
-<span class="lineNum">      65 </span><span class="lineCov">          2 :     FAIL(&quot;This test fails&quot;);</span>
+<span class="lineNum">      65 </span><span class="lineCov">          4 :     FAIL(&quot;This test fails&quot;);</span>
 <span class="lineNum">      66 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">          6 : }</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">      68 </span>            : 
-<span class="lineNum">      69 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FAILMakesTheTestFailPrintsTheRightResultAndStopsExecuting)</span>
+<span class="lineNum">      69 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FAILMakesTheTestFailPrintsTheRightResultAndStopsExecuting)</span>
 <span class="lineNum">      70 </span>            : {
 <span class="lineNum">      71 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithFAIL);</span>
 <span class="lineNum">      72 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;This test fails&quot;);</span>
 <a name="73"><span class="lineNum">      73 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      74 </span>            : 
-<span class="lineNum">      75 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FAILWillPrintTheFileThatItFailed)</span>
+<span class="lineNum">      75 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FAILWillPrintTheFileThatItFailed)</span>
 <span class="lineNum">      76 </span>            : {
 <span class="lineNum">      77 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithFAIL);</span>
 <span class="lineNum">      78 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(__FILE__);</span>
 <a name="79"><span class="lineNum">      79 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      80 </span>            : 
-<span class="lineNum">      81 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FAILBehavesAsAProperMacro)</span>
+<span class="lineNum">      81 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FAILBehavesAsAProperMacro)</span>
 <span class="lineNum">      82 </span>            : {
 <span class="lineNum">      83 </span>            :     if (false) FAIL(&quot;&quot;)
-<span class="lineNum">      84 </span><span class="lineCov">          2 :     else CHECK(true)</span>
+<span class="lineNum">      84 </span><span class="lineCov">          1 :     else CHECK(true)</span>
 <span class="lineNum">      85 </span>            : 
-<span class="lineNum">      86 </span><span class="lineCov">          2 :     if (true) CHECK(true)</span>
+<span class="lineNum">      86 </span><span class="lineCov">          1 :     if (true) CHECK(true)</span>
 <span class="lineNum">      87 </span>            :     else FAIL(&quot;&quot;)
 <a name="88"><span class="lineNum">      88 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      89 </span>            : 
-<span class="lineNum">      90 </span><span class="lineCov">          6 : IGNORE_TEST(UnitTestMacros, FAILworksInAnIgnoredTest)</span>
+<span class="lineNum">      90 </span><span class="lineCov">          3 : IGNORE_TEST(UnitTestMacros, FAILworksInAnIgnoredTest)</span>
 <span class="lineNum">      91 </span>            : {
 <span class="lineNum">      92 </span><span class="lineNoCov">          0 :     FAIL(&quot;die!&quot;);</span>
 <a name="93"><span class="lineNum">      93 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">      94 </span>            : 
-<span class="lineNum">      95 </span>            : static void _STRCMP_EQUALWithActualIsNULLTestMethod()
+<span class="lineNum">      95 </span><span class="lineCov">          1 : static void _STRCMP_EQUALWithActualIsNULLTestMethod()</span>
 <span class="lineNum">      96 </span>            : {
-<span class="lineNum">      97 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;ok&quot;, NULL);</span>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">          3 : }</span></a>
+<span class="lineNum">      97 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;ok&quot;, NULL);</span>
+<a name="98"><span class="lineNum">      98 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">      99 </span>            : 
-<span class="lineNum">     100 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRCMP_EQUALAndActualIsNULL)</span>
+<span class="lineNum">     100 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRCMP_EQUALAndActualIsNULL)</span>
 <span class="lineNum">     101 </span>            : {
 <span class="lineNum">     102 </span><span class="lineCov">          1 :     runTestWithMethod(_STRCMP_EQUALWithActualIsNULLTestMethod);</span>
 <span class="lineNum">     103 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;but was  &lt;(null)&gt;&quot;);</span>
 <a name="104"><span class="lineNum">     104 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     105 </span>            : 
-<span class="lineNum">     106 </span>            : static void _STRCMP_EQUALWithExpectedIsNULLTestMethod()
+<span class="lineNum">     106 </span><span class="lineCov">          1 : static void _STRCMP_EQUALWithExpectedIsNULLTestMethod()</span>
 <span class="lineNum">     107 </span>            : {
-<span class="lineNum">     108 </span><span class="lineCov">          1 :     STRCMP_EQUAL(NULL, &quot;ok&quot;);</span>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">          3 : }</span></a>
+<span class="lineNum">     108 </span><span class="lineCov">          2 :     STRCMP_EQUAL(NULL, &quot;ok&quot;);</span>
+<a name="109"><span class="lineNum">     109 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     110 </span>            : 
-<span class="lineNum">     111 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRCMP_EQUALAndExpectedIsNULL)</span>
+<span class="lineNum">     111 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRCMP_EQUALAndExpectedIsNULL)</span>
 <span class="lineNum">     112 </span>            : {
 <span class="lineNum">     113 </span><span class="lineCov">          1 :     runTestWithMethod(_STRCMP_EQUALWithExpectedIsNULLTestMethod);</span>
 <span class="lineNum">     114 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected &lt;(null)&gt;&quot;);</span>
 <a name="115"><span class="lineNum">     115 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     116 </span>            : 
-<span class="lineNum">     117 </span>            : static void _STRCMP_CONTAINSWithActualIsNULLTestMethod()
+<span class="lineNum">     117 </span><span class="lineCov">          1 : static void _STRCMP_CONTAINSWithActualIsNULLTestMethod()</span>
 <span class="lineNum">     118 </span>            : {
 <span class="lineNum">     119 </span><span class="lineCov">          1 :     STRCMP_CONTAINS(&quot;ok&quot;, NULL);</span>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">          1 : }</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     121 </span>            : 
-<span class="lineNum">     122 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRCMP_CONTAINSAndActualIsNULL)</span>
+<span class="lineNum">     122 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRCMP_CONTAINSAndActualIsNULL)</span>
 <span class="lineNum">     123 </span>            : {
 <span class="lineNum">     124 </span><span class="lineCov">          1 :     runTestWithMethod(_STRCMP_CONTAINSWithActualIsNULLTestMethod);</span>
 <span class="lineNum">     125 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;did not contain  &lt;ok&gt;&quot;);</span>
 <a name="126"><span class="lineNum">     126 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     127 </span>            : 
-<span class="lineNum">     128 </span>            : static void _STRCMP_CONTAINSWithExpectedIsNULLTestMethod()
+<span class="lineNum">     128 </span><span class="lineCov">          1 : static void _STRCMP_CONTAINSWithExpectedIsNULLTestMethod()</span>
 <span class="lineNum">     129 </span>            : {
 <span class="lineNum">     130 </span><span class="lineCov">          1 :     STRCMP_CONTAINS(NULL, &quot;ok&quot;);</span>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">          1 : }</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     132 </span>            : 
-<span class="lineNum">     133 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRCMP_CONTAINSAndExpectedIsNULL)</span>
+<span class="lineNum">     133 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRCMP_CONTAINSAndExpectedIsNULL)</span>
 <span class="lineNum">     134 </span>            : {
 <span class="lineNum">     135 </span><span class="lineCov">          1 :     runTestWithMethod(_STRCMP_CONTAINSWithExpectedIsNULLTestMethod);</span>
 <span class="lineNum">     136 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;did not contain  &lt;&gt;&quot;);</span>
 <a name="137"><span class="lineNum">     137 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     138 </span>            : 
-<span class="lineNum">     139 </span>            : static void _STRNCMP_EQUALWithActualIsNULLTestMethod()
+<span class="lineNum">     139 </span><span class="lineCov">          1 : static void _STRNCMP_EQUALWithActualIsNULLTestMethod()</span>
 <span class="lineNum">     140 </span>            : {
-<span class="lineNum">     141 </span><span class="lineCov">          1 :     STRNCMP_EQUAL(&quot;ok&quot;, NULL, 2);</span>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">          3 : }</span></a>
+<span class="lineNum">     141 </span><span class="lineCov">          2 :     STRNCMP_EQUAL(&quot;ok&quot;, NULL, 2);</span>
+<a name="142"><span class="lineNum">     142 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     143 </span>            : 
-<span class="lineNum">     144 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRNCMP_EQUALAndActualIsNULL)</span>
+<span class="lineNum">     144 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRNCMP_EQUALAndActualIsNULL)</span>
 <span class="lineNum">     145 </span>            : {
 <span class="lineNum">     146 </span><span class="lineCov">          1 :     runTestWithMethod(_STRNCMP_EQUALWithActualIsNULLTestMethod);</span>
 <span class="lineNum">     147 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;but was  &lt;(null)&gt;&quot;);</span>
 <a name="148"><span class="lineNum">     148 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     149 </span>            : 
-<span class="lineNum">     150 </span>            : static void _STRNCMP_EQUALWithExpectedIsNULLTestMethod()
+<span class="lineNum">     150 </span><span class="lineCov">          1 : static void _STRNCMP_EQUALWithExpectedIsNULLTestMethod()</span>
 <span class="lineNum">     151 </span>            : {
-<span class="lineNum">     152 </span><span class="lineCov">          1 :     STRNCMP_EQUAL(NULL, &quot;ok&quot;, 2);</span>
-<a name="153"><span class="lineNum">     153 </span><span class="lineCov">          3 : }</span></a>
+<span class="lineNum">     152 </span><span class="lineCov">          2 :     STRNCMP_EQUAL(NULL, &quot;ok&quot;, 2);</span>
+<a name="153"><span class="lineNum">     153 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     154 </span>            : 
-<span class="lineNum">     155 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRNCMP_EQUALAndExpectedIsNULL)</span>
+<span class="lineNum">     155 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRNCMP_EQUALAndExpectedIsNULL)</span>
 <span class="lineNum">     156 </span>            : {
 <span class="lineNum">     157 </span><span class="lineCov">          1 :     runTestWithMethod(_STRNCMP_EQUALWithExpectedIsNULLTestMethod);</span>
 <span class="lineNum">     158 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected &lt;(null)&gt;&quot;);</span>
 <a name="159"><span class="lineNum">     159 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     160 </span>            : 
-<span class="lineNum">     161 </span>            : static void _STRCMP_NOCASE_EQUALWithActualIsNULLTestMethod()
+<span class="lineNum">     161 </span><span class="lineCov">          1 : static void _STRCMP_NOCASE_EQUALWithActualIsNULLTestMethod()</span>
 <span class="lineNum">     162 </span>            : {
 <span class="lineNum">     163 </span><span class="lineCov">          1 :     STRCMP_NOCASE_EQUAL(&quot;ok&quot;, NULL);</span>
-<a name="164"><span class="lineNum">     164 </span><span class="lineCov">          1 : }</span></a>
+<a name="164"><span class="lineNum">     164 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     165 </span>            : 
-<span class="lineNum">     166 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_EQUALAndActualIsNULL)</span>
+<span class="lineNum">     166 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_EQUALAndActualIsNULL)</span>
 <span class="lineNum">     167 </span>            : {
 <span class="lineNum">     168 </span><span class="lineCov">          1 :     runTestWithMethod(_STRCMP_NOCASE_EQUALWithActualIsNULLTestMethod);</span>
 <span class="lineNum">     169 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;but was  &lt;(null)&gt;&quot;);</span>
 <a name="170"><span class="lineNum">     170 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     171 </span>            : 
-<span class="lineNum">     172 </span>            : static void _STRCMP_NOCASE_EQUALWithExpectedIsNULLTestMethod()
+<span class="lineNum">     172 </span><span class="lineCov">          1 : static void _STRCMP_NOCASE_EQUALWithExpectedIsNULLTestMethod()</span>
 <span class="lineNum">     173 </span>            : {
 <span class="lineNum">     174 </span><span class="lineCov">          1 :     STRCMP_NOCASE_EQUAL(NULL, &quot;ok&quot;);</span>
-<a name="175"><span class="lineNum">     175 </span><span class="lineCov">          1 : }</span></a>
+<a name="175"><span class="lineNum">     175 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     176 </span>            : 
-<span class="lineNum">     177 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_EQUALAndExpectedIsNULL)</span>
+<span class="lineNum">     177 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_EQUALAndExpectedIsNULL)</span>
 <span class="lineNum">     178 </span>            : {
 <span class="lineNum">     179 </span><span class="lineCov">          1 :     runTestWithMethod(_STRCMP_NOCASE_EQUALWithExpectedIsNULLTestMethod);</span>
 <span class="lineNum">     180 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected &lt;(null)&gt;&quot;);</span>
 <a name="181"><span class="lineNum">     181 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     182 </span>            : 
-<span class="lineNum">     183 </span>            : static void _STRCMP_NOCASE_EQUALWithUnequalInputTestMethod()
+<span class="lineNum">     183 </span><span class="lineCov">          1 : static void _STRCMP_NOCASE_EQUALWithUnequalInputTestMethod()</span>
 <span class="lineNum">     184 </span>            : {
 <span class="lineNum">     185 </span><span class="lineCov">          1 :     STRCMP_NOCASE_EQUAL(&quot;no&quot;, &quot;ok&quot;);</span>
-<a name="186"><span class="lineNum">     186 </span><span class="lineCov">          1 : }</span></a>
+<a name="186"><span class="lineNum">     186 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     187 </span>            : 
-<span class="lineNum">     188 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_EQUALAndUnequalInput)</span>
+<span class="lineNum">     188 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_EQUALAndUnequalInput)</span>
 <span class="lineNum">     189 </span>            : {
 <span class="lineNum">     190 </span><span class="lineCov">          1 :     runTestWithMethod(_STRCMP_NOCASE_EQUALWithUnequalInputTestMethod);</span>
 <span class="lineNum">     191 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;but was  &lt;ok&gt;&quot;);</span>
 <a name="192"><span class="lineNum">     192 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     193 </span>            : 
-<span class="lineNum">     194 </span>            : static void _STRCMP_NOCASE_CONTAINSWithActualIsNULLTestMethod()
+<span class="lineNum">     194 </span><span class="lineCov">          1 : static void _STRCMP_NOCASE_CONTAINSWithActualIsNULLTestMethod()</span>
 <span class="lineNum">     195 </span>            : {
 <span class="lineNum">     196 </span><span class="lineCov">          1 :     STRCMP_NOCASE_CONTAINS(&quot;ok&quot;, NULL);</span>
-<a name="197"><span class="lineNum">     197 </span><span class="lineCov">          1 : }</span></a>
+<a name="197"><span class="lineNum">     197 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     198 </span>            : 
-<span class="lineNum">     199 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_CONTAINSAndActualIsNULL)</span>
+<span class="lineNum">     199 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_CONTAINSAndActualIsNULL)</span>
 <span class="lineNum">     200 </span>            : {
 <span class="lineNum">     201 </span><span class="lineCov">          1 :     runTestWithMethod(_STRCMP_NOCASE_CONTAINSWithActualIsNULLTestMethod);</span>
 <span class="lineNum">     202 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;did not contain  &lt;ok&gt;&quot;);</span>
 <a name="203"><span class="lineNum">     203 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     204 </span>            : 
-<span class="lineNum">     205 </span>            : static void _STRCMP_NOCASE_CONTAINSWithExpectedIsNULLTestMethod()
+<span class="lineNum">     205 </span><span class="lineCov">          1 : static void _STRCMP_NOCASE_CONTAINSWithExpectedIsNULLTestMethod()</span>
 <span class="lineNum">     206 </span>            : {
 <span class="lineNum">     207 </span><span class="lineCov">          1 :     STRCMP_NOCASE_CONTAINS(NULL, &quot;ok&quot;);</span>
-<a name="208"><span class="lineNum">     208 </span><span class="lineCov">          1 : }</span></a>
+<a name="208"><span class="lineNum">     208 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     209 </span>            : 
-<span class="lineNum">     210 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_CONTAINSAndExpectedIsNULL)</span>
+<span class="lineNum">     210 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_CONTAINSAndExpectedIsNULL)</span>
 <span class="lineNum">     211 </span>            : {
 <span class="lineNum">     212 </span><span class="lineCov">          1 :     runTestWithMethod(_STRCMP_NOCASE_CONTAINSWithExpectedIsNULLTestMethod);</span>
 <span class="lineNum">     213 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;did not contain  &lt;&gt;&quot;);</span>
 <a name="214"><span class="lineNum">     214 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     215 </span>            : 
-<span class="lineNum">     216 </span>            : static void _UNSIGNED_LONGS_EQUALTestMethod()
+<span class="lineNum">     216 </span><span class="lineCov">          1 : static void _UNSIGNED_LONGS_EQUALTestMethod()</span>
 <span class="lineNum">     217 </span>            : {
-<span class="lineNum">     218 </span><span class="lineCov">          2 :     UNSIGNED_LONGS_EQUAL(1, 1);</span>
-<span class="lineNum">     219 </span><span class="lineCov">          1 :     UNSIGNED_LONGS_EQUAL(1, 0);</span>
-<a name="220"><span class="lineNum">     220 </span><span class="lineCov">          3 : }</span></a>
+<span class="lineNum">     218 </span><span class="lineCov">          1 :     UNSIGNED_LONGS_EQUAL(1, 1);</span>
+<span class="lineNum">     219 </span><span class="lineCov">          2 :     UNSIGNED_LONGS_EQUAL(1, 0);</span>
+<a name="220"><span class="lineNum">     220 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     221 </span>            : 
-<span class="lineNum">     222 </span><span class="lineCov">         14 : TEST(UnitTestMacros, TestUNSIGNED_LONGS_EQUAL)</span>
+<span class="lineNum">     222 </span><span class="lineCov">          8 : TEST(UnitTestMacros, TestUNSIGNED_LONGS_EQUAL)</span>
 <span class="lineNum">     223 </span>            : {
 <span class="lineNum">     224 </span><span class="lineCov">          1 :     runTestWithMethod(_UNSIGNED_LONGS_EQUALTestMethod);</span>
 <span class="lineNum">     225 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;but was  &lt;0 (0x0) 0x0&gt;&quot;);</span>
 <a name="226"><span class="lineNum">     226 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     227 </span>            : 
-<span class="lineNum">     228 </span>            : static void _failingTestMethodWithCHECK()
+<span class="lineNum">     228 </span><span class="lineCov">          1 : static void _failingTestMethodWithCHECK()</span>
 <span class="lineNum">     229 </span>            : {
-<span class="lineNum">     230 </span><span class="lineCov">          1 :     CHECK(false);</span>
+<span class="lineNum">     230 </span><span class="lineCov">          2 :     CHECK(false);</span>
 <span class="lineNum">     231 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="232"><span class="lineNum">     232 </span><span class="lineCov">          3 : }</span></a>
+<a name="232"><span class="lineNum">     232 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     233 </span>            : 
-<span class="lineNum">     234 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithCHECK)</span>
+<span class="lineNum">     234 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithCHECK)</span>
 <span class="lineNum">     235 </span>            : {
 <span class="lineNum">     236 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithCHECK);</span>
 <span class="lineNum">     237 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;false&quot;);</span>
 <a name="238"><span class="lineNum">     238 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     239 </span>            : 
-<span class="lineNum">     240 </span><span class="lineCov">         14 : TEST(UnitTestMacros, CHECKBehavesAsProperMacro)</span>
+<span class="lineNum">     240 </span><span class="lineCov">          8 : TEST(UnitTestMacros, CHECKBehavesAsProperMacro)</span>
 <span class="lineNum">     241 </span>            : {
 <span class="lineNum">     242 </span>            :     if (false) CHECK(false)
-<span class="lineNum">     243 </span><span class="lineCov">          2 :     else CHECK(true)</span>
+<span class="lineNum">     243 </span><span class="lineCov">          1 :     else CHECK(true)</span>
 <a name="244"><span class="lineNum">     244 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     245 </span>            : 
-<span class="lineNum">     246 </span>            : static void _failingTestMethodWithCHECK_TEXT()
+<span class="lineNum">     246 </span><span class="lineCov">          1 : static void _failingTestMethodWithCHECK_TEXT()</span>
 <span class="lineNum">     247 </span>            : {
-<span class="lineNum">     248 </span><span class="lineCov">          1 :     CHECK_TEXT(false, &quot;Failed because it failed&quot;);</span>
+<span class="lineNum">     248 </span><span class="lineCov">          2 :     CHECK_TEXT(false, &quot;Failed because it failed&quot;);</span>
 <span class="lineNum">     249 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="250"><span class="lineNum">     250 </span><span class="lineCov">          3 : }</span></a>
+<a name="250"><span class="lineNum">     250 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     251 </span>            : 
-<span class="lineNum">     252 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithCHECK_TEXT)</span>
+<span class="lineNum">     252 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithCHECK_TEXT)</span>
 <span class="lineNum">     253 </span>            : {
 <span class="lineNum">     254 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithCHECK_TEXT);</span>
 <span class="lineNum">     255 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;Failed because it failed&quot;);</span>
 <a name="256"><span class="lineNum">     256 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     257 </span>            : 
-<span class="lineNum">     258 </span><span class="lineCov">         14 : TEST(UnitTestMacros, CHECK_TEXTBehavesAsProperMacro)</span>
+<span class="lineNum">     258 </span><span class="lineCov">          8 : TEST(UnitTestMacros, CHECK_TEXTBehavesAsProperMacro)</span>
 <span class="lineNum">     259 </span>            : {
 <span class="lineNum">     260 </span>            :     if (false) CHECK_TEXT(false, &quot;false&quot;)
-<span class="lineNum">     261 </span><span class="lineCov">          2 :     else CHECK_TEXT(true, &quot;true&quot;)</span>
+<span class="lineNum">     261 </span><span class="lineCov">          1 :     else CHECK_TEXT(true, &quot;true&quot;)</span>
 <a name="262"><span class="lineNum">     262 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     263 </span>            : 
-<span class="lineNum">     264 </span><span class="lineCov">          6 : IGNORE_TEST(UnitTestMacros, CHECKWorksInAnIgnoredTest)</span>
+<span class="lineNum">     264 </span><span class="lineCov">          3 : IGNORE_TEST(UnitTestMacros, CHECKWorksInAnIgnoredTest)</span>
 <span class="lineNum">     265 </span>            : {
 <span class="lineNum">     266 </span><span class="lineNoCov">          0 :     CHECK_TEXT(false, &quot;false&quot;);</span>
 <a name="267"><span class="lineNum">     267 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     268 </span>            : 
-<span class="lineNum">     269 </span>            : static void _failingTestMethodWithCHECK_TRUE()
+<span class="lineNum">     269 </span><span class="lineCov">          1 : static void _failingTestMethodWithCHECK_TRUE()</span>
 <span class="lineNum">     270 </span>            : {
-<span class="lineNum">     271 </span><span class="lineCov">          1 :     CHECK_TRUE(false);</span>
+<span class="lineNum">     271 </span><span class="lineCov">          2 :     CHECK_TRUE(false);</span>
 <span class="lineNum">     272 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="273"><span class="lineNum">     273 </span><span class="lineCov">          3 : }</span></a>
+<a name="273"><span class="lineNum">     273 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     274 </span>            : 
-<span class="lineNum">     275 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithCHECK_TRUE)</span>
+<span class="lineNum">     275 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithCHECK_TRUE)</span>
 <span class="lineNum">     276 </span>            : {
 <span class="lineNum">     277 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithCHECK_TRUE);</span>
 <span class="lineNum">     278 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;CHECK_TRUE&quot;);</span>
 <a name="279"><span class="lineNum">     279 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     280 </span>            : 
-<span class="lineNum">     281 </span><span class="lineCov">         14 : TEST(UnitTestMacros, CHECK_TRUEBehavesAsProperMacro)</span>
+<span class="lineNum">     281 </span><span class="lineCov">          8 : TEST(UnitTestMacros, CHECK_TRUEBehavesAsProperMacro)</span>
 <span class="lineNum">     282 </span>            : {
 <span class="lineNum">     283 </span>            :     if (false) CHECK_TRUE(false)
-<span class="lineNum">     284 </span><span class="lineCov">          2 :     else CHECK_TRUE(true)</span>
+<span class="lineNum">     284 </span><span class="lineCov">          1 :     else CHECK_TRUE(true)</span>
 <a name="285"><span class="lineNum">     285 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     286 </span>            : 
-<span class="lineNum">     287 </span><span class="lineCov">          6 : IGNORE_TEST(UnitTestMacros, CHECK_TRUEWorksInAnIgnoredTest)</span>
+<span class="lineNum">     287 </span><span class="lineCov">          3 : IGNORE_TEST(UnitTestMacros, CHECK_TRUEWorksInAnIgnoredTest)</span>
 <span class="lineNum">     288 </span>            : {
 <span class="lineNum">     289 </span><span class="lineNoCov">          0 :     CHECK_TRUE(false)</span>
 <a name="290"><span class="lineNum">     290 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     291 </span>            : 
-<span class="lineNum">     292 </span>            : static void _failingTestMethodWithCHECK_FALSE()
+<span class="lineNum">     292 </span><span class="lineCov">          1 : static void _failingTestMethodWithCHECK_FALSE()</span>
 <span class="lineNum">     293 </span>            : {
-<span class="lineNum">     294 </span><span class="lineCov">          1 :     CHECK_FALSE(true);</span>
+<span class="lineNum">     294 </span><span class="lineCov">          2 :     CHECK_FALSE(true);</span>
 <span class="lineNum">     295 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="296"><span class="lineNum">     296 </span><span class="lineCov">          3 : }</span></a>
+<a name="296"><span class="lineNum">     296 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     297 </span>            : 
-<span class="lineNum">     298 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithCHECK_FALSE)</span>
+<span class="lineNum">     298 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithCHECK_FALSE)</span>
 <span class="lineNum">     299 </span>            : {
 <span class="lineNum">     300 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithCHECK_FALSE);</span>
 <span class="lineNum">     301 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;CHECK_FALSE&quot;);</span>
 <a name="302"><span class="lineNum">     302 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     303 </span>            : 
-<span class="lineNum">     304 </span><span class="lineCov">         14 : TEST(UnitTestMacros, CHECK_FALSEBehavesAsProperMacro)</span>
+<span class="lineNum">     304 </span><span class="lineCov">          8 : TEST(UnitTestMacros, CHECK_FALSEBehavesAsProperMacro)</span>
 <span class="lineNum">     305 </span>            : {
 <span class="lineNum">     306 </span>            :     if (false) CHECK_FALSE(true)
-<span class="lineNum">     307 </span><span class="lineCov">          2 :     else CHECK_FALSE(false)</span>
+<span class="lineNum">     307 </span><span class="lineCov">          1 :     else CHECK_FALSE(false)</span>
 <a name="308"><span class="lineNum">     308 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     309 </span>            : 
-<span class="lineNum">     310 </span><span class="lineCov">          6 : IGNORE_TEST(UnitTestMacros, CHECK_FALSEWorksInAnIgnoredTest)</span>
+<span class="lineNum">     310 </span><span class="lineCov">          3 : IGNORE_TEST(UnitTestMacros, CHECK_FALSEWorksInAnIgnoredTest)</span>
 <span class="lineNum">     311 </span>            : {
 <span class="lineNum">     312 </span><span class="lineNoCov">          0 :     CHECK_FALSE(true)</span>
 <a name="313"><span class="lineNum">     313 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     314 </span>            : 
-<span class="lineNum">     315 </span>            : static void _failingTestMethodWithCHECK_EQUAL()
+<span class="lineNum">     315 </span><span class="lineCov">          2 : static void _failingTestMethodWithCHECK_EQUAL()</span>
 <span class="lineNum">     316 </span>            : {
-<span class="lineNum">     317 </span><span class="lineCov">          8 :     CHECK_EQUAL(1, 2);</span>
+<span class="lineNum">     317 </span><span class="lineCov">          4 :     CHECK_EQUAL(1, 2);</span>
 <span class="lineNum">     318 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="319"><span class="lineNum">     319 </span><span class="lineCov">         14 : }</span></a>
+<a name="319"><span class="lineNum">     319 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     320 </span>            : 
-<span class="lineNum">     321 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithCHECK_EQUAL)</span>
+<span class="lineNum">     321 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithCHECK_EQUAL)</span>
 <span class="lineNum">     322 </span>            : {
 <span class="lineNum">     323 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithCHECK_EQUAL);</span>
 <span class="lineNum">     324 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected &lt;1&gt;&quot;);</span>
 <span class="lineNum">     325 </span><span class="lineCov">          1 : }</span>
 <a name="326"><span class="lineNum">     326 </span>            : </a>
 <span class="lineNum">     327 </span>            : static int countInCountingMethod;
-<span class="lineNum">     328 </span>            : static int _countingMethod()
+<span class="lineNum">     328 </span><span class="lineCov">          9 : static int _countingMethod()</span>
 <span class="lineNum">     329 </span>            : {
 <span class="lineNum">     330 </span><span class="lineCov">          9 :     return countInCountingMethod++;</span>
 <a name="331"><span class="lineNum">     331 </span>            : }</a>
 <span class="lineNum">     332 </span>            : 
-<span class="lineNum">     333 </span><span class="lineCov">         14 : TEST(UnitTestMacros, passingCheckEqualWillNotBeEvaluatedMultipleTimesWithCHECK_EQUAL)</span>
+<span class="lineNum">     333 </span><span class="lineCov">          8 : TEST(UnitTestMacros, passingCheckEqualWillNotBeEvaluatedMultipleTimesWithCHECK_EQUAL)</span>
 <span class="lineNum">     334 </span>            : {
 <span class="lineNum">     335 </span><span class="lineCov">          1 :     countInCountingMethod = 0;</span>
-<span class="lineNum">     336 </span><span class="lineCov">          3 :     CHECK_EQUAL(0, _countingMethod());</span>
+<span class="lineNum">     336 </span><span class="lineCov">          1 :     CHECK_EQUAL(0, _countingMethod());</span>
 <span class="lineNum">     337 </span>            : 
-<span class="lineNum">     338 </span><span class="lineCov">          2 :     LONGS_EQUAL(1, countInCountingMethod);</span>
+<span class="lineNum">     338 </span><span class="lineCov">          1 :     LONGS_EQUAL(1, countInCountingMethod);</span>
 <a name="339"><span class="lineNum">     339 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     340 </span>            : 
-<span class="lineNum">     341 </span>            : static void _failing_CHECK_EQUAL_WithActualBeingEvaluatesMultipleTimesWillGiveAWarning()
+<span class="lineNum">     341 </span><span class="lineCov">          1 : static void _failing_CHECK_EQUAL_WithActualBeingEvaluatesMultipleTimesWillGiveAWarning()</span>
 <span class="lineNum">     342 </span>            : {
-<span class="lineNum">     343 </span><span class="lineCov">          8 :     CHECK_EQUAL(12345, _countingMethod());</span>
-<a name="344"><span class="lineNum">     344 </span><span class="lineCov">          7 : }</span></a>
+<span class="lineNum">     343 </span><span class="lineCov">          2 :     CHECK_EQUAL(12345, _countingMethod());</span>
+<a name="344"><span class="lineNum">     344 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     345 </span>            : 
-<span class="lineNum">     346 </span><span class="lineCov">         14 : TEST(UnitTestMacros, failing_CHECK_EQUAL_WithActualBeingEvaluatesMultipleTimesWillGiveAWarning)</span>
+<span class="lineNum">     346 </span><span class="lineCov">          8 : TEST(UnitTestMacros, failing_CHECK_EQUAL_WithActualBeingEvaluatesMultipleTimesWillGiveAWarning)</span>
 <span class="lineNum">     347 </span>            : {
 <span class="lineNum">     348 </span><span class="lineCov">          1 :     runTestWithMethod(_failing_CHECK_EQUAL_WithActualBeingEvaluatesMultipleTimesWillGiveAWarning);</span>
 <span class="lineNum">     349 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;WARNING:\n\tThe \&quot;Actual Parameter\&quot; parameter is evaluated multiple times resulting in different values.\n\tThus the value in the error message is probably incorrect.&quot;);</span>
 <a name="350"><span class="lineNum">     350 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     351 </span>            : 
-<span class="lineNum">     352 </span>            : static void _failing_CHECK_EQUAL_WithExpectedBeingEvaluatesMultipleTimesWillGiveAWarning()
+<span class="lineNum">     352 </span><span class="lineCov">          1 : static void _failing_CHECK_EQUAL_WithExpectedBeingEvaluatesMultipleTimesWillGiveAWarning()</span>
 <span class="lineNum">     353 </span>            : {
-<span class="lineNum">     354 </span><span class="lineCov">          7 :     CHECK_EQUAL(_countingMethod(), 12345);</span>
-<a name="355"><span class="lineNum">     355 </span><span class="lineCov">          7 : }</span></a>
+<span class="lineNum">     354 </span><span class="lineCov">          2 :     CHECK_EQUAL(_countingMethod(), 12345);</span>
+<a name="355"><span class="lineNum">     355 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     356 </span>            : 
-<span class="lineNum">     357 </span><span class="lineCov">         14 : TEST(UnitTestMacros, failing_CHECK_EQUAL_WithExpectedBeingEvaluatesMultipleTimesWillGiveAWarning)</span>
+<span class="lineNum">     357 </span><span class="lineCov">          8 : TEST(UnitTestMacros, failing_CHECK_EQUAL_WithExpectedBeingEvaluatesMultipleTimesWillGiveAWarning)</span>
 <span class="lineNum">     358 </span>            : {
 <span class="lineNum">     359 </span><span class="lineCov">          1 :     runTestWithMethod(_failing_CHECK_EQUAL_WithExpectedBeingEvaluatesMultipleTimesWillGiveAWarning);</span>
 <span class="lineNum">     360 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;WARNING:\n\tThe \&quot;Expected Parameter\&quot; parameter is evaluated multiple times resulting in different values.\n\tThus the value in the error message is probably incorrect.&quot;);</span>
 <a name="361"><span class="lineNum">     361 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     362 </span>            : 
-<span class="lineNum">     363 </span><span class="lineCov">         14 : TEST(UnitTestMacros, failing_CHECK_EQUAL_withParamatersThatDontChangeWillNotGiveAnyWarning)</span>
+<span class="lineNum">     363 </span><span class="lineCov">          8 : TEST(UnitTestMacros, failing_CHECK_EQUAL_withParamatersThatDontChangeWillNotGiveAnyWarning)</span>
 <span class="lineNum">     364 </span>            : {
 <span class="lineNum">     365 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithCHECK_EQUAL);</span>
-<span class="lineNum">     366 </span><span class="lineCov">          4 :     CHECK( ! fixture.output_-&gt;getOutput().contains(&quot;WARNING&quot;));</span>
+<span class="lineNum">     366 </span><span class="lineCov">          1 :     CHECK( ! fixture.output_-&gt;getOutput().contains(&quot;WARNING&quot;));</span>
 <a name="367"><span class="lineNum">     367 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     368 </span>            : 
-<span class="lineNum">     369 </span><span class="lineCov">         14 : TEST(UnitTestMacros, CHECK_EQUALBehavesAsProperMacro)</span>
+<span class="lineNum">     369 </span><span class="lineCov">          8 : TEST(UnitTestMacros, CHECK_EQUALBehavesAsProperMacro)</span>
 <span class="lineNum">     370 </span>            : {
 <span class="lineNum">     371 </span>            :     if (false) CHECK_EQUAL(1, 2)
-<span class="lineNum">     372 </span><span class="lineCov">          2 :     else CHECK_EQUAL(1, 1)</span>
+<span class="lineNum">     372 </span><span class="lineCov">          1 :     else CHECK_EQUAL(1, 1)</span>
 <a name="373"><span class="lineNum">     373 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     374 </span>            : 
-<span class="lineNum">     375 </span><span class="lineCov">          6 : IGNORE_TEST(UnitTestMacros, CHECK_EQUALWorksInAnIgnoredTest)</span>
+<span class="lineNum">     375 </span><span class="lineCov">          3 : IGNORE_TEST(UnitTestMacros, CHECK_EQUALWorksInAnIgnoredTest)</span>
 <span class="lineNum">     376 </span>            : {
 <span class="lineNum">     377 </span><span class="lineNoCov">          0 :     CHECK_EQUAL(1, 2)</span>
 <a name="378"><span class="lineNum">     378 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     379 </span>            : 
-<span class="lineNum">     380 </span>            : static void _failingTestMethodWithSTRCMP_CONTAINS()
+<span class="lineNum">     380 </span><span class="lineCov">          1 : static void _failingTestMethodWithSTRCMP_CONTAINS()</span>
 <span class="lineNum">     381 </span>            : {
 <span class="lineNum">     382 </span><span class="lineCov">          1 :     STRCMP_CONTAINS(&quot;hello&quot;, &quot;world&quot;);</span>
-<span class="lineNum">     383 </span><span class="lineCov">          1 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="384"><span class="lineNum">     384 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     383 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
+<a name="384"><span class="lineNum">     384 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     385 </span>            : 
-<span class="lineNum">     386 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRCMP_CONTAINS)</span>
+<span class="lineNum">     386 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRCMP_CONTAINS)</span>
 <span class="lineNum">     387 </span>            : {
 <span class="lineNum">     388 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithSTRCMP_CONTAINS);</span>
 <span class="lineNum">     389 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;actual &lt;world&gt;&quot;);</span>
 <a name="390"><span class="lineNum">     390 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     391 </span>            : 
-<span class="lineNum">     392 </span><span class="lineCov">         14 : TEST(UnitTestMacros, STRCMP_CONTAINSBehavesAsProperMacro)</span>
+<span class="lineNum">     392 </span><span class="lineCov">          8 : TEST(UnitTestMacros, STRCMP_CONTAINSBehavesAsProperMacro)</span>
 <span class="lineNum">     393 </span>            : {
 <span class="lineNum">     394 </span>            :     if (false) STRCMP_CONTAINS(&quot;1&quot;, &quot;2&quot;)
 <span class="lineNum">     395 </span><span class="lineCov">          1 :     else STRCMP_CONTAINS(&quot;1&quot;, &quot;1&quot;)</span>
 <a name="396"><span class="lineNum">     396 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     397 </span>            : 
-<span class="lineNum">     398 </span><span class="lineCov">          6 : IGNORE_TEST(UnitTestMacros, STRCMP_CONTAINSWorksInAnIgnoredTest)</span>
+<span class="lineNum">     398 </span><span class="lineCov">          3 : IGNORE_TEST(UnitTestMacros, STRCMP_CONTAINSWorksInAnIgnoredTest)</span>
 <span class="lineNum">     399 </span>            : {
 <span class="lineNum">     400 </span><span class="lineNoCov">          0 :     STRCMP_CONTAINS(&quot;Hello&quot;, &quot;World&quot;)</span>
 <a name="401"><span class="lineNum">     401 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     402 </span>            : 
-<span class="lineNum">     403 </span>            : static void _failingTestMethodWithSTRCMP_NOCASE_CONTAINS()
+<span class="lineNum">     403 </span><span class="lineCov">          1 : static void _failingTestMethodWithSTRCMP_NOCASE_CONTAINS()</span>
 <span class="lineNum">     404 </span>            : {
 <span class="lineNum">     405 </span><span class="lineCov">          1 :     STRCMP_NOCASE_CONTAINS(&quot;hello&quot;, &quot;WORLD&quot;);</span>
-<span class="lineNum">     406 </span><span class="lineCov">          1 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="407"><span class="lineNum">     407 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     406 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
+<a name="407"><span class="lineNum">     407 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     408 </span>            : 
-<span class="lineNum">     409 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_CONTAINS)</span>
+<span class="lineNum">     409 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithSTRCMP_NOCASE_CONTAINS)</span>
 <span class="lineNum">     410 </span>            : {
 <span class="lineNum">     411 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithSTRCMP_NOCASE_CONTAINS);</span>
 <span class="lineNum">     412 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;&lt;WORLD&gt;&quot;);</span>
 <a name="413"><span class="lineNum">     413 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     414 </span>            : 
-<span class="lineNum">     415 </span><span class="lineCov">         14 : TEST(UnitTestMacros, STRCMP_NOCASE_CONTAINSBehavesAsProperMacro)</span>
+<span class="lineNum">     415 </span><span class="lineCov">          8 : TEST(UnitTestMacros, STRCMP_NOCASE_CONTAINSBehavesAsProperMacro)</span>
 <span class="lineNum">     416 </span>            : {
 <span class="lineNum">     417 </span>            :     if (false) STRCMP_NOCASE_CONTAINS(&quot;never&quot;, &quot;executed&quot;)
 <span class="lineNum">     418 </span><span class="lineCov">          1 :     else STRCMP_NOCASE_CONTAINS(&quot;hello&quot;, &quot;HELLO WORLD&quot;)</span>
 <a name="419"><span class="lineNum">     419 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     420 </span>            : 
-<span class="lineNum">     421 </span><span class="lineCov">          6 : IGNORE_TEST(UnitTestMacros, STRCMP_NO_CASE_CONTAINSWorksInAnIgnoredTest)</span>
+<span class="lineNum">     421 </span><span class="lineCov">          3 : IGNORE_TEST(UnitTestMacros, STRCMP_NO_CASE_CONTAINSWorksInAnIgnoredTest)</span>
 <span class="lineNum">     422 </span>            : {
 <span class="lineNum">     423 </span><span class="lineNoCov">          0 :     STRCMP_NOCASE_CONTAINS(&quot;Hello&quot;, &quot;World&quot;)</span>
 <a name="424"><span class="lineNum">     424 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     425 </span>            : 
-<span class="lineNum">     426 </span>            : static void _failingTestMethodWithLONGS_EQUAL()
+<span class="lineNum">     426 </span><span class="lineCov">          1 : static void _failingTestMethodWithLONGS_EQUAL()</span>
 <span class="lineNum">     427 </span>            : {
-<span class="lineNum">     428 </span><span class="lineCov">          1 :     LONGS_EQUAL(1, 0xff);</span>
+<span class="lineNum">     428 </span><span class="lineCov">          2 :     LONGS_EQUAL(1, 0xff);</span>
 <span class="lineNum">     429 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="430"><span class="lineNum">     430 </span><span class="lineCov">          3 : }</span></a>
+<a name="430"><span class="lineNum">     430 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     431 </span>            : 
-<span class="lineNum">     432 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailurePrintHexOutputForLongInts)</span>
+<span class="lineNum">     432 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailurePrintHexOutputForLongInts)</span>
 <span class="lineNum">     433 </span>            : {
 <span class="lineNum">     434 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithLONGS_EQUAL);</span>
 <span class="lineNum">     435 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected &lt;  1 0x01&gt;&quot;);</span>
 <span class="lineNum">     436 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;but was  &lt;255 0xff&gt;&quot;);</span>
 <a name="437"><span class="lineNum">     437 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     438 </span>            : 
-<span class="lineNum">     439 </span><span class="lineCov">         14 : TEST(UnitTestMacros, LONGS_EQUALBehavesAsProperMacro)</span>
+<span class="lineNum">     439 </span><span class="lineCov">          8 : TEST(UnitTestMacros, LONGS_EQUALBehavesAsProperMacro)</span>
 <span class="lineNum">     440 </span>            : {
 <span class="lineNum">     441 </span>            :     if (false) LONGS_EQUAL(1, 2)
-<span class="lineNum">     442 </span><span class="lineCov">          2 :     else LONGS_EQUAL(10, 10)</span>
+<span class="lineNum">     442 </span><span class="lineCov">          1 :     else LONGS_EQUAL(10, 10)</span>
 <a name="443"><span class="lineNum">     443 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     444 </span>            : 
-<span class="lineNum">     445 </span><span class="lineCov">          6 : IGNORE_TEST(UnitTestMacros, LONGS_EQUALWorksInAnIgnoredTest)</span>
+<span class="lineNum">     445 </span><span class="lineCov">          3 : IGNORE_TEST(UnitTestMacros, LONGS_EQUALWorksInAnIgnoredTest)</span>
 <span class="lineNum">     446 </span>            : {
 <span class="lineNum">     447 </span><span class="lineNoCov">          0 :     LONGS_EQUAL(11, 22)</span>
 <a name="448"><span class="lineNum">     448 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     449 </span>            : 
-<span class="lineNum">     450 </span>            : static void _failingTestMethodWithBYTES_EQUAL()
+<span class="lineNum">     450 </span><span class="lineCov">          1 : static void _failingTestMethodWithBYTES_EQUAL()</span>
 <span class="lineNum">     451 </span>            : {
-<span class="lineNum">     452 </span><span class="lineCov">          1 :     BYTES_EQUAL('a', 'b');</span>
+<span class="lineNum">     452 </span><span class="lineCov">          2 :     BYTES_EQUAL('a', 'b');</span>
 <span class="lineNum">     453 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="454"><span class="lineNum">     454 </span><span class="lineCov">          3 : }</span></a>
+<a name="454"><span class="lineNum">     454 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     455 </span>            : 
-<span class="lineNum">     456 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithBYTES_EQUAL)</span>
+<span class="lineNum">     456 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithBYTES_EQUAL)</span>
 <span class="lineNum">     457 </span>            : {
 <span class="lineNum">     458 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithBYTES_EQUAL);</span>
 <span class="lineNum">     459 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;&lt;97 0x61&gt;&quot;);</span>
 <a name="460"><span class="lineNum">     460 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     461 </span>            : 
-<span class="lineNum">     462 </span><span class="lineCov">         14 : TEST(UnitTestMacros, BYTES_EQUALBehavesAsProperMacro)</span>
+<span class="lineNum">     462 </span><span class="lineCov">          8 : TEST(UnitTestMacros, BYTES_EQUALBehavesAsProperMacro)</span>
 <span class="lineNum">     463 </span>            : {
 <span class="lineNum">     464 </span>            :     if (false) BYTES_EQUAL('a', 'b')
-<span class="lineNum">     465 </span><span class="lineCov">          2 :     else BYTES_EQUAL('c', 'c')</span>
+<span class="lineNum">     465 </span><span class="lineCov">          1 :     else BYTES_EQUAL('c', 'c')</span>
 <a name="466"><span class="lineNum">     466 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     467 </span>            : 
-<span class="lineNum">     468 </span><span class="lineCov">          6 : IGNORE_TEST(UnitTestMacros, BYTES_EQUALWorksInAnIgnoredTest)</span>
+<span class="lineNum">     468 </span><span class="lineCov">          3 : IGNORE_TEST(UnitTestMacros, BYTES_EQUALWorksInAnIgnoredTest)</span>
 <span class="lineNum">     469 </span>            : {
 <span class="lineNum">     470 </span><span class="lineNoCov">          0 :     BYTES_EQUAL('q', 'w')</span>
 <a name="471"><span class="lineNum">     471 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     472 </span>            : 
-<span class="lineNum">     473 </span>            : static void _failingTestMethodWithPOINTERS_EQUAL()
+<span class="lineNum">     473 </span><span class="lineCov">          1 : static void _failingTestMethodWithPOINTERS_EQUAL()</span>
 <span class="lineNum">     474 </span>            : {
 <span class="lineNum">     475 </span><span class="lineCov">          1 :     POINTERS_EQUAL((void*)0xa5a5, (void*)0xf0f0);</span>
-<span class="lineNum">     476 </span><span class="lineCov">          1 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="477"><span class="lineNum">     477 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     476 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
+<a name="477"><span class="lineNum">     477 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     478 </span>            : 
-<span class="lineNum">     479 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailurePrintHexOutputForPointers)</span>
+<span class="lineNum">     479 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailurePrintHexOutputForPointers)</span>
 <span class="lineNum">     480 </span>            : {
 <span class="lineNum">     481 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithPOINTERS_EQUAL);</span>
 <span class="lineNum">     482 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected &lt;0xa5a5&gt;&quot;);</span>
 <span class="lineNum">     483 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;but was  &lt;0xf0f0&gt;&quot;);</span>
 <a name="484"><span class="lineNum">     484 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     485 </span>            : 
-<span class="lineNum">     486 </span><span class="lineCov">         14 : TEST(UnitTestMacros, POINTERS_EQUALBehavesAsProperMacro)</span>
+<span class="lineNum">     486 </span><span class="lineCov">          8 : TEST(UnitTestMacros, POINTERS_EQUALBehavesAsProperMacro)</span>
 <span class="lineNum">     487 </span>            : {
 <span class="lineNum">     488 </span>            :     if (false) POINTERS_EQUAL(0, (void*) 0xbeefbeef)
 <span class="lineNum">     489 </span><span class="lineCov">          1 :     else POINTERS_EQUAL((void*)0xdeadbeef, (void*)0xdeadbeef)</span>
 <a name="490"><span class="lineNum">     490 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     491 </span>            : 
-<span class="lineNum">     492 </span><span class="lineCov">          6 : IGNORE_TEST(UnitTestMacros, POINTERS_EQUALWorksInAnIgnoredTest)</span>
+<span class="lineNum">     492 </span><span class="lineCov">          3 : IGNORE_TEST(UnitTestMacros, POINTERS_EQUALWorksInAnIgnoredTest)</span>
 <span class="lineNum">     493 </span>            : {
 <span class="lineNum">     494 </span><span class="lineNoCov">          0 :     POINTERS_EQUAL((void*) 0xbeef, (void*) 0xdead)</span>
 <a name="495"><span class="lineNum">     495 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     496 </span>            : 
-<span class="lineNum">     497 </span>            : static void _failingTestMethodWithDOUBLES_EQUAL()
+<span class="lineNum">     497 </span><span class="lineCov">          1 : static void _failingTestMethodWithDOUBLES_EQUAL()</span>
 <span class="lineNum">     498 </span>            : {
-<span class="lineNum">     499 </span><span class="lineCov">          1 :     DOUBLES_EQUAL(0.12, 44.1, 0.3);</span>
+<span class="lineNum">     499 </span><span class="lineCov">          2 :     DOUBLES_EQUAL(0.12, 44.1, 0.3);</span>
 <span class="lineNum">     500 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="501"><span class="lineNum">     501 </span><span class="lineCov">          3 : }</span></a>
+<a name="501"><span class="lineNum">     501 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     502 </span>            : 
-<span class="lineNum">     503 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithDOUBLES_EQUAL)</span>
+<span class="lineNum">     503 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithDOUBLES_EQUAL)</span>
 <span class="lineNum">     504 </span>            : {
 <span class="lineNum">     505 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethodWithDOUBLES_EQUAL);</span>
 <span class="lineNum">     506 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;0.12&quot;);</span>
 <span class="lineNum">     507 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;44.1&quot;);</span>
 <a name="508"><span class="lineNum">     508 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     509 </span>            : 
-<span class="lineNum">     510 </span><span class="lineCov">         14 : TEST(UnitTestMacros, DOUBLES_EQUALBehavesAsProperMacro)</span>
+<span class="lineNum">     510 </span><span class="lineCov">          8 : TEST(UnitTestMacros, DOUBLES_EQUALBehavesAsProperMacro)</span>
 <span class="lineNum">     511 </span>            : {
 <span class="lineNum">     512 </span>            :     if (false) DOUBLES_EQUAL(0.0, 1.1, 0.0005)
-<span class="lineNum">     513 </span><span class="lineCov">          2 :     else DOUBLES_EQUAL(0.1, 0.2, 0.2)</span>
+<span class="lineNum">     513 </span><span class="lineCov">          1 :     else DOUBLES_EQUAL(0.1, 0.2, 0.2)</span>
 <a name="514"><span class="lineNum">     514 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     515 </span>            : 
-<span class="lineNum">     516 </span><span class="lineCov">          6 : IGNORE_TEST(UnitTestMacros, DOUBLES_EQUALWorksInAnIgnoredTest)</span>
+<span class="lineNum">     516 </span><span class="lineCov">          3 : IGNORE_TEST(UnitTestMacros, DOUBLES_EQUALWorksInAnIgnoredTest)</span>
 <span class="lineNum">     517 </span>            : {
 <span class="lineNum">     518 </span><span class="lineNoCov">          0 :     DOUBLES_EQUAL(100.0, 0.0, 0.2)</span>
 <a name="519"><span class="lineNum">     519 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     520 </span>            : 
-<span class="lineNum">     521 </span>            : static void _passingTestMethod()
+<span class="lineNum">     521 </span><span class="lineCov">          1 : static void _passingTestMethod()</span>
 <span class="lineNum">     522 </span>            : {
-<span class="lineNum">     523 </span><span class="lineCov">          2 :     CHECK(true);</span>
+<span class="lineNum">     523 </span><span class="lineCov">          1 :     CHECK(true);</span>
 <span class="lineNum">     524 </span><span class="lineCov">          1 :     lineOfCodeExecutedAfterCheck = true;</span>
 <a name="525"><span class="lineNum">     525 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     526 </span>            : 
-<span class="lineNum">     527 </span><span class="lineCov">         14 : TEST(UnitTestMacros, SuccessPrintsNothing)</span>
+<span class="lineNum">     527 </span><span class="lineCov">          8 : TEST(UnitTestMacros, SuccessPrintsNothing)</span>
 <span class="lineNum">     528 </span>            : {
 <span class="lineNum">     529 </span><span class="lineCov">          1 :     runTestWithMethod(_passingTestMethod);</span>
 <span class="lineNum">     530 </span>            : 
-<span class="lineNum">     531 </span><span class="lineCov">          2 :     LONGS_EQUAL(0, fixture.getFailureCount());</span>
-<span class="lineNum">     532 </span><span class="lineCov">          2 :     fixture.assertPrintContains(&quot;.\nOK (1 tests&quot;);</span>
-<span class="lineNum">     533 </span><span class="lineCov">          2 :     CHECK(lineOfCodeExecutedAfterCheck);</span>
+<span class="lineNum">     531 </span><span class="lineCov">          1 :     LONGS_EQUAL(0, fixture.getFailureCount());</span>
+<span class="lineNum">     532 </span><span class="lineCov">          1 :     fixture.assertPrintContains(&quot;.\nOK (1 tests&quot;);</span>
+<span class="lineNum">     533 </span><span class="lineCov">          1 :     CHECK(lineOfCodeExecutedAfterCheck);</span>
 <a name="534"><span class="lineNum">     534 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     535 </span>            : 
-<span class="lineNum">     536 </span>            : static void _methodThatOnlyPrints()
+<span class="lineNum">     536 </span><span class="lineCov">          1 : static void _methodThatOnlyPrints()</span>
 <span class="lineNum">     537 </span>            : {
 <span class="lineNum">     538 </span><span class="lineCov">          1 :     UT_PRINT(&quot;Hello World!&quot;);</span>
 <a name="539"><span class="lineNum">     539 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     540 </span>            : 
-<span class="lineNum">     541 </span><span class="lineCov">         14 : TEST(UnitTestMacros, PrintPrintsWhateverPrintPrints)</span>
+<span class="lineNum">     541 </span><span class="lineCov">          8 : TEST(UnitTestMacros, PrintPrintsWhateverPrintPrints)</span>
 <span class="lineNum">     542 </span>            : {
 <span class="lineNum">     543 </span><span class="lineCov">          1 :     runTestWithMethod(_methodThatOnlyPrints);</span>
 <span class="lineNum">     544 </span>            : 
-<span class="lineNum">     545 </span><span class="lineCov">          2 :     LONGS_EQUAL(0, fixture.getFailureCount());</span>
-<span class="lineNum">     546 </span><span class="lineCov">          2 :     fixture.assertPrintContains(&quot;Hello World!&quot;);</span>
-<span class="lineNum">     547 </span><span class="lineCov">          2 :     fixture.assertPrintContains(__FILE__);</span>
+<span class="lineNum">     545 </span><span class="lineCov">          1 :     LONGS_EQUAL(0, fixture.getFailureCount());</span>
+<span class="lineNum">     546 </span><span class="lineCov">          1 :     fixture.assertPrintContains(&quot;Hello World!&quot;);</span>
+<span class="lineNum">     547 </span><span class="lineCov">          1 :     fixture.assertPrintContains(__FILE__);</span>
 <a name="548"><span class="lineNum">     548 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     549 </span>            : 
-<span class="lineNum">     550 </span>            : static void _methodThatOnlyPrintsUsingSimpleStringFromFormat()
+<span class="lineNum">     550 </span><span class="lineCov">          1 : static void _methodThatOnlyPrintsUsingSimpleStringFromFormat()</span>
 <span class="lineNum">     551 </span>            : {
-<span class="lineNum">     552 </span><span class="lineCov">          2 :     UT_PRINT(StringFromFormat(&quot;Hello %s %d&quot;, &quot;World!&quot;, 2009));</span>
+<span class="lineNum">     552 </span><span class="lineCov">          1 :     UT_PRINT(StringFromFormat(&quot;Hello %s %d&quot;, &quot;World!&quot;, 2009));</span>
 <a name="553"><span class="lineNum">     553 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     554 </span>            : 
-<span class="lineNum">     555 </span><span class="lineCov">         14 : TEST(UnitTestMacros, PrintPrintsSimpleStringsForExampleThoseReturnedByFromString)</span>
+<span class="lineNum">     555 </span><span class="lineCov">          8 : TEST(UnitTestMacros, PrintPrintsSimpleStringsForExampleThoseReturnedByFromString)</span>
 <span class="lineNum">     556 </span>            : {
 <span class="lineNum">     557 </span><span class="lineCov">          1 :     runTestWithMethod(_methodThatOnlyPrintsUsingSimpleStringFromFormat);</span>
-<span class="lineNum">     558 </span><span class="lineCov">          2 :     fixture.assertPrintContains(&quot;Hello World! 2009&quot;);</span>
+<span class="lineNum">     558 </span><span class="lineCov">          1 :     fixture.assertPrintContains(&quot;Hello World! 2009&quot;);</span>
 <a name="559"><span class="lineNum">     559 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     560 </span>            : 
-<span class="lineNum">     561 </span>            : static int functionThatReturnsAValue()
+<span class="lineNum">     561 </span><span class="lineCov">          1 : static int functionThatReturnsAValue()</span>
 <span class="lineNum">     562 </span>            : {
-<span class="lineNum">     563 </span><span class="lineCov">          2 :     CHECK(0 == 0);</span>
-<span class="lineNum">     564 </span><span class="lineCov">          2 :     LONGS_EQUAL(1,1);</span>
-<span class="lineNum">     565 </span><span class="lineCov">          2 :     BYTES_EQUAL(0xab,0xab);</span>
-<span class="lineNum">     566 </span><span class="lineCov">          2 :     CHECK_EQUAL(100,100);</span>
-<span class="lineNum">     567 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;THIS&quot;, &quot;THIS&quot;);</span>
-<span class="lineNum">     568 </span><span class="lineCov">          2 :     DOUBLES_EQUAL(1.0, 1.0, .01);</span>
+<span class="lineNum">     563 </span><span class="lineCov">          1 :     CHECK(0 == 0);</span>
+<span class="lineNum">     564 </span><span class="lineCov">          1 :     LONGS_EQUAL(1,1);</span>
+<span class="lineNum">     565 </span><span class="lineCov">          1 :     BYTES_EQUAL(0xab,0xab);</span>
+<span class="lineNum">     566 </span><span class="lineCov">          1 :     CHECK_EQUAL(100,100);</span>
+<span class="lineNum">     567 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;THIS&quot;, &quot;THIS&quot;);</span>
+<span class="lineNum">     568 </span><span class="lineCov">          1 :     DOUBLES_EQUAL(1.0, 1.0, .01);</span>
 <span class="lineNum">     569 </span><span class="lineCov">          1 :     POINTERS_EQUAL(0, 0);</span>
 <span class="lineNum">     570 </span><span class="lineCov">          1 :     return 0;</span>
-<a name="571"><span class="lineNum">     571 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="571"><span class="lineNum">     571 </span>            : }</a>
 <span class="lineNum">     572 </span>            : 
-<span class="lineNum">     573 </span><span class="lineCov">         14 : TEST(UnitTestMacros, allMacrosFromFunctionThatReturnsAValue)</span>
+<span class="lineNum">     573 </span><span class="lineCov">          8 : TEST(UnitTestMacros, allMacrosFromFunctionThatReturnsAValue)</span>
 <span class="lineNum">     574 </span>            : {
 <span class="lineNum">     575 </span><span class="lineCov">          1 :     functionThatReturnsAValue();</span>
 <a name="576"><span class="lineNum">     576 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     577 </span>            : 
-<span class="lineNum">     578 </span><span class="lineCov">         14 : TEST(UnitTestMacros, NFirstCharsComparison)</span>
+<span class="lineNum">     578 </span><span class="lineCov">          8 : TEST(UnitTestMacros, NFirstCharsComparison)</span>
 <span class="lineNum">     579 </span>            : {
-<span class="lineNum">     580 </span><span class="lineCov">          2 :     STRNCMP_EQUAL(&quot;Hello World!&quot;, &quot;Hello Peter!&quot;, 0);</span>
-<span class="lineNum">     581 </span><span class="lineCov">          2 :     STRNCMP_EQUAL(&quot;Hello World!&quot;, &quot;Hello Peter!&quot;, 1);</span>
-<span class="lineNum">     582 </span><span class="lineCov">          2 :     STRNCMP_EQUAL(&quot;Hello World!&quot;, &quot;Hello Peter!&quot;, 6);</span>
-<span class="lineNum">     583 </span><span class="lineCov">          2 :     STRNCMP_EQUAL(&quot;Hello World!&quot;, &quot;Hello&quot;, 5);</span>
+<span class="lineNum">     580 </span><span class="lineCov">          1 :     STRNCMP_EQUAL(&quot;Hello World!&quot;, &quot;Hello Peter!&quot;, 0);</span>
+<span class="lineNum">     581 </span><span class="lineCov">          1 :     STRNCMP_EQUAL(&quot;Hello World!&quot;, &quot;Hello Peter!&quot;, 1);</span>
+<span class="lineNum">     582 </span><span class="lineCov">          1 :     STRNCMP_EQUAL(&quot;Hello World!&quot;, &quot;Hello Peter!&quot;, 6);</span>
+<span class="lineNum">     583 </span><span class="lineCov">          1 :     STRNCMP_EQUAL(&quot;Hello World!&quot;, &quot;Hello&quot;, 5);</span>
 <a name="584"><span class="lineNum">     584 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     585 </span>            : 
-<span class="lineNum">     586 </span>            : static void _compareNFirstCharsWithUpperAndLowercase()
+<span class="lineNum">     586 </span><span class="lineCov">          1 : static void _compareNFirstCharsWithUpperAndLowercase()</span>
 <span class="lineNum">     587 </span>            : {
-<span class="lineNum">     588 </span><span class="lineCov">          1 :     STRNCMP_EQUAL(&quot;hello world!&quot;, &quot;HELLO WORLD!&quot;, 12);</span>
+<span class="lineNum">     588 </span><span class="lineCov">          2 :     STRNCMP_EQUAL(&quot;hello world!&quot;, &quot;HELLO WORLD!&quot;, 12);</span>
 <span class="lineNum">     589 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="590"><span class="lineNum">     590 </span><span class="lineCov">          3 : }</span></a>
+<a name="590"><span class="lineNum">     590 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     591 </span>            : 
-<span class="lineNum">     592 </span><span class="lineCov">         14 : TEST(UnitTestMacros, CompareNFirstCharsWithUpperAndLowercase)</span>
+<span class="lineNum">     592 </span><span class="lineCov">          8 : TEST(UnitTestMacros, CompareNFirstCharsWithUpperAndLowercase)</span>
 <span class="lineNum">     593 </span>            : {
 <span class="lineNum">     594 </span><span class="lineCov">          1 :     runTestWithMethod(_compareNFirstCharsWithUpperAndLowercase);</span>
 <span class="lineNum">     595 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected &lt;hello world!&gt;&quot;);</span>
@@ -659,13 +659,13 @@
 <span class="lineNum">     597 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;difference starts at position 0&quot;);</span>
 <a name="598"><span class="lineNum">     598 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     599 </span>            : 
-<span class="lineNum">     600 </span>            : static void _compareNFirstCharsWithDifferenceInTheMiddle()
+<span class="lineNum">     600 </span><span class="lineCov">          1 : static void _compareNFirstCharsWithDifferenceInTheMiddle()</span>
 <span class="lineNum">     601 </span>            : {
-<span class="lineNum">     602 </span><span class="lineCov">          1 :     STRNCMP_EQUAL(&quot;Hello World!&quot;, &quot;Hello Peter!&quot;, 12);</span>
+<span class="lineNum">     602 </span><span class="lineCov">          2 :     STRNCMP_EQUAL(&quot;Hello World!&quot;, &quot;Hello Peter!&quot;, 12);</span>
 <span class="lineNum">     603 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="604"><span class="lineNum">     604 </span><span class="lineCov">          3 : }</span></a>
+<a name="604"><span class="lineNum">     604 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     605 </span>            : 
-<span class="lineNum">     606 </span><span class="lineCov">         14 : TEST(UnitTestMacros, CompareNFirstCharsWithDifferenceInTheMiddle)</span>
+<span class="lineNum">     606 </span><span class="lineCov">          8 : TEST(UnitTestMacros, CompareNFirstCharsWithDifferenceInTheMiddle)</span>
 <span class="lineNum">     607 </span>            : {
 <span class="lineNum">     608 </span><span class="lineCov">          1 :     runTestWithMethod(_compareNFirstCharsWithDifferenceInTheMiddle);</span>
 <span class="lineNum">     609 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected &lt;Hello World!&gt;&quot;);</span>
@@ -673,13 +673,13 @@
 <span class="lineNum">     611 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;difference starts at position 6&quot;);</span>
 <a name="612"><span class="lineNum">     612 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     613 </span>            : 
-<span class="lineNum">     614 </span>            : static void _compareNFirstCharsWithEmptyString()
+<span class="lineNum">     614 </span><span class="lineCov">          1 : static void _compareNFirstCharsWithEmptyString()</span>
 <span class="lineNum">     615 </span>            : {
-<span class="lineNum">     616 </span><span class="lineCov">          1 :     STRNCMP_EQUAL(&quot;&quot;, &quot;Not empty string&quot;, 5);</span>
+<span class="lineNum">     616 </span><span class="lineCov">          2 :     STRNCMP_EQUAL(&quot;&quot;, &quot;Not empty string&quot;, 5);</span>
 <span class="lineNum">     617 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="618"><span class="lineNum">     618 </span><span class="lineCov">          3 : }</span></a>
+<a name="618"><span class="lineNum">     618 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     619 </span>            : 
-<span class="lineNum">     620 </span><span class="lineCov">         14 : TEST(UnitTestMacros, CompareNFirstCharsWithEmptyString)</span>
+<span class="lineNum">     620 </span><span class="lineCov">          8 : TEST(UnitTestMacros, CompareNFirstCharsWithEmptyString)</span>
 <span class="lineNum">     621 </span>            : {
 <span class="lineNum">     622 </span><span class="lineCov">          1 :     runTestWithMethod(_compareNFirstCharsWithEmptyString);</span>
 <span class="lineNum">     623 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected &lt;&gt;&quot;);</span>
@@ -687,13 +687,13 @@
 <span class="lineNum">     625 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;difference starts at position 0&quot;);</span>
 <a name="626"><span class="lineNum">     626 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     627 </span>            : 
-<span class="lineNum">     628 </span>            : static void _compareNFirstCharsWithLastCharDifferent()
+<span class="lineNum">     628 </span><span class="lineCov">          1 : static void _compareNFirstCharsWithLastCharDifferent()</span>
 <span class="lineNum">     629 </span>            : {
-<span class="lineNum">     630 </span><span class="lineCov">          1 :     STRNCMP_EQUAL(&quot;Not empty string?&quot;, &quot;Not empty string!&quot;, 17);</span>
+<span class="lineNum">     630 </span><span class="lineCov">          2 :     STRNCMP_EQUAL(&quot;Not empty string?&quot;, &quot;Not empty string!&quot;, 17);</span>
 <span class="lineNum">     631 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="632"><span class="lineNum">     632 </span><span class="lineCov">          3 : }</span></a>
+<a name="632"><span class="lineNum">     632 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     633 </span>            : 
-<span class="lineNum">     634 </span><span class="lineCov">         14 : TEST(UnitTestMacros, CompareNFirstCharsWithLastCharDifferent)</span>
+<span class="lineNum">     634 </span><span class="lineCov">          8 : TEST(UnitTestMacros, CompareNFirstCharsWithLastCharDifferent)</span>
 <span class="lineNum">     635 </span>            : {
 <span class="lineNum">     636 </span><span class="lineCov">          1 :     runTestWithMethod(_compareNFirstCharsWithLastCharDifferent);</span>
 <span class="lineNum">     637 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected &lt;Not empty string?&gt;&quot;);</span>
@@ -702,67 +702,67 @@
 <span class="lineNum">     640 </span><span class="lineCov">          1 : }</span>
 <a name="641"><span class="lineNum">     641 </span>            : </a>
 <span class="lineNum">     642 </span>            : #if CPPUTEST_USE_STD_CPP_LIB
-<span class="lineNum">     643 </span>            : static void _failingTestMethod_NoThrowWithCHECK_THROWS()
+<span class="lineNum">     643 </span><span class="lineCov">          1 : static void _failingTestMethod_NoThrowWithCHECK_THROWS()</span>
 <span class="lineNum">     644 </span>            : {
-<span class="lineNum">     645 </span><span class="lineCov">          5 :     CHECK_THROWS(int, (void) (1+2));</span>
+<span class="lineNum">     645 </span><span class="lineCov">          2 :     CHECK_THROWS(int, (void) (1+2));</span>
 <span class="lineNum">     646 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="647"><span class="lineNum">     647 </span><span class="lineCov">          5 : }</span></a>
+<a name="647"><span class="lineNum">     647 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     648 </span>            : 
-<span class="lineNum">     649 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithCHECK_THROWS_whenDoesntThrow)</span>
+<span class="lineNum">     649 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithCHECK_THROWS_whenDoesntThrow)</span>
 <span class="lineNum">     650 </span>            : {
 <span class="lineNum">     651 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethod_NoThrowWithCHECK_THROWS);</span>
 <span class="lineNum">     652 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected to throw int&quot;);</span>
 <span class="lineNum">     653 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;but threw nothing&quot;);</span>
 <a name="654"><span class="lineNum">     654 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     655 </span>            : 
-<span class="lineNum">     656 </span><span class="lineCov">         14 : TEST(UnitTestMacros, SuccessWithCHECK_THROWS)</span>
+<span class="lineNum">     656 </span><span class="lineCov">          8 : TEST(UnitTestMacros, SuccessWithCHECK_THROWS)</span>
 <span class="lineNum">     657 </span>            : {
-<span class="lineNum">     658 </span><span class="lineCov">          5 :     CHECK_THROWS(int, throw 4);</span>
-<a name="659"><span class="lineNum">     659 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     658 </span><span class="lineCov">          1 :     CHECK_THROWS(int, throw 4);</span>
+<a name="659"><span class="lineNum">     659 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     660 </span>            : 
-<span class="lineNum">     661 </span>            : static void _failingTestMethod_WrongThrowWithCHECK_THROWS()
+<span class="lineNum">     661 </span><span class="lineCov">          1 : static void _failingTestMethod_WrongThrowWithCHECK_THROWS()</span>
 <span class="lineNum">     662 </span>            : {
-<span class="lineNum">     663 </span><span class="lineCov">         12 :     CHECK_THROWS(int, throw 4.3);</span>
+<span class="lineNum">     663 </span><span class="lineCov">          1 :     CHECK_THROWS(int, throw 4.3);</span>
 <span class="lineNum">     664 </span><span class="lineNoCov">          0 :     lineOfCodeExecutedAfterCheck = true;</span>
-<a name="665"><span class="lineNum">     665 </span><span class="lineCov">          6 : }</span></a>
+<a name="665"><span class="lineNum">     665 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     666 </span>            : 
-<span class="lineNum">     667 </span><span class="lineCov">         14 : TEST(UnitTestMacros, FailureWithCHECK_THROWS_whenWrongThrow)</span>
+<span class="lineNum">     667 </span><span class="lineCov">          8 : TEST(UnitTestMacros, FailureWithCHECK_THROWS_whenWrongThrow)</span>
 <span class="lineNum">     668 </span>            : {
 <span class="lineNum">     669 </span><span class="lineCov">          1 :     runTestWithMethod(_failingTestMethod_WrongThrowWithCHECK_THROWS);</span>
 <span class="lineNum">     670 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;expected to throw int&quot;);</span>
 <span class="lineNum">     671 </span><span class="lineCov">          1 :     CHECK_TEST_FAILS_PROPER_WITH_TEXT(&quot;but threw a different type&quot;);</span>
 <a name="672"><span class="lineNum">     672 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     673 </span>            : 
-<span class="lineNum">     674 </span><span class="lineCov">         14 : TEST(UnitTestMacros, MultipleCHECK_THROWS_inOneScope)</span>
+<span class="lineNum">     674 </span><span class="lineCov">          8 : TEST(UnitTestMacros, MultipleCHECK_THROWS_inOneScope)</span>
 <span class="lineNum">     675 </span>            : {
-<span class="lineNum">     676 </span><span class="lineCov">          5 :     CHECK_THROWS(int, throw 4);</span>
-<span class="lineNum">     677 </span><span class="lineCov">          5 :     CHECK_THROWS(int, throw 4);</span>
-<span class="lineNum">     678 </span><span class="lineCov">          3 : }</span>
+<span class="lineNum">     676 </span><span class="lineCov">          1 :     CHECK_THROWS(int, throw 4);</span>
+<span class="lineNum">     677 </span><span class="lineCov">          1 :     CHECK_THROWS(int, throw 4);</span>
+<span class="lineNum">     678 </span><span class="lineCov">          1 : }</span>
 <a name="679"><span class="lineNum">     679 </span>            : #endif</a>
 <span class="lineNum">     680 </span>            : 
-<span class="lineNum">     681 </span><span class="lineCov">         12 : TEST_GROUP(IgnoreTest)</span>
+<span class="lineNum">     681 </span><span class="lineCov">          4 : TEST_GROUP(IgnoreTest)</span>
 <span class="lineNum">     682 </span>            : {
 <span class="lineNum">     683 </span>            :     TestTestingFixture fixture;
 <a name="684"><span class="lineNum">     684 </span>            :     IgnoredUtestShell ignoreTest;</a>
 <span class="lineNum">     685 </span>            :     
-<span class="lineNum">     686 </span>            :     void setup() _override
+<span class="lineNum">     686 </span><span class="lineCov">          2 :     void setup() _override</span>
 <span class="lineNum">     687 </span>            :     {
 <span class="lineNum">     688 </span><span class="lineCov">          2 :         fixture.addTest(&amp;ignoreTest);</span>
 <span class="lineNum">     689 </span><span class="lineCov">          2 :     }</span>
 <a name="690"><span class="lineNum">     690 </span>            : };</a>
 <span class="lineNum">     691 </span>            : 
-<span class="lineNum">     692 </span><span class="lineCov">         14 : TEST(IgnoreTest, doesIgnoreCount)</span>
+<span class="lineNum">     692 </span><span class="lineCov">          8 : TEST(IgnoreTest, doesIgnoreCount)</span>
 <span class="lineNum">     693 </span>            : {
 <span class="lineNum">     694 </span><span class="lineCov">          1 :     fixture.runAllTests();</span>
-<span class="lineNum">     695 </span><span class="lineCov">          2 :     LONGS_EQUAL(1, fixture.getIgnoreCount());</span>
+<span class="lineNum">     695 </span><span class="lineCov">          1 :     LONGS_EQUAL(1, fixture.getIgnoreCount());</span>
 <a name="696"><span class="lineNum">     696 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     697 </span>            : 
-<span class="lineNum">     698 </span><span class="lineCov">         14 : TEST(IgnoreTest, printsIGNORE_TESTwhenVerbose)</span>
+<span class="lineNum">     698 </span><span class="lineCov">          8 : TEST(IgnoreTest, printsIGNORE_TESTwhenVerbose)</span>
 <span class="lineNum">     699 </span>            : {
 <span class="lineNum">     700 </span><span class="lineCov">          1 :     fixture.output_-&gt;verbose();</span>
-<span class="lineNum">     701 </span><span class="lineCov">          1 :     fixture.runAllTests();</span>
-<span class="lineNum">     702 </span><span class="lineCov">          2 :     fixture.assertPrintContains(&quot;IGNORE_TEST&quot;);</span>
-<span class="lineNum">     703 </span><span class="lineCov">          1 : }</span>
+<a name="701"><span class="lineNum">     701 </span><span class="lineCov">          1 :     fixture.runAllTests();</span></a>
+<span class="lineNum">     702 </span><span class="lineCov">          1 :     fixture.assertPrintContains(&quot;IGNORE_TEST&quot;);</span>
+<span class="lineNum">     703 </span><span class="lineCov">          4 : }</span>
 <span class="lineNum">     704 </span>            : 
 <span class="lineNum">     705 </span>            : 
 </pre>

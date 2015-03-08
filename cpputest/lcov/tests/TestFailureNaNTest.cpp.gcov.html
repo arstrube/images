@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">19</td>
-            <td class="headerCovTableEntry">21</td>
-            <td class="headerCovTableEntryHi">90.5 %</td>
+            <td class="headerCovTableEntry">24</td>
+            <td class="headerCovTableEntry">26</td>
+            <td class="headerCovTableEntryHi">92.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">44</td>
-            <td class="headerCovTableEntry">50</td>
-            <td class="headerCovTableEntryMed">88.0 %</td>
+            <td class="headerCovTableEntry">27</td>
+            <td class="headerCovTableEntry">33</td>
+            <td class="headerCovTableEntryMed">81.8 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -108,43 +108,43 @@
 <span class="lineNum">      46 </span>            : {
 <a name="47"><span class="lineNum">      47 </span>            :     UtestShell* test;</a>
 <span class="lineNum">      48 </span>            : 
-<span class="lineNum">      49 </span>            :     void setup()
+<span class="lineNum">      49 </span><span class="lineCov">          3 :     void setup()</span>
 <span class="lineNum">      50 </span>            :     {
-<span class="lineNum">      51 </span><span class="lineCov">          6 :         test = new UtestShell(&quot;groupname&quot;, &quot;testname&quot;, failFileName, failLineNumber-1);</span>
+<span class="lineNum">      51 </span><span class="lineCov">          3 :         test = new UtestShell(&quot;groupname&quot;, &quot;testname&quot;, failFileName, failLineNumber-1);</span>
 <span class="lineNum">      52 </span><span class="lineCov">          3 :                 if(PlatformSpecificIsNan(not_a_number) == false) </span>
 <a name="53"><span class="lineNum">      53 </span><span class="lineNoCov">          0 :                     UT_PTR_SET(PlatformSpecificIsNan, IsNanForSystemsWithoutNan);</span></a>
 <span class="lineNum">      54 </span><span class="lineCov">          3 :     }</span>
-<span class="lineNum">      55 </span>            :     void teardown()
+<span class="lineNum">      55 </span><span class="lineCov">          3 :     void teardown()</span>
 <span class="lineNum">      56 </span>            :     {
-<span class="lineNum">      57 </span><span class="lineCov">          6 :         delete test;</span>
+<span class="lineNum">      57 </span><span class="lineCov">          3 :         delete test;</span>
 <span class="lineNum">      58 </span><span class="lineCov">          3 :     }</span>
 <span class="lineNum">      59 </span>            : };
 <span class="lineNum">      60 </span>            : #define FAILURE_EQUAL(a, b) STRCMP_EQUAL_LOCATION(a, b.getMessage().asCharString(), __FILE__, __LINE__)
 <a name="61"><span class="lineNum">      61 </span>            : </a>
 <span class="lineNum">      62 </span>            : 
-<span class="lineNum">      63 </span><span class="lineCov">         14 : TEST(TestFailureNaN, DoublesEqualExpectedIsNaN)</span>
+<span class="lineNum">      63 </span><span class="lineCov">          8 : TEST(TestFailureNaN, DoublesEqualExpectedIsNaN)</span>
 <span class="lineNum">      64 </span>            : {
 <span class="lineNum">      65 </span><span class="lineCov">          1 :     DoublesEqualFailure f(test, failFileName, failLineNumber, not_a_number, 2.0, 3.0);</span>
-<span class="lineNum">      66 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;Nan - Not a number&gt;\n&quot;</span>
+<span class="lineNum">      66 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;Nan - Not a number&gt;\n&quot;</span>
 <span class="lineNum">      67 </span>            :                 &quot;\tbut was  &lt;2&gt; threshold used was &lt;3&gt;\n&quot;
-<span class="lineNum">      68 </span>            :                 &quot;\tCannot make comparisons with Nan&quot;, f);
+<span class="lineNum">      68 </span><span class="lineCov">          1 :                 &quot;\tCannot make comparisons with Nan&quot;, f);</span>
 <a name="69"><span class="lineNum">      69 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      70 </span>            : 
-<span class="lineNum">      71 </span><span class="lineCov">         14 : TEST(TestFailureNaN, DoublesEqualActualIsNaN)</span>
+<span class="lineNum">      71 </span><span class="lineCov">          8 : TEST(TestFailureNaN, DoublesEqualActualIsNaN)</span>
 <span class="lineNum">      72 </span>            : {
 <span class="lineNum">      73 </span><span class="lineCov">          1 :     DoublesEqualFailure f(test, failFileName, failLineNumber, 1.0, not_a_number, 3.0);</span>
-<span class="lineNum">      74 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;1&gt;\n&quot;</span>
+<span class="lineNum">      74 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;1&gt;\n&quot;</span>
 <span class="lineNum">      75 </span>            :                 &quot;\tbut was  &lt;Nan - Not a number&gt; threshold used was &lt;3&gt;\n&quot;
-<span class="lineNum">      76 </span>            :                 &quot;\tCannot make comparisons with Nan&quot;, f);
+<span class="lineNum">      76 </span><span class="lineCov">          1 :                 &quot;\tCannot make comparisons with Nan&quot;, f);</span>
 <a name="77"><span class="lineNum">      77 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      78 </span>            : 
-<span class="lineNum">      79 </span><span class="lineCov">         14 : TEST(TestFailureNaN, DoublesEqualThresholdIsNaN)</span>
+<span class="lineNum">      79 </span><span class="lineCov">          8 : TEST(TestFailureNaN, DoublesEqualThresholdIsNaN)</span>
 <span class="lineNum">      80 </span>            : {
 <span class="lineNum">      81 </span><span class="lineCov">          1 :     DoublesEqualFailure f(test, failFileName, failLineNumber, 1.0, 2.0, not_a_number);</span>
-<span class="lineNum">      82 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;1&gt;\n&quot;</span>
-<span class="lineNum">      83 </span>            :                 &quot;\tbut was  &lt;2&gt; threshold used was &lt;Nan - Not a number&gt;\n&quot;
-<span class="lineNum">      84 </span>            :                 &quot;\tCannot make comparisons with Nan&quot;, f);
-<span class="lineNum">      85 </span><span class="lineCov">          1 : }</span>
+<span class="lineNum">      82 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;1&gt;\n&quot;</span>
+<a name="83"><span class="lineNum">      83 </span>            :                 &quot;\tbut was  &lt;2&gt; threshold used was &lt;Nan - Not a number&gt;\n&quot;</a>
+<span class="lineNum">      84 </span><span class="lineCov">          1 :                 &quot;\tCannot make comparisons with Nan&quot;, f);</span>
+<span class="lineNum">      85 </span><span class="lineCov">          4 : }</span>
 </pre>
       </td>
     </tr>

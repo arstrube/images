@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">261</td>
-            <td class="headerCovTableEntry">268</td>
-            <td class="headerCovTableEntryHi">97.4 %</td>
+            <td class="headerCovTableEntry">336</td>
+            <td class="headerCovTableEntry">337</td>
+            <td class="headerCovTableEntryHi">99.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">347</td>
-            <td class="headerCovTableEntry">372</td>
-            <td class="headerCovTableEntryHi">93.3 %</td>
+            <td class="headerCovTableEntry">203</td>
+            <td class="headerCovTableEntry">228</td>
+            <td class="headerCovTableEntryMed">89.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -93,7 +93,7 @@
 <span class="lineNum">      31 </span>            : #include &quot;CppUTest/PlatformSpecificFunctions.h&quot;
 <a name="32"><span class="lineNum">      32 </span>            : #include &quot;CppUTest/SimpleString.h&quot;</a>
 <span class="lineNum">      33 </span>            : 
-<span class="lineNum">      34 </span><span class="lineCov">         96 : class FileForJUnitOutputTests</span>
+<span class="lineNum">      34 </span><span class="lineCov">         24 : class FileForJUnitOutputTests</span>
 <span class="lineNum">      35 </span>            : {
 <span class="lineNum">      36 </span>            :     SimpleString name_;
 <span class="lineNum">      37 </span>            :     bool isOpen_;
@@ -104,15 +104,15 @@
 <span class="lineNum">      42 </span>            : 
 <a name="43"><span class="lineNum">      43 </span>            : public:</a>
 <span class="lineNum">      44 </span>            : 
-<span class="lineNum">      45 </span><span class="lineCov">         48 :     FileForJUnitOutputTests(SimpleString filename, FileForJUnitOutputTests* next) :</span>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">         96 :         name_(filename), isOpen_(true), next_(next) {}</span></a>
+<span class="lineNum">      45 </span><span class="lineCov">         24 :     FileForJUnitOutputTests(SimpleString filename, FileForJUnitOutputTests* next) :</span>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">         24 :         name_(filename), isOpen_(true), next_(next) {}</span></a>
 <span class="lineNum">      47 </span>            : 
-<span class="lineNum">      48 </span>            :     FileForJUnitOutputTests* nextFile()
+<span class="lineNum">      48 </span><span class="lineCov">         27 :     FileForJUnitOutputTests* nextFile()</span>
 <span class="lineNum">      49 </span>            :     {
 <span class="lineNum">      50 </span><span class="lineCov">         27 :         return next_;</span>
 <a name="51"><span class="lineNum">      51 </span>            :     }</a>
 <span class="lineNum">      52 </span>            : 
-<span class="lineNum">      53 </span>            :     SimpleString name()
+<span class="lineNum">      53 </span><span class="lineCov">         26 :     SimpleString name()</span>
 <span class="lineNum">      54 </span>            :     {
 <span class="lineNum">      55 </span><span class="lineCov">         26 :         return name_;</span>
 <a name="56"><span class="lineNum">      56 </span>            :     }</a>
@@ -122,27 +122,27 @@
 <span class="lineNum">      60 </span><span class="lineCov">        263 :         buffer_ += buffer;</span>
 <a name="61"><span class="lineNum">      61 </span><span class="lineCov">        263 :     }</span></a>
 <span class="lineNum">      62 </span>            : 
-<span class="lineNum">      63 </span>            :     void close()
+<span class="lineNum">      63 </span><span class="lineCov">         24 :     void close()</span>
 <span class="lineNum">      64 </span>            :     {
 <span class="lineNum">      65 </span><span class="lineCov">         24 :         isOpen_ = false;</span>
 <a name="66"><span class="lineNum">      66 </span><span class="lineCov">         24 :     }</span></a>
 <span class="lineNum">      67 </span>            : 
 <span class="lineNum">      68 </span><span class="lineCov">         42 :     const char* line(size_t lineNumber)</span>
 <span class="lineNum">      69 </span>            :     {
-<span class="lineNum">      70 </span><span class="lineCov">         84 :         buffer_.split(&quot;\n&quot;, linesOfFile_);</span>
+<span class="lineNum">      70 </span><span class="lineCov">         42 :         buffer_.split(&quot;\n&quot;, linesOfFile_);</span>
 <span class="lineNum">      71 </span><span class="lineCov">         42 :         return linesOfFile_[lineNumber-1].asCharString();</span>
 <a name="72"><span class="lineNum">      72 </span>            : </a>
-<span class="lineNum">      73 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">      73 </span>            :     }
 <span class="lineNum">      74 </span><span class="lineCov">          3 :     const char* lineFromTheBack(size_t lineNumberFromTheBack)</span>
 <span class="lineNum">      75 </span>            :     {
 <span class="lineNum">      76 </span><span class="lineCov">          3 :         return line(amountOfLines() - (lineNumberFromTheBack - 1));</span>
 <a name="77"><span class="lineNum">      77 </span>            :     }</a>
 <span class="lineNum">      78 </span>            : 
-<span class="lineNum">      79 </span>            :     size_t amountOfLines()
+<span class="lineNum">      79 </span><span class="lineCov">          3 :     size_t amountOfLines()</span>
 <span class="lineNum">      80 </span>            :     {
-<span class="lineNum">      81 </span><span class="lineCov">          6 :         buffer_.split(&quot;\n&quot;, linesOfFile_);</span>
+<span class="lineNum">      81 </span><span class="lineCov">          3 :         buffer_.split(&quot;\n&quot;, linesOfFile_);</span>
 <span class="lineNum">      82 </span><span class="lineCov">          3 :         return linesOfFile_.size();</span>
-<span class="lineNum">      83 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">      83 </span>            :     }
 <span class="lineNum">      84 </span>            : 
 <span class="lineNum">      85 </span>            :     SimpleString content()
 <span class="lineNum">      86 </span>            :     {
@@ -155,25 +155,25 @@
 <span class="lineNum">      93 </span>            :     FileForJUnitOutputTests* firstFile_;
 <a name="94"><span class="lineNum">      94 </span>            : </a>
 <a name="95"><span class="lineNum">      95 </span>            : public:</a>
-<span class="lineNum">      96 </span><span class="lineCov">         46 :     FileSystemForJUnitTestOutputTests() : firstFile_(0) {}</span>
-<span class="lineNum">      97 </span>            :     ~FileSystemForJUnitTestOutputTests()
-<span class="lineNum">      98 </span><span class="lineCov">         23 :     {</span>
+<span class="lineNum">      96 </span><span class="lineCov">         23 :     FileSystemForJUnitTestOutputTests() : firstFile_(0) {}</span>
+<span class="lineNum">      97 </span><span class="lineCov">         23 :     ~FileSystemForJUnitTestOutputTests()</span>
+<span class="lineNum">      98 </span>            :     {
 <span class="lineNum">      99 </span><span class="lineCov">         70 :         while (firstFile_) {</span>
 <span class="lineNum">     100 </span><span class="lineCov">         24 :             FileForJUnitOutputTests* fileToBeDeleted = firstFile_;</span>
 <span class="lineNum">     101 </span><span class="lineCov">         24 :             firstFile_ = firstFile_-&gt;nextFile();</span>
-<span class="lineNum">     102 </span><span class="lineCov">         72 :             delete fileToBeDeleted;</span>
-<span class="lineNum">     103 </span><span class="lineCov">         24 :         }</span>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">         46 :     }</span></a>
+<span class="lineNum">     102 </span><span class="lineCov">         24 :             delete fileToBeDeleted;</span>
+<span class="lineNum">     103 </span>            :         }
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">         23 :     }</span></a>
 <span class="lineNum">     105 </span>            : 
 <span class="lineNum">     106 </span><span class="lineCov">         24 :     FileForJUnitOutputTests* openFile(const SimpleString&amp; filename)</span>
 <span class="lineNum">     107 </span>            :     {
-<span class="lineNum">     108 </span><span class="lineCov">         72 :         firstFile_ = new FileForJUnitOutputTests(filename, firstFile_);</span>
+<span class="lineNum">     108 </span><span class="lineCov">         24 :         firstFile_ = new FileForJUnitOutputTests(filename, firstFile_);</span>
 <span class="lineNum">     109 </span><span class="lineCov">         24 :         return firstFile_;</span>
-<a name="110"><span class="lineNum">     110 </span><span class="lineNoCov">          0 :     }</span></a>
+<a name="110"><span class="lineNum">     110 </span>            :     }</a>
 <span class="lineNum">     111 </span>            : 
-<span class="lineNum">     112 </span>            :     int amountOfFiles() {
+<span class="lineNum">     112 </span><span class="lineCov">          1 :     int amountOfFiles() {</span>
 <span class="lineNum">     113 </span><span class="lineCov">          1 :         int totalAmountOfFiles = 0;</span>
-<span class="lineNum">     114 </span><span class="lineCov">          4 :         for (FileForJUnitOutputTests* current = firstFile_; current != NULL; current = current-&gt;nextFile())</span>
+<span class="lineNum">     114 </span><span class="lineCov">          2 :         for (FileForJUnitOutputTests* current = firstFile_; current != NULL; current = current-&gt;nextFile())</span>
 <span class="lineNum">     115 </span><span class="lineCov">          1 :             totalAmountOfFiles++;</span>
 <span class="lineNum">     116 </span><span class="lineCov">          1 :         return totalAmountOfFiles;</span>
 <a name="117"><span class="lineNum">     117 </span>            :     }</a>
@@ -186,22 +186,22 @@
 <span class="lineNum">     124 </span>            : 
 <span class="lineNum">     125 </span><span class="lineCov">         24 :     FileForJUnitOutputTests* file(const char* filename)</span>
 <span class="lineNum">     126 </span>            :     {
-<span class="lineNum">     127 </span><span class="lineCov">         52 :         for (FileForJUnitOutputTests* current = firstFile_; current != NULL; current = current-&gt;nextFile())</span>
-<span class="lineNum">     128 </span><span class="lineCov">        104 :             if (current-&gt;name() == filename)</span>
-<span class="lineNum">     129 </span><span class="lineCov">         26 :                 return current;</span>
+<span class="lineNum">     127 </span><span class="lineCov">         26 :         for (FileForJUnitOutputTests* current = firstFile_; current != NULL; current = current-&gt;nextFile())</span>
+<span class="lineNum">     128 </span><span class="lineCov">         26 :             if (current-&gt;name() == filename)</span>
+<span class="lineNum">     129 </span><span class="lineCov">         24 :                 return current;</span>
 <span class="lineNum">     130 </span><span class="lineNoCov">          0 :         return NULL;</span>
-<span class="lineNum">     131 </span><span class="lineCov">         24 :     }</span>
+<span class="lineNum">     131 </span>            :     }
 <a name="132"><span class="lineNum">     132 </span>            : };</a>
 <span class="lineNum">     133 </span>            : 
-<span class="lineNum">     134 </span><span class="lineCov">         92 : class JUnitTestOutputToBuffer : public JUnitTestOutput</span>
+<span class="lineNum">     134 </span><span class="lineCov">         46 : class JUnitTestOutputToBuffer : public JUnitTestOutput</span>
 <span class="lineNum">     135 </span>            : {
 <span class="lineNum">     136 </span>            : public:
 <span class="lineNum">     137 </span>            : 
 <span class="lineNum">     138 </span>            :     FileSystemForJUnitTestOutputTests&amp; fileSystem_;
 <a name="139"><span class="lineNum">     139 </span>            :     FileForJUnitOutputTests* currentOpenFile_;</a>
 <span class="lineNum">     140 </span>            : 
-<span class="lineNum">     141 </span><span class="lineCov">         46 :     JUnitTestOutputToBuffer(FileSystemForJUnitTestOutputTests&amp; fileSystem)</span>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">         46 :         : fileSystem_(fileSystem), currentOpenFile_(0) {}</span></a>
+<span class="lineNum">     141 </span><span class="lineCov">         23 :     JUnitTestOutputToBuffer(FileSystemForJUnitTestOutputTests&amp; fileSystem)</span>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">         23 :         : fileSystem_(fileSystem), currentOpenFile_(0) {}</span></a>
 <span class="lineNum">     143 </span>            : 
 <span class="lineNum">     144 </span><span class="lineCov">        263 :     void writeToFile(const SimpleString&amp; buffer)</span>
 <span class="lineNum">     145 </span>            :     {
@@ -213,7 +213,7 @@
 <span class="lineNum">     151 </span><span class="lineCov">         24 :         currentOpenFile_ = fileSystem_.openFile(filename);</span>
 <a name="152"><span class="lineNum">     152 </span><span class="lineCov">         24 :     }</span></a>
 <span class="lineNum">     153 </span>            : 
-<span class="lineNum">     154 </span>            :     void closeFile()
+<span class="lineNum">     154 </span><span class="lineCov">         24 :     void closeFile()</span>
 <span class="lineNum">     155 </span>            :     {
 <span class="lineNum">     156 </span><span class="lineCov">         24 :         currentOpenFile_-&gt;close();</span>
 <span class="lineNum">     157 </span><span class="lineCov">         24 :         currentOpenFile_ = 0;</span>
@@ -224,18 +224,18 @@
 <span class="lineNum">     162 </span>            :     static long millisTime = 0;
 <a name="163"><span class="lineNum">     163 </span>            :     static const char* theTime = &quot;&quot;;</a>
 <span class="lineNum">     164 </span>            : 
-<span class="lineNum">     165 </span>            :     static long MockGetPlatformSpecificTimeInMillis()
+<span class="lineNum">     165 </span><span class="lineCov">        200 :     static long MockGetPlatformSpecificTimeInMillis()</span>
 <span class="lineNum">     166 </span>            :     {
 <span class="lineNum">     167 </span><span class="lineCov">        200 :         return millisTime;</span>
 <a name="168"><span class="lineNum">     168 </span>            :     }</a>
 <span class="lineNum">     169 </span>            : 
-<span class="lineNum">     170 </span>            :     static const char* MockGetPlatformSpecificTimeString()
+<span class="lineNum">     170 </span><span class="lineCov">         24 :     static const char* MockGetPlatformSpecificTimeString()</span>
 <span class="lineNum">     171 </span>            :     {
 <span class="lineNum">     172 </span><span class="lineCov">         24 :         return theTime;</span>
 <span class="lineNum">     173 </span>            :     }
 <a name="174"><span class="lineNum">     174 </span>            : }</a>
 <span class="lineNum">     175 </span>            : 
-<span class="lineNum">     176 </span><span class="lineCov">         46 : class JUnitTestOutputTestRunner</span>
+<span class="lineNum">     176 </span><span class="lineCov">         23 : class JUnitTestOutputTestRunner</span>
 <span class="lineNum">     177 </span>            : {
 <span class="lineNum">     178 </span>            :     TestResult result_;
 <span class="lineNum">     179 </span>            : 
@@ -248,37 +248,37 @@
 <span class="lineNum">     186 </span>            : 
 <a name="187"><span class="lineNum">     187 </span>            : public:</a>
 <span class="lineNum">     188 </span>            : 
-<span class="lineNum">     189 </span><span class="lineCov">         46 :     JUnitTestOutputTestRunner(TestResult result) :</span>
-<span class="lineNum">     190 </span>            :         result_(result), currentGroupName_(0), currentTest_(0), firstTestInGroup_(true), timeTheTestTakes_(0), testFailure_(0)
-<span class="lineNum">     191 </span><span class="lineCov">         23 :     {</span>
+<span class="lineNum">     189 </span><span class="lineCov">         23 :     JUnitTestOutputTestRunner(TestResult result) :</span>
+<span class="lineNum">     190 </span><span class="lineCov">         23 :         result_(result), currentGroupName_(0), currentTest_(0), firstTestInGroup_(true), timeTheTestTakes_(0), testFailure_(0)</span>
+<span class="lineNum">     191 </span>            :     {
 <span class="lineNum">     192 </span><span class="lineCov">         23 :         millisTime = 0;</span>
 <span class="lineNum">     193 </span><span class="lineCov">         23 :         theTime =  &quot;1978-10-03T00:00:00&quot;;</span>
 <span class="lineNum">     194 </span>            : 
-<span class="lineNum">     195 </span><span class="lineCov">         46 :         UT_PTR_SET(GetPlatformSpecificTimeInMillis, MockGetPlatformSpecificTimeInMillis);</span>
-<span class="lineNum">     196 </span><span class="lineCov">         46 :         UT_PTR_SET(GetPlatformSpecificTimeString, MockGetPlatformSpecificTimeString);</span>
-<a name="197"><span class="lineNum">     197 </span><span class="lineCov">         46 :     }</span></a>
+<span class="lineNum">     195 </span><span class="lineCov">         23 :         UT_PTR_SET(GetPlatformSpecificTimeInMillis, MockGetPlatformSpecificTimeInMillis);</span>
+<span class="lineNum">     196 </span><span class="lineCov">         23 :         UT_PTR_SET(GetPlatformSpecificTimeString, MockGetPlatformSpecificTimeString);</span>
+<a name="197"><span class="lineNum">     197 </span><span class="lineCov">         23 :     }</span></a>
 <span class="lineNum">     198 </span>            : 
-<span class="lineNum">     199 </span>            :     JUnitTestOutputTestRunner&amp; start()
+<span class="lineNum">     199 </span><span class="lineCov">         22 :     JUnitTestOutputTestRunner&amp; start()</span>
 <span class="lineNum">     200 </span>            :     {
 <span class="lineNum">     201 </span><span class="lineCov">         22 :         result_.testsStarted();</span>
 <span class="lineNum">     202 </span><span class="lineCov">         22 :         return *this;</span>
 <a name="203"><span class="lineNum">     203 </span>            :     }</a>
 <span class="lineNum">     204 </span>            : 
-<span class="lineNum">     205 </span>            :     JUnitTestOutputTestRunner&amp; end()
+<span class="lineNum">     205 </span><span class="lineCov">         22 :     JUnitTestOutputTestRunner&amp; end()</span>
 <span class="lineNum">     206 </span>            :     {
 <span class="lineNum">     207 </span><span class="lineCov">         22 :         endOfPreviousTestGroup();</span>
-<span class="lineNum">     208 </span><span class="lineCov">         44 :         delete currentTest_;</span>
+<span class="lineNum">     208 </span><span class="lineCov">         22 :         delete currentTest_;</span>
 <span class="lineNum">     209 </span><span class="lineCov">         22 :         result_.testsEnded();</span>
 <span class="lineNum">     210 </span><span class="lineCov">         22 :         return *this;</span>
 <a name="211"><span class="lineNum">     211 </span>            :     }</a>
 <span class="lineNum">     212 </span>            : 
-<span class="lineNum">     213 </span>            :     void endOfPreviousTestGroup()
+<span class="lineNum">     213 </span><span class="lineCov">         46 :     void endOfPreviousTestGroup()</span>
 <span class="lineNum">     214 </span>            :     {
 <span class="lineNum">     215 </span><span class="lineCov">         46 :         runPreviousTest();</span>
 <span class="lineNum">     216 </span><span class="lineCov">         46 :         if (currentTest_) {</span>
 <span class="lineNum">     217 </span><span class="lineCov">         24 :             result_.currentGroupEnded(currentTest_);</span>
 <span class="lineNum">     218 </span><span class="lineCov">         24 :             firstTestInGroup_ = true;</span>
-<span class="lineNum">     219 </span><span class="lineCov">         24 :         }</span>
+<span class="lineNum">     219 </span>            :         }
 <span class="lineNum">     220 </span>            : 
 <span class="lineNum">     221 </span><span class="lineCov">         46 :         currentGroupName_ = 0;</span>
 <a name="222"><span class="lineNum">     222 </span><span class="lineCov">         46 :     }</span></a>
@@ -295,42 +295,42 @@
 <span class="lineNum">     233 </span><span class="lineCov">         31 :     JUnitTestOutputTestRunner&amp; withTest(const char* testName)</span>
 <span class="lineNum">     234 </span>            :     {
 <span class="lineNum">     235 </span><span class="lineCov">         31 :         runPreviousTest();</span>
-<span class="lineNum">     236 </span><span class="lineCov">         41 :         delete currentTest_;</span>
+<span class="lineNum">     236 </span><span class="lineCov">         31 :         delete currentTest_;</span>
 <span class="lineNum">     237 </span>            : 
-<span class="lineNum">     238 </span><span class="lineCov">         62 :         currentTest_ = new UtestShell(currentGroupName_, testName, &quot;file&quot;, 1);</span>
+<span class="lineNum">     238 </span><span class="lineCov">         31 :         currentTest_ = new UtestShell(currentGroupName_, testName, &quot;file&quot;, 1);</span>
 <span class="lineNum">     239 </span><span class="lineCov">         31 :         return *this;</span>
-<a name="240"><span class="lineNum">     240 </span><span class="lineNoCov">          0 :     }</span></a>
+<a name="240"><span class="lineNum">     240 </span>            :     }</a>
 <span class="lineNum">     241 </span>            : 
 <span class="lineNum">     242 </span><span class="lineCov">          1 :     JUnitTestOutputTestRunner&amp; withIgnoredTest(const char* testName)</span>
 <span class="lineNum">     243 </span>            :     {
 <span class="lineNum">     244 </span><span class="lineCov">          1 :         runPreviousTest();</span>
 <span class="lineNum">     245 </span><span class="lineCov">          1 :         delete currentTest_;</span>
 <span class="lineNum">     246 </span>            : 
-<span class="lineNum">     247 </span><span class="lineCov">          2 :         currentTest_ = new IgnoredUtestShell(currentGroupName_, testName, &quot;file&quot;, 1);</span>
+<span class="lineNum">     247 </span><span class="lineCov">          1 :         currentTest_ = new IgnoredUtestShell(currentGroupName_, testName, &quot;file&quot;, 1);</span>
 <span class="lineNum">     248 </span><span class="lineCov">          1 :         return *this;</span>
-<a name="249"><span class="lineNum">     249 </span><span class="lineNoCov">          0 :     }</span></a>
+<a name="249"><span class="lineNum">     249 </span>            :     }</a>
 <span class="lineNum">     250 </span>            : 
-<span class="lineNum">     251 </span>            :     void runPreviousTest()
+<span class="lineNum">     251 </span><span class="lineCov">        102 :     void runPreviousTest()</span>
 <span class="lineNum">     252 </span>            :     {
-<span class="lineNum">     253 </span><span class="lineCov">        168 :         if (currentTest_ == 0) return;</span>
+<span class="lineNum">     253 </span><span class="lineCov">        204 :         if (currentTest_ == 0) return;</span>
 <span class="lineNum">     254 </span>            : 
 <span class="lineNum">     255 </span><span class="lineCov">         36 :         if (firstTestInGroup_) {</span>
 <span class="lineNum">     256 </span><span class="lineCov">         24 :             result_.currentGroupStarted(currentTest_);</span>
 <span class="lineNum">     257 </span><span class="lineCov">         24 :             firstTestInGroup_ = false;</span>
-<span class="lineNum">     258 </span><span class="lineCov">         24 :         }</span>
+<span class="lineNum">     258 </span>            :         }
 <span class="lineNum">     259 </span><span class="lineCov">         36 :         result_.currentTestStarted(currentTest_);</span>
 <span class="lineNum">     260 </span>            : 
 <span class="lineNum">     261 </span><span class="lineCov">         36 :         millisTime += timeTheTestTakes_;</span>
 <span class="lineNum">     262 </span>            : 
 <span class="lineNum">     263 </span><span class="lineCov">         36 :         if (testFailure_) {</span>
 <span class="lineNum">     264 </span><span class="lineCov">         11 :             result_.addFailure(*testFailure_);</span>
-<span class="lineNum">     265 </span><span class="lineCov">         22 :             delete testFailure_;</span>
+<span class="lineNum">     265 </span><span class="lineCov">         11 :             delete testFailure_;</span>
 <span class="lineNum">     266 </span><span class="lineCov">         11 :             testFailure_ = 0;</span>
-<span class="lineNum">     267 </span><span class="lineCov">         11 :         }</span>
+<span class="lineNum">     267 </span>            :         }
 <span class="lineNum">     268 </span>            : 
 <span class="lineNum">     269 </span>            : 
 <span class="lineNum">     270 </span><span class="lineCov">         36 :         result_.currentTestEnded(currentTest_);</span>
-<span class="lineNum">     271 </span><span class="lineCov">        138 :     }</span>
+<span class="lineNum">     271 </span>            :     }
 <a name="272"><span class="lineNum">     272 </span>            : </a>
 <span class="lineNum">     273 </span>            : 
 <span class="lineNum">     274 </span><span class="lineCov">          3 :     JUnitTestOutputTestRunner&amp; thatTakes(int timeElapsed)</span>
@@ -339,16 +339,16 @@
 <span class="lineNum">     277 </span><span class="lineCov">          3 :         return *this;</span>
 <a name="278"><span class="lineNum">     278 </span>            :     }</a>
 <span class="lineNum">     279 </span>            : 
-<span class="lineNum">     280 </span>            :     JUnitTestOutputTestRunner&amp; seconds()
+<span class="lineNum">     280 </span><span class="lineCov">          3 :     JUnitTestOutputTestRunner&amp; seconds()</span>
 <span class="lineNum">     281 </span>            :     {
 <span class="lineNum">     282 </span><span class="lineCov">          3 :         return *this;</span>
 <a name="283"><span class="lineNum">     283 </span>            :     }</a>
 <span class="lineNum">     284 </span>            : 
 <span class="lineNum">     285 </span><span class="lineCov">         11 :     JUnitTestOutputTestRunner&amp; thatFails(const char* message, const char* file, int line)</span>
 <span class="lineNum">     286 </span>            :     {
-<span class="lineNum">     287 </span><span class="lineCov">         33 :         testFailure_ = new TestFailure( currentTest_, file, line, message);</span>
+<span class="lineNum">     287 </span><span class="lineCov">         11 :         testFailure_ = new TestFailure( currentTest_, file, line, message);</span>
 <span class="lineNum">     288 </span><span class="lineCov">         11 :         return *this;</span>
-<a name="289"><span class="lineNum">     289 </span><span class="lineNoCov">          0 :     }</span></a>
+<a name="289"><span class="lineNum">     289 </span>            :     }</a>
 <span class="lineNum">     290 </span>            : 
 <span class="lineNum">     291 </span><span class="lineCov">          1 :     JUnitTestOutputTestRunner&amp; atTime(const char* newTime)</span>
 <span class="lineNum">     292 </span>            :     {
@@ -357,7 +357,7 @@
 <span class="lineNum">     295 </span>            :     }
 <a name="296"><span class="lineNum">     296 </span>            : };</a>
 <span class="lineNum">     297 </span>            : 
-<span class="lineNum">     298 </span><span class="lineCov">         92 : TEST_GROUP(JUnitOutputTest)</span>
+<span class="lineNum">     298 </span><span class="lineCov">         46 : TEST_GROUP(JUnitOutputTest)</span>
 <span class="lineNum">     299 </span>            : {
 <span class="lineNum">     300 </span>            :     FileSystemForJUnitTestOutputTests fileSystem;
 <span class="lineNum">     301 </span>            : 
@@ -366,307 +366,307 @@
 <span class="lineNum">     304 </span>            :     JUnitTestOutputTestRunner *testCaseRunner;
 <a name="305"><span class="lineNum">     305 </span>            :     FileForJUnitOutputTests* outputFile;</a>
 <span class="lineNum">     306 </span>            : 
-<span class="lineNum">     307 </span>            :     void setup()
+<span class="lineNum">     307 </span><span class="lineCov">         23 :     void setup()</span>
 <span class="lineNum">     308 </span>            :     {
-<span class="lineNum">     309 </span><span class="lineCov">         46 :         junitOutput = new JUnitTestOutputToBuffer (fileSystem);</span>
-<span class="lineNum">     310 </span><span class="lineCov">         46 :         result = new TestResult(*junitOutput);</span>
-<span class="lineNum">     311 </span><span class="lineCov">         46 :         testCaseRunner = new JUnitTestOutputTestRunner(*result);</span>
+<span class="lineNum">     309 </span><span class="lineCov">         23 :         junitOutput = new JUnitTestOutputToBuffer (fileSystem);</span>
+<span class="lineNum">     310 </span><span class="lineCov">         23 :         result = new TestResult(*junitOutput);</span>
+<span class="lineNum">     311 </span><span class="lineCov">         23 :         testCaseRunner = new JUnitTestOutputTestRunner(*result);</span>
 <a name="312"><span class="lineNum">     312 </span><span class="lineCov">         23 :     }</span></a>
 <span class="lineNum">     313 </span>            : 
-<span class="lineNum">     314 </span>            :     void teardown()
+<span class="lineNum">     314 </span><span class="lineCov">         23 :     void teardown()</span>
 <span class="lineNum">     315 </span>            :     {
-<span class="lineNum">     316 </span><span class="lineCov">         69 :         delete testCaseRunner;</span>
-<span class="lineNum">     317 </span><span class="lineCov">         46 :         delete result;</span>
-<span class="lineNum">     318 </span><span class="lineCov">         46 :         delete junitOutput;</span>
+<span class="lineNum">     316 </span><span class="lineCov">         23 :         delete testCaseRunner;</span>
+<span class="lineNum">     317 </span><span class="lineCov">         23 :         delete result;</span>
+<span class="lineNum">     318 </span><span class="lineCov">         23 :         delete junitOutput;</span>
 <span class="lineNum">     319 </span><span class="lineCov">         23 :     }</span>
 <a name="320"><span class="lineNum">     320 </span>            : };</a>
 <span class="lineNum">     321 </span>            : 
-<span class="lineNum">     322 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestOnlyWriteToOneFile)</span>
+<span class="lineNum">     322 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestOnlyWriteToOneFile)</span>
 <span class="lineNum">     323 </span>            : {
 <span class="lineNum">     324 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     325 </span>            :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)
-<span class="lineNum">     326 </span>            :             .end();
+<span class="lineNum">     325 </span><span class="lineCov">          1 :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)</span>
+<span class="lineNum">     326 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     327 </span>            : 
-<span class="lineNum">     328 </span><span class="lineCov">          2 :     LONGS_EQUAL(1, fileSystem.amountOfFiles());</span>
-<span class="lineNum">     329 </span><span class="lineCov">          2 :     CHECK(fileSystem.fileExists(&quot;cpputest_groupname.xml&quot;));</span>
+<span class="lineNum">     328 </span><span class="lineCov">          1 :     LONGS_EQUAL(1, fileSystem.amountOfFiles());</span>
+<span class="lineNum">     329 </span><span class="lineCov">          1 :     CHECK(fileSystem.fileExists(&quot;cpputest_groupname.xml&quot;));</span>
 <a name="330"><span class="lineNum">     330 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     331 </span>            : 
-<span class="lineNum">     332 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestOutputsValidXMLFiles)</span>
+<span class="lineNum">     332 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestOutputsValidXMLFiles)</span>
 <span class="lineNum">     333 </span>            : {
 <span class="lineNum">     334 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     335 </span>            :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)
-<span class="lineNum">     336 </span>            :             .end();
+<span class="lineNum">     335 </span><span class="lineCov">          1 :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)</span>
+<span class="lineNum">     336 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     337 </span>            : 
 <span class="lineNum">     338 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_groupname.xml&quot;);</span>
-<span class="lineNum">     339 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot; ?&gt;\n&quot;, outputFile-&gt;line(1));</span>
+<span class="lineNum">     339 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot; ?&gt;\n&quot;, outputFile-&gt;line(1));</span>
 <a name="340"><span class="lineNum">     340 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     341 </span>            : 
-<span class="lineNum">     342 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestoutputsTestSuiteStartAndEndBlocks)</span>
+<span class="lineNum">     342 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestoutputsTestSuiteStartAndEndBlocks)</span>
 <span class="lineNum">     343 </span>            : {
 <span class="lineNum">     344 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     345 </span>            :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)
-<span class="lineNum">     346 </span>            :             .end();
+<span class="lineNum">     345 </span><span class="lineCov">          1 :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)</span>
+<span class="lineNum">     346 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     347 </span>            : 
 <span class="lineNum">     348 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_groupname.xml&quot;);</span>
-<span class="lineNum">     349 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;0\&quot; hostname=\&quot;localhost\&quot; name=\&quot;groupname\&quot; tests=\&quot;1\&quot; time=\&quot;0.000\&quot; timestamp=\&quot;1978-10-03T00:00:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
-<span class="lineNum">     350 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;/testsuite&gt;&quot;, outputFile-&gt;lineFromTheBack(1));</span>
+<span class="lineNum">     349 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;0\&quot; hostname=\&quot;localhost\&quot; name=\&quot;groupname\&quot; tests=\&quot;1\&quot; time=\&quot;0.000\&quot; timestamp=\&quot;1978-10-03T00:00:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
+<span class="lineNum">     350 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;/testsuite&gt;&quot;, outputFile-&gt;lineFromTheBack(1));</span>
 <a name="351"><span class="lineNum">     351 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     352 </span>            : 
-<span class="lineNum">     353 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestFileShouldContainAnEmptyPropertiesBlock)</span>
+<span class="lineNum">     353 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestFileShouldContainAnEmptyPropertiesBlock)</span>
 <span class="lineNum">     354 </span>            : {
 <span class="lineNum">     355 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     356 </span>            :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)
-<span class="lineNum">     357 </span>            :             .end();
+<span class="lineNum">     356 </span><span class="lineCov">          1 :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)</span>
+<span class="lineNum">     357 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     358 </span>            : 
 <span class="lineNum">     359 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_groupname.xml&quot;);</span>
-<span class="lineNum">     360 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;properties&gt;\n&quot;, outputFile-&gt;line(3));</span>
-<span class="lineNum">     361 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;/properties&gt;\n&quot;, outputFile-&gt;line(4));</span>
+<span class="lineNum">     360 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;properties&gt;\n&quot;, outputFile-&gt;line(3));</span>
+<span class="lineNum">     361 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;/properties&gt;\n&quot;, outputFile-&gt;line(4));</span>
 <a name="362"><span class="lineNum">     362 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     363 </span>            : 
-<span class="lineNum">     364 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestFileShouldContainAnEmptyStdoutBlock)</span>
+<span class="lineNum">     364 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestFileShouldContainAnEmptyStdoutBlock)</span>
 <span class="lineNum">     365 </span>            : {
 <span class="lineNum">     366 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     367 </span>            :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)
-<span class="lineNum">     368 </span>            :             .end();
+<span class="lineNum">     367 </span><span class="lineCov">          1 :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)</span>
+<span class="lineNum">     368 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     369 </span>            : 
 <span class="lineNum">     370 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_groupname.xml&quot;);</span>
-<span class="lineNum">     371 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;system-out&gt;&lt;/system-out&gt;\n&quot;, outputFile-&gt;lineFromTheBack(3));</span>
+<span class="lineNum">     371 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;system-out&gt;&lt;/system-out&gt;\n&quot;, outputFile-&gt;lineFromTheBack(3));</span>
 <a name="372"><span class="lineNum">     372 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     373 </span>            : 
-<span class="lineNum">     374 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestFileShouldContainAnEmptyStderrBlock)</span>
+<span class="lineNum">     374 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestFileShouldContainAnEmptyStderrBlock)</span>
 <span class="lineNum">     375 </span>            : {
 <span class="lineNum">     376 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     377 </span>            :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)
-<span class="lineNum">     378 </span>            :             .end();
+<span class="lineNum">     377 </span><span class="lineCov">          1 :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)</span>
+<span class="lineNum">     378 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     379 </span>            : 
 <span class="lineNum">     380 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_groupname.xml&quot;);</span>
-<span class="lineNum">     381 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;system-err&gt;&lt;/system-err&gt;\n&quot;, outputFile-&gt;lineFromTheBack(2));</span>
+<span class="lineNum">     381 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;system-err&gt;&lt;/system-err&gt;\n&quot;, outputFile-&gt;lineFromTheBack(2));</span>
 <a name="382"><span class="lineNum">     382 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     383 </span>            : 
-<span class="lineNum">     384 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestFileShouldContainsATestCaseBlock)</span>
+<span class="lineNum">     384 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withOneTestGroupAndOneTestFileShouldContainsATestCaseBlock)</span>
 <span class="lineNum">     385 </span>            : {
 <span class="lineNum">     386 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     387 </span>            :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)
-<span class="lineNum">     388 </span>            :             .end();
+<span class="lineNum">     387 </span><span class="lineCov">          1 :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)</span>
+<span class="lineNum">     388 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     389 </span>            : 
 <span class="lineNum">     390 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_groupname.xml&quot;);</span>
 <span class="lineNum">     391 </span>            : 
-<span class="lineNum">     392 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;groupname\&quot; name=\&quot;testname\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
-<span class="lineNum">     393 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(6));</span>
+<span class="lineNum">     392 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;groupname\&quot; name=\&quot;testname\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
+<span class="lineNum">     393 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(6));</span>
 <a name="394"><span class="lineNum">     394 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     395 </span>            : 
-<span class="lineNum">     396 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withOneTestGroupAndTwoTestCasesCreateCorrectTestgroupBlockAndCorrectTestCaseBlock)</span>
+<span class="lineNum">     396 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withOneTestGroupAndTwoTestCasesCreateCorrectTestgroupBlockAndCorrectTestCaseBlock)</span>
 <span class="lineNum">     397 </span>            : {
 <span class="lineNum">     398 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     399 </span>            :             .withGroup(&quot;twoTestsGroup&quot;).withTest(&quot;firstTestName&quot;).withTest(&quot;secondTestName&quot;)
-<span class="lineNum">     400 </span>            :             .end();
+<span class="lineNum">     399 </span><span class="lineCov">          1 :             .withGroup(&quot;twoTestsGroup&quot;).withTest(&quot;firstTestName&quot;).withTest(&quot;secondTestName&quot;)</span>
+<span class="lineNum">     400 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     401 </span>            : 
 <span class="lineNum">     402 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_twoTestsGroup.xml&quot;);</span>
 <span class="lineNum">     403 </span>            : 
-<span class="lineNum">     404 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;0\&quot; hostname=\&quot;localhost\&quot; name=\&quot;twoTestsGroup\&quot; tests=\&quot;2\&quot; time=\&quot;0.000\&quot; timestamp=\&quot;1978-10-03T00:00:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
-<span class="lineNum">     405 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;twoTestsGroup\&quot; name=\&quot;firstTestName\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
-<span class="lineNum">     406 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(6));</span>
-<span class="lineNum">     407 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;twoTestsGroup\&quot; name=\&quot;secondTestName\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(7));</span>
-<span class="lineNum">     408 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(8));</span>
+<span class="lineNum">     404 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;0\&quot; hostname=\&quot;localhost\&quot; name=\&quot;twoTestsGroup\&quot; tests=\&quot;2\&quot; time=\&quot;0.000\&quot; timestamp=\&quot;1978-10-03T00:00:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
+<span class="lineNum">     405 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;twoTestsGroup\&quot; name=\&quot;firstTestName\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
+<span class="lineNum">     406 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(6));</span>
+<span class="lineNum">     407 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;twoTestsGroup\&quot; name=\&quot;secondTestName\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(7));</span>
+<span class="lineNum">     408 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(8));</span>
 <a name="409"><span class="lineNum">     409 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     410 </span>            : 
-<span class="lineNum">     411 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withOneTestGroupAndTimeHasElapsedAndTimestampChanged)</span>
+<span class="lineNum">     411 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withOneTestGroupAndTimeHasElapsedAndTimestampChanged)</span>
 <span class="lineNum">     412 </span>            : {
 <span class="lineNum">     413 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start().atTime(&quot;2013-07-04T22:28:00&quot;)</span>
-<span class="lineNum">     414 </span>            :             .withGroup(&quot;timeGroup&quot;).withTest(&quot;Dummy&quot;).thatTakes(10).seconds()
-<span class="lineNum">     415 </span>            :             .end();
+<span class="lineNum">     414 </span><span class="lineCov">          1 :             .withGroup(&quot;timeGroup&quot;).withTest(&quot;Dummy&quot;).thatTakes(10).seconds()</span>
+<span class="lineNum">     415 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     416 </span>            : 
 <span class="lineNum">     417 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_timeGroup.xml&quot;);</span>
 <span class="lineNum">     418 </span>            : 
-<span class="lineNum">     419 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;0\&quot; hostname=\&quot;localhost\&quot; name=\&quot;timeGroup\&quot; tests=\&quot;1\&quot; time=\&quot;0.010\&quot; timestamp=\&quot;2013-07-04T22:28:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
+<span class="lineNum">     419 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;0\&quot; hostname=\&quot;localhost\&quot; name=\&quot;timeGroup\&quot; tests=\&quot;1\&quot; time=\&quot;0.010\&quot; timestamp=\&quot;2013-07-04T22:28:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
 <a name="420"><span class="lineNum">     420 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     421 </span>            : 
-<span class="lineNum">     422 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withOneTestGroupAndMultipleTestCasesWithElapsedTime)</span>
+<span class="lineNum">     422 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withOneTestGroupAndMultipleTestCasesWithElapsedTime)</span>
 <span class="lineNum">     423 </span>            : {
 <span class="lineNum">     424 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     425 </span>            :             .withGroup(&quot;twoTestsGroup&quot;)
-<span class="lineNum">     426 </span>            :                 .withTest(&quot;firstTestName&quot;).thatTakes(10).seconds()
-<span class="lineNum">     427 </span>            :                 .withTest(&quot;secondTestName&quot;).thatTakes(50).seconds()
-<span class="lineNum">     428 </span>            :             .end();
+<span class="lineNum">     425 </span><span class="lineCov">          1 :             .withGroup(&quot;twoTestsGroup&quot;)</span>
+<span class="lineNum">     426 </span><span class="lineCov">          1 :                 .withTest(&quot;firstTestName&quot;).thatTakes(10).seconds()</span>
+<span class="lineNum">     427 </span><span class="lineCov">          1 :                 .withTest(&quot;secondTestName&quot;).thatTakes(50).seconds()</span>
+<span class="lineNum">     428 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     429 </span>            : 
 <span class="lineNum">     430 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_twoTestsGroup.xml&quot;);</span>
-<span class="lineNum">     431 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;0\&quot; hostname=\&quot;localhost\&quot; name=\&quot;twoTestsGroup\&quot; tests=\&quot;2\&quot; time=\&quot;0.060\&quot; timestamp=\&quot;1978-10-03T00:00:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
-<span class="lineNum">     432 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;twoTestsGroup\&quot; name=\&quot;firstTestName\&quot; time=\&quot;0.010\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
-<span class="lineNum">     433 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(6));</span>
-<span class="lineNum">     434 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;twoTestsGroup\&quot; name=\&quot;secondTestName\&quot; time=\&quot;0.050\&quot;&gt;\n&quot;, outputFile-&gt;line(7));</span>
-<span class="lineNum">     435 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(8));</span>
+<span class="lineNum">     431 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;0\&quot; hostname=\&quot;localhost\&quot; name=\&quot;twoTestsGroup\&quot; tests=\&quot;2\&quot; time=\&quot;0.060\&quot; timestamp=\&quot;1978-10-03T00:00:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
+<span class="lineNum">     432 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;twoTestsGroup\&quot; name=\&quot;firstTestName\&quot; time=\&quot;0.010\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
+<span class="lineNum">     433 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(6));</span>
+<span class="lineNum">     434 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;twoTestsGroup\&quot; name=\&quot;secondTestName\&quot; time=\&quot;0.050\&quot;&gt;\n&quot;, outputFile-&gt;line(7));</span>
+<span class="lineNum">     435 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(8));</span>
 <a name="436"><span class="lineNum">     436 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     437 </span>            : 
-<span class="lineNum">     438 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withOneTestGroupAndOneFailingTest)</span>
+<span class="lineNum">     438 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withOneTestGroupAndOneFailingTest)</span>
 <span class="lineNum">     439 </span>            : {
 <span class="lineNum">     440 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     441 </span>            :             .withGroup(&quot;testGroupWithFailingTest&quot;)
-<span class="lineNum">     442 </span>            :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test failed&quot;, &quot;thisfile&quot;, 10)
-<span class="lineNum">     443 </span>            :             .end();
+<span class="lineNum">     441 </span><span class="lineCov">          1 :             .withGroup(&quot;testGroupWithFailingTest&quot;)</span>
+<span class="lineNum">     442 </span><span class="lineCov">          1 :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test failed&quot;, &quot;thisfile&quot;, 10)</span>
+<span class="lineNum">     443 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     444 </span>            : 
 <span class="lineNum">     445 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_testGroupWithFailingTest.xml&quot;);</span>
-<span class="lineNum">     446 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;1\&quot; hostname=\&quot;localhost\&quot; name=\&quot;testGroupWithFailingTest\&quot; tests=\&quot;1\&quot; time=\&quot;0.000\&quot; timestamp=\&quot;1978-10-03T00:00:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
-<span class="lineNum">     447 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;testGroupWithFailingTest\&quot; name=\&quot;FailingTestName\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
-<span class="lineNum">     448 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;thisfile:10: Test failed\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
-<span class="lineNum">     449 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;/failure&gt;\n&quot;, outputFile-&gt;line(7));</span>
-<span class="lineNum">     450 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(8));</span>
+<span class="lineNum">     446 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;1\&quot; hostname=\&quot;localhost\&quot; name=\&quot;testGroupWithFailingTest\&quot; tests=\&quot;1\&quot; time=\&quot;0.000\&quot; timestamp=\&quot;1978-10-03T00:00:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
+<span class="lineNum">     447 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;testGroupWithFailingTest\&quot; name=\&quot;FailingTestName\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
+<span class="lineNum">     448 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;thisfile:10: Test failed\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
+<span class="lineNum">     449 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;/failure&gt;\n&quot;, outputFile-&gt;line(7));</span>
+<span class="lineNum">     450 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(8));</span>
 <a name="451"><span class="lineNum">     451 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     452 </span>            : 
-<span class="lineNum">     453 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, withTwoTestGroupAndOneFailingTest)</span>
+<span class="lineNum">     453 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, withTwoTestGroupAndOneFailingTest)</span>
 <span class="lineNum">     454 </span>            : {
 <span class="lineNum">     455 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     456 </span>            :             .withGroup(&quot;testGroupWithFailingTest&quot;)
-<span class="lineNum">     457 </span>            :                 .withTest(&quot;FirstTest&quot;)
-<span class="lineNum">     458 </span>            :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test failed&quot;, &quot;thisfile&quot;, 10)
-<span class="lineNum">     459 </span>            :             .end();
+<span class="lineNum">     456 </span><span class="lineCov">          1 :             .withGroup(&quot;testGroupWithFailingTest&quot;)</span>
+<span class="lineNum">     457 </span><span class="lineCov">          1 :                 .withTest(&quot;FirstTest&quot;)</span>
+<span class="lineNum">     458 </span><span class="lineCov">          1 :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test failed&quot;, &quot;thisfile&quot;, 10)</span>
+<span class="lineNum">     459 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     460 </span>            : 
 <span class="lineNum">     461 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_testGroupWithFailingTest.xml&quot;);</span>
 <span class="lineNum">     462 </span>            : 
-<span class="lineNum">     463 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;1\&quot; hostname=\&quot;localhost\&quot; name=\&quot;testGroupWithFailingTest\&quot; tests=\&quot;2\&quot; time=\&quot;0.000\&quot; timestamp=\&quot;1978-10-03T00:00:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
-<span class="lineNum">     464 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;testGroupWithFailingTest\&quot; name=\&quot;FailingTestName\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(7));</span>
-<span class="lineNum">     465 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;thisfile:10: Test failed\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(8));</span>
+<span class="lineNum">     463 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;1\&quot; hostname=\&quot;localhost\&quot; name=\&quot;testGroupWithFailingTest\&quot; tests=\&quot;2\&quot; time=\&quot;0.000\&quot; timestamp=\&quot;1978-10-03T00:00:00\&quot;&gt;\n&quot;, outputFile-&gt;line(2));</span>
+<span class="lineNum">     464 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;testGroupWithFailingTest\&quot; name=\&quot;FailingTestName\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(7));</span>
+<span class="lineNum">     465 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;thisfile:10: Test failed\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(8));</span>
 <a name="466"><span class="lineNum">     466 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     467 </span>            : 
-<span class="lineNum">     468 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, testFailureWithLessThanAndGreaterThanInsideIt)</span>
+<span class="lineNum">     468 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, testFailureWithLessThanAndGreaterThanInsideIt)</span>
 <span class="lineNum">     469 </span>            : {
 <span class="lineNum">     470 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     471 </span>            :             .withGroup(&quot;testGroupWithFailingTest&quot;)
-<span class="lineNum">     472 </span>            :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test &lt;failed&gt;&quot;, &quot;thisfile&quot;, 10)
-<span class="lineNum">     473 </span>            :             .end();
+<span class="lineNum">     471 </span><span class="lineCov">          1 :             .withGroup(&quot;testGroupWithFailingTest&quot;)</span>
+<span class="lineNum">     472 </span><span class="lineCov">          1 :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test &lt;failed&gt;&quot;, &quot;thisfile&quot;, 10)</span>
+<span class="lineNum">     473 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     474 </span>            : 
 <span class="lineNum">     475 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_testGroupWithFailingTest.xml&quot;);</span>
 <span class="lineNum">     476 </span>            : 
-<span class="lineNum">     477 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;thisfile:10: Test [failed]\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
+<span class="lineNum">     477 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;thisfile:10: Test [failed]\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
 <a name="478"><span class="lineNum">     478 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     479 </span>            : 
-<span class="lineNum">     480 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, testFailureWithQuotesInIt)</span>
+<span class="lineNum">     480 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, testFailureWithQuotesInIt)</span>
 <span class="lineNum">     481 </span>            : {
 <span class="lineNum">     482 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     483 </span>            :             .withGroup(&quot;testGroupWithFailingTest&quot;)
-<span class="lineNum">     484 </span>            :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test \&quot;failed\&quot;&quot;, &quot;thisfile&quot;, 10)
-<span class="lineNum">     485 </span>            :             .end();
+<span class="lineNum">     483 </span><span class="lineCov">          1 :             .withGroup(&quot;testGroupWithFailingTest&quot;)</span>
+<span class="lineNum">     484 </span><span class="lineCov">          1 :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test \&quot;failed\&quot;&quot;, &quot;thisfile&quot;, 10)</span>
+<span class="lineNum">     485 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     486 </span>            : 
 <span class="lineNum">     487 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_testGroupWithFailingTest.xml&quot;);</span>
 <span class="lineNum">     488 </span>            : 
-<span class="lineNum">     489 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;thisfile:10: Test 'failed'\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
+<span class="lineNum">     489 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;thisfile:10: Test 'failed'\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
 <a name="490"><span class="lineNum">     490 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     491 </span>            : 
-<span class="lineNum">     492 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, testFailureWithNewlineInIt)</span>
+<span class="lineNum">     492 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, testFailureWithNewlineInIt)</span>
 <span class="lineNum">     493 </span>            : {
 <span class="lineNum">     494 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     495 </span>            :             .withGroup(&quot;testGroupWithFailingTest&quot;)
-<span class="lineNum">     496 </span>            :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test \nfailed&quot;, &quot;thisfile&quot;, 10)
-<span class="lineNum">     497 </span>            :             .end();
+<span class="lineNum">     495 </span><span class="lineCov">          1 :             .withGroup(&quot;testGroupWithFailingTest&quot;)</span>
+<span class="lineNum">     496 </span><span class="lineCov">          1 :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test \nfailed&quot;, &quot;thisfile&quot;, 10)</span>
+<span class="lineNum">     497 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     498 </span>            : 
 <span class="lineNum">     499 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_testGroupWithFailingTest.xml&quot;);</span>
 <span class="lineNum">     500 </span>            : 
-<span class="lineNum">     501 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;thisfile:10: Test {newline}failed\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
+<span class="lineNum">     501 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;thisfile:10: Test {newline}failed\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
 <a name="502"><span class="lineNum">     502 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     503 </span>            : 
-<span class="lineNum">     504 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, testFailureWithDifferentFileAndLine)</span>
+<span class="lineNum">     504 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, testFailureWithDifferentFileAndLine)</span>
 <span class="lineNum">     505 </span>            : {
 <span class="lineNum">     506 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     507 </span>            :             .withGroup(&quot;testGroupWithFailingTest&quot;)
-<span class="lineNum">     508 </span>            :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test failed&quot;, &quot;importantFile&quot;, 999)
-<span class="lineNum">     509 </span>            :             .end();
+<span class="lineNum">     507 </span><span class="lineCov">          1 :             .withGroup(&quot;testGroupWithFailingTest&quot;)</span>
+<span class="lineNum">     508 </span><span class="lineCov">          1 :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;Test failed&quot;, &quot;importantFile&quot;, 999)</span>
+<span class="lineNum">     509 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     510 </span>            : 
 <span class="lineNum">     511 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_testGroupWithFailingTest.xml&quot;);</span>
 <span class="lineNum">     512 </span>            : 
-<span class="lineNum">     513 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;importantFile:999: Test failed\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
+<span class="lineNum">     513 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;importantFile:999: Test failed\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
 <a name="514"><span class="lineNum">     514 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     515 </span>            : 
-<span class="lineNum">     516 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, testFailureWithAmpersands)</span>
+<span class="lineNum">     516 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, testFailureWithAmpersands)</span>
 <span class="lineNum">     517 </span>            : {
 <span class="lineNum">     518 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     519 </span>            :             .withGroup(&quot;testGroupWithFailingTest&quot;)
-<span class="lineNum">     520 </span>            :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;&amp;object1 != &amp;object2&quot;, &quot;importantFile&quot;, 999)
-<span class="lineNum">     521 </span>            :             .end();
+<span class="lineNum">     519 </span><span class="lineCov">          1 :             .withGroup(&quot;testGroupWithFailingTest&quot;)</span>
+<span class="lineNum">     520 </span><span class="lineCov">          1 :                 .withTest(&quot;FailingTestName&quot;).thatFails(&quot;&amp;object1 != &amp;object2&quot;, &quot;importantFile&quot;, 999)</span>
+<span class="lineNum">     521 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     522 </span>            : 
 <span class="lineNum">     523 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_testGroupWithFailingTest.xml&quot;);</span>
 <span class="lineNum">     524 </span>            : 
-<span class="lineNum">     525 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;importantFile:999: &amp;amp;object1 != &amp;amp;object2\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
+<span class="lineNum">     525 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;importantFile:999: &amp;amp;object1 != &amp;amp;object2\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(6));</span>
 <a name="526"><span class="lineNum">     526 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     527 </span>            : 
-<span class="lineNum">     528 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, aCoupleOfTestFailures)</span>
+<span class="lineNum">     528 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, aCoupleOfTestFailures)</span>
 <span class="lineNum">     529 </span>            : {
 <span class="lineNum">     530 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     531 </span>            :             .withGroup(&quot;testGroup&quot;)
-<span class="lineNum">     532 </span>            :                 .withTest(&quot;passingOne&quot;)
-<span class="lineNum">     533 </span>            :                 .withTest(&quot;FailingTest&quot;).thatFails(&quot;Failure&quot;, &quot;file&quot;, 99)
-<span class="lineNum">     534 </span>            :                 .withTest(&quot;passingTwo&quot;)
-<span class="lineNum">     535 </span>            :                 .withTest(&quot;passingThree&quot;)
-<span class="lineNum">     536 </span>            :                 .withTest(&quot;AnotherFailingTest&quot;).thatFails(&quot;otherFailure&quot;, &quot;anotherFile&quot;, 10)
-<span class="lineNum">     537 </span>            :             .end();
+<span class="lineNum">     531 </span><span class="lineCov">          1 :             .withGroup(&quot;testGroup&quot;)</span>
+<span class="lineNum">     532 </span><span class="lineCov">          1 :                 .withTest(&quot;passingOne&quot;)</span>
+<span class="lineNum">     533 </span><span class="lineCov">          1 :                 .withTest(&quot;FailingTest&quot;).thatFails(&quot;Failure&quot;, &quot;file&quot;, 99)</span>
+<span class="lineNum">     534 </span><span class="lineCov">          1 :                 .withTest(&quot;passingTwo&quot;)</span>
+<span class="lineNum">     535 </span><span class="lineCov">          1 :                 .withTest(&quot;passingThree&quot;)</span>
+<span class="lineNum">     536 </span><span class="lineCov">          1 :                 .withTest(&quot;AnotherFailingTest&quot;).thatFails(&quot;otherFailure&quot;, &quot;anotherFile&quot;, 10)</span>
+<span class="lineNum">     537 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     538 </span>            : 
 <span class="lineNum">     539 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_testGroup.xml&quot;);</span>
 <span class="lineNum">     540 </span>            : 
-<span class="lineNum">     541 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;file:99: Failure\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(8));</span>
-<span class="lineNum">     542 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;anotherFile:10: otherFailure\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(16));</span>
+<span class="lineNum">     541 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;file:99: Failure\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(8));</span>
+<span class="lineNum">     542 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;anotherFile:10: otherFailure\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(16));</span>
 <a name="543"><span class="lineNum">     543 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     544 </span>            : 
-<span class="lineNum">     545 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, testFailuresInSeparateGroups)</span>
+<span class="lineNum">     545 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, testFailuresInSeparateGroups)</span>
 <span class="lineNum">     546 </span>            : {
 <span class="lineNum">     547 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     548 </span>            :             .withGroup(&quot;testGroup&quot;)
-<span class="lineNum">     549 </span>            :                 .withTest(&quot;passingOne&quot;)
-<span class="lineNum">     550 </span>            :                 .withTest(&quot;FailingTest&quot;).thatFails(&quot;Failure&quot;, &quot;file&quot;, 99)
-<span class="lineNum">     551 </span>            :             .withGroup(&quot;AnotherGroup&quot;)
-<span class="lineNum">     552 </span>            :                 .withTest(&quot;AnotherFailingTest&quot;).thatFails(&quot;otherFailure&quot;, &quot;anotherFile&quot;, 10)
-<span class="lineNum">     553 </span>            :             .end();
+<span class="lineNum">     548 </span><span class="lineCov">          1 :             .withGroup(&quot;testGroup&quot;)</span>
+<span class="lineNum">     549 </span><span class="lineCov">          1 :                 .withTest(&quot;passingOne&quot;)</span>
+<span class="lineNum">     550 </span><span class="lineCov">          1 :                 .withTest(&quot;FailingTest&quot;).thatFails(&quot;Failure&quot;, &quot;file&quot;, 99)</span>
+<span class="lineNum">     551 </span><span class="lineCov">          1 :             .withGroup(&quot;AnotherGroup&quot;)</span>
+<span class="lineNum">     552 </span><span class="lineCov">          1 :                 .withTest(&quot;AnotherFailingTest&quot;).thatFails(&quot;otherFailure&quot;, &quot;anotherFile&quot;, 10)</span>
+<span class="lineNum">     553 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     554 </span>            : 
 <span class="lineNum">     555 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_testGroup.xml&quot;);</span>
 <span class="lineNum">     556 </span>            : 
-<span class="lineNum">     557 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;file:99: Failure\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(8));</span>
+<span class="lineNum">     557 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;file:99: Failure\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(8));</span>
 <span class="lineNum">     558 </span>            : 
 <span class="lineNum">     559 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_AnotherGroup.xml&quot;);</span>
-<span class="lineNum">     560 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;anotherFile:10: otherFailure\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(8));</span>
+<span class="lineNum">     560 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;failure message=\&quot;anotherFile:10: otherFailure\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;, outputFile-&gt;line(8));</span>
 <a name="561"><span class="lineNum">     561 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     562 </span>            : 
-<span class="lineNum">     563 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, twoTestGroupsWriteToTwoDifferentFiles)</span>
+<span class="lineNum">     563 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, twoTestGroupsWriteToTwoDifferentFiles)</span>
 <span class="lineNum">     564 </span>            : {
 <span class="lineNum">     565 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     566 </span>            :             .withGroup(&quot;firstTestGroup&quot;)
-<span class="lineNum">     567 </span>            :                 .withTest(&quot;testName&quot;)
-<span class="lineNum">     568 </span>            :             .withGroup(&quot;secondTestGroup&quot;)
-<span class="lineNum">     569 </span>            :                 .withTest(&quot;testName&quot;)
-<span class="lineNum">     570 </span>            :             .end();
+<span class="lineNum">     566 </span><span class="lineCov">          1 :             .withGroup(&quot;firstTestGroup&quot;)</span>
+<span class="lineNum">     567 </span><span class="lineCov">          1 :                 .withTest(&quot;testName&quot;)</span>
+<span class="lineNum">     568 </span><span class="lineCov">          1 :             .withGroup(&quot;secondTestGroup&quot;)</span>
+<span class="lineNum">     569 </span><span class="lineCov">          1 :                 .withTest(&quot;testName&quot;)</span>
+<span class="lineNum">     570 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     571 </span>            : 
-<span class="lineNum">     572 </span><span class="lineCov">          2 :     CHECK(fileSystem.file(&quot;cpputest_firstTestGroup.xml&quot;));</span>
-<span class="lineNum">     573 </span><span class="lineCov">          2 :     CHECK(fileSystem.file(&quot;cpputest_secondTestGroup.xml&quot;));</span>
+<span class="lineNum">     572 </span><span class="lineCov">          1 :     CHECK(fileSystem.file(&quot;cpputest_firstTestGroup.xml&quot;));</span>
+<span class="lineNum">     573 </span><span class="lineCov">          1 :     CHECK(fileSystem.file(&quot;cpputest_secondTestGroup.xml&quot;));</span>
 <span class="lineNum">     574 </span>            : 
 <a name="575"><span class="lineNum">     575 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     576 </span>            : 
-<span class="lineNum">     577 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, testGroupWithWeirdName)</span>
+<span class="lineNum">     577 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, testGroupWithWeirdName)</span>
 <span class="lineNum">     578 </span>            : {
-<span class="lineNum">     579 </span><span class="lineCov">          6 :     STRCMP_EQUAL(&quot;cpputest_group_weird_name.xml&quot;, junitOutput-&gt;createFileName(&quot;group/weird/name&quot;).asCharString());</span>
+<span class="lineNum">     579 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;cpputest_group_weird_name.xml&quot;, junitOutput-&gt;createFileName(&quot;group/weird/name&quot;).asCharString());</span>
 <a name="580"><span class="lineNum">     580 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     581 </span>            : 
-<span class="lineNum">     582 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, TestCaseBlockWithAPackageName)</span>
+<span class="lineNum">     582 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, TestCaseBlockWithAPackageName)</span>
 <span class="lineNum">     583 </span>            : {
-<span class="lineNum">     584 </span><span class="lineCov">          2 :     junitOutput-&gt;setPackageName(&quot;packagename&quot;);</span>
+<span class="lineNum">     584 </span><span class="lineCov">          1 :     junitOutput-&gt;setPackageName(&quot;packagename&quot;);</span>
 <span class="lineNum">     585 </span><span class="lineCov">          1 :     testCaseRunner-&gt;start()</span>
-<span class="lineNum">     586 </span>            :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)
-<span class="lineNum">     587 </span>            :             .end();
+<span class="lineNum">     586 </span><span class="lineCov">          1 :             .withGroup(&quot;groupname&quot;).withTest(&quot;testname&quot;)</span>
+<span class="lineNum">     587 </span><span class="lineCov">          1 :             .end();</span>
 <span class="lineNum">     588 </span>            : 
 <span class="lineNum">     589 </span><span class="lineCov">          1 :     outputFile = fileSystem.file(&quot;cpputest_groupname.xml&quot;);</span>
 <span class="lineNum">     590 </span>            : 
-<span class="lineNum">     591 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;packagename.groupname\&quot; name=\&quot;testname\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
-<span class="lineNum">     592 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(6));</span>
+<span class="lineNum">     591 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;packagename.groupname\&quot; name=\&quot;testname\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
+<span class="lineNum">     592 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(6));</span>
 <a name="593"><span class="lineNum">     593 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     594 </span>            : 
-<span class="lineNum">     595 </span><span class="lineCov">         14 : TEST(JUnitOutputTest, TestCaseBlockForIgnoredTest)</span>
+<span class="lineNum">     595 </span><span class="lineCov">          8 : TEST(JUnitOutputTest, TestCaseBlockForIgnoredTest)</span>
 <span class="lineNum">     596 </span>            : {
-<span class="lineNum">     597 </span><span class="lineCov">          2 :    junitOutput-&gt;setPackageName(&quot;packagename&quot;);</span>
+<span class="lineNum">     597 </span><span class="lineCov">          1 :    junitOutput-&gt;setPackageName(&quot;packagename&quot;);</span>
 <span class="lineNum">     598 </span><span class="lineCov">          1 :    testCaseRunner-&gt;start()</span>
-<span class="lineNum">     599 </span>            :       .withGroup(&quot;groupname&quot;).withIgnoredTest(&quot;testname&quot;)
-<span class="lineNum">     600 </span>            :       .end();
+<span class="lineNum">     599 </span><span class="lineCov">          1 :       .withGroup(&quot;groupname&quot;).withIgnoredTest(&quot;testname&quot;)</span>
+<span class="lineNum">     600 </span><span class="lineCov">          1 :       .end();</span>
 <span class="lineNum">     601 </span>            : 
 <span class="lineNum">     602 </span><span class="lineCov">          1 :    outputFile = fileSystem.file(&quot;cpputest_groupname.xml&quot;);</span>
 <span class="lineNum">     603 </span>            : 
-<span class="lineNum">     604 </span><span class="lineCov">          2 :    STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;packagename.groupname\&quot; name=\&quot;testname\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
-<span class="lineNum">     605 </span><span class="lineCov">          2 :    STRCMP_EQUAL(&quot;&lt;skipped /&gt;\n&quot;, outputFile-&gt;line(6));</span>
-<span class="lineNum">     606 </span><span class="lineCov">          2 :    STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(7));</span>
-<span class="lineNum">     607 </span><span class="lineCov">          1 : }</span>
+<span class="lineNum">     604 </span><span class="lineCov">          1 :    STRCMP_EQUAL(&quot;&lt;testcase classname=\&quot;packagename.groupname\&quot; name=\&quot;testname\&quot; time=\&quot;0.000\&quot;&gt;\n&quot;, outputFile-&gt;line(5));</span>
+<a name="605"><span class="lineNum">     605 </span><span class="lineCov">          1 :    STRCMP_EQUAL(&quot;&lt;skipped /&gt;\n&quot;, outputFile-&gt;line(6));</span></a>
+<span class="lineNum">     606 </span><span class="lineCov">          1 :    STRCMP_EQUAL(&quot;&lt;/testcase&gt;\n&quot;, outputFile-&gt;line(7));</span>
+<span class="lineNum">     607 </span><span class="lineCov">          4 : }</span>
 </pre>
       </td>
     </tr>

@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">375</td>
-            <td class="headerCovTableEntry">391</td>
-            <td class="headerCovTableEntryHi">95.9 %</td>
+            <td class="headerCovTableEntry">359</td>
+            <td class="headerCovTableEntry">369</td>
+            <td class="headerCovTableEntryHi">97.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">82</td>
-            <td class="headerCovTableEntry">84</td>
-            <td class="headerCovTableEntryHi">97.6 %</td>
+            <td class="headerCovTableEntry">78</td>
+            <td class="headerCovTableEntry">80</td>
+            <td class="headerCovTableEntryHi">97.5 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -94,31 +94,31 @@
 <span class="lineNum">      32 </span>            : 
 <a name="33"><span class="lineNum">      33 </span>            : #define UNKNOWN ((char*)(&quot;&lt;unknown&gt;&quot;))</a>
 <span class="lineNum">      34 </span>            : 
-<span class="lineNum">      35 </span>            : SimpleStringBuffer::SimpleStringBuffer() :
-<span class="lineNum">      36 </span>            :     positions_filled_(0), write_limit_(SIMPLE_STRING_BUFFER_LEN-1)
-<span class="lineNum">      37 </span><span class="lineCov">        108 : {</span>
+<span class="lineNum">      35 </span><span class="lineCov">        108 : SimpleStringBuffer::SimpleStringBuffer() :</span>
+<span class="lineNum">      36 </span><span class="lineCov">        108 :     positions_filled_(0), write_limit_(SIMPLE_STRING_BUFFER_LEN-1)</span>
+<span class="lineNum">      37 </span>            : {
 <span class="lineNum">      38 </span><span class="lineCov">        108 :     buffer_[0] = '\0';</span>
-<a name="39"><span class="lineNum">      39 </span><span class="lineCov">        216 : }</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">        108 : }</span></a>
 <span class="lineNum">      40 </span>            : 
-<span class="lineNum">      41 </span>            : void SimpleStringBuffer::clear()
+<span class="lineNum">      41 </span><span class="lineCov">        759 : void SimpleStringBuffer::clear()</span>
 <span class="lineNum">      42 </span>            : {
-<span class="lineNum">      43 </span><span class="lineCov">        760 :     positions_filled_ = 0;</span>
-<span class="lineNum">      44 </span><span class="lineCov">        760 :     buffer_[0] = '\0';</span>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">        760 : }</span></a>
+<span class="lineNum">      43 </span><span class="lineCov">        759 :     positions_filled_ = 0;</span>
+<span class="lineNum">      44 </span><span class="lineCov">        759 :     buffer_[0] = '\0';</span>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">        759 : }</span></a>
 <span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span><span class="lineCov">      27080 : void SimpleStringBuffer::add(const char* format, ...)</span>
+<span class="lineNum">      47 </span><span class="lineCov">      27040 : void SimpleStringBuffer::add(const char* format, ...)</span>
 <span class="lineNum">      48 </span>            : {
-<span class="lineNum">      49 </span><span class="lineCov">      27080 :     int count = 0;</span>
-<span class="lineNum">      50 </span><span class="lineCov">      27080 :     size_t positions_left = write_limit_ - positions_filled_;</span>
-<span class="lineNum">      51 </span><span class="lineCov">      41891 :     if (positions_left &lt;= 0) return;</span>
+<span class="lineNum">      49 </span><span class="lineCov">      27040 :     int count = 0;</span>
+<span class="lineNum">      50 </span><span class="lineCov">      27040 :     size_t positions_left = write_limit_ - positions_filled_;</span>
+<span class="lineNum">      51 </span><span class="lineCov">      54080 :     if (positions_left &lt;= 0) return;</span>
 <span class="lineNum">      52 </span>            : 
-<span class="lineNum">      53 </span><span class="lineCov">      12269 :     va_list arguments;</span>
-<span class="lineNum">      54 </span><span class="lineCov">      12269 :     va_start(arguments, format);</span>
-<span class="lineNum">      55 </span><span class="lineCov">      12269 :     count = PlatformSpecificVSNprintf(buffer_ + positions_filled_, positions_left+1, format, arguments);</span>
-<span class="lineNum">      56 </span><span class="lineCov">      24538 :     if (count &gt; 0) positions_filled_ += (size_t) count;</span>
-<span class="lineNum">      57 </span><span class="lineCov">      12270 :     if (positions_filled_ &gt; write_limit_) positions_filled_ = write_limit_;</span>
-<span class="lineNum">      58 </span><span class="lineCov">      12269 :     va_end(arguments);</span>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">      39349 : }</span></a>
+<span class="lineNum">      53 </span>            :     va_list arguments;
+<span class="lineNum">      54 </span><span class="lineCov">      12257 :     va_start(arguments, format);</span>
+<span class="lineNum">      55 </span><span class="lineCov">      12257 :     count = PlatformSpecificVSNprintf(buffer_ + positions_filled_, positions_left+1, format, arguments);</span>
+<span class="lineNum">      56 </span><span class="lineCov">      12257 :     if (count &gt; 0) positions_filled_ += (size_t) count;</span>
+<span class="lineNum">      57 </span><span class="lineCov">      12257 :     if (positions_filled_ &gt; write_limit_) positions_filled_ = write_limit_;</span>
+<span class="lineNum">      58 </span><span class="lineCov">      12257 :     va_end(arguments);</span>
+<a name="59"><span class="lineNum">      59 </span>            : }</a>
 <span class="lineNum">      60 </span>            : 
 <span class="lineNum">      61 </span><span class="lineCov">        136 : void SimpleStringBuffer::addMemoryDump(const void* memory, size_t memorySize)</span>
 <span class="lineNum">      62 </span>            : {
@@ -131,36 +131,36 @@
 <span class="lineNum">      69 </span><span class="lineCov">        222 :         size_t bytesInLine = memorySize - currentPos;</span>
 <span class="lineNum">      70 </span><span class="lineCov">        222 :         if (bytesInLine &gt; maxLineBytes) {</span>
 <span class="lineNum">      71 </span><span class="lineCov">         87 :             bytesInLine = maxLineBytes;</span>
-<span class="lineNum">      72 </span><span class="lineCov">         87 :         }</span>
+<span class="lineNum">      72 </span>            :         }
 <span class="lineNum">      73 </span><span class="lineCov">        222 :         const size_t leftoverBytes = maxLineBytes - bytesInLine;</span>
 <span class="lineNum">      74 </span>            : 
-<span class="lineNum">      75 </span><span class="lineCov">       4356 :         for (size_t p = 0; p &lt; bytesInLine; p++) {</span>
-<span class="lineNum">      76 </span><span class="lineCov">       1956 :             add(&quot;%02hhx &quot;, byteMemory[currentPos + p]);</span>
-<span class="lineNum">      77 </span><span class="lineCov">       1956 :             if (p == ((maxLineBytes / 2) - 1)) {</span>
+<span class="lineNum">      75 </span><span class="lineCov">       2138 :         for (size_t p = 0; p &lt; bytesInLine; p++) {</span>
+<span class="lineNum">      76 </span><span class="lineCov">       1916 :             add(&quot;%02hhx &quot;, byteMemory[currentPos + p]);</span>
+<span class="lineNum">      77 </span><span class="lineCov">       1916 :             if (p == ((maxLineBytes / 2) - 1)) {</span>
 <span class="lineNum">      78 </span><span class="lineCov">        104 :                 add(&quot; &quot;);</span>
-<span class="lineNum">      79 </span><span class="lineCov">        104 :             }</span>
-<span class="lineNum">      80 </span><span class="lineCov">       1956 :         }</span>
-<span class="lineNum">      81 </span><span class="lineCov">       3636 :         for (size_t p = 0; p &lt; leftoverBytes; p++) {</span>
-<span class="lineNum">      82 </span><span class="lineCov">       1596 :             add(&quot;   &quot;);</span>
-<span class="lineNum">      83 </span><span class="lineCov">       1596 :         }</span>
+<span class="lineNum">      79 </span>            :             }
+<span class="lineNum">      80 </span>            :         }
+<span class="lineNum">      81 </span><span class="lineCov">       1858 :         for (size_t p = 0; p &lt; leftoverBytes; p++) {</span>
+<span class="lineNum">      82 </span><span class="lineCov">       1636 :             add(&quot;   &quot;);</span>
+<span class="lineNum">      83 </span>            :         }
 <span class="lineNum">      84 </span><span class="lineCov">        222 :         if (leftoverBytes &gt; (maxLineBytes/2)) {</span>
 <span class="lineNum">      85 </span><span class="lineCov">        118 :             add(&quot; &quot;);</span>
-<span class="lineNum">      86 </span><span class="lineCov">        118 :         }</span>
+<span class="lineNum">      86 </span>            :         }
 <span class="lineNum">      87 </span>            : 
 <span class="lineNum">      88 </span><span class="lineCov">        222 :         add(&quot;|&quot;);</span>
-<span class="lineNum">      89 </span><span class="lineCov">       4356 :         for (size_t p = 0; p &lt; bytesInLine; p++) {</span>
-<span class="lineNum">      90 </span><span class="lineCov">       1956 :             char toAdd = (char)byteMemory[currentPos + p];</span>
-<span class="lineNum">      91 </span><span class="lineCov">       3071 :             if (toAdd &lt; ' ' || toAdd &gt; '~') {</span>
-<span class="lineNum">      92 </span><span class="lineCov">        848 :                 toAdd = '.';</span>
-<span class="lineNum">      93 </span><span class="lineCov">        848 :             }</span>
-<span class="lineNum">      94 </span><span class="lineCov">       1956 :             add(&quot;%c&quot;, (int)toAdd);</span>
-<span class="lineNum">      95 </span><span class="lineCov">       1956 :         }</span>
+<span class="lineNum">      89 </span><span class="lineCov">       2138 :         for (size_t p = 0; p &lt; bytesInLine; p++) {</span>
+<span class="lineNum">      90 </span><span class="lineCov">       1916 :             char toAdd = (char)byteMemory[currentPos + p];</span>
+<span class="lineNum">      91 </span><span class="lineCov">       1916 :             if (toAdd &lt; ' ' || toAdd &gt; '~') {</span>
+<span class="lineNum">      92 </span><span class="lineCov">        391 :                 toAdd = '.';</span>
+<span class="lineNum">      93 </span>            :             }
+<span class="lineNum">      94 </span><span class="lineCov">       1916 :             add(&quot;%c&quot;, (int)toAdd);</span>
+<span class="lineNum">      95 </span>            :         }
 <span class="lineNum">      96 </span><span class="lineCov">        222 :         add(&quot;|\n&quot;);</span>
 <span class="lineNum">      97 </span><span class="lineCov">        222 :         currentPos += bytesInLine;</span>
-<span class="lineNum">      98 </span><span class="lineCov">        222 :     }</span>
+<span class="lineNum">      98 </span>            :     }
 <a name="99"><span class="lineNum">      99 </span><span class="lineCov">        136 : }</span></a>
 <span class="lineNum">     100 </span>            : 
-<span class="lineNum">     101 </span>            : char* SimpleStringBuffer::toString()
+<span class="lineNum">     101 </span><span class="lineCov">         39 : char* SimpleStringBuffer::toString()</span>
 <span class="lineNum">     102 </span>            : {
 <span class="lineNum">     103 </span><span class="lineCov">         39 :     return buffer_;</span>
 <a name="104"><span class="lineNum">     104 </span>            : }</a>
@@ -171,12 +171,12 @@
 <span class="lineNum">     109 </span><span class="lineCov">         26 :     if (write_limit_ &gt; SIMPLE_STRING_BUFFER_LEN-1)</span>
 <a name="110"><span class="lineNum">     110 </span><span class="lineCov">          1 :         write_limit_ = SIMPLE_STRING_BUFFER_LEN-1;</span></a>
 <span class="lineNum">     111 </span><span class="lineCov">         26 : }</span>
-<span class="lineNum">     112 </span>            : void SimpleStringBuffer::resetWriteLimit()
+<span class="lineNum">     112 </span><span class="lineCov">         21 : void SimpleStringBuffer::resetWriteLimit()</span>
 <span class="lineNum">     113 </span>            : {
 <span class="lineNum">     114 </span><span class="lineCov">         21 :     write_limit_ = SIMPLE_STRING_BUFFER_LEN-1;</span>
 <a name="115"><span class="lineNum">     115 </span><span class="lineCov">         21 : }</span></a>
 <span class="lineNum">     116 </span>            : 
-<span class="lineNum">     117 </span>            : bool SimpleStringBuffer::reachedItsCapacity()
+<span class="lineNum">     117 </span><span class="lineCov">         20 : bool SimpleStringBuffer::reachedItsCapacity()</span>
 <span class="lineNum">     118 </span>            : {
 <span class="lineNum">     119 </span><span class="lineCov">         20 :     return positions_filled_ &gt;= write_limit_;</span>
 <span class="lineNum">     120 </span>            : }
@@ -190,10 +190,10 @@
 <span class="lineNum">     128 </span>            :                                          &quot;\tbut deallocate using the standard free.\n&quot; \
 <a name="129"><span class="lineNum">     129 </span>            :                                          &quot;\tIf this is the case, check whether your malloc/free replacements are working (#define malloc cpputest_malloc etc).\n&quot;</a>
 <span class="lineNum">     130 </span>            : 
-<span class="lineNum">     131 </span>            : MemoryLeakOutputStringBuffer::MemoryLeakOutputStringBuffer()
-<span class="lineNum">     132 </span>            :     : total_leaks_(0), giveWarningOnUsingMalloc_(false)
-<span class="lineNum">     133 </span><span class="lineCov">         96 : {</span>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">        192 : }</span></a>
+<span class="lineNum">     131 </span><span class="lineCov">         96 : MemoryLeakOutputStringBuffer::MemoryLeakOutputStringBuffer()</span>
+<span class="lineNum">     132 </span><span class="lineCov">         96 :     : total_leaks_(0), giveWarningOnUsingMalloc_(false)</span>
+<span class="lineNum">     133 </span>            : {
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">         96 : }</span></a>
 <span class="lineNum">     135 </span>            : 
 <span class="lineNum">     136 </span><span class="lineCov">          4 : void MemoryLeakOutputStringBuffer::addAllocationLocation(const char* allocationFile, int allocationLineNumber, size_t allocationSize, TestMemoryAllocator* allocator)</span>
 <span class="lineNum">     137 </span>            : {
@@ -205,12 +205,12 @@
 <span class="lineNum">     143 </span><span class="lineCov">          4 :     outputBuffer_.add(&quot;   deallocated at file: %s line: %d type: %s\n&quot;, freeFile, freeLineNumber, allocator-&gt;free_name());</span>
 <a name="144"><span class="lineNum">     144 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">     145 </span>            : 
-<span class="lineNum">     146 </span>            : void MemoryLeakOutputStringBuffer::addNoMemoryLeaksMessage()
+<span class="lineNum">     146 </span><span class="lineCov">          3 : void MemoryLeakOutputStringBuffer::addNoMemoryLeaksMessage()</span>
 <span class="lineNum">     147 </span>            : {
 <span class="lineNum">     148 </span><span class="lineCov">          3 :     outputBuffer_.add(&quot;No memory leaks were detected.&quot;);</span>
 <a name="149"><span class="lineNum">     149 </span><span class="lineCov">          3 : }</span></a>
 <span class="lineNum">     150 </span>            : 
-<span class="lineNum">     151 </span>            : void MemoryLeakOutputStringBuffer::startMemoryLeakReporting()
+<span class="lineNum">     151 </span><span class="lineCov">         23 : void MemoryLeakOutputStringBuffer::startMemoryLeakReporting()</span>
 <span class="lineNum">     152 </span>            : {
 <span class="lineNum">     153 </span><span class="lineCov">         23 :     giveWarningOnUsingMalloc_ = false;</span>
 <span class="lineNum">     154 </span><span class="lineCov">         23 :     total_leaks_ = 0;</span>
@@ -225,10 +225,10 @@
 <span class="lineNum">     163 </span>            : {
 <span class="lineNum">     164 </span><span class="lineCov">        130 :     if (total_leaks_ == 0) {</span>
 <span class="lineNum">     165 </span><span class="lineCov">         20 :         addMemoryLeakHeader();</span>
-<span class="lineNum">     166 </span><span class="lineCov">         20 :     }</span>
+<span class="lineNum">     166 </span>            :     }
 <span class="lineNum">     167 </span>            : 
 <span class="lineNum">     168 </span><span class="lineCov">        130 :     total_leaks_++;</span>
-<span class="lineNum">     169 </span><span class="lineCov">        260 :     outputBuffer_.add(&quot;Alloc num (%u) Leak size: %lu Allocated at: %s and line: %d. Type: \&quot;%s\&quot;\n\tMemory: &lt;%p&gt; Content:\n&quot;,</span>
+<span class="lineNum">     169 </span>            :     outputBuffer_.add(&quot;Alloc num (%u) Leak size: %lu Allocated at: %s and line: %d. Type: \&quot;%s\&quot;\n\tMemory: &lt;%p&gt; Content:\n&quot;,
 <span class="lineNum">     170 </span><span class="lineCov">        130 :             leak-&gt;number_, (unsigned long) leak-&gt;size_, leak-&gt;file_, leak-&gt;line_, leak-&gt;allocator_-&gt;alloc_name(), leak-&gt;memory_);</span>
 <span class="lineNum">     171 </span><span class="lineCov">        130 :     outputBuffer_.addMemoryDump(leak-&gt;memory_, leak-&gt;size_);</span>
 <span class="lineNum">     172 </span>            : 
@@ -236,11 +236,11 @@
 <span class="lineNum">     174 </span><span class="lineCov">        104 :         giveWarningOnUsingMalloc_ = true;</span>
 <a name="175"><span class="lineNum">     175 </span><span class="lineCov">        130 : }</span></a>
 <span class="lineNum">     176 </span>            : 
-<span class="lineNum">     177 </span>            : void MemoryLeakOutputStringBuffer::stopMemoryLeakReporting()
+<span class="lineNum">     177 </span><span class="lineCov">         23 : void MemoryLeakOutputStringBuffer::stopMemoryLeakReporting()</span>
 <span class="lineNum">     178 </span>            : {
 <span class="lineNum">     179 </span><span class="lineCov">         23 :     if (total_leaks_ == 0) {</span>
 <span class="lineNum">     180 </span><span class="lineCov">          3 :         addNoMemoryLeaksMessage();</span>
-<span class="lineNum">     181 </span><span class="lineCov">          3 :         return;</span>
+<span class="lineNum">     181 </span><span class="lineCov">         26 :         return;</span>
 <span class="lineNum">     182 </span>            :     }
 <span class="lineNum">     183 </span>            : 
 <span class="lineNum">     184 </span><span class="lineCov">         20 :     bool buffer_reached_its_capacity = outputBuffer_.reachedItsCapacity();</span>
@@ -254,14 +254,14 @@
 <span class="lineNum">     192 </span><span class="lineCov">         20 :     if (giveWarningOnUsingMalloc_)</span>
 <span class="lineNum">     193 </span><span class="lineCov">          4 :         addWarningForUsingMalloc();</span>
 <span class="lineNum">     194 </span>            : 
-<a name="195"><span class="lineNum">     195 </span><span class="lineCov">         23 : }</span></a>
+<a name="195"><span class="lineNum">     195 </span>            : }</a>
 <span class="lineNum">     196 </span>            : 
-<span class="lineNum">     197 </span>            : void MemoryLeakOutputStringBuffer::addMemoryLeakHeader()
+<span class="lineNum">     197 </span><span class="lineCov">         20 : void MemoryLeakOutputStringBuffer::addMemoryLeakHeader()</span>
 <span class="lineNum">     198 </span>            : {
 <span class="lineNum">     199 </span><span class="lineCov">         20 :     outputBuffer_.add(&quot;Memory leak(s) found.\n&quot;);</span>
 <a name="200"><span class="lineNum">     200 </span><span class="lineCov">         20 : }</span></a>
 <span class="lineNum">     201 </span>            : 
-<span class="lineNum">     202 </span>            : void MemoryLeakOutputStringBuffer::addErrorMessageForTooMuchLeaks()
+<span class="lineNum">     202 </span><span class="lineCov">          2 : void MemoryLeakOutputStringBuffer::addErrorMessageForTooMuchLeaks()</span>
 <span class="lineNum">     203 </span>            : {
 <span class="lineNum">     204 </span><span class="lineCov">          2 :     outputBuffer_.add(MEM_LEAK_TOO_MUCH);</span>
 <a name="205"><span class="lineNum">     205 </span><span class="lineCov">          2 : }</span></a>
@@ -271,7 +271,7 @@
 <span class="lineNum">     209 </span><span class="lineCov">         20 :     outputBuffer_.add(&quot;%s %d\n&quot;, MEM_LEAK_FOOTER, amountOfLeaks);</span>
 <a name="210"><span class="lineNum">     210 </span><span class="lineCov">         20 : }</span></a>
 <span class="lineNum">     211 </span>            : 
-<span class="lineNum">     212 </span>            : void MemoryLeakOutputStringBuffer::addWarningForUsingMalloc()
+<span class="lineNum">     212 </span><span class="lineCov">          4 : void MemoryLeakOutputStringBuffer::addWarningForUsingMalloc()</span>
 <span class="lineNum">     213 </span>            : {
 <span class="lineNum">     214 </span><span class="lineCov">          4 :     outputBuffer_.add(MEM_LEAK_ADDITION_MALLOC_WARNING);</span>
 <a name="215"><span class="lineNum">     215 </span><span class="lineCov">          4 : }</span></a>
@@ -279,7 +279,7 @@
 <span class="lineNum">     217 </span><span class="lineCov">          2 : void MemoryLeakOutputStringBuffer::reportDeallocateNonAllocatedMemoryFailure(const char* freeFile, int freeLine, TestMemoryAllocator* freeAllocator, MemoryLeakFailure* reporter)</span>
 <span class="lineNum">     218 </span>            : {
 <span class="lineNum">     219 </span><span class="lineCov">          2 :     reportFailure(&quot;Deallocating non-allocated memory\n&quot;, &quot;&lt;unknown&gt;&quot;, 0, 0, NullUnknownAllocator::defaultAllocator(), freeFile, freeLine, freeAllocator, reporter);</span>
-<a name="220"><span class="lineNum">     220 </span><span class="lineCov">          2 : }</span></a>
+<a name="220"><span class="lineNum">     220 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     221 </span>            : 
 <span class="lineNum">     222 </span><span class="lineCov">          1 : void MemoryLeakOutputStringBuffer::reportAllocationDeallocationMismatchFailure(MemoryLeakDetectorNode* node, const char* freeFile, int freeLineNumber, TestMemoryAllocator* freeAllocator, MemoryLeakFailure* reporter)</span>
 <span class="lineNum">     223 </span>            : {
@@ -292,24 +292,24 @@
 <a name="230"><span class="lineNum">     230 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     231 </span>            : 
 <span class="lineNum">     232 </span><span class="lineCov">          4 : void MemoryLeakOutputStringBuffer::reportFailure(const char* message, const char* allocFile, int allocLine, size_t allocSize, TestMemoryAllocator* allocAllocator, const char* freeFile, int freeLine,</span>
-<span class="lineNum">     233 </span><span class="lineCov">          4 :         TestMemoryAllocator* freeAllocator, MemoryLeakFailure* reporter)</span>
+<span class="lineNum">     233 </span>            :         TestMemoryAllocator* freeAllocator, MemoryLeakFailure* reporter)
 <span class="lineNum">     234 </span>            : {
 <span class="lineNum">     235 </span><span class="lineCov">          4 :     outputBuffer_.add(&quot;%s&quot;, message);</span>
 <span class="lineNum">     236 </span><span class="lineCov">          4 :     addAllocationLocation(allocFile, allocLine, allocSize, allocAllocator);</span>
 <span class="lineNum">     237 </span><span class="lineCov">          4 :     addDeallocationLocation(freeFile, freeLine, freeAllocator);</span>
 <span class="lineNum">     238 </span><span class="lineCov">          4 :     reporter-&gt;fail(toString());</span>
-<span class="lineNum">     239 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     239 </span><span class="lineCov">          3 : }</span>
 <a name="240"><span class="lineNum">     240 </span>            : </a>
 <span class="lineNum">     241 </span>            : 
-<span class="lineNum">     242 </span>            : char* MemoryLeakOutputStringBuffer::toString()
+<span class="lineNum">     242 </span><span class="lineCov">         27 : char* MemoryLeakOutputStringBuffer::toString()</span>
 <span class="lineNum">     243 </span>            : {
 <span class="lineNum">     244 </span><span class="lineCov">         27 :     return outputBuffer_.toString();</span>
 <a name="245"><span class="lineNum">     245 </span>            : }</a>
 <span class="lineNum">     246 </span>            : 
-<span class="lineNum">     247 </span>            : void MemoryLeakOutputStringBuffer::clear()
+<span class="lineNum">     247 </span><span class="lineCov">        759 : void MemoryLeakOutputStringBuffer::clear()</span>
 <span class="lineNum">     248 </span>            : {
-<span class="lineNum">     249 </span><span class="lineCov">        760 :     outputBuffer_.clear();</span>
-<span class="lineNum">     250 </span><span class="lineCov">        760 : }</span>
+<span class="lineNum">     249 </span><span class="lineCov">        759 :     outputBuffer_.clear();</span>
+<span class="lineNum">     250 </span><span class="lineCov">        759 : }</span>
 <span class="lineNum">     251 </span>            : 
 <a name="252"><span class="lineNum">     252 </span>            : ////////////////////////</a>
 <span class="lineNum">     253 </span>            : 
@@ -326,10 +326,10 @@
 <span class="lineNum">     264 </span>            : 
 <a name="265"><span class="lineNum">     265 </span>            : ///////////////////////</a>
 <span class="lineNum">     266 </span>            : 
-<span class="lineNum">     267 </span><span class="lineCov">       1650 : bool MemoryLeakDetectorList::isInPeriod(MemoryLeakDetectorNode* node, MemLeakPeriod period)</span>
+<span class="lineNum">     267 </span><span class="lineCov">       1648 : bool MemoryLeakDetectorList::isInPeriod(MemoryLeakDetectorNode* node, MemLeakPeriod period)</span>
 <span class="lineNum">     268 </span>            : {
-<span class="lineNum">     269 </span><span class="lineCov">       6134 :     return period == mem_leak_period_all || node-&gt;period_ == period || (node-&gt;period_ != mem_leak_period_disabled &amp;&amp; period == mem_leak_period_enabled);</span>
-<a name="270"><span class="lineNum">     270 </span><span class="lineCov">       1650 : }</span></a>
+<span class="lineNum">     269 </span><span class="lineCov">       1648 :     return period == mem_leak_period_all || node-&gt;period_ == period || (node-&gt;period_ != mem_leak_period_disabled &amp;&amp; period == mem_leak_period_enabled);</span>
+<a name="270"><span class="lineNum">     270 </span>            : }</a>
 <span class="lineNum">     271 </span>            : 
 <span class="lineNum">     272 </span><span class="lineCov">        219 : void MemoryLeakDetectorList::clearAllAccounting(MemLeakPeriod period)</span>
 <span class="lineNum">     273 </span>            : {
@@ -339,18 +339,18 @@
 <span class="lineNum">     277 </span><span class="lineCov">        443 :     while (cur) {</span>
 <span class="lineNum">     278 </span><span class="lineCov">          5 :         if (isInPeriod(cur, period)) {</span>
 <span class="lineNum">     279 </span><span class="lineCov">          3 :             if (prev) {</span>
-<span class="lineNum">     280 </span><span class="lineNoCov">          0 :                 prev-&gt;next_ = cur-&gt;next_;</span>
-<span class="lineNum">     281 </span><span class="lineNoCov">          0 :                 cur = prev;</span>
-<span class="lineNum">     282 </span><span class="lineNoCov">          0 :             }</span>
+<span class="lineNum">     280 </span><span class="lineCov">          1 :                 prev-&gt;next_ = cur-&gt;next_;</span>
+<span class="lineNum">     281 </span><span class="lineCov">          1 :                 cur = prev;</span>
+<span class="lineNum">     282 </span>            :             }
 <span class="lineNum">     283 </span>            :             else {
-<span class="lineNum">     284 </span><span class="lineCov">          3 :                 head_ = cur-&gt;next_;</span>
-<span class="lineNum">     285 </span><span class="lineCov">          3 :                 cur = head_;</span>
-<span class="lineNum">     286 </span><span class="lineCov">          3 :                 continue;</span>
+<span class="lineNum">     284 </span><span class="lineCov">          2 :                 head_ = cur-&gt;next_;</span>
+<span class="lineNum">     285 </span><span class="lineCov">          2 :                 cur = head_;</span>
+<span class="lineNum">     286 </span><span class="lineCov">          2 :                 continue;</span>
 <span class="lineNum">     287 </span>            :             }
-<span class="lineNum">     288 </span><span class="lineNoCov">          0 :         }</span>
-<span class="lineNum">     289 </span><span class="lineCov">          2 :         prev = cur;</span>
-<span class="lineNum">     290 </span><span class="lineCov">          2 :         cur = cur-&gt;next_;</span>
-<span class="lineNum">     291 </span><span class="lineCov">          2 :     }</span>
+<span class="lineNum">     288 </span>            :         }
+<span class="lineNum">     289 </span><span class="lineCov">          3 :         prev = cur;</span>
+<span class="lineNum">     290 </span><span class="lineCov">          3 :         cur = cur-&gt;next_;</span>
+<span class="lineNum">     291 </span>            :     }
 <a name="292"><span class="lineNum">     292 </span><span class="lineCov">        219 : }</span></a>
 <span class="lineNum">     293 </span>            : 
 <span class="lineNum">     294 </span><span class="lineCov">       5464 : void MemoryLeakDetectorList::addNewNode(MemoryLeakDetectorNode* node)</span>
@@ -363,44 +363,44 @@
 <span class="lineNum">     301 </span>            : {
 <span class="lineNum">     302 </span><span class="lineCov">       5348 :     MemoryLeakDetectorNode* cur = head_;</span>
 <span class="lineNum">     303 </span><span class="lineCov">       5348 :     MemoryLeakDetectorNode* prev = 0;</span>
-<span class="lineNum">     304 </span><span class="lineCov">      10814 :     while (cur) {</span>
-<span class="lineNum">     305 </span><span class="lineCov">       5464 :         if (cur-&gt;memory_ == memory) {</span>
+<span class="lineNum">     304 </span><span class="lineCov">      10772 :     while (cur) {</span>
+<span class="lineNum">     305 </span><span class="lineCov">       5422 :         if (cur-&gt;memory_ == memory) {</span>
 <span class="lineNum">     306 </span><span class="lineCov">       5346 :             if (prev) {</span>
-<span class="lineNum">     307 </span><span class="lineCov">        115 :                 prev-&gt;next_ = cur-&gt;next_;</span>
-<span class="lineNum">     308 </span><span class="lineCov">        115 :                 return cur;</span>
+<span class="lineNum">     307 </span><span class="lineCov">         75 :                 prev-&gt;next_ = cur-&gt;next_;</span>
+<span class="lineNum">     308 </span><span class="lineCov">         75 :                 return cur;</span>
 <span class="lineNum">     309 </span>            :             }
 <span class="lineNum">     310 </span>            :             else {
-<span class="lineNum">     311 </span><span class="lineCov">       5231 :                 head_ = cur-&gt;next_;</span>
-<span class="lineNum">     312 </span><span class="lineCov">       5231 :                 return cur;</span>
+<span class="lineNum">     311 </span><span class="lineCov">       5271 :                 head_ = cur-&gt;next_;</span>
+<span class="lineNum">     312 </span><span class="lineCov">       5271 :                 return cur;</span>
 <span class="lineNum">     313 </span>            :             }
 <span class="lineNum">     314 </span>            :         }
-<span class="lineNum">     315 </span><span class="lineCov">        118 :         prev = cur;</span>
-<span class="lineNum">     316 </span><span class="lineCov">        118 :         cur = cur-&gt;next_;</span>
-<span class="lineNum">     317 </span><span class="lineCov">        118 :     }</span>
+<span class="lineNum">     315 </span><span class="lineCov">         76 :         prev = cur;</span>
+<span class="lineNum">     316 </span><span class="lineCov">         76 :         cur = cur-&gt;next_;</span>
+<span class="lineNum">     317 </span>            :     }
 <span class="lineNum">     318 </span><span class="lineCov">          2 :     return 0;</span>
-<a name="319"><span class="lineNum">     319 </span><span class="lineCov">       5348 : }</span></a>
+<a name="319"><span class="lineNum">     319 </span>            : }</a>
 <span class="lineNum">     320 </span>            : 
 <span class="lineNum">     321 </span><span class="lineCov">       5320 : MemoryLeakDetectorNode* MemoryLeakDetectorList::retrieveNode(char* memory)</span>
 <span class="lineNum">     322 </span>            : {
 <span class="lineNum">     323 </span><span class="lineCov">       5320 :   MemoryLeakDetectorNode* cur = head_;</span>
-<span class="lineNum">     324 </span><span class="lineCov">      10758 :   while (cur) {</span>
-<span class="lineNum">     325 </span><span class="lineCov">       5436 :     if (cur-&gt;memory_ == memory)</span>
+<span class="lineNum">     324 </span><span class="lineCov">      10715 :   while (cur) {</span>
+<span class="lineNum">     325 </span><span class="lineCov">       5393 :     if (cur-&gt;memory_ == memory)</span>
 <span class="lineNum">     326 </span><span class="lineCov">       5318 :       return cur;</span>
-<span class="lineNum">     327 </span><span class="lineCov">        118 :     cur = cur-&gt;next_;</span>
-<span class="lineNum">     328 </span><span class="lineCov">        118 :   }</span>
+<span class="lineNum">     327 </span><span class="lineCov">         75 :     cur = cur-&gt;next_;</span>
+<span class="lineNum">     328 </span>            :   }
 <span class="lineNum">     329 </span><span class="lineCov">          2 :   return NULL;</span>
-<a name="330"><span class="lineNum">     330 </span><span class="lineCov">       5320 : }</span></a>
+<a name="330"><span class="lineNum">     330 </span>            : }</a>
 <span class="lineNum">     331 </span>            : 
-<span class="lineNum">     332 </span><span class="lineCov">      53427 : MemoryLeakDetectorNode* MemoryLeakDetectorList::getLeakFrom(MemoryLeakDetectorNode* node, MemLeakPeriod period)</span>
+<span class="lineNum">     332 </span><span class="lineCov">      53354 : MemoryLeakDetectorNode* MemoryLeakDetectorList::getLeakFrom(MemoryLeakDetectorNode* node, MemLeakPeriod period)</span>
 <span class="lineNum">     333 </span>            : {
-<span class="lineNum">     334 </span><span class="lineCov">     108270 :     for (MemoryLeakDetectorNode* cur = node; cur; cur = cur-&gt;next_)</span>
-<span class="lineNum">     335 </span><span class="lineCov">       1690 :         if (isInPeriod(cur, period)) return cur;</span>
-<span class="lineNum">     336 </span><span class="lineCov">      53290 :     return 0;</span>
-<a name="337"><span class="lineNum">     337 </span><span class="lineCov">      53427 : }</span></a>
+<span class="lineNum">     334 </span><span class="lineCov">      54061 :     for (MemoryLeakDetectorNode* cur = node; cur; cur = cur-&gt;next_)</span>
+<span class="lineNum">     335 </span><span class="lineCov">        844 :         if (isInPeriod(cur, period)) return cur;</span>
+<span class="lineNum">     336 </span><span class="lineCov">      53217 :     return 0;</span>
+<a name="337"><span class="lineNum">     337 </span>            : }</a>
 <span class="lineNum">     338 </span>            : 
-<span class="lineNum">     339 </span><span class="lineCov">      53290 : MemoryLeakDetectorNode* MemoryLeakDetectorList::getFirstLeak(MemLeakPeriod period)</span>
+<span class="lineNum">     339 </span><span class="lineCov">      53217 : MemoryLeakDetectorNode* MemoryLeakDetectorList::getFirstLeak(MemLeakPeriod period)</span>
 <span class="lineNum">     340 </span>            : {
-<span class="lineNum">     341 </span><span class="lineCov">      53290 :     return getLeakFrom(head_, period);</span>
+<span class="lineNum">     341 </span><span class="lineCov">      53217 :     return getLeakFrom(head_, period);</span>
 <a name="342"><span class="lineNum">     342 </span>            : }</a>
 <span class="lineNum">     343 </span>            : 
 <span class="lineNum">     344 </span><span class="lineCov">        137 : MemoryLeakDetectorNode* MemoryLeakDetectorList::getNextLeak(MemoryLeakDetectorNode* node, MemLeakPeriod period)</span>
@@ -408,13 +408,13 @@
 <span class="lineNum">     346 </span><span class="lineCov">        137 :     return getLeakFrom(node-&gt;next_, period);</span>
 <a name="347"><span class="lineNum">     347 </span>            : }</a>
 <span class="lineNum">     348 </span>            : 
-<span class="lineNum">     349 </span><span class="lineCov">      55334 : int MemoryLeakDetectorList::getTotalLeaks(MemLeakPeriod period)</span>
+<span class="lineNum">     349 </span><span class="lineCov">      55261 : int MemoryLeakDetectorList::getTotalLeaks(MemLeakPeriod period)</span>
 <span class="lineNum">     350 </span>            : {
-<span class="lineNum">     351 </span><span class="lineCov">      55334 :     int total_leaks = 0;</span>
-<span class="lineNum">     352 </span><span class="lineCov">     112268 :     for (MemoryLeakDetectorNode* node = head_; node; node = node-&gt;next_) {</span>
-<span class="lineNum">     353 </span><span class="lineCov">        877 :         if (isInPeriod(node, period)) total_leaks++;</span>
-<span class="lineNum">     354 </span><span class="lineCov">        800 :     }</span>
-<span class="lineNum">     355 </span><span class="lineCov">      55334 :     return total_leaks;</span>
+<span class="lineNum">     351 </span><span class="lineCov">      55261 :     int total_leaks = 0;</span>
+<span class="lineNum">     352 </span><span class="lineCov">      56060 :     for (MemoryLeakDetectorNode* node = head_; node; node = node-&gt;next_) {</span>
+<span class="lineNum">     353 </span><span class="lineCov">        799 :         if (isInPeriod(node, period)) total_leaks++;</span>
+<span class="lineNum">     354 </span>            :     }
+<span class="lineNum">     355 </span><span class="lineCov">      55261 :     return total_leaks;</span>
 <a name="356"><span class="lineNum">     356 </span>            : }</a>
 <span class="lineNum">     357 </span>            : 
 <span class="lineNum">     358 </span><span class="lineNoCov">          0 : bool MemoryLeakDetectorList::hasLeaks(MemLeakPeriod period)</span>
@@ -422,7 +422,7 @@
 <span class="lineNum">     360 </span><span class="lineNoCov">          0 :     for (MemoryLeakDetectorNode* node = head_; node; node = node-&gt;next_)</span>
 <span class="lineNum">     361 </span><span class="lineNoCov">          0 :         if (isInPeriod(node, period)) return true;</span>
 <span class="lineNum">     362 </span><span class="lineNoCov">          0 :     return false;</span>
-<span class="lineNum">     363 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     363 </span>            : }
 <span class="lineNum">     364 </span>            : 
 <a name="365"><span class="lineNum">     365 </span>            : /////////////////////////////////////////////////////////////</a>
 <span class="lineNum">     366 </span>            : 
@@ -433,7 +433,7 @@
 <span class="lineNum">     371 </span>            : 
 <span class="lineNum">     372 </span><span class="lineCov">          3 : void MemoryLeakDetectorTable::clearAllAccounting(MemLeakPeriod period)</span>
 <span class="lineNum">     373 </span>            : {
-<span class="lineNum">     374 </span><span class="lineCov">        444 :     for (int i = 0; i &lt; hash_prime; i++)</span>
+<span class="lineNum">     374 </span><span class="lineCov">        222 :     for (int i = 0; i &lt; hash_prime; i++)</span>
 <span class="lineNum">     375 </span><span class="lineCov">        219 :         table_[i].clearAllAccounting(period);</span>
 <a name="376"><span class="lineNum">     376 </span><span class="lineCov">          3 : }</span></a>
 <span class="lineNum">     377 </span>            : 
@@ -457,101 +457,101 @@
 <span class="lineNum">     395 </span><span class="lineNoCov">          0 :     for (int i = 0; i &lt; hash_prime; i++)</span>
 <span class="lineNum">     396 </span><span class="lineNoCov">          0 :         if (table_[i].hasLeaks(period)) return true;</span>
 <span class="lineNum">     397 </span><span class="lineNoCov">          0 :     return false;</span>
-<a name="398"><span class="lineNum">     398 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="398"><span class="lineNum">     398 </span>            : }</a>
 <span class="lineNum">     399 </span>            : 
-<span class="lineNum">     400 </span><span class="lineCov">        758 : int MemoryLeakDetectorTable::getTotalLeaks(MemLeakPeriod period)</span>
+<span class="lineNum">     400 </span><span class="lineCov">        757 : int MemoryLeakDetectorTable::getTotalLeaks(MemLeakPeriod period)</span>
 <span class="lineNum">     401 </span>            : {
-<span class="lineNum">     402 </span><span class="lineCov">        758 :     int total_leaks = 0;</span>
-<span class="lineNum">     403 </span><span class="lineCov">     112184 :     for (int i = 0; i &lt; hash_prime; i++)</span>
-<span class="lineNum">     404 </span><span class="lineCov">      55334 :         total_leaks += table_[i].getTotalLeaks(period);</span>
-<span class="lineNum">     405 </span><span class="lineCov">        758 :     return total_leaks;</span>
+<span class="lineNum">     402 </span><span class="lineCov">        757 :     int total_leaks = 0;</span>
+<span class="lineNum">     403 </span><span class="lineCov">      56018 :     for (int i = 0; i &lt; hash_prime; i++)</span>
+<span class="lineNum">     404 </span><span class="lineCov">      55261 :         total_leaks += table_[i].getTotalLeaks(period);</span>
+<span class="lineNum">     405 </span><span class="lineCov">        757 :     return total_leaks;</span>
 <a name="406"><span class="lineNum">     406 </span>            : }</a>
 <span class="lineNum">     407 </span>            : 
-<span class="lineNum">     408 </span><span class="lineCov">        730 : MemoryLeakDetectorNode* MemoryLeakDetectorTable::getFirstLeak(MemLeakPeriod period)</span>
+<span class="lineNum">     408 </span><span class="lineCov">        729 : MemoryLeakDetectorNode* MemoryLeakDetectorTable::getFirstLeak(MemLeakPeriod period)</span>
 <span class="lineNum">     409 </span>            : {
-<span class="lineNum">     410 </span><span class="lineCov">     106452 :     for (int i = 0; i &lt; hash_prime; i++) {</span>
-<span class="lineNum">     411 </span><span class="lineCov">      52520 :         MemoryLeakDetectorNode* node = table_[i].getFirstLeak(period);</span>
-<span class="lineNum">     412 </span><span class="lineCov">      52544 :         if (node) return node;</span>
-<span class="lineNum">     413 </span><span class="lineCov">      52496 :     }</span>
-<span class="lineNum">     414 </span><span class="lineCov">        706 :     return 0;</span>
-<a name="415"><span class="lineNum">     415 </span><span class="lineCov">        730 : }</span></a>
+<span class="lineNum">     410 </span><span class="lineCov">      52896 :     for (int i = 0; i &lt; hash_prime; i++) {</span>
+<span class="lineNum">     411 </span><span class="lineCov">      52191 :         MemoryLeakDetectorNode* node = table_[i].getFirstLeak(period);</span>
+<span class="lineNum">     412 </span><span class="lineCov">      52191 :         if (node) return node;</span>
+<span class="lineNum">     413 </span>            :     }
+<span class="lineNum">     414 </span><span class="lineCov">        705 :     return 0;</span>
+<a name="415"><span class="lineNum">     415 </span>            : }</a>
 <span class="lineNum">     416 </span>            : 
 <span class="lineNum">     417 </span><span class="lineCov">        137 : MemoryLeakDetectorNode* MemoryLeakDetectorTable::getNextLeak(MemoryLeakDetectorNode* leak, MemLeakPeriod period)</span>
 <span class="lineNum">     418 </span>            : {
 <span class="lineNum">     419 </span><span class="lineCov">        137 :     unsigned long i = hash(leak-&gt;memory_);</span>
 <span class="lineNum">     420 </span><span class="lineCov">        137 :     MemoryLeakDetectorNode* node = table_[i].getNextLeak(leak, period);</span>
-<span class="lineNum">     421 </span><span class="lineCov">        169 :     if (node) return node;</span>
+<span class="lineNum">     421 </span><span class="lineCov">        137 :     if (node) return node;</span>
 <span class="lineNum">     422 </span>            : 
-<span class="lineNum">     423 </span><span class="lineCov">       1588 :     for (++i; i &lt; hash_prime; i++) {</span>
-<span class="lineNum">     424 </span><span class="lineCov">        770 :         node = table_[i].getFirstLeak(period);</span>
-<span class="lineNum">     425 </span><span class="lineCov">        851 :         if (node) return node;</span>
-<span class="lineNum">     426 </span><span class="lineCov">        689 :     }</span>
+<span class="lineNum">     423 </span><span class="lineCov">       1050 :     for (++i; i &lt; hash_prime; i++) {</span>
+<span class="lineNum">     424 </span><span class="lineCov">       1026 :         node = table_[i].getFirstLeak(period);</span>
+<span class="lineNum">     425 </span><span class="lineCov">       1026 :         if (node) return node;</span>
+<span class="lineNum">     426 </span>            :     }
 <span class="lineNum">     427 </span><span class="lineCov">         24 :     return 0;</span>
-<span class="lineNum">     428 </span><span class="lineCov">        137 : }</span>
+<span class="lineNum">     428 </span>            : }
 <span class="lineNum">     429 </span>            : 
 <a name="430"><span class="lineNum">     430 </span>            : /////////////////////////////////////////////////////////////</a>
 <span class="lineNum">     431 </span>            : 
-<span class="lineNum">     432 </span><span class="lineCov">         86 : MemoryLeakDetector::MemoryLeakDetector(MemoryLeakFailure* reporter)</span>
-<span class="lineNum">     433 </span><span class="lineCov">         48 : {</span>
+<span class="lineNum">     432 </span><span class="lineCov">         48 : MemoryLeakDetector::MemoryLeakDetector(MemoryLeakFailure* reporter)</span>
+<span class="lineNum">     433 </span>            : {
 <span class="lineNum">     434 </span><span class="lineCov">         48 :     doAllocationTypeChecking_ = true;</span>
 <span class="lineNum">     435 </span><span class="lineCov">         48 :     allocationSequenceNumber_ = 1;</span>
 <span class="lineNum">     436 </span><span class="lineCov">         48 :     current_period_ = mem_leak_period_disabled;</span>
 <span class="lineNum">     437 </span><span class="lineCov">         48 :     reporter_ = reporter;</span>
 <span class="lineNum">     438 </span><span class="lineCov">         48 :     outputBuffer_ = MemoryLeakOutputStringBuffer();</span>
 <span class="lineNum">     439 </span><span class="lineCov">         48 :     memoryTable_ = MemoryLeakDetectorTable();</span>
-<span class="lineNum">     440 </span><span class="lineCov">         96 :     mutex_ = new SimpleMutex;</span>
-<a name="441"><span class="lineNum">     441 </span><span class="lineCov">         86 : }</span></a>
+<span class="lineNum">     440 </span><span class="lineCov">         48 :     mutex_ = new SimpleMutex;</span>
+<a name="441"><span class="lineNum">     441 </span><span class="lineCov">         48 : }</span></a>
 <span class="lineNum">     442 </span>            : 
-<span class="lineNum">     443 </span>            : MemoryLeakDetector::~MemoryLeakDetector()
-<span class="lineNum">     444 </span><span class="lineCov">        158 : {</span>
+<span class="lineNum">     443 </span><span class="lineCov">         84 : MemoryLeakDetector::~MemoryLeakDetector()</span>
+<span class="lineNum">     444 </span>            : {
 <span class="lineNum">     445 </span><span class="lineCov">         48 :     if (mutex_)</span>
 <span class="lineNum">     446 </span>            :     {
-<span class="lineNum">     447 </span><span class="lineCov">        144 :         delete mutex_;</span>
-<span class="lineNum">     448 </span><span class="lineCov">         48 :     }</span>
-<a name="449"><span class="lineNum">     449 </span><span class="lineCov">        122 : }</span></a>
+<span class="lineNum">     447 </span><span class="lineCov">         48 :         delete mutex_;</span>
+<span class="lineNum">     448 </span>            :     }
+<a name="449"><span class="lineNum">     449 </span><span class="lineCov">         84 : }</span></a>
 <span class="lineNum">     450 </span>            : 
 <span class="lineNum">     451 </span><span class="lineCov">          3 : void MemoryLeakDetector::clearAllAccounting(MemLeakPeriod period)</span>
 <span class="lineNum">     452 </span>            : {
 <span class="lineNum">     453 </span><span class="lineCov">          3 :     memoryTable_.clearAllAccounting(period);</span>
 <a name="454"><span class="lineNum">     454 </span><span class="lineCov">          3 : }</span></a>
 <span class="lineNum">     455 </span>            : 
-<span class="lineNum">     456 </span>            : void MemoryLeakDetector::startChecking()
+<span class="lineNum">     456 </span><span class="lineCov">        736 : void MemoryLeakDetector::startChecking()</span>
 <span class="lineNum">     457 </span>            : {
-<span class="lineNum">     458 </span><span class="lineCov">        737 :     outputBuffer_.clear();</span>
-<span class="lineNum">     459 </span><span class="lineCov">        737 :     current_period_ = mem_leak_period_checking;</span>
-<a name="460"><span class="lineNum">     460 </span><span class="lineCov">        737 : }</span></a>
+<span class="lineNum">     458 </span><span class="lineCov">        736 :     outputBuffer_.clear();</span>
+<span class="lineNum">     459 </span><span class="lineCov">        736 :     current_period_ = mem_leak_period_checking;</span>
+<a name="460"><span class="lineNum">     460 </span><span class="lineCov">        736 : }</span></a>
 <span class="lineNum">     461 </span>            : 
-<span class="lineNum">     462 </span>            : void MemoryLeakDetector::stopChecking()
+<span class="lineNum">     462 </span><span class="lineCov">        727 : void MemoryLeakDetector::stopChecking()</span>
 <span class="lineNum">     463 </span>            : {
-<span class="lineNum">     464 </span><span class="lineCov">        728 :     current_period_ = mem_leak_period_enabled;</span>
-<a name="465"><span class="lineNum">     465 </span><span class="lineCov">        728 : }</span></a>
+<span class="lineNum">     464 </span><span class="lineCov">        727 :     current_period_ = mem_leak_period_enabled;</span>
+<a name="465"><span class="lineNum">     465 </span><span class="lineCov">        727 : }</span></a>
 <span class="lineNum">     466 </span>            : 
-<span class="lineNum">     467 </span>            : void MemoryLeakDetector::enable()
+<span class="lineNum">     467 </span><span class="lineCov">         37 : void MemoryLeakDetector::enable()</span>
 <span class="lineNum">     468 </span>            : {
 <span class="lineNum">     469 </span><span class="lineCov">         37 :     current_period_ = mem_leak_period_enabled;</span>
 <a name="470"><span class="lineNum">     470 </span><span class="lineCov">         37 : }</span></a>
 <span class="lineNum">     471 </span>            : 
-<span class="lineNum">     472 </span>            : void MemoryLeakDetector::disable()
+<span class="lineNum">     472 </span><span class="lineCov">          1 : void MemoryLeakDetector::disable()</span>
 <span class="lineNum">     473 </span>            : {
 <span class="lineNum">     474 </span><span class="lineCov">          1 :     current_period_ = mem_leak_period_disabled;</span>
 <a name="475"><span class="lineNum">     475 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     476 </span>            : 
-<span class="lineNum">     477 </span>            : void MemoryLeakDetector::disableAllocationTypeChecking()
+<span class="lineNum">     477 </span><span class="lineCov">          1 : void MemoryLeakDetector::disableAllocationTypeChecking()</span>
 <span class="lineNum">     478 </span>            : {
 <span class="lineNum">     479 </span><span class="lineCov">          1 :     doAllocationTypeChecking_ = false;</span>
 <a name="480"><span class="lineNum">     480 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     481 </span>            : 
-<span class="lineNum">     482 </span>            : void MemoryLeakDetector::enableAllocationTypeChecking()
+<span class="lineNum">     482 </span><span class="lineCov">          1 : void MemoryLeakDetector::enableAllocationTypeChecking()</span>
 <span class="lineNum">     483 </span>            : {
 <span class="lineNum">     484 </span><span class="lineCov">          1 :     doAllocationTypeChecking_ = true;</span>
 <a name="485"><span class="lineNum">     485 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     486 </span>            : 
-<span class="lineNum">     487 </span>            : unsigned MemoryLeakDetector::getCurrentAllocationNumber()
+<span class="lineNum">     487 </span><span class="lineCov">          4 : unsigned MemoryLeakDetector::getCurrentAllocationNumber()</span>
 <span class="lineNum">     488 </span>            : {
 <span class="lineNum">     489 </span><span class="lineCov">          4 :     return allocationSequenceNumber_;</span>
 <a name="490"><span class="lineNum">     490 </span>            : }</a>
 <span class="lineNum">     491 </span>            : 
-<span class="lineNum">     492 </span>            : SimpleMutex *MemoryLeakDetector::getMutex()
+<span class="lineNum">     492 </span><span class="lineCov">          4 : SimpleMutex *MemoryLeakDetector::getMutex()</span>
 <span class="lineNum">     493 </span>            : {
 <span class="lineNum">     494 </span><span class="lineCov">          4 :     return mutex_;</span>
 <a name="495"><span class="lineNum">     495 </span>            : }</a>
@@ -586,7 +586,7 @@
 <span class="lineNum">     524 </span><span class="lineCov">          5 :     MemoryLeakDetectorNode *node = createMemoryLeakAccountingInformation(allocator, size, new_memory, allocatNodesSeperately);</span>
 <span class="lineNum">     525 </span><span class="lineCov">          5 :     storeLeakInformation(node, new_memory, size, allocator, file, line);</span>
 <span class="lineNum">     526 </span><span class="lineCov">          5 :     return node-&gt;memory_;</span>
-<a name="527"><span class="lineNum">     527 </span><span class="lineCov">          5 : }</span></a>
+<a name="527"><span class="lineNum">     527 </span>            : }</a>
 <span class="lineNum">     528 </span>            : 
 <span class="lineNum">     529 </span><span class="lineCov">       5320 : void MemoryLeakDetector::invalidateMemory(char* memory)</span>
 <span class="lineNum">     530 </span>            : {
@@ -604,15 +604,15 @@
 <span class="lineNum">     542 </span>            : 
 <span class="lineNum">     543 </span><span class="lineCov">       5344 : bool MemoryLeakDetector::validMemoryCorruptionInformation(char* memory)</span>
 <span class="lineNum">     544 </span>            : {
-<span class="lineNum">     545 </span><span class="lineCov">      16030 :     return memory[0] == 'B' &amp;&amp; memory[1] == 'A' &amp;&amp; memory[2] == 'S';</span>
-<a name="546"><span class="lineNum">     546 </span><span class="lineCov">       5344 : }</span></a>
+<span class="lineNum">     545 </span><span class="lineCov">       5344 :     return memory[0] == 'B' &amp;&amp; memory[1] == 'A' &amp;&amp; memory[2] == 'S';</span>
+<a name="546"><span class="lineNum">     546 </span>            : }</a>
 <span class="lineNum">     547 </span>            : 
 <span class="lineNum">     548 </span><span class="lineCov">       5345 : bool MemoryLeakDetector::matchingAllocation(TestMemoryAllocator *alloc_allocator, TestMemoryAllocator *free_allocator)</span>
 <span class="lineNum">     549 </span>            : {
-<span class="lineNum">     550 </span><span class="lineCov">      10688 :     if (alloc_allocator == free_allocator) return true;</span>
-<span class="lineNum">     551 </span><span class="lineCov">          3 :     if (!doAllocationTypeChecking_) return true;</span>
+<span class="lineNum">     550 </span><span class="lineCov">       5345 :     if (alloc_allocator == free_allocator) return true;</span>
+<span class="lineNum">     551 </span><span class="lineCov">          2 :     if (!doAllocationTypeChecking_) return true;</span>
 <span class="lineNum">     552 </span><span class="lineCov">          1 :     return free_allocator-&gt;isOfEqualType(alloc_allocator);</span>
-<a name="553"><span class="lineNum">     553 </span><span class="lineCov">       5345 : }</span></a>
+<a name="553"><span class="lineNum">     553 </span>            : }</a>
 <span class="lineNum">     554 </span>            : 
 <span class="lineNum">     555 </span><span class="lineCov">       5345 : void MemoryLeakDetector::checkForCorruption(MemoryLeakDetectorNode* node, const char* file, int line, TestMemoryAllocator* allocator, bool allocateNodesSeperately)</span>
 <span class="lineNum">     556 </span>            : {
@@ -624,28 +624,28 @@
 <span class="lineNum">     562 </span><span class="lineCov">         26 :         allocator-&gt;freeMemoryLeakNode((char*) node);</span>
 <a name="563"><span class="lineNum">     563 </span><span class="lineCov">       5345 : }</span></a>
 <span class="lineNum">     564 </span>            : 
-<span class="lineNum">     565 </span><span class="lineCov">        142 : char* MemoryLeakDetector::allocMemory(TestMemoryAllocator* allocator, size_t size, bool allocatNodesSeperately)</span>
+<span class="lineNum">     565 </span><span class="lineCov">        143 : char* MemoryLeakDetector::allocMemory(TestMemoryAllocator* allocator, size_t size, bool allocatNodesSeperately)</span>
 <span class="lineNum">     566 </span>            : {
-<span class="lineNum">     567 </span><span class="lineCov">        142 :     return allocMemory(allocator, size, UNKNOWN, 0, allocatNodesSeperately);</span>
+<span class="lineNum">     567 </span><span class="lineCov">        143 :     return allocMemory(allocator, size, UNKNOWN, 0, allocatNodesSeperately);</span>
 <a name="568"><span class="lineNum">     568 </span>            : }</a>
 <span class="lineNum">     569 </span>            : 
 <span class="lineNum">     570 </span><span class="lineCov">       5470 : char* MemoryLeakDetector::allocateMemoryWithAccountingInformation(TestMemoryAllocator* allocator, size_t size, const char* file, int line, bool allocatNodesSeperately)</span>
 <span class="lineNum">     571 </span>            : {
-<span class="lineNum">     572 </span><span class="lineCov">       5497 :     if (allocatNodesSeperately) return allocator-&gt;alloc_memory(sizeOfMemoryWithCorruptionInfo(size), file, line);</span>
+<span class="lineNum">     572 </span><span class="lineCov">       5470 :     if (allocatNodesSeperately) return allocator-&gt;alloc_memory(sizeOfMemoryWithCorruptionInfo(size), file, line);</span>
 <span class="lineNum">     573 </span><span class="lineCov">       5443 :     else return allocator-&gt;alloc_memory(sizeOfMemoryWithCorruptionInfo(size) + sizeof(MemoryLeakDetectorNode), file, line);</span>
-<a name="574"><span class="lineNum">     574 </span><span class="lineCov">       5470 : }</span></a>
+<a name="574"><span class="lineNum">     574 </span>            : }</a>
 <span class="lineNum">     575 </span>            : 
 <span class="lineNum">     576 </span><span class="lineCov">          5 : char* MemoryLeakDetector::reallocateMemoryWithAccountingInformation(TestMemoryAllocator* /*allocator*/, char* memory, size_t size, const char* /*file*/, int /*line*/, bool allocatNodesSeperately)</span>
 <span class="lineNum">     577 </span>            : {
-<span class="lineNum">     578 </span><span class="lineCov">          9 :     if (allocatNodesSeperately) return (char*) PlatformSpecificRealloc(memory, sizeOfMemoryWithCorruptionInfo(size));</span>
+<span class="lineNum">     578 </span><span class="lineCov">          5 :     if (allocatNodesSeperately) return (char*) PlatformSpecificRealloc(memory, sizeOfMemoryWithCorruptionInfo(size));</span>
 <span class="lineNum">     579 </span><span class="lineCov">          1 :     else return (char*) PlatformSpecificRealloc(memory, sizeOfMemoryWithCorruptionInfo(size) + sizeof(MemoryLeakDetectorNode));</span>
-<a name="580"><span class="lineNum">     580 </span><span class="lineCov">          5 : }</span></a>
+<a name="580"><span class="lineNum">     580 </span>            : }</a>
 <span class="lineNum">     581 </span>            : 
 <span class="lineNum">     582 </span><span class="lineCov">       5464 : MemoryLeakDetectorNode* MemoryLeakDetector::createMemoryLeakAccountingInformation(TestMemoryAllocator* allocator, size_t size, char* memory, bool allocatNodesSeperately)</span>
 <span class="lineNum">     583 </span>            : {
-<span class="lineNum">     584 </span><span class="lineCov">       5491 :     if (allocatNodesSeperately) return (MemoryLeakDetectorNode*) (void*) allocator-&gt;allocMemoryLeakNode(sizeof(MemoryLeakDetectorNode));</span>
+<span class="lineNum">     584 </span><span class="lineCov">       5464 :     if (allocatNodesSeperately) return (MemoryLeakDetectorNode*) (void*) allocator-&gt;allocMemoryLeakNode(sizeof(MemoryLeakDetectorNode));</span>
 <span class="lineNum">     585 </span><span class="lineCov">       5437 :     else return getNodeFromMemoryPointer(memory, size);</span>
-<a name="586"><span class="lineNum">     586 </span><span class="lineCov">       5464 : }</span></a>
+<a name="586"><span class="lineNum">     586 </span>            : }</a>
 <span class="lineNum">     587 </span>            : 
 <span class="lineNum">     588 </span><span class="lineCov">       5470 : char* MemoryLeakDetector::allocMemory(TestMemoryAllocator* allocator, size_t size, const char* file, int line, bool allocatNodesSeperately)</span>
 <span class="lineNum">     589 </span>            : {
@@ -657,38 +657,38 @@
 <span class="lineNum">     595 </span>            :      */
 <span class="lineNum">     596 </span>            : 
 <span class="lineNum">     597 </span><span class="lineCov">       5470 :     char* memory = allocateMemoryWithAccountingInformation(allocator, size, file, line, allocatNodesSeperately);</span>
-<span class="lineNum">     598 </span><span class="lineCov">       5481 :     if (memory == NULL) return NULL;</span>
+<span class="lineNum">     598 </span><span class="lineCov">       5470 :     if (memory == NULL) return NULL;</span>
 <span class="lineNum">     599 </span><span class="lineCov">       5459 :     MemoryLeakDetectorNode* node = createMemoryLeakAccountingInformation(allocator, size, memory, allocatNodesSeperately);</span>
 <span class="lineNum">     600 </span>            : 
 <span class="lineNum">     601 </span><span class="lineCov">       5459 :     storeLeakInformation(node, memory, size, allocator, file, line);</span>
 <span class="lineNum">     602 </span><span class="lineCov">       5459 :     return node-&gt;memory_;</span>
-<a name="603"><span class="lineNum">     603 </span><span class="lineCov">       5470 : }</span></a>
+<a name="603"><span class="lineNum">     603 </span>            : }</a>
 <span class="lineNum">     604 </span>            : 
 <span class="lineNum">     605 </span><span class="lineCov">          1 : void MemoryLeakDetector::removeMemoryLeakInformationWithoutCheckingOrDeallocatingTheMemoryButDeallocatingTheAccountInformation(TestMemoryAllocator* allocator, void* memory, bool allocatNodesSeperately)</span>
 <span class="lineNum">     606 </span>            : {
 <span class="lineNum">     607 </span><span class="lineCov">          1 :     MemoryLeakDetectorNode* node = memoryTable_.removeNode((char*) memory);</span>
-<span class="lineNum">     608 </span><span class="lineCov">          2 :     if (allocatNodesSeperately) allocator-&gt;freeMemoryLeakNode( (char*) node);</span>
+<span class="lineNum">     608 </span><span class="lineCov">          1 :     if (allocatNodesSeperately) allocator-&gt;freeMemoryLeakNode( (char*) node);</span>
 <a name="609"><span class="lineNum">     609 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     610 </span>            : 
 <span class="lineNum">     611 </span><span class="lineCov">       5345 : void MemoryLeakDetector::deallocMemory(TestMemoryAllocator* allocator, void* memory, const char* file, int line, bool allocatNodesSeperately)</span>
 <span class="lineNum">     612 </span>            : {
-<span class="lineNum">     613 </span><span class="lineCov">       5348 :     if (memory == 0) return;</span>
+<span class="lineNum">     613 </span><span class="lineCov">       5345 :     if (memory == 0) return;</span>
 <span class="lineNum">     614 </span>            : 
 <span class="lineNum">     615 </span><span class="lineCov">       5342 :     MemoryLeakDetectorNode* node = memoryTable_.removeNode((char*) memory);</span>
 <span class="lineNum">     616 </span><span class="lineCov">       5342 :     if (node == NULL) {</span>
 <span class="lineNum">     617 </span><span class="lineCov">          2 :         outputBuffer_.reportDeallocateNonAllocatedMemoryFailure(file, line, allocator, reporter_);</span>
-<span class="lineNum">     618 </span><span class="lineCov">          2 :         return;</span>
+<span class="lineNum">     618 </span><span class="lineCov">          1 :         return;</span>
 <span class="lineNum">     619 </span>            :     }
 <span class="lineNum">     620 </span><span class="lineCov">       5340 :     if (!allocator-&gt;hasBeenDestroyed()) {</span>
 <span class="lineNum">     621 </span><span class="lineCov">       5340 :         checkForCorruption(node, file, line, allocator, allocatNodesSeperately);</span>
 <span class="lineNum">     622 </span><span class="lineCov">       5340 :         allocator-&gt;free_memory((char*) memory, file, line);</span>
-<span class="lineNum">     623 </span><span class="lineCov">       5340 :     }</span>
-<a name="624"><span class="lineNum">     624 </span><span class="lineCov">       5344 : }</span></a>
+<span class="lineNum">     623 </span>            :     }
+<a name="624"><span class="lineNum">     624 </span>            : }</a>
 <span class="lineNum">     625 </span>            : 
 <span class="lineNum">     626 </span><span class="lineCov">       5320 : void MemoryLeakDetector::deallocMemory(TestMemoryAllocator* allocator, void* memory, bool allocatNodesSeperately)</span>
 <span class="lineNum">     627 </span>            : {
 <span class="lineNum">     628 </span><span class="lineCov">       5320 :     deallocMemory(allocator, (char*) memory, UNKNOWN, 0, allocatNodesSeperately);</span>
-<a name="629"><span class="lineNum">     629 </span><span class="lineCov">       5320 : }</span></a>
+<a name="629"><span class="lineNum">     629 </span><span class="lineCov">       5319 : }</span></a>
 <span class="lineNum">     630 </span>            : 
 <span class="lineNum">     631 </span><span class="lineCov">          5 : char* MemoryLeakDetector::reallocMemory(TestMemoryAllocator* allocator, char* memory, size_t size, const char* file, int line, bool allocatNodesSeperately)</span>
 <span class="lineNum">     632 </span>            : {
@@ -699,9 +699,9 @@
 <span class="lineNum">     637 </span><span class="lineNoCov">          0 :             return NULL;</span>
 <span class="lineNum">     638 </span>            :         }
 <span class="lineNum">     639 </span><span class="lineCov">          5 :         checkForCorruption(node, file, line, allocator, allocatNodesSeperately);</span>
-<span class="lineNum">     640 </span><span class="lineCov">          5 :     }</span>
+<span class="lineNum">     640 </span>            :     }
 <span class="lineNum">     641 </span><span class="lineCov">          5 :     return reallocateMemoryAndLeakInformation(allocator, memory, size, file, line, allocatNodesSeperately);</span>
-<a name="642"><span class="lineNum">     642 </span><span class="lineCov">          5 : }</span></a>
+<a name="642"><span class="lineNum">     642 </span>            : }</a>
 <span class="lineNum">     643 </span>            : 
 <span class="lineNum">     644 </span><span class="lineCov">         23 : void MemoryLeakDetector::ConstructMemoryLeakReport(MemLeakPeriod period)</span>
 <span class="lineNum">     645 </span>            : {
@@ -712,7 +712,7 @@
 <span class="lineNum">     650 </span><span class="lineCov">        176 :     while (leak) {</span>
 <span class="lineNum">     651 </span><span class="lineCov">        130 :         outputBuffer_.reportMemoryLeak(leak);</span>
 <span class="lineNum">     652 </span><span class="lineCov">        130 :         leak = memoryTable_.getNextLeak(leak, period);</span>
-<span class="lineNum">     653 </span><span class="lineCov">        130 :     }</span>
+<span class="lineNum">     653 </span>            :     }
 <span class="lineNum">     654 </span>            : 
 <span class="lineNum">     655 </span><span class="lineCov">         23 :     outputBuffer_.stopMemoryLeakReporting();</span>
 <a name="656"><span class="lineNum">     656 </span><span class="lineCov">         23 : }</span></a>
@@ -725,18 +725,18 @@
 <span class="lineNum">     663 </span><span class="lineCov">         23 :     return outputBuffer_.toString();</span>
 <a name="664"><span class="lineNum">     664 </span>            : }</a>
 <span class="lineNum">     665 </span>            : 
-<span class="lineNum">     666 </span>            : void MemoryLeakDetector::markCheckingPeriodLeaksAsNonCheckingPeriod()
+<span class="lineNum">     666 </span><span class="lineCov">        706 : void MemoryLeakDetector::markCheckingPeriodLeaksAsNonCheckingPeriod()</span>
 <span class="lineNum">     667 </span>            : {
-<span class="lineNum">     668 </span><span class="lineCov">        707 :     MemoryLeakDetectorNode* leak = memoryTable_.getFirstLeak(mem_leak_period_checking);</span>
-<span class="lineNum">     669 </span><span class="lineCov">       1421 :     while (leak) {</span>
-<span class="lineNum">     670 </span><span class="lineCov">         14 :         if (leak-&gt;period_ == mem_leak_period_checking) leak-&gt;period_ = mem_leak_period_enabled;</span>
+<span class="lineNum">     668 </span><span class="lineCov">        706 :     MemoryLeakDetectorNode* leak = memoryTable_.getFirstLeak(mem_leak_period_checking);</span>
+<span class="lineNum">     669 </span><span class="lineCov">       1419 :     while (leak) {</span>
+<span class="lineNum">     670 </span><span class="lineCov">          7 :         if (leak-&gt;period_ == mem_leak_period_checking) leak-&gt;period_ = mem_leak_period_enabled;</span>
 <span class="lineNum">     671 </span><span class="lineCov">          7 :         leak = memoryTable_.getNextLeak(leak, mem_leak_period_checking);</span>
-<span class="lineNum">     672 </span><span class="lineCov">          7 :     }</span>
-<a name="673"><span class="lineNum">     673 </span><span class="lineCov">        707 : }</span></a>
+<span class="lineNum">     672 </span>            :     }
+<a name="673"><span class="lineNum">     673 </span><span class="lineCov">        706 : }</span></a>
 <span class="lineNum">     674 </span>            : 
-<span class="lineNum">     675 </span><span class="lineCov">        758 : int MemoryLeakDetector::totalMemoryLeaks(MemLeakPeriod period)</span>
+<span class="lineNum">     675 </span><span class="lineCov">        757 : int MemoryLeakDetector::totalMemoryLeaks(MemLeakPeriod period)</span>
 <span class="lineNum">     676 </span>            : {
-<span class="lineNum">     677 </span><span class="lineCov">        758 :     return memoryTable_.getTotalLeaks(period);</span>
+<span class="lineNum">     677 </span><span class="lineCov">        757 :     return memoryTable_.getTotalLeaks(period);</span>
 <span class="lineNum">     678 </span>            : }
 </pre>
       </td>

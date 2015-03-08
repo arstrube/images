@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">135</td>
             <td class="headerCovTableEntry">138</td>
-            <td class="headerCovTableEntryHi">97.8 %</td>
+            <td class="headerCovTableEntry">141</td>
+            <td class="headerCovTableEntryHi">97.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">329</td>
-            <td class="headerCovTableEntry">357</td>
-            <td class="headerCovTableEntryHi">92.2 %</td>
+            <td class="headerCovTableEntry">181</td>
+            <td class="headerCovTableEntry">209</td>
+            <td class="headerCovTableEntryMed">86.6 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -97,19 +97,19 @@
 <span class="lineNum">      35 </span>            : {
 <a name="36"><span class="lineNum">      36 </span>            : };</a>
 <span class="lineNum">      37 </span>            : 
-<span class="lineNum">      38 </span><span class="lineCov">         14 : TEST(MockSupport_c, expectAndActualOneCall)</span>
+<span class="lineNum">      38 </span><span class="lineCov">          8 : TEST(MockSupport_c, expectAndActualOneCall)</span>
 <span class="lineNum">      39 </span>            : {
 <span class="lineNum">      40 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;boo&quot;);</span>
 <span class="lineNum">      41 </span><span class="lineCov">          1 :     mock_c()-&gt;actualCall(&quot;boo&quot;);</span>
 <span class="lineNum">      42 </span><span class="lineCov">          1 :     mock_c()-&gt;checkExpectations();</span>
 <a name="43"><span class="lineNum">      43 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      44 </span>            : 
-<span class="lineNum">      45 </span><span class="lineCov">         14 : TEST(MockSupport_c, expectAndActualParameters)</span>
+<span class="lineNum">      45 </span><span class="lineCov">          8 : TEST(MockSupport_c, expectAndActualParameters)</span>
 <span class="lineNum">      46 </span>            : {
 <span class="lineNum">      47 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;boo&quot;)-&gt;withIntParameters(&quot;integer&quot;, 1)-&gt;withDoubleParameters(&quot;double&quot;, 1.0)-&gt;</span>
-<span class="lineNum">      48 </span>            :             withStringParameters(&quot;string&quot;, &quot;string&quot;)-&gt;withPointerParameters(&quot;pointer&quot;, (void*) 1);
+<span class="lineNum">      48 </span><span class="lineCov">          1 :             withStringParameters(&quot;string&quot;, &quot;string&quot;)-&gt;withPointerParameters(&quot;pointer&quot;, (void*) 1);</span>
 <span class="lineNum">      49 </span><span class="lineCov">          1 :     mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;withIntParameters(&quot;integer&quot;, 1)-&gt;withDoubleParameters(&quot;double&quot;, 1.0)-&gt;</span>
-<span class="lineNum">      50 </span>            :             withStringParameters(&quot;string&quot;, &quot;string&quot;)-&gt;withPointerParameters(&quot;pointer&quot;, (void*) 1);
+<span class="lineNum">      50 </span><span class="lineCov">          1 :             withStringParameters(&quot;string&quot;, &quot;string&quot;)-&gt;withPointerParameters(&quot;pointer&quot;, (void*) 1);</span>
 <span class="lineNum">      51 </span><span class="lineCov">          1 : }</span>
 <span class="lineNum">      52 </span>            : 
 <a name="53"><span class="lineNum">      53 </span>            : extern &quot;C&quot;{</a>
@@ -126,7 +126,7 @@
 <span class="lineNum">      64 </span>            : 
 <a name="65"><span class="lineNum">      65 </span>            : }</a>
 <span class="lineNum">      66 </span>            : 
-<span class="lineNum">      67 </span><span class="lineCov">         14 : TEST(MockSupport_c, expectAndActualParametersOnObject)</span>
+<span class="lineNum">      67 </span><span class="lineCov">          8 : TEST(MockSupport_c, expectAndActualParametersOnObject)</span>
 <span class="lineNum">      68 </span>            : {
 <span class="lineNum">      69 </span><span class="lineCov">          1 :     mock_c()-&gt;installComparator(&quot;typeName&quot;, typeNameIsEqual, typeNameValueToString);</span>
 <span class="lineNum">      70 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;boo&quot;)-&gt;withParameterOfType(&quot;typeName&quot;, &quot;name&quot;, (const void*) 1);</span>
@@ -135,160 +135,160 @@
 <span class="lineNum">      73 </span><span class="lineCov">          1 :     mock_c()-&gt;removeAllComparators();</span>
 <a name="74"><span class="lineNum">      74 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      75 </span>            : 
-<span class="lineNum">      76 </span><span class="lineCov">         14 : TEST(MockSupport_c, unsignedIntParameter)</span>
+<span class="lineNum">      76 </span><span class="lineCov">          8 : TEST(MockSupport_c, unsignedIntParameter)</span>
 <span class="lineNum">      77 </span>            : {
 <span class="lineNum">      78 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;foo&quot;)-&gt;withUnsignedIntParameters(&quot;p&quot;, 1);</span>
 <span class="lineNum">      79 </span><span class="lineCov">          1 :     mock_c()-&gt;actualCall(&quot;foo&quot;)-&gt;withUnsignedIntParameters(&quot;p&quot;, 1);</span>
 <a name="80"><span class="lineNum">      80 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      81 </span>            : 
-<span class="lineNum">      82 </span><span class="lineCov">         14 : TEST(MockSupport_c, longIntParameter)</span>
+<span class="lineNum">      82 </span><span class="lineCov">          8 : TEST(MockSupport_c, longIntParameter)</span>
 <span class="lineNum">      83 </span>            : {
 <span class="lineNum">      84 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;foo&quot;)-&gt;withLongIntParameters(&quot;p&quot;, 1);</span>
 <span class="lineNum">      85 </span><span class="lineCov">          1 :     mock_c()-&gt;actualCall(&quot;foo&quot;)-&gt;withLongIntParameters(&quot;p&quot;, 1);</span>
 <a name="86"><span class="lineNum">      86 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      87 </span>            : 
-<span class="lineNum">      88 </span><span class="lineCov">         14 : TEST(MockSupport_c, unsignedLongIntParameter)</span>
+<span class="lineNum">      88 </span><span class="lineCov">          8 : TEST(MockSupport_c, unsignedLongIntParameter)</span>
 <span class="lineNum">      89 </span>            : {
 <span class="lineNum">      90 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;foo&quot;)-&gt;withUnsignedLongIntParameters(&quot;p&quot;, 1);</span>
 <span class="lineNum">      91 </span><span class="lineCov">          1 :     mock_c()-&gt;actualCall(&quot;foo&quot;)-&gt;withUnsignedLongIntParameters(&quot;p&quot;, 1);</span>
 <a name="92"><span class="lineNum">      92 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      93 </span>            : 
-<span class="lineNum">      94 </span><span class="lineCov">         14 : TEST(MockSupport_c, outputParameters)</span>
+<span class="lineNum">      94 </span><span class="lineCov">          8 : TEST(MockSupport_c, outputParameters)</span>
 <span class="lineNum">      95 </span>            : {
 <span class="lineNum">      96 </span><span class="lineCov">          1 :     int param = 1;</span>
 <span class="lineNum">      97 </span><span class="lineCov">          1 :     int retval = 2;</span>
 <span class="lineNum">      98 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;foo&quot;)-&gt;withOutputParameterReturning(&quot;out&quot;, &amp;retval, sizeof(retval));</span>
 <span class="lineNum">      99 </span><span class="lineCov">          1 :     mock_c()-&gt;actualCall(&quot;foo&quot;)-&gt;withOutputParameter(&quot;out&quot;, &amp;param);</span>
 <span class="lineNum">     100 </span><span class="lineCov">          1 :     mock_c()-&gt;checkExpectations();</span>
-<span class="lineNum">     101 </span><span class="lineCov">          2 :     LONGS_EQUAL(2, param);</span>
-<span class="lineNum">     102 </span><span class="lineCov">          2 :     LONGS_EQUAL(2, retval);</span>
+<span class="lineNum">     101 </span><span class="lineCov">          1 :     LONGS_EQUAL(2, param);</span>
+<span class="lineNum">     102 </span><span class="lineCov">          1 :     LONGS_EQUAL(2, retval);</span>
 <a name="103"><span class="lineNum">     103 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     104 </span>            : 
-<span class="lineNum">     105 </span><span class="lineCov">         14 : TEST(MockSupport_c, outputParameters_differentType)</span>
+<span class="lineNum">     105 </span><span class="lineCov">          8 : TEST(MockSupport_c, outputParameters_differentType)</span>
 <span class="lineNum">     106 </span>            : {
 <span class="lineNum">     107 </span><span class="lineCov">          1 :     long param = 1;</span>
 <span class="lineNum">     108 </span><span class="lineCov">          1 :     long retval = 2;</span>
 <span class="lineNum">     109 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;foo&quot;)-&gt;withOutputParameterReturning(&quot;out&quot;, &amp;retval, sizeof(retval));</span>
 <span class="lineNum">     110 </span><span class="lineCov">          1 :     mock_c()-&gt;actualCall(&quot;foo&quot;)-&gt;withOutputParameter(&quot;out&quot;, &amp;param);</span>
 <span class="lineNum">     111 </span><span class="lineCov">          1 :     mock_c()-&gt;checkExpectations();</span>
-<span class="lineNum">     112 </span><span class="lineCov">          2 :     LONGS_EQUAL(2, param);</span>
-<span class="lineNum">     113 </span><span class="lineCov">          2 :     LONGS_EQUAL(2, retval);</span>
+<span class="lineNum">     112 </span><span class="lineCov">          1 :     LONGS_EQUAL(2, param);</span>
+<span class="lineNum">     113 </span><span class="lineCov">          1 :     LONGS_EQUAL(2, retval);</span>
 <a name="114"><span class="lineNum">     114 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     115 </span>            : 
-<span class="lineNum">     116 </span><span class="lineCov">         14 : TEST(MockSupport_c, returnUnsignedIntValue)</span>
+<span class="lineNum">     116 </span><span class="lineCov">          8 : TEST(MockSupport_c, returnUnsignedIntValue)</span>
 <span class="lineNum">     117 </span>            : {
 <span class="lineNum">     118 </span><span class="lineCov">          1 :     unsigned int expected_value = 7;</span>
 <span class="lineNum">     119 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;boo&quot;)-&gt;andReturnUnsignedIntValue(expected_value);</span>
-<span class="lineNum">     120 </span><span class="lineCov">          2 :     LONGS_EQUAL(expected_value, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.unsignedIntValue);</span>
-<span class="lineNum">     121 </span><span class="lineCov">          2 :     LONGS_EQUAL(MOCKVALUETYPE_UNSIGNED_INTEGER, mock_c()-&gt;returnValue().type);</span>
+<span class="lineNum">     120 </span><span class="lineCov">          1 :     LONGS_EQUAL(expected_value, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.unsignedIntValue);</span>
+<span class="lineNum">     121 </span><span class="lineCov">          1 :     LONGS_EQUAL(MOCKVALUETYPE_UNSIGNED_INTEGER, mock_c()-&gt;returnValue().type);</span>
 <a name="122"><span class="lineNum">     122 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     123 </span>            : 
-<span class="lineNum">     124 </span><span class="lineCov">         14 : TEST(MockSupport_c, returnIntValue)</span>
+<span class="lineNum">     124 </span><span class="lineCov">          8 : TEST(MockSupport_c, returnIntValue)</span>
 <span class="lineNum">     125 </span>            : {
 <span class="lineNum">     126 </span><span class="lineCov">          1 :     int expected_value = 10;</span>
 <span class="lineNum">     127 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;boo&quot;)-&gt;andReturnIntValue(expected_value);</span>
-<span class="lineNum">     128 </span><span class="lineCov">          2 :     LONGS_EQUAL(expected_value, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.intValue);</span>
-<span class="lineNum">     129 </span><span class="lineCov">          2 :     LONGS_EQUAL(MOCKVALUETYPE_INTEGER, mock_c()-&gt;returnValue().type);</span>
+<span class="lineNum">     128 </span><span class="lineCov">          1 :     LONGS_EQUAL(expected_value, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.intValue);</span>
+<span class="lineNum">     129 </span><span class="lineCov">          1 :     LONGS_EQUAL(MOCKVALUETYPE_INTEGER, mock_c()-&gt;returnValue().type);</span>
 <a name="130"><span class="lineNum">     130 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     131 </span>            : 
-<span class="lineNum">     132 </span><span class="lineCov">         14 : TEST(MockSupport_c, returnLongIntValue)</span>
+<span class="lineNum">     132 </span><span class="lineCov">          8 : TEST(MockSupport_c, returnLongIntValue)</span>
 <span class="lineNum">     133 </span>            : {
 <span class="lineNum">     134 </span><span class="lineCov">          1 :     long int expected_value = 10;</span>
 <span class="lineNum">     135 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;boo&quot;)-&gt;andReturnLongIntValue(expected_value);</span>
-<span class="lineNum">     136 </span><span class="lineCov">          2 :     LONGS_EQUAL(expected_value, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.longIntValue);</span>
-<span class="lineNum">     137 </span><span class="lineCov">          2 :     LONGS_EQUAL(MOCKVALUETYPE_LONG_INTEGER, mock_c()-&gt;returnValue().type);</span>
+<span class="lineNum">     136 </span><span class="lineCov">          1 :     LONGS_EQUAL(expected_value, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.longIntValue);</span>
+<span class="lineNum">     137 </span><span class="lineCov">          1 :     LONGS_EQUAL(MOCKVALUETYPE_LONG_INTEGER, mock_c()-&gt;returnValue().type);</span>
 <a name="138"><span class="lineNum">     138 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     139 </span>            : 
-<span class="lineNum">     140 </span><span class="lineCov">         14 : TEST(MockSupport_c, returnUnsignedLongIntValue)</span>
+<span class="lineNum">     140 </span><span class="lineCov">          8 : TEST(MockSupport_c, returnUnsignedLongIntValue)</span>
 <span class="lineNum">     141 </span>            : {
 <span class="lineNum">     142 </span><span class="lineCov">          1 :     unsigned long int expected_value = 10;</span>
 <span class="lineNum">     143 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;boo&quot;)-&gt;andReturnUnsignedLongIntValue(expected_value);</span>
-<span class="lineNum">     144 </span><span class="lineCov">          2 :     LONGS_EQUAL(expected_value, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.unsignedLongIntValue);</span>
-<span class="lineNum">     145 </span><span class="lineCov">          2 :     LONGS_EQUAL(MOCKVALUETYPE_UNSIGNED_LONG_INTEGER, mock_c()-&gt;returnValue().type);</span>
+<span class="lineNum">     144 </span><span class="lineCov">          1 :     LONGS_EQUAL(expected_value, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.unsignedLongIntValue);</span>
+<span class="lineNum">     145 </span><span class="lineCov">          1 :     LONGS_EQUAL(MOCKVALUETYPE_UNSIGNED_LONG_INTEGER, mock_c()-&gt;returnValue().type);</span>
 <a name="146"><span class="lineNum">     146 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     147 </span>            : 
-<span class="lineNum">     148 </span><span class="lineCov">         14 : TEST(MockSupport_c, returnDoubleValue)</span>
+<span class="lineNum">     148 </span><span class="lineCov">          8 : TEST(MockSupport_c, returnDoubleValue)</span>
 <span class="lineNum">     149 </span>            : {
 <span class="lineNum">     150 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;boo&quot;)-&gt;andReturnDoubleValue(1.0);</span>
-<span class="lineNum">     151 </span><span class="lineCov">          2 :     DOUBLES_EQUAL(1.0, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.doubleValue, 0.005);</span>
-<span class="lineNum">     152 </span><span class="lineCov">          2 :     LONGS_EQUAL(MOCKVALUETYPE_DOUBLE, mock_c()-&gt;returnValue().type);</span>
+<span class="lineNum">     151 </span><span class="lineCov">          1 :     DOUBLES_EQUAL(1.0, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.doubleValue, 0.005);</span>
+<span class="lineNum">     152 </span><span class="lineCov">          1 :     LONGS_EQUAL(MOCKVALUETYPE_DOUBLE, mock_c()-&gt;returnValue().type);</span>
 <a name="153"><span class="lineNum">     153 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     154 </span>            : 
-<span class="lineNum">     155 </span><span class="lineCov">         14 : TEST(MockSupport_c, returnStringValue)</span>
+<span class="lineNum">     155 </span><span class="lineCov">          8 : TEST(MockSupport_c, returnStringValue)</span>
 <span class="lineNum">     156 </span>            : {
 <span class="lineNum">     157 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;boo&quot;)-&gt;andReturnStringValue(&quot;hello world&quot;);</span>
-<span class="lineNum">     158 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;hello world&quot;, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.stringValue);</span>
-<span class="lineNum">     159 </span><span class="lineCov">          2 :     LONGS_EQUAL(MOCKVALUETYPE_STRING, mock_c()-&gt;returnValue().type);</span>
+<span class="lineNum">     158 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;hello world&quot;, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.stringValue);</span>
+<span class="lineNum">     159 </span><span class="lineCov">          1 :     LONGS_EQUAL(MOCKVALUETYPE_STRING, mock_c()-&gt;returnValue().type);</span>
 <a name="160"><span class="lineNum">     160 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     161 </span>            : 
-<span class="lineNum">     162 </span><span class="lineCov">         14 : TEST(MockSupport_c, returnPointerValue)</span>
+<span class="lineNum">     162 </span><span class="lineCov">          8 : TEST(MockSupport_c, returnPointerValue)</span>
 <span class="lineNum">     163 </span>            : {
 <span class="lineNum">     164 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;boo&quot;)-&gt;andReturnPointerValue((void*) 10);</span>
 <span class="lineNum">     165 </span><span class="lineCov">          1 :     POINTERS_EQUAL((void*) 10, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.pointerValue);</span>
-<span class="lineNum">     166 </span><span class="lineCov">          2 :     LONGS_EQUAL(MOCKVALUETYPE_POINTER, mock_c()-&gt;returnValue().type);</span>
+<span class="lineNum">     166 </span><span class="lineCov">          1 :     LONGS_EQUAL(MOCKVALUETYPE_POINTER, mock_c()-&gt;returnValue().type);</span>
 <a name="167"><span class="lineNum">     167 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     168 </span>            : 
-<span class="lineNum">     169 </span><span class="lineCov">         14 : TEST(MockSupport_c, returnConstPointerValue)</span>
+<span class="lineNum">     169 </span><span class="lineCov">          8 : TEST(MockSupport_c, returnConstPointerValue)</span>
 <span class="lineNum">     170 </span>            : {
 <span class="lineNum">     171 </span><span class="lineCov">          1 :     mock_c()-&gt;expectOneCall(&quot;boo&quot;)-&gt;andReturnConstPointerValue((const void*) 10);</span>
 <span class="lineNum">     172 </span><span class="lineCov">          1 :     POINTERS_EQUAL((const void*) 10, mock_c()-&gt;actualCall(&quot;boo&quot;)-&gt;returnValue().value.constPointerValue);</span>
-<span class="lineNum">     173 </span><span class="lineCov">          2 :     LONGS_EQUAL(MOCKVALUETYPE_CONST_POINTER, mock_c()-&gt;returnValue().type);</span>
+<span class="lineNum">     173 </span><span class="lineCov">          1 :     LONGS_EQUAL(MOCKVALUETYPE_CONST_POINTER, mock_c()-&gt;returnValue().type);</span>
 <a name="174"><span class="lineNum">     174 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     175 </span>            : 
-<span class="lineNum">     176 </span><span class="lineCov">         14 : TEST(MockSupport_c, MockSupportWithScope)</span>
+<span class="lineNum">     176 </span><span class="lineCov">          8 : TEST(MockSupport_c, MockSupportWithScope)</span>
 <span class="lineNum">     177 </span>            : {
 <span class="lineNum">     178 </span><span class="lineCov">          1 :     mock_scope_c(&quot;scope&quot;)-&gt;expectOneCall(&quot;boo&quot;);</span>
-<span class="lineNum">     179 </span><span class="lineCov">          2 :     LONGS_EQUAL(0, mock_scope_c(&quot;other&quot;)-&gt;expectedCallsLeft());</span>
-<span class="lineNum">     180 </span><span class="lineCov">          2 :     LONGS_EQUAL(1, mock_scope_c(&quot;scope&quot;)-&gt;expectedCallsLeft());</span>
+<span class="lineNum">     179 </span><span class="lineCov">          1 :     LONGS_EQUAL(0, mock_scope_c(&quot;other&quot;)-&gt;expectedCallsLeft());</span>
+<span class="lineNum">     180 </span><span class="lineCov">          1 :     LONGS_EQUAL(1, mock_scope_c(&quot;scope&quot;)-&gt;expectedCallsLeft());</span>
 <span class="lineNum">     181 </span><span class="lineCov">          1 :     mock_scope_c(&quot;scope&quot;)-&gt;actualCall(&quot;boo&quot;);</span>
 <a name="182"><span class="lineNum">     182 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     183 </span>            : 
-<span class="lineNum">     184 </span><span class="lineCov">         14 : TEST(MockSupport_c, MockSupportSetIntData)</span>
+<span class="lineNum">     184 </span><span class="lineCov">          8 : TEST(MockSupport_c, MockSupportSetIntData)</span>
 <span class="lineNum">     185 </span>            : {
 <span class="lineNum">     186 </span><span class="lineCov">          1 :     mock_c()-&gt;setIntData(&quot;integer&quot;, 10);</span>
-<span class="lineNum">     187 </span><span class="lineCov">          2 :     LONGS_EQUAL(10, mock_c()-&gt;getData(&quot;integer&quot;).value.intValue);</span>
+<span class="lineNum">     187 </span><span class="lineCov">          1 :     LONGS_EQUAL(10, mock_c()-&gt;getData(&quot;integer&quot;).value.intValue);</span>
 <a name="188"><span class="lineNum">     188 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     189 </span>            : 
-<span class="lineNum">     190 </span><span class="lineCov">         14 : TEST(MockSupport_c, MockSupportSetDoubleData)</span>
+<span class="lineNum">     190 </span><span class="lineCov">          8 : TEST(MockSupport_c, MockSupportSetDoubleData)</span>
 <span class="lineNum">     191 </span>            : {
 <span class="lineNum">     192 </span><span class="lineCov">          1 :     mock_c()-&gt;setDoubleData(&quot;double&quot;, 1.0);</span>
-<span class="lineNum">     193 </span><span class="lineCov">          2 :     DOUBLES_EQUAL(1.00, mock_c()-&gt;getData(&quot;double&quot;).value.doubleValue, 0.05);</span>
+<span class="lineNum">     193 </span><span class="lineCov">          1 :     DOUBLES_EQUAL(1.00, mock_c()-&gt;getData(&quot;double&quot;).value.doubleValue, 0.05);</span>
 <a name="194"><span class="lineNum">     194 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     195 </span>            : 
-<span class="lineNum">     196 </span><span class="lineCov">         14 : TEST(MockSupport_c, MockSupportSetStringData)</span>
+<span class="lineNum">     196 </span><span class="lineCov">          8 : TEST(MockSupport_c, MockSupportSetStringData)</span>
 <span class="lineNum">     197 </span>            : {
 <span class="lineNum">     198 </span><span class="lineCov">          1 :     mock_c()-&gt;setStringData(&quot;string&quot;, &quot;hello world&quot;);</span>
-<span class="lineNum">     199 </span><span class="lineCov">          2 :     STRCMP_EQUAL(&quot;hello world&quot;, mock_c()-&gt;getData(&quot;string&quot;).value.stringValue);</span>
+<span class="lineNum">     199 </span><span class="lineCov">          1 :     STRCMP_EQUAL(&quot;hello world&quot;, mock_c()-&gt;getData(&quot;string&quot;).value.stringValue);</span>
 <a name="200"><span class="lineNum">     200 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     201 </span>            : 
-<span class="lineNum">     202 </span><span class="lineCov">         14 : TEST(MockSupport_c, MockSupportSetPointerData)</span>
+<span class="lineNum">     202 </span><span class="lineCov">          8 : TEST(MockSupport_c, MockSupportSetPointerData)</span>
 <span class="lineNum">     203 </span>            : {
 <span class="lineNum">     204 </span><span class="lineCov">          1 :     mock_c()-&gt;setPointerData(&quot;pointer&quot;, (void*) 1);</span>
 <span class="lineNum">     205 </span><span class="lineCov">          1 :     POINTERS_EQUAL((void*) 1, mock_c()-&gt;getData(&quot;pointer&quot;).value.pointerValue);</span>
 <a name="206"><span class="lineNum">     206 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     207 </span>            : 
-<span class="lineNum">     208 </span><span class="lineCov">         14 : TEST(MockSupport_c, MockSupportSetConstPointerData)</span>
+<span class="lineNum">     208 </span><span class="lineCov">          8 : TEST(MockSupport_c, MockSupportSetConstPointerData)</span>
 <span class="lineNum">     209 </span>            : {
 <span class="lineNum">     210 </span><span class="lineCov">          1 :     mock_c()-&gt;setConstPointerData(&quot;constPointer&quot;, (const void*) 1);</span>
 <span class="lineNum">     211 </span><span class="lineCov">          1 :     POINTERS_EQUAL((const void*) 1, mock_c()-&gt;getData(&quot;constPointer&quot;).value.constPointerValue);</span>
 <a name="212"><span class="lineNum">     212 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     213 </span>            : 
-<span class="lineNum">     214 </span><span class="lineCov">         14 : TEST(MockSupport_c, MockSupportSetDataObject)</span>
+<span class="lineNum">     214 </span><span class="lineCov">          8 : TEST(MockSupport_c, MockSupportSetDataObject)</span>
 <span class="lineNum">     215 </span>            : {
 <span class="lineNum">     216 </span><span class="lineCov">          1 :     mock_c()-&gt;setDataObject(&quot;name&quot;, &quot;type&quot;, (void*) 1);</span>
 <span class="lineNum">     217 </span><span class="lineCov">          1 :     POINTERS_EQUAL((void*) 1, mock_c()-&gt;getData(&quot;name&quot;).value.objectValue);</span>
 <a name="218"><span class="lineNum">     218 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     219 </span>            : 
-<span class="lineNum">     220 </span><span class="lineCov">         14 : TEST(MockSupport_c, WorksInCFile)</span>
+<span class="lineNum">     220 </span><span class="lineCov">          8 : TEST(MockSupport_c, WorksInCFile)</span>
 <span class="lineNum">     221 </span>            : {
 <span class="lineNum">     222 </span><span class="lineCov">          1 :     all_mock_support_c_calls();</span>
 <span class="lineNum">     223 </span><span class="lineCov">          1 : }</span>
 <span class="lineNum">     224 </span>            : 
 <a name="225"><span class="lineNum">     225 </span>            : static bool destructorWasCalled = false;</a>
 <span class="lineNum">     226 </span>            : 
-<span class="lineNum">     227 </span>            : static void failedCallToMockC()
+<span class="lineNum">     227 </span><span class="lineCov">          1 : static void failedCallToMockC()</span>
 <span class="lineNum">     228 </span>            : {
-<span class="lineNum">     229 </span><span class="lineCov">          2 :     SetBooleanOnDestructorCall setOneDestructor(destructorWasCalled);</span>
+<span class="lineNum">     229 </span><span class="lineCov">          1 :     SetBooleanOnDestructorCall setOneDestructor(destructorWasCalled);</span>
 <span class="lineNum">     230 </span><span class="lineCov">          1 :     mock_c()-&gt;actualCall(&quot;Not a call&quot;);</span>
 <span class="lineNum">     231 </span><span class="lineNoCov">          0 : }</span>
 <span class="lineNum">     232 </span>            : 
@@ -300,17 +300,17 @@
 <span class="lineNum">     238 </span>            : #define MSC_SWITCHED_TEST(testGroup, testName) TEST(testGroup, testName)
 <a name="239"><span class="lineNum">     239 </span>            : #endif</a>
 <span class="lineNum">     240 </span>            : 
-<span class="lineNum">     241 </span><span class="lineCov">         14 : MSC_SWITCHED_TEST(MockSupport_c, NoExceptionsAreThrownWhenAMock_cCallFailed)</span>
+<span class="lineNum">     241 </span><span class="lineCov">          8 : MSC_SWITCHED_TEST(MockSupport_c, NoExceptionsAreThrownWhenAMock_cCallFailed)</span>
 <span class="lineNum">     242 </span>            : {
 <span class="lineNum">     243 </span><span class="lineCov">          1 :     TestTestingFixture fixture;</span>
 <span class="lineNum">     244 </span>            : 
 <span class="lineNum">     245 </span><span class="lineCov">          1 :     fixture.setTestFunction(failedCallToMockC);</span>
 <span class="lineNum">     246 </span><span class="lineCov">          1 :     fixture.runAllTests();</span>
 <span class="lineNum">     247 </span>            : 
-<span class="lineNum">     248 </span><span class="lineCov">          4 :     LONGS_EQUAL(1, fixture.getFailureCount());</span>
-<span class="lineNum">     249 </span>            :     // Odd behavior in Visual C++, destructor still gets called here
-<span class="lineNum">     250 </span><span class="lineCov">          3 :     CHECK(!destructorWasCalled);</span>
-<span class="lineNum">     251 </span><span class="lineCov">          1 : }</span>
+<span class="lineNum">     248 </span><span class="lineCov">          1 :     LONGS_EQUAL(1, fixture.getFailureCount());</span>
+<a name="249"><span class="lineNum">     249 </span>            :     // Odd behavior in Visual C++, destructor still gets called here</a>
+<span class="lineNum">     250 </span><span class="lineCov">          1 :     CHECK(!destructorWasCalled);</span>
+<span class="lineNum">     251 </span><span class="lineCov">          4 : }</span>
 <span class="lineNum">     252 </span>            : 
 </pre>
       </td>

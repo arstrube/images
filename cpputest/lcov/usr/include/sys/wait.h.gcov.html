@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - info.txt - /usr/include/sys/wait.h</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">usr/include/sys</a> - wait.h<span style="font-size: 80%;"> (source / <a href="wait.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">info.txt</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /* sys/wait.h</a>
+<span class="lineNum">       2 </span>            : 
+<span class="lineNum">       3 </span>            :    Copyright 1997, 1998, 2000, 2001, 2002, 2003, 2004, 2006, 2011, 2012 Red
+<span class="lineNum">       4 </span>            :    Hat, Inc.
+<span class="lineNum">       5 </span>            : 
+<span class="lineNum">       6 </span>            : This file is part of Cygwin.
+<span class="lineNum">       7 </span>            : 
+<span class="lineNum">       8 </span>            : This software is a copyrighted work licensed under the terms of the
+<span class="lineNum">       9 </span>            : Cygwin license.  Please consult the file &quot;CYGWIN_LICENSE&quot; for
+<span class="lineNum">      10 </span>            : details. */
+<span class="lineNum">      11 </span>            : 
+<span class="lineNum">      12 </span>            : #ifndef _SYS_WAIT_H
+<span class="lineNum">      13 </span>            : #define _SYS_WAIT_H
+<span class="lineNum">      14 </span>            : 
+<span class="lineNum">      15 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      16 </span>            : #include &lt;sys/resource.h&gt;
+<span class="lineNum">      17 </span>            : #include &lt;cygwin/wait.h&gt;
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : #ifdef __cplusplus
+<span class="lineNum">      20 </span>            : extern &quot;C&quot; {
+<span class="lineNum">      21 </span>            : #endif
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : #ifdef __INSIDE_CYGWIN__
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : typedef int *__wait_status_ptr_t;
+<span class="lineNum">      26 </span>            : 
+<span class="lineNum">      27 </span>            : #elif defined(__cplusplus)
+<span class="lineNum">      28 </span>            : 
+<span class="lineNum">      29 </span>            : /* Attribute __transparent_union__ is only supported for C.  */
+<span class="lineNum">      30 </span>            : typedef void *__wait_status_ptr_t;
+<span class="lineNum">      31 </span>            : 
+<span class="lineNum">      32 </span>            : #else /* !__INSIDE_CYGWIN__ &amp;&amp; !__cplusplus */
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : /* Allow `int' and `union wait' for the status.  */
+<span class="lineNum">      35 </span>            : typedef union
+<span class="lineNum">      36 </span>            :   {
+<span class="lineNum">      37 </span>            :     int *__int_ptr;
+<span class="lineNum">      38 </span>            :     union wait *__union_wait_ptr;
+<span class="lineNum">      39 </span>            :   } __wait_status_ptr_t  __attribute__ ((__transparent_union__));
+<span class="lineNum">      40 </span>            : 
+<span class="lineNum">      41 </span>            : #endif /* __INSIDE_CYGWIN__ */
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span>            : pid_t wait (__wait_status_ptr_t __status);
+<span class="lineNum">      44 </span>            : pid_t waitpid (pid_t __pid, __wait_status_ptr_t __status, int __options);
+<span class="lineNum">      45 </span>            : pid_t wait3 (__wait_status_ptr_t __status, int __options, struct rusage *__rusage);
+<span class="lineNum">      46 </span>            : pid_t wait4 (pid_t __pid, __wait_status_ptr_t __status, int __options, struct rusage *__rusage);
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span>            : #ifdef _COMPILING_NEWLIB
+<span class="lineNum">      49 </span>            : pid_t _wait (__wait_status_ptr_t __status);
+<span class="lineNum">      50 </span>            : #endif
+<span class="lineNum">      51 </span>            : 
+<span class="lineNum">      52 </span>            : union wait
+<span class="lineNum">      53 </span>            :   {
+<span class="lineNum">      54 </span>            :     int w_status;
+<span class="lineNum">      55 </span>            :     struct
+<span class="lineNum">      56 </span>            :       {
+<span class="lineNum">      57 </span>            :         unsigned int __w_termsig:7; /* Terminating signal.  */
+<span class="lineNum">      58 </span>            :         unsigned int __w_coredump:1; /* Set if dumped core.  */
+<span class="lineNum">      59 </span>            :         unsigned int __w_retcode:8; /* Return code if exited normally.  */
+<span class="lineNum">      60 </span>            :         unsigned int:16;
+<span class="lineNum">      61 </span>            :       } __wait_terminated;
+<span class="lineNum">      62 </span>            :     struct
+<span class="lineNum">      63 </span>            :       {
+<span class="lineNum">      64 </span>            :         unsigned int __w_stopval:8; /* W_STOPPED if stopped.  */
+<span class="lineNum">      65 </span>            :         unsigned int __w_stopsig:8; /* Stopping signal.  */
+<span class="lineNum">      66 </span>            :         unsigned int:16;
+<span class="lineNum">      67 </span>            :       } __wait_stopped;
+<span class="lineNum">      68 </span>            :   }; 
+<span class="lineNum">      69 </span>            : #define w_termsig       __wait_terminated.__w_termsig
+<span class="lineNum">      70 </span>            : #define w_coredump      __wait_terminated.__w_coredump
+<span class="lineNum">      71 </span>            : #define w_retcode       __wait_terminated.__w_retcode
+<span class="lineNum">      72 </span>            : #define w_stopsig       __wait_stopped.__w_stopsig
+<span class="lineNum">      73 </span>            : #define w_stopval       __wait_stopped.__w_stopval
+<span class="lineNum">      74 </span>            : 
+<span class="lineNum">      75 </span>            : #ifdef __cplusplus
+<span class="lineNum">      76 </span>            : }
+<span class="lineNum">      77 </span>            : #endif
+<span class="lineNum">      78 </span>            : 
+<span class="lineNum">      79 </span>            : /* Used in cygwin/wait.h, redefine to accept `int' and `union wait'.  */
+<span class="lineNum">      80 </span>            : #undef __wait_status_to_int
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span>            : #ifdef __cplusplus
+<a name="83"><span class="lineNum">      83 </span>            : </a>
+<span class="lineNum">      84 </span>            : extern &quot;C++&quot; {
+<span class="lineNum">      85 </span><span class="lineCov">         28 : inline int __wait_status_to_int (int __status)</span>
+<span class="lineNum">      86 </span><span class="lineCov">         28 :   { return __status; }</span>
+<span class="lineNum">      87 </span>            : inline int __wait_status_to_int (const union wait &amp; __status)
+<span class="lineNum">      88 </span>            :   { return __status.w_status; }
+<span class="lineNum">      89 </span>            : }
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span>            : #else /* !__cplusplus */
+<span class="lineNum">      92 </span>            : 
+<span class="lineNum">      93 </span>            : #define __wait_status_to_int(__status)  (__extension__ \
+<span class="lineNum">      94 </span>            :   (((union { __typeof(__status) __in; int __out; }) { .__in = (__status) }).__out))
+<span class="lineNum">      95 </span>            : 
+<span class="lineNum">      96 </span>            : #endif /* __cplusplus */
+<span class="lineNum">      97 </span>            : 
+<span class="lineNum">      98 </span>            : #endif /* _SYS_WAIT_H */
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

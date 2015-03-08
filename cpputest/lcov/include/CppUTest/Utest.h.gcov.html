@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntryHi">100.0 %</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntryMed">88.9 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -121,21 +121,21 @@
 <span class="lineNum">      59 </span>            : 
 <a name="60"><span class="lineNum">      60 </span>            : //////////////////// TestTerminator</a>
 <span class="lineNum">      61 </span>            : 
-<span class="lineNum">      62 </span><span class="lineCov">       1266 : class TestTerminator</span>
+<span class="lineNum">      62 </span><span class="lineCov">       1265 : class TestTerminator</span>
 <span class="lineNum">      63 </span>            : {
 <span class="lineNum">      64 </span>            : public:
 <span class="lineNum">      65 </span>            :     virtual void exitCurrentTest() const=0;
 <span class="lineNum">      66 </span>            :     virtual ~TestTerminator();
 <a name="67"><span class="lineNum">      67 </span>            : };</a>
 <span class="lineNum">      68 </span>            : 
-<span class="lineNum">      69 </span><span class="lineCov">       2500 : class NormalTestTerminator : public TestTerminator</span>
+<span class="lineNum">      69 </span><span class="lineCov">       1249 : class NormalTestTerminator : public TestTerminator</span>
 <span class="lineNum">      70 </span>            : {
 <span class="lineNum">      71 </span>            : public:
 <span class="lineNum">      72 </span>            :     virtual void exitCurrentTest() const _override;
 <span class="lineNum">      73 </span>            :     virtual ~NormalTestTerminator();
 <a name="74"><span class="lineNum">      74 </span>            : };</a>
 <span class="lineNum">      75 </span>            : 
-<span class="lineNum">      76 </span><span class="lineCov">         31 : class TestTerminatorWithoutExceptions  : public TestTerminator</span>
+<span class="lineNum">      76 </span><span class="lineCov">         16 : class TestTerminatorWithoutExceptions  : public TestTerminator</span>
 <span class="lineNum">      77 </span>            : {
 <span class="lineNum">      78 </span>            : public:
 <span class="lineNum">      79 </span>            :     virtual void exitCurrentTest() const _override;
@@ -232,7 +232,7 @@
 <span class="lineNum">     170 </span>            : 
 <a name="171"><span class="lineNum">     171 </span>            : class ExecFunctionTestShell;</a>
 <span class="lineNum">     172 </span>            : 
-<span class="lineNum">     173 </span><span class="lineCov">        260 : class ExecFunctionTest : public Utest</span>
+<span class="lineNum">     173 </span><span class="lineCov">        130 : class ExecFunctionTest : public Utest</span>
 <span class="lineNum">     174 </span>            : {
 <span class="lineNum">     175 </span>            : public:
 <span class="lineNum">     176 </span>            :     ExecFunctionTest(ExecFunctionTestShell* shell);
@@ -252,12 +252,12 @@
 <span class="lineNum">     190 </span>            :     void (*teardown_)();
 <a name="191"><span class="lineNum">     191 </span>            :     void (*testFunction_)();</a>
 <span class="lineNum">     192 </span>            : 
-<span class="lineNum">     193 </span><span class="lineCov">        262 :     ExecFunctionTestShell(void(*set)() = 0, void(*tear)() = 0) :</span>
+<span class="lineNum">     193 </span><span class="lineCov">        131 :     ExecFunctionTestShell(void(*set)() = 0, void(*tear)() = 0) :</span>
 <span class="lineNum">     194 </span>            :         UtestShell(&quot;Generic&quot;, &quot;Generic&quot;, &quot;Generic&quot;, 1), setup_(set), teardown_(
-<span class="lineNum">     195 </span>            :                 tear), testFunction_(0)
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov">        131 :     {</span></a>
-<span class="lineNum">     197 </span><span class="lineCov">        262 :     }</span>
-<span class="lineNum">     198 </span><span class="lineCov">        130 :     Utest* createTest() { return new ExecFunctionTest(this); }</span>
+<span class="lineNum">     195 </span><span class="lineCov">        131 :                 tear), testFunction_(0)</span>
+<a name="196"><span class="lineNum">     196 </span>            :     {</a>
+<span class="lineNum">     197 </span><span class="lineCov">        131 :     }</span>
+<span class="lineNum">     198 </span><span class="lineCov">         65 :     Utest* createTest() { return new ExecFunctionTest(this); }</span>
 <span class="lineNum">     199 </span>            :     virtual ~ExecFunctionTestShell();
 <span class="lineNum">     200 </span>            : };
 <span class="lineNum">     201 </span>            : 

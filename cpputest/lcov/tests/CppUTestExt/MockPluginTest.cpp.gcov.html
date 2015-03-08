@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">60</td>
             <td class="headerCovTableEntry">62</td>
-            <td class="headerCovTableEntryHi">96.8 %</td>
+            <td class="headerCovTableEntry">64</td>
+            <td class="headerCovTableEntryHi">96.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">61</td>
-            <td class="headerCovTableEntry">69</td>
-            <td class="headerCovTableEntryMed">88.4 %</td>
+            <td class="headerCovTableEntry">37</td>
+            <td class="headerCovTableEntry">45</td>
+            <td class="headerCovTableEntryMed">82.2 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -102,61 +102,61 @@
 <span class="lineNum">      40 </span>            : 
 <a name="41"><span class="lineNum">      41 </span>            :     MockSupportPlugin *plugin;</a>
 <span class="lineNum">      42 </span>            : 
-<span class="lineNum">      43 </span>            :     void setup()
+<span class="lineNum">      43 </span><span class="lineCov">          4 :     void setup()</span>
 <span class="lineNum">      44 </span>            :     {
-<span class="lineNum">      45 </span><span class="lineCov">         16 :         mock().setMockFailureStandardReporter(MockFailureReporterForTest::getReporter());</span>
+<span class="lineNum">      45 </span><span class="lineCov">          4 :         mock().setMockFailureStandardReporter(MockFailureReporterForTest::getReporter());</span>
 <span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span><span class="lineCov">          8 :         test = new UtestShell(&quot;group&quot;, &quot;name&quot;, &quot;file&quot;, 1);</span>
-<span class="lineNum">      48 </span><span class="lineCov">          8 :         output = new StringBufferTestOutput;</span>
-<span class="lineNum">      49 </span><span class="lineCov">          8 :         result = new TestResult(*output);</span>
-<span class="lineNum">      50 </span><span class="lineCov">          8 :         expectationsList = new MockExpectedCallsList;</span>
-<span class="lineNum">      51 </span><span class="lineCov">          8 :         call = new MockCheckedExpectedCall;</span>
+<span class="lineNum">      47 </span><span class="lineCov">          4 :         test = new UtestShell(&quot;group&quot;, &quot;name&quot;, &quot;file&quot;, 1);</span>
+<span class="lineNum">      48 </span><span class="lineCov">          4 :         output = new StringBufferTestOutput;</span>
+<span class="lineNum">      49 </span><span class="lineCov">          4 :         result = new TestResult(*output);</span>
+<span class="lineNum">      50 </span><span class="lineCov">          4 :         expectationsList = new MockExpectedCallsList;</span>
+<span class="lineNum">      51 </span><span class="lineCov">          4 :         call = new MockCheckedExpectedCall;</span>
 <span class="lineNum">      52 </span><span class="lineCov">          4 :         expectationsList-&gt;addExpectedCall(call);</span>
-<span class="lineNum">      53 </span><span class="lineCov">         12 :         plugin = new MockSupportPlugin;;</span>
+<span class="lineNum">      53 </span><span class="lineCov">          4 :         plugin = new MockSupportPlugin;;</span>
 <a name="54"><span class="lineNum">      54 </span><span class="lineCov">          4 :     }</span></a>
 <span class="lineNum">      55 </span>            : 
-<span class="lineNum">      56 </span>            :     void teardown()
+<span class="lineNum">      56 </span><span class="lineCov">          4 :     void teardown()</span>
 <span class="lineNum">      57 </span>            :     {
-<span class="lineNum">      58 </span><span class="lineCov">          8 :         delete test;</span>
-<span class="lineNum">      59 </span><span class="lineCov">          8 :         delete output;</span>
-<span class="lineNum">      60 </span><span class="lineCov">          8 :         delete result;</span>
-<span class="lineNum">      61 </span><span class="lineCov">          8 :         delete expectationsList;</span>
-<span class="lineNum">      62 </span><span class="lineCov">          8 :         delete call;</span>
-<span class="lineNum">      63 </span><span class="lineCov">          8 :         delete plugin;</span>
+<span class="lineNum">      58 </span><span class="lineCov">          4 :         delete test;</span>
+<span class="lineNum">      59 </span><span class="lineCov">          4 :         delete output;</span>
+<span class="lineNum">      60 </span><span class="lineCov">          4 :         delete result;</span>
+<span class="lineNum">      61 </span><span class="lineCov">          4 :         delete expectationsList;</span>
+<span class="lineNum">      62 </span><span class="lineCov">          4 :         delete call;</span>
+<span class="lineNum">      63 </span><span class="lineCov">          4 :         delete plugin;</span>
 <span class="lineNum">      64 </span>            : 
 <span class="lineNum">      65 </span><span class="lineCov">          4 :         CHECK_NO_MOCK_FAILURE();</span>
-<span class="lineNum">      66 </span><span class="lineCov">         12 :         mock().setMockFailureStandardReporter(NULL);</span>
+<span class="lineNum">      66 </span><span class="lineCov">          4 :         mock().setMockFailureStandardReporter(NULL);</span>
 <span class="lineNum">      67 </span><span class="lineCov">          4 :     }</span>
 <a name="68"><span class="lineNum">      68 </span>            : };</a>
 <span class="lineNum">      69 </span>            : 
-<span class="lineNum">      70 </span><span class="lineCov">         14 : TEST(MockPlugin, checkExpectationsAndClearAtEnd)</span>
+<span class="lineNum">      70 </span><span class="lineCov">          8 : TEST(MockPlugin, checkExpectationsAndClearAtEnd)</span>
 <span class="lineNum">      71 </span>            : {
-<span class="lineNum">      72 </span><span class="lineCov">          2 :     call-&gt;withName(&quot;foobar&quot;);</span>
+<span class="lineNum">      72 </span><span class="lineCov">          1 :     call-&gt;withName(&quot;foobar&quot;);</span>
 <span class="lineNum">      73 </span><span class="lineCov">          1 :     MockExpectedCallsDidntHappenFailure expectedFailure(test, *expectationsList);</span>
 <span class="lineNum">      74 </span>            : 
-<span class="lineNum">      75 </span><span class="lineCov">          6 :     mock().expectOneCall(&quot;foobar&quot;);</span>
+<span class="lineNum">      75 </span><span class="lineCov">          1 :     mock().expectOneCall(&quot;foobar&quot;);</span>
 <span class="lineNum">      76 </span>            : 
 <span class="lineNum">      77 </span><span class="lineCov">          1 :     plugin-&gt;postTestAction(*test, *result);</span>
 <span class="lineNum">      78 </span>            : 
-<span class="lineNum">      79 </span><span class="lineCov">          7 :     STRCMP_CONTAINS(expectedFailure.getMessage().asCharString(), output-&gt;getOutput().asCharString())</span>
-<span class="lineNum">      80 </span><span class="lineCov">          7 :     LONGS_EQUAL(0, mock().expectedCallsLeft());</span>
+<span class="lineNum">      79 </span><span class="lineCov">          1 :     STRCMP_CONTAINS(expectedFailure.getMessage().asCharString(), output-&gt;getOutput().asCharString())</span>
+<span class="lineNum">      80 </span><span class="lineCov">          1 :     LONGS_EQUAL(0, mock().expectedCallsLeft());</span>
 <span class="lineNum">      81 </span>            : //      clear makes sure there are no memory leaks.
 <a name="82"><span class="lineNum">      82 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      83 </span>            : 
-<span class="lineNum">      84 </span><span class="lineCov">         14 : TEST(MockPlugin, checkExpectationsWorksAlsoWithHierachicalObjects)</span>
+<span class="lineNum">      84 </span><span class="lineCov">          8 : TEST(MockPlugin, checkExpectationsWorksAlsoWithHierachicalObjects)</span>
 <span class="lineNum">      85 </span>            : {
-<span class="lineNum">      86 </span><span class="lineCov">          3 :     call-&gt;withName(&quot;foobar&quot;).onObject((void*) 1);</span>
-<span class="lineNum">      87 </span><span class="lineCov">          2 :     MockExpectedObjectDidntHappenFailure expectedFailure(test, &quot;foobar&quot;, *expectationsList);</span>
+<span class="lineNum">      86 </span><span class="lineCov">          1 :     call-&gt;withName(&quot;foobar&quot;).onObject((void*) 1);</span>
+<span class="lineNum">      87 </span><span class="lineCov">          1 :     MockExpectedObjectDidntHappenFailure expectedFailure(test, &quot;foobar&quot;, *expectationsList);</span>
 <span class="lineNum">      88 </span>            : 
-<span class="lineNum">      89 </span><span class="lineCov">          7 :     mock(&quot;differentScope&quot;).expectOneCall(&quot;foobar&quot;).onObject((void*) 1);</span>
-<span class="lineNum">      90 </span><span class="lineCov">          6 :     mock(&quot;differentScope&quot;).actualCall(&quot;foobar&quot;);</span>
+<span class="lineNum">      89 </span><span class="lineCov">          1 :     mock(&quot;differentScope&quot;).expectOneCall(&quot;foobar&quot;).onObject((void*) 1);</span>
+<span class="lineNum">      90 </span><span class="lineCov">          1 :     mock(&quot;differentScope&quot;).actualCall(&quot;foobar&quot;);</span>
 <span class="lineNum">      91 </span>            : 
 <span class="lineNum">      92 </span><span class="lineCov">          1 :     plugin-&gt;postTestAction(*test, *result);</span>
 <span class="lineNum">      93 </span>            : 
-<span class="lineNum">      94 </span><span class="lineCov">          7 :     STRCMP_CONTAINS(expectedFailure.getMessage().asCharString(), output-&gt;getOutput().asCharString())</span>
+<span class="lineNum">      94 </span><span class="lineCov">          1 :     STRCMP_CONTAINS(expectedFailure.getMessage().asCharString(), output-&gt;getOutput().asCharString())</span>
 <a name="95"><span class="lineNum">      95 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      96 </span>            : 
-<span class="lineNum">      97 </span><span class="lineCov">         12 : class DummyComparator : public MockNamedValueComparator</span>
+<span class="lineNum">      97 </span><span class="lineCov">          6 : class DummyComparator : public MockNamedValueComparator</span>
 <a name="98"><span class="lineNum">      98 </span>            : {</a>
 <span class="lineNum">      99 </span>            : public:
 <span class="lineNum">     100 </span><span class="lineCov">          2 :     bool isEqual(const void* object1, const void* object2)</span>
@@ -170,34 +170,34 @@
 <span class="lineNum">     108 </span>            : 
 <a name="109"><span class="lineNum">     109 </span>            : };</a>
 <span class="lineNum">     110 </span>            : 
-<span class="lineNum">     111 </span><span class="lineCov">         14 : TEST(MockPlugin, installComparatorRecordsTheComparatorButNotInstallsItYet)</span>
+<span class="lineNum">     111 </span><span class="lineCov">          8 : TEST(MockPlugin, installComparatorRecordsTheComparatorButNotInstallsItYet)</span>
 <span class="lineNum">     112 </span>            : {
 <span class="lineNum">     113 </span><span class="lineCov">          1 :     DummyComparator comparator;</span>
-<span class="lineNum">     114 </span><span class="lineCov">          3 :     plugin-&gt;installComparator(&quot;myType&quot;, comparator);</span>
-<span class="lineNum">     115 </span><span class="lineCov">         11 :     mock().expectOneCall(&quot;foo&quot;).withParameterOfType(&quot;myType&quot;, &quot;name&quot;, &amp;comparator);</span>
-<span class="lineNum">     116 </span><span class="lineCov">         11 :     mock().actualCall(&quot;foo&quot;).withParameterOfType(&quot;myType&quot;, &quot;name&quot;, &amp;comparator);</span>
+<span class="lineNum">     114 </span><span class="lineCov">          1 :     plugin-&gt;installComparator(&quot;myType&quot;, comparator);</span>
+<span class="lineNum">     115 </span><span class="lineCov">          1 :     mock().expectOneCall(&quot;foo&quot;).withParameterOfType(&quot;myType&quot;, &quot;name&quot;, &amp;comparator);</span>
+<span class="lineNum">     116 </span><span class="lineCov">          1 :     mock().actualCall(&quot;foo&quot;).withParameterOfType(&quot;myType&quot;, &quot;name&quot;, &amp;comparator);</span>
 <span class="lineNum">     117 </span>            : 
-<span class="lineNum">     118 </span><span class="lineCov">          3 :     MockNoWayToCompareCustomTypeFailure failure(test, &quot;myType&quot;);</span>
-<span class="lineNum">     119 </span><span class="lineCov">          1 :     CHECK_EXPECTED_MOCK_FAILURE(failure);</span>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     118 </span><span class="lineCov">          2 :     MockNoWayToCompareCustomTypeFailure failure(test, &quot;myType&quot;);</span>
+<span class="lineNum">     119 </span><span class="lineCov">          2 :     CHECK_EXPECTED_MOCK_FAILURE(failure);</span>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     121 </span>            : 
-<span class="lineNum">     122 </span><span class="lineCov">         14 : TEST(MockPlugin, preTestActionWillEnableMultipleComparatorsToTheGlobalMockSupportSpace)</span>
+<span class="lineNum">     122 </span><span class="lineCov">          8 : TEST(MockPlugin, preTestActionWillEnableMultipleComparatorsToTheGlobalMockSupportSpace)</span>
 <span class="lineNum">     123 </span>            : {
 <span class="lineNum">     124 </span><span class="lineCov">          1 :     DummyComparator comparator;</span>
-<span class="lineNum">     125 </span><span class="lineCov">          1 :     DummyComparator comparator2;</span>
-<span class="lineNum">     126 </span><span class="lineCov">          3 :     plugin-&gt;installComparator(&quot;myType&quot;, comparator);</span>
-<span class="lineNum">     127 </span><span class="lineCov">          3 :     plugin-&gt;installComparator(&quot;myOtherType&quot;, comparator2);</span>
+<span class="lineNum">     125 </span><span class="lineCov">          2 :     DummyComparator comparator2;</span>
+<span class="lineNum">     126 </span><span class="lineCov">          1 :     plugin-&gt;installComparator(&quot;myType&quot;, comparator);</span>
+<span class="lineNum">     127 </span><span class="lineCov">          1 :     plugin-&gt;installComparator(&quot;myOtherType&quot;, comparator2);</span>
 <span class="lineNum">     128 </span>            : 
 <span class="lineNum">     129 </span><span class="lineCov">          1 :     plugin-&gt;preTestAction(*test, *result);</span>
-<span class="lineNum">     130 </span><span class="lineCov">         11 :     mock().expectOneCall(&quot;foo&quot;).withParameterOfType(&quot;myType&quot;, &quot;name&quot;, &amp;comparator);</span>
-<span class="lineNum">     131 </span><span class="lineCov">         11 :     mock().expectOneCall(&quot;foo&quot;).withParameterOfType(&quot;myOtherType&quot;, &quot;name&quot;, &amp;comparator);</span>
-<span class="lineNum">     132 </span><span class="lineCov">         11 :     mock().actualCall(&quot;foo&quot;).withParameterOfType(&quot;myType&quot;, &quot;name&quot;, &amp;comparator);</span>
-<span class="lineNum">     133 </span><span class="lineCov">         11 :     mock().actualCall(&quot;foo&quot;).withParameterOfType(&quot;myOtherType&quot;, &quot;name&quot;, &amp;comparator);</span>
+<span class="lineNum">     130 </span><span class="lineCov">          1 :     mock().expectOneCall(&quot;foo&quot;).withParameterOfType(&quot;myType&quot;, &quot;name&quot;, &amp;comparator);</span>
+<span class="lineNum">     131 </span><span class="lineCov">          1 :     mock().expectOneCall(&quot;foo&quot;).withParameterOfType(&quot;myOtherType&quot;, &quot;name&quot;, &amp;comparator);</span>
+<span class="lineNum">     132 </span><span class="lineCov">          1 :     mock().actualCall(&quot;foo&quot;).withParameterOfType(&quot;myType&quot;, &quot;name&quot;, &amp;comparator);</span>
+<span class="lineNum">     133 </span><span class="lineCov">          1 :     mock().actualCall(&quot;foo&quot;).withParameterOfType(&quot;myOtherType&quot;, &quot;name&quot;, &amp;comparator);</span>
 <span class="lineNum">     134 </span>            : 
-<span class="lineNum">     135 </span><span class="lineCov">          4 :     mock().checkExpectations();</span>
-<span class="lineNum">     136 </span><span class="lineCov">          1 :     CHECK_NO_MOCK_FAILURE();</span>
-<span class="lineNum">     137 </span><span class="lineCov">          4 :     LONGS_EQUAL(0, result-&gt;getFailureCount());</span>
-<span class="lineNum">     138 </span><span class="lineCov">          2 : }</span>
+<span class="lineNum">     135 </span><span class="lineCov">          1 :     mock().checkExpectations();</span>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">          1 :     CHECK_NO_MOCK_FAILURE();</span></a>
+<span class="lineNum">     137 </span><span class="lineCov">          2 :     LONGS_EQUAL(0, result-&gt;getFailureCount());</span>
+<span class="lineNum">     138 </span><span class="lineCov">          4 : }</span>
 </pre>
       </td>
     </tr>

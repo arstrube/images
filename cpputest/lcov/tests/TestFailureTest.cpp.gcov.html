@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">99</td>
-            <td class="headerCovTableEntry">99</td>
+            <td class="headerCovTableEntry">116</td>
+            <td class="headerCovTableEntry">116</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">303</td>
-            <td class="headerCovTableEntry">328</td>
-            <td class="headerCovTableEntryHi">92.4 %</td>
+            <td class="headerCovTableEntry">167</td>
+            <td class="headerCovTableEntry">192</td>
+            <td class="headerCovTableEntryMed">87.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -100,192 +100,192 @@
 <span class="lineNum">      38 </span>            : {
 <a name="39"><span class="lineNum">      39 </span>            :     UtestShell* test;</a>
 <span class="lineNum">      40 </span>            : 
-<span class="lineNum">      41 </span>            :     void setup()
+<span class="lineNum">      41 </span><span class="lineCov">         23 :     void setup()</span>
 <span class="lineNum">      42 </span>            :     {
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">         46 :         test = new UtestShell(&quot;groupname&quot;, &quot;testname&quot;, failFileName, failLineNumber-1);</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">         23 :         test = new UtestShell(&quot;groupname&quot;, &quot;testname&quot;, failFileName, failLineNumber-1);</span></a>
 <span class="lineNum">      44 </span><span class="lineCov">         23 :     }</span>
-<span class="lineNum">      45 </span>            :     void teardown()
+<span class="lineNum">      45 </span><span class="lineCov">         23 :     void teardown()</span>
 <span class="lineNum">      46 </span>            :     {
-<span class="lineNum">      47 </span><span class="lineCov">         46 :         delete test;</span>
+<span class="lineNum">      47 </span><span class="lineCov">         23 :         delete test;</span>
 <span class="lineNum">      48 </span><span class="lineCov">         23 :     }</span>
 <span class="lineNum">      49 </span>            : };
 <a name="50"><span class="lineNum">      50 </span>            : #define FAILURE_EQUAL(a, b) STRCMP_EQUAL_LOCATION(a, b.getMessage().asCharString(), __FILE__, __LINE__)</a>
 <span class="lineNum">      51 </span>            : 
-<span class="lineNum">      52 </span><span class="lineCov">         14 : TEST(TestFailure, CreateFailure)</span>
+<span class="lineNum">      52 </span><span class="lineCov">          8 : TEST(TestFailure, CreateFailure)</span>
 <span class="lineNum">      53 </span>            : {
-<span class="lineNum">      54 </span><span class="lineCov">          2 :     TestFailure f1(test, failFileName, failLineNumber, &quot;the failure message&quot;);</span>
-<span class="lineNum">      55 </span><span class="lineCov">          3 :     TestFailure f2(test, &quot;the failure message&quot;);</span>
-<span class="lineNum">      56 </span><span class="lineCov">          1 :     TestFailure f3(test, failFileName, failLineNumber);</span>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">          3 : }</span></a>
+<span class="lineNum">      54 </span><span class="lineCov">          1 :     TestFailure f1(test, failFileName, failLineNumber, &quot;the failure message&quot;);</span>
+<span class="lineNum">      55 </span><span class="lineCov">          2 :     TestFailure f2(test, &quot;the failure message&quot;);</span>
+<span class="lineNum">      56 </span><span class="lineCov">          2 :     TestFailure f3(test, failFileName, failLineNumber);</span>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      58 </span>            : 
-<span class="lineNum">      59 </span><span class="lineCov">         14 : TEST(TestFailure, GetTestFileAndLineFromFailure)</span>
+<span class="lineNum">      59 </span><span class="lineCov">          8 : TEST(TestFailure, GetTestFileAndLineFromFailure)</span>
 <span class="lineNum">      60 </span>            : {
-<span class="lineNum">      61 </span><span class="lineCov">          2 :     TestFailure f1(test, failFileName, failLineNumber, &quot;the failure message&quot;);</span>
-<span class="lineNum">      62 </span><span class="lineCov">          6 :     STRCMP_EQUAL(failFileName, f1.getTestFileName().asCharString());</span>
-<span class="lineNum">      63 </span><span class="lineCov">          4 :     LONGS_EQUAL(1, f1.getTestLineNumber());</span>
+<span class="lineNum">      61 </span><span class="lineCov">          1 :     TestFailure f1(test, failFileName, failLineNumber, &quot;the failure message&quot;);</span>
+<span class="lineNum">      62 </span><span class="lineCov">          1 :     STRCMP_EQUAL(failFileName, f1.getTestFileName().asCharString());</span>
+<span class="lineNum">      63 </span><span class="lineCov">          1 :     LONGS_EQUAL(1, f1.getTestLineNumber());</span>
 <a name="64"><span class="lineNum">      64 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      65 </span>            : 
-<span class="lineNum">      66 </span><span class="lineCov">         14 : TEST(TestFailure, CreatePassingEqualsFailure)</span>
+<span class="lineNum">      66 </span><span class="lineCov">          8 : TEST(TestFailure, CreatePassingEqualsFailure)</span>
 <span class="lineNum">      67 </span>            : {
 <span class="lineNum">      68 </span><span class="lineCov">          1 :     EqualsFailure f(test, failFileName, failLineNumber, &quot;expected&quot;, &quot;actual&quot;);</span>
-<span class="lineNum">      69 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;expected&gt;\n\tbut was  &lt;actual&gt;&quot;, f);</span>
+<span class="lineNum">      69 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;expected&gt;\n\tbut was  &lt;actual&gt;&quot;, f);</span>
 <a name="70"><span class="lineNum">      70 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span><span class="lineCov">         14 : TEST(TestFailure, EqualsFailureWithNullAsActual)</span>
+<span class="lineNum">      72 </span><span class="lineCov">          8 : TEST(TestFailure, EqualsFailureWithNullAsActual)</span>
 <span class="lineNum">      73 </span>            : {
 <span class="lineNum">      74 </span><span class="lineCov">          1 :     EqualsFailure f(test, failFileName, failLineNumber, &quot;expected&quot;, NULL);</span>
-<span class="lineNum">      75 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;expected&gt;\n\tbut was  &lt;(null)&gt;&quot;, f);</span>
+<span class="lineNum">      75 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;expected&gt;\n\tbut was  &lt;(null)&gt;&quot;, f);</span>
 <a name="76"><span class="lineNum">      76 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      77 </span>            : 
-<span class="lineNum">      78 </span><span class="lineCov">         14 : TEST(TestFailure, EqualsFailureWithNullAsExpected)</span>
+<span class="lineNum">      78 </span><span class="lineCov">          8 : TEST(TestFailure, EqualsFailureWithNullAsExpected)</span>
 <span class="lineNum">      79 </span>            : {
 <span class="lineNum">      80 </span><span class="lineCov">          1 :     EqualsFailure f(test, failFileName, failLineNumber, NULL, &quot;actual&quot;);</span>
-<span class="lineNum">      81 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;(null)&gt;\n\tbut was  &lt;actual&gt;&quot;, f);</span>
+<span class="lineNum">      81 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;(null)&gt;\n\tbut was  &lt;actual&gt;&quot;, f);</span>
 <a name="82"><span class="lineNum">      82 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      83 </span>            : 
-<span class="lineNum">      84 </span><span class="lineCov">         14 : TEST(TestFailure, CheckEqualFailure)</span>
+<span class="lineNum">      84 </span><span class="lineCov">          8 : TEST(TestFailure, CheckEqualFailure)</span>
 <span class="lineNum">      85 </span>            : {
-<span class="lineNum">      86 </span><span class="lineCov">          4 :     CheckEqualFailure f(test, failFileName, failLineNumber, &quot;expected&quot;, &quot;actual&quot;);</span>
-<span class="lineNum">      87 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;expected&gt;\n&quot;</span>
+<span class="lineNum">      86 </span><span class="lineCov">          1 :     CheckEqualFailure f(test, failFileName, failLineNumber, &quot;expected&quot;, &quot;actual&quot;);</span>
+<span class="lineNum">      87 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;expected&gt;\n&quot;</span>
 <span class="lineNum">      88 </span>            :                   &quot;\tbut was  &lt;actual&gt;\n&quot;
 <span class="lineNum">      89 </span>            :                   &quot;\tdifference starts at position 0 at: &lt;          actual    &gt;\n&quot;
-<span class="lineNum">      90 </span>            :                   &quot;\t                                               ^&quot;, f);
+<span class="lineNum">      90 </span><span class="lineCov">          1 :                   &quot;\t                                               ^&quot;, f);</span>
 <a name="91"><span class="lineNum">      91 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      92 </span>            : 
-<span class="lineNum">      93 </span><span class="lineCov">         14 : TEST(TestFailure, CheckFailure)</span>
+<span class="lineNum">      93 </span><span class="lineCov">          8 : TEST(TestFailure, CheckFailure)</span>
 <span class="lineNum">      94 </span>            : {
-<span class="lineNum">      95 </span><span class="lineCov">          6 :     CheckFailure f(test, failFileName, failLineNumber, &quot;CHECK&quot;, &quot;chk&quot;);</span>
-<span class="lineNum">      96 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;CHECK(chk) failed&quot;, f);</span>
+<span class="lineNum">      95 </span><span class="lineCov">          1 :     CheckFailure f(test, failFileName, failLineNumber, &quot;CHECK&quot;, &quot;chk&quot;);</span>
+<span class="lineNum">      96 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;CHECK(chk) failed&quot;, f);</span>
 <a name="97"><span class="lineNum">      97 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      98 </span>            : 
-<span class="lineNum">      99 </span><span class="lineCov">         14 : TEST(TestFailure, CheckFailureWithText)</span>
+<span class="lineNum">      99 </span><span class="lineCov">          8 : TEST(TestFailure, CheckFailureWithText)</span>
 <span class="lineNum">     100 </span>            : {
-<span class="lineNum">     101 </span><span class="lineCov">          6 :     CheckFailure f(test, failFileName, failLineNumber, &quot;CHECK&quot;, &quot;chk&quot;, &quot;text&quot;);</span>
-<span class="lineNum">     102 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;Message: text\n&quot;</span>
-<span class="lineNum">     103 </span>            :                   &quot;\tCHECK(chk) failed&quot;, f);
+<span class="lineNum">     101 </span><span class="lineCov">          1 :     CheckFailure f(test, failFileName, failLineNumber, &quot;CHECK&quot;, &quot;chk&quot;, &quot;text&quot;);</span>
+<span class="lineNum">     102 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;Message: text\n&quot;</span>
+<span class="lineNum">     103 </span><span class="lineCov">          1 :                   &quot;\tCHECK(chk) failed&quot;, f);</span>
 <a name="104"><span class="lineNum">     104 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     105 </span>            : 
-<span class="lineNum">     106 </span><span class="lineCov">         14 : TEST(TestFailure, FailFailure)</span>
+<span class="lineNum">     106 </span><span class="lineCov">          8 : TEST(TestFailure, FailFailure)</span>
 <span class="lineNum">     107 </span>            : {
-<span class="lineNum">     108 </span><span class="lineCov">          2 :     FailFailure f(test, failFileName, failLineNumber, &quot;chk&quot;);</span>
-<span class="lineNum">     109 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;chk&quot;, f);</span>
+<span class="lineNum">     108 </span><span class="lineCov">          1 :     FailFailure f(test, failFileName, failLineNumber, &quot;chk&quot;);</span>
+<span class="lineNum">     109 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;chk&quot;, f);</span>
 <a name="110"><span class="lineNum">     110 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     111 </span>            : 
-<span class="lineNum">     112 </span><span class="lineCov">         14 : TEST(TestFailure, LongsEqualFailure)</span>
+<span class="lineNum">     112 </span><span class="lineCov">          8 : TEST(TestFailure, LongsEqualFailure)</span>
 <span class="lineNum">     113 </span>            : {
 <span class="lineNum">     114 </span><span class="lineCov">          1 :     LongsEqualFailure f(test, failFileName, failLineNumber, 1, 2);</span>
-<span class="lineNum">     115 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;1 0x1&gt;\n\tbut was  &lt;2 0x2&gt;&quot;, f);</span>
+<span class="lineNum">     115 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;1 0x1&gt;\n\tbut was  &lt;2 0x2&gt;&quot;, f);</span>
 <a name="116"><span class="lineNum">     116 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     117 </span>            : 
-<span class="lineNum">     118 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualFailure)</span>
+<span class="lineNum">     118 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualFailure)</span>
 <span class="lineNum">     119 </span>            : {
 <span class="lineNum">     120 </span><span class="lineCov">          1 :     StringEqualFailure f(test, failFileName, failLineNumber, &quot;abc&quot;, &quot;abd&quot;);</span>
-<span class="lineNum">     121 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;abc&gt;\n&quot;</span>
+<span class="lineNum">     121 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;abc&gt;\n&quot;</span>
 <span class="lineNum">     122 </span>            :                 &quot;\tbut was  &lt;abd&gt;\n&quot;
 <span class="lineNum">     123 </span>            :                 &quot;\tdifference starts at position 2 at: &lt;        abd         &gt;\n&quot;
-<span class="lineNum">     124 </span>            :                 &quot;\t                                               ^&quot;, f);
+<span class="lineNum">     124 </span><span class="lineCov">          1 :                 &quot;\t                                               ^&quot;, f);</span>
 <a name="125"><span class="lineNum">     125 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     126 </span>            : 
-<span class="lineNum">     127 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualFailureAtTheEnd)</span>
+<span class="lineNum">     127 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualFailureAtTheEnd)</span>
 <span class="lineNum">     128 </span>            : {
 <span class="lineNum">     129 </span><span class="lineCov">          1 :     StringEqualFailure f(test, failFileName, failLineNumber, &quot;abc&quot;, &quot;ab&quot;);</span>
-<span class="lineNum">     130 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;abc&gt;\n&quot;</span>
+<span class="lineNum">     130 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;abc&gt;\n&quot;</span>
 <span class="lineNum">     131 </span>            :                 &quot;\tbut was  &lt;ab&gt;\n&quot;
 <span class="lineNum">     132 </span>            :                 &quot;\tdifference starts at position 2 at: &lt;        ab          &gt;\n&quot;
-<span class="lineNum">     133 </span>            :                 &quot;\t                                               ^&quot;, f);
+<span class="lineNum">     133 </span><span class="lineCov">          1 :                 &quot;\t                                               ^&quot;, f);</span>
 <a name="134"><span class="lineNum">     134 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     135 </span>            : 
-<span class="lineNum">     136 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualFailureNewVariantAtTheEnd)</span>
+<span class="lineNum">     136 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualFailureNewVariantAtTheEnd)</span>
 <span class="lineNum">     137 </span>            : {
 <span class="lineNum">     138 </span><span class="lineCov">          1 :     StringEqualFailure f(test, failFileName, failLineNumber, &quot;EndOfALongerString&quot;, &quot;EndOfALongerStrinG&quot;);</span>
-<span class="lineNum">     139 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;EndOfALongerString&gt;\n&quot;</span>
+<span class="lineNum">     139 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;EndOfALongerString&gt;\n&quot;</span>
 <span class="lineNum">     140 </span>            :                 &quot;\tbut was  &lt;EndOfALongerStrinG&gt;\n&quot;
 <span class="lineNum">     141 </span>            :                 &quot;\tdifference starts at position 17 at: &lt;ongerStrinG         &gt;\n&quot;
-<span class="lineNum">     142 </span>            :                 &quot;\t                                                ^&quot;, f);
+<span class="lineNum">     142 </span><span class="lineCov">          1 :                 &quot;\t                                                ^&quot;, f);</span>
 <a name="143"><span class="lineNum">     143 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     144 </span>            : 
-<span class="lineNum">     145 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualFailureWithNewLinesAndTabs)</span>
+<span class="lineNum">     145 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualFailureWithNewLinesAndTabs)</span>
 <span class="lineNum">     146 </span>            : {
-<span class="lineNum">     147 </span><span class="lineCov">          1 :     StringEqualFailure f(test, failFileName, failLineNumber,</span>
+<span class="lineNum">     147 </span>            :     StringEqualFailure f(test, failFileName, failLineNumber,
 <span class="lineNum">     148 </span>            :             &quot;StringWith\t\nDifferentString&quot;,
-<span class="lineNum">     149 </span>            :             &quot;StringWith\t\ndifferentString&quot;);
+<span class="lineNum">     149 </span><span class="lineCov">          1 :             &quot;StringWith\t\ndifferentString&quot;);</span>
 <span class="lineNum">     150 </span>            : 
-<span class="lineNum">     151 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;StringWith\t\nDifferentString&gt;\n&quot;</span>
+<span class="lineNum">     151 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;StringWith\t\nDifferentString&gt;\n&quot;</span>
 <span class="lineNum">     152 </span>            :                 &quot;\tbut was  &lt;StringWith\t\ndifferentString&gt;\n&quot;
 <span class="lineNum">     153 </span>            :                 &quot;\tdifference starts at position 12 at: &lt;ringWith\t\ndifferentS&gt;\n&quot;
-<span class="lineNum">     154 </span>            :                 &quot;\t                                              \t\n^&quot;, f);
+<span class="lineNum">     154 </span><span class="lineCov">          1 :                 &quot;\t                                              \t\n^&quot;, f);</span>
 <a name="155"><span class="lineNum">     155 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     156 </span>            : 
-<span class="lineNum">     157 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualFailureInTheMiddle)</span>
+<span class="lineNum">     157 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualFailureInTheMiddle)</span>
 <span class="lineNum">     158 </span>            : {
 <span class="lineNum">     159 </span><span class="lineCov">          1 :     StringEqualFailure f(test, failFileName, failLineNumber, &quot;aa&quot;, &quot;ab&quot;);</span>
-<span class="lineNum">     160 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;aa&gt;\n&quot;</span>
+<span class="lineNum">     160 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;aa&gt;\n&quot;</span>
 <span class="lineNum">     161 </span>            :                 &quot;\tbut was  &lt;ab&gt;\n&quot;
 <span class="lineNum">     162 </span>            :                 &quot;\tdifference starts at position 1 at: &lt;         ab         &gt;\n&quot;
-<span class="lineNum">     163 </span>            :                 &quot;\t                                               ^&quot;, f);
+<span class="lineNum">     163 </span><span class="lineCov">          1 :                 &quot;\t                                               ^&quot;, f);</span>
 <a name="164"><span class="lineNum">     164 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     165 </span>            : 
-<span class="lineNum">     166 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualFailureAtTheBeginning)</span>
+<span class="lineNum">     166 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualFailureAtTheBeginning)</span>
 <span class="lineNum">     167 </span>            : {
 <span class="lineNum">     168 </span><span class="lineCov">          1 :     StringEqualFailure f(test, failFileName, failLineNumber, &quot;aaa&quot;, &quot;bbb&quot;);</span>
-<span class="lineNum">     169 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;aaa&gt;\n&quot;</span>
+<span class="lineNum">     169 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;aaa&gt;\n&quot;</span>
 <span class="lineNum">     170 </span>            :                 &quot;\tbut was  &lt;bbb&gt;\n&quot;
 <span class="lineNum">     171 </span>            :                 &quot;\tdifference starts at position 0 at: &lt;          bbb       &gt;\n&quot;
-<span class="lineNum">     172 </span>            :                 &quot;\t                                               ^&quot;, f);
+<span class="lineNum">     172 </span><span class="lineCov">          1 :                 &quot;\t                                               ^&quot;, f);</span>
 <a name="173"><span class="lineNum">     173 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     174 </span>            : 
-<span class="lineNum">     175 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualFailureWithNullAsActual)</span>
+<span class="lineNum">     175 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualFailureWithNullAsActual)</span>
 <span class="lineNum">     176 </span>            : {
 <span class="lineNum">     177 </span><span class="lineCov">          1 :     StringEqualFailure f(test, failFileName, failLineNumber, &quot;abc&quot;, NULL);</span>
-<span class="lineNum">     178 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;abc&gt;\n&quot;</span>
-<span class="lineNum">     179 </span>            :                 &quot;\tbut was  &lt;(null)&gt;&quot;, f);
+<span class="lineNum">     178 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;abc&gt;\n&quot;</span>
+<span class="lineNum">     179 </span><span class="lineCov">          1 :                 &quot;\tbut was  &lt;(null)&gt;&quot;, f);</span>
 <a name="180"><span class="lineNum">     180 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     181 </span>            : 
-<span class="lineNum">     182 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualFailureWithNullAsExpected)</span>
+<span class="lineNum">     182 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualFailureWithNullAsExpected)</span>
 <span class="lineNum">     183 </span>            : {
 <span class="lineNum">     184 </span><span class="lineCov">          1 :     StringEqualFailure f(test, failFileName, failLineNumber, NULL, &quot;abd&quot;);</span>
-<span class="lineNum">     185 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;(null)&gt;\n&quot;</span>
-<span class="lineNum">     186 </span>            :                 &quot;\tbut was  &lt;abd&gt;&quot;, f);
+<span class="lineNum">     185 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;(null)&gt;\n&quot;</span>
+<span class="lineNum">     186 </span><span class="lineCov">          1 :                 &quot;\tbut was  &lt;abd&gt;&quot;, f);</span>
 <a name="187"><span class="lineNum">     187 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     188 </span>            : 
-<span class="lineNum">     189 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualNoCaseFailure)</span>
+<span class="lineNum">     189 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualNoCaseFailure)</span>
 <span class="lineNum">     190 </span>            : {
 <span class="lineNum">     191 </span><span class="lineCov">          1 :     StringEqualNoCaseFailure f(test, failFileName, failLineNumber, &quot;ABC&quot;, &quot;abd&quot;);</span>
-<span class="lineNum">     192 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;ABC&gt;\n&quot;</span>
+<span class="lineNum">     192 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;ABC&gt;\n&quot;</span>
 <span class="lineNum">     193 </span>            :                 &quot;\tbut was  &lt;abd&gt;\n&quot;
 <span class="lineNum">     194 </span>            :                 &quot;\tdifference starts at position 2 at: &lt;        abd         &gt;\n&quot;
-<span class="lineNum">     195 </span>            :                 &quot;\t                                               ^&quot;, f);
+<span class="lineNum">     195 </span><span class="lineCov">          1 :                 &quot;\t                                               ^&quot;, f);</span>
 <a name="196"><span class="lineNum">     196 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     197 </span>            : 
-<span class="lineNum">     198 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualNoCaseFailureWithActualAsNull)</span>
+<span class="lineNum">     198 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualNoCaseFailureWithActualAsNull)</span>
 <span class="lineNum">     199 </span>            : {
 <span class="lineNum">     200 </span><span class="lineCov">          1 :     StringEqualNoCaseFailure f(test, failFileName, failLineNumber, &quot;ABC&quot;, NULL);</span>
-<span class="lineNum">     201 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;ABC&gt;\n&quot;</span>
-<span class="lineNum">     202 </span>            :                 &quot;\tbut was  &lt;(null)&gt;&quot;, f);
+<span class="lineNum">     201 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;ABC&gt;\n&quot;</span>
+<span class="lineNum">     202 </span><span class="lineCov">          1 :                 &quot;\tbut was  &lt;(null)&gt;&quot;, f);</span>
 <a name="203"><span class="lineNum">     203 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     204 </span>            : 
-<span class="lineNum">     205 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualNoCaseFailureWithExpectedAsNull)</span>
+<span class="lineNum">     205 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualNoCaseFailureWithExpectedAsNull)</span>
 <span class="lineNum">     206 </span>            : {
 <span class="lineNum">     207 </span><span class="lineCov">          1 :     StringEqualNoCaseFailure f(test, failFileName, failLineNumber, NULL, &quot;abd&quot;);</span>
-<span class="lineNum">     208 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;(null)&gt;\n&quot;</span>
-<span class="lineNum">     209 </span>            :                 &quot;\tbut was  &lt;abd&gt;&quot;, f);
+<span class="lineNum">     208 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;(null)&gt;\n&quot;</span>
+<span class="lineNum">     209 </span><span class="lineCov">          1 :                 &quot;\tbut was  &lt;abd&gt;&quot;, f);</span>
 <a name="210"><span class="lineNum">     210 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     211 </span>            : 
-<span class="lineNum">     212 </span><span class="lineCov">         14 : TEST(TestFailure, StringsEqualNoCaseFailure2)</span>
+<span class="lineNum">     212 </span><span class="lineCov">          8 : TEST(TestFailure, StringsEqualNoCaseFailure2)</span>
 <span class="lineNum">     213 </span>            : {
 <span class="lineNum">     214 </span><span class="lineCov">          1 :     StringEqualNoCaseFailure f(test, failFileName, failLineNumber, &quot;ac&quot;, &quot;AB&quot;);</span>
-<span class="lineNum">     215 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;ac&gt;\n&quot;</span>
+<span class="lineNum">     215 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;ac&gt;\n&quot;</span>
 <span class="lineNum">     216 </span>            :                 &quot;\tbut was  &lt;AB&gt;\n&quot;
 <span class="lineNum">     217 </span>            :                 &quot;\tdifference starts at position 1 at: &lt;         AB         &gt;\n&quot;
-<span class="lineNum">     218 </span>            :                 &quot;\t                                               ^&quot;, f);
+<span class="lineNum">     218 </span><span class="lineCov">          1 :                 &quot;\t                                               ^&quot;, f);</span>
 <a name="219"><span class="lineNum">     219 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     220 </span>            : 
-<span class="lineNum">     221 </span><span class="lineCov">         14 : TEST(TestFailure, DoublesEqualNormal)</span>
+<span class="lineNum">     221 </span><span class="lineCov">          8 : TEST(TestFailure, DoublesEqualNormal)</span>
 <span class="lineNum">     222 </span>            : {
 <span class="lineNum">     223 </span><span class="lineCov">          1 :     DoublesEqualFailure f(test, failFileName, failLineNumber, 1.0, 2.0, 3.0);</span>
-<span class="lineNum">     224 </span><span class="lineCov">          6 :     FAILURE_EQUAL(&quot;expected &lt;1&gt;\n&quot;</span>
-<span class="lineNum">     225 </span>            :                 &quot;\tbut was  &lt;2&gt; threshold used was &lt;3&gt;&quot;, f);
-<span class="lineNum">     226 </span><span class="lineCov">          1 : }</span>
+<a name="224"><span class="lineNum">     224 </span><span class="lineCov">          1 :     FAILURE_EQUAL(&quot;expected &lt;1&gt;\n&quot;</span></a>
+<span class="lineNum">     225 </span><span class="lineCov">          1 :                 &quot;\tbut was  &lt;2&gt; threshold used was &lt;3&gt;&quot;, f);</span>
+<span class="lineNum">     226 </span><span class="lineCov">          4 : }</span>
 </pre>
       </td>
     </tr>

@@ -31,17 +31,17 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">154</td>
-            <td class="headerCovTableEntry">154</td>
+            <td class="headerCovTableEntry">141</td>
+            <td class="headerCovTableEntry">141</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">46</td>
-            <td class="headerCovTableEntry">46</td>
+            <td class="headerCovTableEntry">30</td>
+            <td class="headerCovTableEntry">30</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -99,14 +99,14 @@
 <span class="lineNum">      37 </span><span class="lineCov">         21 :     char* buffer = (char*) PlatformSpecificMalloc(bufferSize);</span>
 <span class="lineNum">      38 </span><span class="lineCov">         21 :     str.copyToBuffer(buffer, bufferSize);</span>
 <span class="lineNum">      39 </span>            : 
-<span class="lineNum">      40 </span><span class="lineCov">        504 :     for (size_t i = 0; i &lt; bufferSize-1; i++)</span>
-<span class="lineNum">      41 </span><span class="lineCov">        461 :         if (buffer[i] != '\t' &amp;&amp; buffer[i] != '\n')</span>
-<span class="lineNum">      42 </span><span class="lineCov">        460 :             buffer[i] = ' ';</span>
+<span class="lineNum">      40 </span><span class="lineCov">        252 :     for (size_t i = 0; i &lt; bufferSize-1; i++)</span>
+<span class="lineNum">      41 </span><span class="lineCov">        231 :         if (buffer[i] != '\t' &amp;&amp; buffer[i] != '\n')</span>
+<span class="lineNum">      42 </span><span class="lineCov">        229 :             buffer[i] = ' ';</span>
 <span class="lineNum">      43 </span>            : 
 <span class="lineNum">      44 </span><span class="lineCov">         21 :     SimpleString result(buffer);</span>
 <span class="lineNum">      45 </span><span class="lineCov">         21 :     PlatformSpecificFree(buffer);</span>
 <span class="lineNum">      46 </span><span class="lineCov">         21 :     return result;</span>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">         42 : }</span></a>
+<a name="47"><span class="lineNum">      47 </span>            : }</a>
 <span class="lineNum">      48 </span>            : 
 <span class="lineNum">      49 </span><span class="lineCov">         21 : static SimpleString addMarkerToString(const SimpleString&amp; str, int markerPos)</span>
 <span class="lineNum">      50 </span>            : {
@@ -120,69 +120,69 @@
 <span class="lineNum">      58 </span><span class="lineCov">         21 :     PlatformSpecificFree(buffer);</span>
 <span class="lineNum">      59 </span><span class="lineCov">         21 :     return result;</span>
 <span class="lineNum">      60 </span>            : 
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">         42 : }</span></a>
+<a name="61"><span class="lineNum">      61 </span>            : }</a>
 <span class="lineNum">      62 </span>            : 
-<span class="lineNum">      63 </span><span class="lineCov">        146 : TestFailure::TestFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; theMessage) :</span>
-<span class="lineNum">      64 </span><span class="lineCov">        292 :     testName_(test-&gt;getFormattedName()), fileName_(fileName), lineNumber_(lineNumber), testFileName_(test-&gt;getFile()), testLineNumber_(test-&gt;getLineNumber()), message_(theMessage)</span>
-<span class="lineNum">      65 </span><span class="lineCov">         73 : {</span>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">        146 : }</span></a>
+<span class="lineNum">      63 </span><span class="lineCov">         73 : TestFailure::TestFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; theMessage) :</span>
+<span class="lineNum">      64 </span><span class="lineCov">         73 :     testName_(test-&gt;getFormattedName()), fileName_(fileName), lineNumber_(lineNumber), testFileName_(test-&gt;getFile()), testLineNumber_(test-&gt;getLineNumber()), message_(theMessage)</span>
+<span class="lineNum">      65 </span>            : {
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">         73 : }</span></a>
 <span class="lineNum">      67 </span>            : 
-<span class="lineNum">      68 </span><span class="lineCov">        106 : TestFailure::TestFailure(UtestShell* test, const SimpleString&amp; theMessage) :</span>
-<span class="lineNum">      69 </span><span class="lineCov">        480 :     testName_(test-&gt;getFormattedName()), fileName_(test-&gt;getFile()), lineNumber_(test-&gt;getLineNumber()), testFileName_(test-&gt;getFile()), testLineNumber_(test-&gt;getLineNumber()), message_(theMessage)</span>
-<span class="lineNum">      70 </span><span class="lineCov">         96 : {</span>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">        106 : }</span></a>
+<span class="lineNum">      68 </span><span class="lineCov">         96 : TestFailure::TestFailure(UtestShell* test, const SimpleString&amp; theMessage) :</span>
+<span class="lineNum">      69 </span><span class="lineCov">         96 :     testName_(test-&gt;getFormattedName()), fileName_(test-&gt;getFile()), lineNumber_(test-&gt;getLineNumber()), testFileName_(test-&gt;getFile()), testLineNumber_(test-&gt;getLineNumber()), message_(theMessage)</span>
+<span class="lineNum">      70 </span>            : {
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">         96 : }</span></a>
 <span class="lineNum">      72 </span>            : 
-<span class="lineNum">      73 </span><span class="lineCov">         79 : TestFailure::TestFailure(UtestShell* test, const char* fileName, int lineNum) :</span>
-<span class="lineNum">      74 </span><span class="lineCov">        312 :     testName_(test-&gt;getFormattedName()), fileName_(fileName), lineNumber_(lineNum), testFileName_(test-&gt;getFile()), testLineNumber_(test-&gt;getLineNumber()), message_(&quot;no message&quot;)</span>
-<span class="lineNum">      75 </span><span class="lineCov">         78 : {</span>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         79 : }</span></a>
+<span class="lineNum">      73 </span><span class="lineCov">         78 : TestFailure::TestFailure(UtestShell* test, const char* fileName, int lineNum) :</span>
+<span class="lineNum">      74 </span><span class="lineCov">         78 :     testName_(test-&gt;getFormattedName()), fileName_(fileName), lineNumber_(lineNum), testFileName_(test-&gt;getFile()), testLineNumber_(test-&gt;getLineNumber()), message_(&quot;no message&quot;)</span>
+<span class="lineNum">      75 </span>            : {
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         78 : }</span></a>
 <span class="lineNum">      77 </span>            : 
-<span class="lineNum">      78 </span><span class="lineCov">         22 : TestFailure::TestFailure(const TestFailure&amp; f) :</span>
-<span class="lineNum">      79 </span>            :     testName_(f.testName_), fileName_(f.fileName_), lineNumber_(f.lineNumber_), testFileName_(f.testFileName_), testLineNumber_(f.testLineNumber_), message_(f.message_)
-<span class="lineNum">      80 </span><span class="lineCov">         33 : {</span>
-<span class="lineNum">      81 </span><span class="lineCov">         22 : }</span>
+<span class="lineNum">      78 </span><span class="lineCov">         11 : TestFailure::TestFailure(const TestFailure&amp; f) :</span>
+<span class="lineNum">      79 </span><span class="lineCov">         11 :     testName_(f.testName_), fileName_(f.fileName_), lineNumber_(f.lineNumber_), testFileName_(f.testFileName_), testLineNumber_(f.testLineNumber_), message_(f.message_)</span>
+<span class="lineNum">      80 </span>            : {
+<span class="lineNum">      81 </span><span class="lineCov">         11 : }</span>
 <a name="82"><span class="lineNum">      82 </span>            : </a>
 <span class="lineNum">      83 </span>            : 
-<span class="lineNum">      84 </span>            : TestFailure::~TestFailure()
-<span class="lineNum">      85 </span><span class="lineCov">        508 : {</span>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">       1173 : }</span></a>
+<span class="lineNum">      84 </span><span class="lineCov">        331 : TestFailure::~TestFailure()</span>
+<span class="lineNum">      85 </span>            : {
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">        331 : }</span></a>
 <span class="lineNum">      87 </span>            : 
-<span class="lineNum">      88 </span>            : SimpleString TestFailure::getFileName() const
+<span class="lineNum">      88 </span><span class="lineCov">         81 : SimpleString TestFailure::getFileName() const</span>
 <span class="lineNum">      89 </span>            : {
 <span class="lineNum">      90 </span><span class="lineCov">         81 :     return fileName_;</span>
 <a name="91"><span class="lineNum">      91 </span>            : }</a>
 <span class="lineNum">      92 </span>            : 
-<span class="lineNum">      93 </span>            : SimpleString TestFailure::getTestFileName() const
+<span class="lineNum">      93 </span><span class="lineCov">         57 : SimpleString TestFailure::getTestFileName() const</span>
 <span class="lineNum">      94 </span>            : {
 <span class="lineNum">      95 </span><span class="lineCov">         57 :     return testFileName_;</span>
 <a name="96"><span class="lineNum">      96 </span>            : }</a>
 <span class="lineNum">      97 </span>            : 
-<span class="lineNum">      98 </span>            : SimpleString TestFailure::getTestName() const
+<span class="lineNum">      98 </span><span class="lineCov">         70 : SimpleString TestFailure::getTestName() const</span>
 <span class="lineNum">      99 </span>            : {
 <span class="lineNum">     100 </span><span class="lineCov">         70 :     return testName_;</span>
 <a name="101"><span class="lineNum">     101 </span>            : }</a>
 <span class="lineNum">     102 </span>            : 
-<span class="lineNum">     103 </span>            : int TestFailure::getFailureLineNumber() const
+<span class="lineNum">     103 </span><span class="lineCov">         81 : int TestFailure::getFailureLineNumber() const</span>
 <span class="lineNum">     104 </span>            : {
 <span class="lineNum">     105 </span><span class="lineCov">         81 :     return lineNumber_;</span>
 <a name="106"><span class="lineNum">     106 </span>            : }</a>
 <span class="lineNum">     107 </span>            : 
-<span class="lineNum">     108 </span>            : int TestFailure::getTestLineNumber() const
+<span class="lineNum">     108 </span><span class="lineCov">         57 : int TestFailure::getTestLineNumber() const</span>
 <span class="lineNum">     109 </span>            : {
 <span class="lineNum">     110 </span><span class="lineCov">         57 :     return testLineNumber_;</span>
 <a name="111"><span class="lineNum">     111 </span>            : }</a>
 <span class="lineNum">     112 </span>            : 
-<span class="lineNum">     113 </span>            : SimpleString TestFailure::getMessage() const
+<span class="lineNum">     113 </span><span class="lineCov">        189 : SimpleString TestFailure::getMessage() const</span>
 <span class="lineNum">     114 </span>            : {
 <span class="lineNum">     115 </span><span class="lineCov">        189 :     return message_;</span>
 <a name="116"><span class="lineNum">     116 </span>            : }</a>
 <span class="lineNum">     117 </span>            : 
-<span class="lineNum">     118 </span>            : bool TestFailure::isOutsideTestFile() const
+<span class="lineNum">     118 </span><span class="lineCov">         70 : bool TestFailure::isOutsideTestFile() const</span>
 <span class="lineNum">     119 </span>            : {
 <span class="lineNum">     120 </span><span class="lineCov">         70 :     return testFileName_ != fileName_;</span>
 <a name="121"><span class="lineNum">     121 </span>            : }</a>
 <span class="lineNum">     122 </span>            : 
-<span class="lineNum">     123 </span>            : bool TestFailure::isInHelperFunction() const
+<span class="lineNum">     123 </span><span class="lineCov">         16 : bool TestFailure::isInHelperFunction() const</span>
 <span class="lineNum">     124 </span>            : {
 <span class="lineNum">     125 </span><span class="lineCov">         16 :     return lineNumber_ &lt; testLineNumber_;</span>
 <a name="126"><span class="lineNum">     126 </span>            : }</a>
@@ -198,139 +198,139 @@
 <span class="lineNum">     136 </span><span class="lineCov">         21 :     const size_t extraCharactersWindow = 20;</span>
 <span class="lineNum">     137 </span><span class="lineCov">         21 :     const size_t halfOfExtraCharactersWindow = extraCharactersWindow / 2;</span>
 <span class="lineNum">     138 </span>            : 
-<span class="lineNum">     139 </span><span class="lineCov">         21 :     SimpleString paddingForPreventingOutOfBounds (&quot; &quot;, halfOfExtraCharactersWindow);</span>
-<span class="lineNum">     140 </span><span class="lineCov">         63 :     SimpleString actualString = paddingForPreventingOutOfBounds + actual + paddingForPreventingOutOfBounds;</span>
-<span class="lineNum">     141 </span><span class="lineCov">         21 :     SimpleString differentString = StringFromFormat(&quot;difference starts at position %lu at: &lt;&quot;, (unsigned long) position);</span>
+<span class="lineNum">     139 </span><span class="lineCov">         42 :     SimpleString paddingForPreventingOutOfBounds (&quot; &quot;, halfOfExtraCharactersWindow);</span>
+<span class="lineNum">     140 </span><span class="lineCov">         42 :     SimpleString actualString = paddingForPreventingOutOfBounds + actual + paddingForPreventingOutOfBounds;</span>
+<span class="lineNum">     141 </span><span class="lineCov">         42 :     SimpleString differentString = StringFromFormat(&quot;difference starts at position %lu at: &lt;&quot;, (unsigned long) position);</span>
 <span class="lineNum">     142 </span>            : 
 <span class="lineNum">     143 </span><span class="lineCov">         21 :     result += &quot;\n&quot;;</span>
-<span class="lineNum">     144 </span><span class="lineCov">        147 :     result += StringFromFormat(&quot;\t%s%s&gt;\n&quot;, differentString.asCharString(), actualString.subString(position, extraCharactersWindow).asCharString());</span>
+<span class="lineNum">     144 </span><span class="lineCov">         21 :     result += StringFromFormat(&quot;\t%s%s&gt;\n&quot;, differentString.asCharString(), actualString.subString(position, extraCharactersWindow).asCharString());</span>
 <span class="lineNum">     145 </span>            : 
-<span class="lineNum">     146 </span><span class="lineCov">         21 :     SimpleString markString = actualString.subString(position, halfOfExtraCharactersWindow+1);</span>
-<span class="lineNum">     147 </span><span class="lineCov">         63 :     markString = removeAllPrintableCharactersFrom(markString);</span>
-<span class="lineNum">     148 </span><span class="lineCov">         63 :     markString = addMarkerToString(markString, halfOfExtraCharactersWindow);</span>
+<span class="lineNum">     146 </span><span class="lineCov">         42 :     SimpleString markString = actualString.subString(position, halfOfExtraCharactersWindow+1);</span>
+<span class="lineNum">     147 </span><span class="lineCov">         21 :     markString = removeAllPrintableCharactersFrom(markString);</span>
+<span class="lineNum">     148 </span><span class="lineCov">         21 :     markString = addMarkerToString(markString, halfOfExtraCharactersWindow);</span>
 <span class="lineNum">     149 </span>            : 
-<span class="lineNum">     150 </span><span class="lineCov">        168 :     result += StringFromFormat(&quot;\t%s%s&quot;, SimpleString(&quot; &quot;, differentString.size()).asCharString(), markString.asCharString());</span>
-<span class="lineNum">     151 </span><span class="lineCov">         21 :     return result;</span>
-<a name="152"><span class="lineNum">     152 </span><span class="lineCov">        126 : }</span></a>
+<span class="lineNum">     150 </span><span class="lineCov">         21 :     result += StringFromFormat(&quot;\t%s%s&quot;, SimpleString(&quot; &quot;, differentString.size()).asCharString(), markString.asCharString());</span>
+<span class="lineNum">     151 </span><span class="lineCov">         42 :     return result;</span>
+<a name="152"><span class="lineNum">     152 </span>            : }</a>
 <span class="lineNum">     153 </span>            : 
-<span class="lineNum">     154 </span><span class="lineCov">          6 : EqualsFailure::EqualsFailure(UtestShell* test, const char* fileName, int lineNumber, const char* expected, const char* actual) :</span>
-<span class="lineNum">     155 </span>            :     TestFailure(test, fileName, lineNumber)
-<span class="lineNum">     156 </span><span class="lineCov">          3 : {</span>
-<span class="lineNum">     157 </span><span class="lineCov">         21 :     message_ = createButWasString(StringFromOrNull(expected), StringFromOrNull(actual));</span>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">          6 : }</span></a>
+<span class="lineNum">     154 </span><span class="lineCov">          3 : EqualsFailure::EqualsFailure(UtestShell* test, const char* fileName, int lineNumber, const char* expected, const char* actual) :</span>
+<span class="lineNum">     155 </span><span class="lineCov">          3 :     TestFailure(test, fileName, lineNumber)</span>
+<span class="lineNum">     156 </span>            : {
+<span class="lineNum">     157 </span><span class="lineCov">          3 :     message_ = createButWasString(StringFromOrNull(expected), StringFromOrNull(actual));</span>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">          3 : }</span></a>
 <span class="lineNum">     159 </span>            : 
-<span class="lineNum">     160 </span><span class="lineCov">          2 : EqualsFailure::EqualsFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; expected, const SimpleString&amp; actual)</span>
-<span class="lineNum">     161 </span>            :     : TestFailure(test, fileName, lineNumber)
-<span class="lineNum">     162 </span><span class="lineCov">          1 : {</span>
-<span class="lineNum">     163 </span><span class="lineCov">          3 :     message_ = createButWasString(expected, actual);</span>
-<a name="164"><span class="lineNum">     164 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     160 </span><span class="lineCov">          1 : EqualsFailure::EqualsFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; expected, const SimpleString&amp; actual)</span>
+<span class="lineNum">     161 </span><span class="lineCov">          1 :     : TestFailure(test, fileName, lineNumber)</span>
+<span class="lineNum">     162 </span>            : {
+<span class="lineNum">     163 </span><span class="lineCov">          1 :     message_ = createButWasString(expected, actual);</span>
+<a name="164"><span class="lineNum">     164 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     165 </span>            : 
 <span class="lineNum">     166 </span><span class="lineCov">         18 : static SimpleString StringFromOrNan(double d)</span>
 <span class="lineNum">     167 </span>            : {
 <span class="lineNum">     168 </span><span class="lineCov">         18 :     if (PlatformSpecificIsNan(d))</span>
 <span class="lineNum">     169 </span><span class="lineCov">          3 :         return &quot;Nan - Not a number&quot;;</span>
 <span class="lineNum">     170 </span><span class="lineCov">         15 :     return StringFrom(d);</span>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">         18 : }</span></a>
+<a name="171"><span class="lineNum">     171 </span>            : }</a>
 <span class="lineNum">     172 </span>            : 
-<span class="lineNum">     173 </span><span class="lineCov">         12 : DoublesEqualFailure::DoublesEqualFailure(UtestShell* test, const char* fileName, int lineNumber, double expected, double actual, double threshold)  : TestFailure(test, fileName, lineNumber)</span>
-<span class="lineNum">     174 </span><span class="lineCov">          6 : {</span>
-<span class="lineNum">     175 </span><span class="lineCov">         42 :     message_ = createButWasString(StringFromOrNan(expected), StringFromOrNan(actual));</span>
+<span class="lineNum">     173 </span><span class="lineCov">          6 : DoublesEqualFailure::DoublesEqualFailure(UtestShell* test, const char* fileName, int lineNumber, double expected, double actual, double threshold)  : TestFailure(test, fileName, lineNumber)</span>
+<span class="lineNum">     174 </span>            : {
+<span class="lineNum">     175 </span><span class="lineCov">          6 :     message_ = createButWasString(StringFromOrNan(expected), StringFromOrNan(actual));</span>
 <span class="lineNum">     176 </span><span class="lineCov">          6 :     message_ += &quot; threshold used was &lt;&quot;;</span>
-<span class="lineNum">     177 </span><span class="lineCov">         18 :     message_ += StringFromOrNan(threshold);</span>
+<span class="lineNum">     177 </span><span class="lineCov">          6 :     message_ += StringFromOrNan(threshold);</span>
 <span class="lineNum">     178 </span><span class="lineCov">          6 :     message_ += &quot;&gt;&quot;;</span>
 <span class="lineNum">     179 </span>            : 
-<span class="lineNum">     180 </span><span class="lineCov">         30 :     if (PlatformSpecificIsNan(expected) || PlatformSpecificIsNan(actual) || PlatformSpecificIsNan(threshold))</span>
-<span class="lineNum">     181 </span><span class="lineCov">          6 :         message_ += &quot;\n\tCannot make comparisons with Nan&quot;;</span>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         12 : }</span></a>
+<span class="lineNum">     180 </span><span class="lineCov">          6 :     if (PlatformSpecificIsNan(expected) || PlatformSpecificIsNan(actual) || PlatformSpecificIsNan(threshold))</span>
+<span class="lineNum">     181 </span><span class="lineCov">          3 :         message_ += &quot;\n\tCannot make comparisons with Nan&quot;;</span>
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">          6 : }</span></a>
 <span class="lineNum">     183 </span>            : 
-<span class="lineNum">     184 </span><span class="lineCov">         12 : CheckEqualFailure::CheckEqualFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; expected, const SimpleString&amp; actual) : TestFailure(test, fileName, lineNumber)</span>
-<span class="lineNum">     185 </span><span class="lineCov">          6 : {</span>
-<span class="lineNum">     186 </span><span class="lineCov">          6 :     size_t failStart;</span>
-<span class="lineNum">     187 </span><span class="lineCov">         24 :     for (failStart = 0; actual.asCharString()[failStart] == expected.asCharString()[failStart]; failStart++)</span>
+<span class="lineNum">     184 </span><span class="lineCov">          6 : CheckEqualFailure::CheckEqualFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; expected, const SimpleString&amp; actual) : TestFailure(test, fileName, lineNumber)</span>
+<span class="lineNum">     185 </span>            : {
+<span class="lineNum">     186 </span>            :     size_t failStart;
+<span class="lineNum">     187 </span><span class="lineCov">          6 :     for (failStart = 0; actual.asCharString()[failStart] == expected.asCharString()[failStart]; failStart++)</span>
 <span class="lineNum">     188 </span>            :         ;
-<span class="lineNum">     189 </span><span class="lineCov">         18 :     message_ = createButWasString(expected, actual);</span>
-<span class="lineNum">     190 </span><span class="lineCov">         18 :     message_ += createDifferenceAtPosString(actual, failStart);</span>
+<span class="lineNum">     189 </span><span class="lineCov">          6 :     message_ = createButWasString(expected, actual);</span>
+<span class="lineNum">     190 </span><span class="lineCov">          6 :     message_ += createDifferenceAtPosString(actual, failStart);</span>
 <span class="lineNum">     191 </span>            : 
-<a name="192"><span class="lineNum">     192 </span><span class="lineCov">         12 : }</span></a>
+<a name="192"><span class="lineNum">     192 </span><span class="lineCov">          6 : }</span></a>
 <span class="lineNum">     193 </span>            : 
-<span class="lineNum">     194 </span><span class="lineCov">         12 : ContainsFailure::ContainsFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; expected, const SimpleString&amp; actual) :</span>
-<span class="lineNum">     195 </span>            :     TestFailure(test, fileName, lineNumber)
-<span class="lineNum">     196 </span><span class="lineCov">          6 : {</span>
-<span class="lineNum">     197 </span><span class="lineCov">         30 :     message_ = StringFromFormat(&quot;actual &lt;%s&gt;\n\tdid not contain  &lt;%s&gt;&quot;, actual.asCharString(), expected.asCharString());</span>
-<a name="198"><span class="lineNum">     198 </span><span class="lineCov">         12 : }</span></a>
+<span class="lineNum">     194 </span><span class="lineCov">          6 : ContainsFailure::ContainsFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; expected, const SimpleString&amp; actual) :</span>
+<span class="lineNum">     195 </span><span class="lineCov">          6 :     TestFailure(test, fileName, lineNumber)</span>
+<span class="lineNum">     196 </span>            : {
+<span class="lineNum">     197 </span><span class="lineCov">          6 :     message_ = StringFromFormat(&quot;actual &lt;%s&gt;\n\tdid not contain  &lt;%s&gt;&quot;, actual.asCharString(), expected.asCharString());</span>
+<a name="198"><span class="lineNum">     198 </span><span class="lineCov">          6 : }</span></a>
 <span class="lineNum">     199 </span>            : 
-<span class="lineNum">     200 </span><span class="lineCov">         14 : CheckFailure::CheckFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; checkString, const SimpleString&amp; conditionString, const SimpleString&amp; text) : TestFailure(test, fileName, lineNumber)</span>
-<span class="lineNum">     201 </span><span class="lineCov">          7 : {</span>
-<span class="lineNum">     202 </span><span class="lineCov">         21 :     message_ = &quot;&quot;;</span>
-<span class="lineNum">     203 </span><span class="lineCov">         14 :     if (!text.isEmpty()) {</span>
+<span class="lineNum">     200 </span><span class="lineCov">          7 : CheckFailure::CheckFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; checkString, const SimpleString&amp; conditionString, const SimpleString&amp; text) : TestFailure(test, fileName, lineNumber)</span>
+<span class="lineNum">     201 </span>            : {
+<span class="lineNum">     202 </span><span class="lineCov">          7 :     message_ = &quot;&quot;;</span>
+<span class="lineNum">     203 </span><span class="lineCov">          7 :     if (!text.isEmpty()) {</span>
 <span class="lineNum">     204 </span><span class="lineCov">          2 :         message_ += &quot;Message: &quot;;</span>
 <span class="lineNum">     205 </span><span class="lineCov">          2 :         message_ += text;</span>
 <span class="lineNum">     206 </span><span class="lineCov">          2 :         message_ += &quot;\n\t&quot;;</span>
-<span class="lineNum">     207 </span><span class="lineCov">          2 :     }</span>
+<span class="lineNum">     207 </span>            :     }
 <span class="lineNum">     208 </span><span class="lineCov">          7 :     message_ += checkString;</span>
 <span class="lineNum">     209 </span><span class="lineCov">          7 :     message_ += &quot;(&quot;;</span>
 <span class="lineNum">     210 </span><span class="lineCov">          7 :     message_ += conditionString;</span>
 <span class="lineNum">     211 </span><span class="lineCov">          7 :     message_ += &quot;) failed&quot;;</span>
-<a name="212"><span class="lineNum">     212 </span><span class="lineCov">         14 : }</span></a>
+<a name="212"><span class="lineNum">     212 </span><span class="lineCov">          7 : }</span></a>
 <span class="lineNum">     213 </span>            : 
-<span class="lineNum">     214 </span><span class="lineCov">         36 : FailFailure::FailFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; message) : TestFailure(test, fileName, lineNumber)</span>
-<span class="lineNum">     215 </span><span class="lineCov">         18 : {</span>
+<span class="lineNum">     214 </span><span class="lineCov">         18 : FailFailure::FailFailure(UtestShell* test, const char* fileName, int lineNumber, const SimpleString&amp; message) : TestFailure(test, fileName, lineNumber)</span>
+<span class="lineNum">     215 </span>            : {
 <span class="lineNum">     216 </span><span class="lineCov">         18 :     message_ = message;</span>
-<a name="217"><span class="lineNum">     217 </span><span class="lineCov">         36 : }</span></a>
+<a name="217"><span class="lineNum">     217 </span><span class="lineCov">         18 : }</span></a>
 <span class="lineNum">     218 </span>            : 
-<span class="lineNum">     219 </span><span class="lineCov">          8 : LongsEqualFailure::LongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, long expected, long actual) : TestFailure(test, fileName, lineNumber)</span>
-<span class="lineNum">     220 </span><span class="lineCov">          4 : {</span>
+<span class="lineNum">     219 </span><span class="lineCov">          4 : LongsEqualFailure::LongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, long expected, long actual) : TestFailure(test, fileName, lineNumber)</span>
+<span class="lineNum">     220 </span>            : {
 <span class="lineNum">     221 </span><span class="lineCov">          4 :     SimpleString aDecimal = StringFrom(actual);</span>
-<span class="lineNum">     222 </span><span class="lineCov">          4 :     SimpleString aHex = HexStringFrom(actual);</span>
-<span class="lineNum">     223 </span><span class="lineCov">          4 :     SimpleString eDecimal = StringFrom(expected);</span>
-<span class="lineNum">     224 </span><span class="lineCov">          4 :     SimpleString eHex = HexStringFrom(expected);</span>
+<span class="lineNum">     222 </span><span class="lineCov">          8 :     SimpleString aHex = HexStringFrom(actual);</span>
+<span class="lineNum">     223 </span><span class="lineCov">          8 :     SimpleString eDecimal = StringFrom(expected);</span>
+<span class="lineNum">     224 </span><span class="lineCov">          8 :     SimpleString eHex = HexStringFrom(expected);</span>
 <span class="lineNum">     225 </span>            : 
 <span class="lineNum">     226 </span><span class="lineCov">          4 :     SimpleString::padStringsToSameLength(aDecimal, eDecimal, ' ');</span>
 <span class="lineNum">     227 </span><span class="lineCov">          4 :     SimpleString::padStringsToSameLength(aHex, eHex, '0');</span>
 <span class="lineNum">     228 </span>            : 
-<span class="lineNum">     229 </span><span class="lineCov">         20 :     SimpleString actualReported = aDecimal + &quot; 0x&quot; + aHex;</span>
-<span class="lineNum">     230 </span><span class="lineCov">         20 :     SimpleString expectedReported = eDecimal + &quot; 0x&quot; + eHex;</span>
-<span class="lineNum">     231 </span><span class="lineCov">         12 :     message_ = createButWasString(expectedReported, actualReported);</span>
-<a name="232"><span class="lineNum">     232 </span><span class="lineCov">         32 : }</span></a>
+<span class="lineNum">     229 </span><span class="lineCov">          8 :     SimpleString actualReported = aDecimal + &quot; 0x&quot; + aHex;</span>
+<span class="lineNum">     230 </span><span class="lineCov">          8 :     SimpleString expectedReported = eDecimal + &quot; 0x&quot; + eHex;</span>
+<span class="lineNum">     231 </span><span class="lineCov">          8 :     message_ = createButWasString(expectedReported, actualReported);</span>
+<a name="232"><span class="lineNum">     232 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">     233 </span>            : 
-<span class="lineNum">     234 </span><span class="lineCov">          2 : UnsignedLongsEqualFailure::UnsignedLongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, unsigned long expected, unsigned long actual) : TestFailure(test, fileName, lineNumber)</span>
-<span class="lineNum">     235 </span><span class="lineCov">          1 : {</span>
+<span class="lineNum">     234 </span><span class="lineCov">          1 : UnsignedLongsEqualFailure::UnsignedLongsEqualFailure(UtestShell* test, const char* fileName, int lineNumber, unsigned long expected, unsigned long actual) : TestFailure(test, fileName, lineNumber)</span>
+<span class="lineNum">     235 </span>            : {
 <span class="lineNum">     236 </span><span class="lineCov">          1 :     SimpleString aDecimal = StringFrom(actual);</span>
-<span class="lineNum">     237 </span><span class="lineCov">          1 :     SimpleString aHex = HexStringFrom(actual);</span>
-<span class="lineNum">     238 </span><span class="lineCov">          1 :     SimpleString eDecimal = StringFrom(expected);</span>
-<span class="lineNum">     239 </span><span class="lineCov">          1 :     SimpleString eHex = HexStringFrom(expected);</span>
+<span class="lineNum">     237 </span><span class="lineCov">          2 :     SimpleString aHex = HexStringFrom(actual);</span>
+<span class="lineNum">     238 </span><span class="lineCov">          2 :     SimpleString eDecimal = StringFrom(expected);</span>
+<span class="lineNum">     239 </span><span class="lineCov">          2 :     SimpleString eHex = HexStringFrom(expected);</span>
 <span class="lineNum">     240 </span>            : 
 <span class="lineNum">     241 </span><span class="lineCov">          1 :     SimpleString::padStringsToSameLength(aDecimal, eDecimal, ' ');</span>
 <span class="lineNum">     242 </span><span class="lineCov">          1 :     SimpleString::padStringsToSameLength(aHex, eHex, '0');</span>
 <span class="lineNum">     243 </span>            : 
-<span class="lineNum">     244 </span><span class="lineCov">          5 :     SimpleString actualReported = aDecimal + &quot; 0x&quot; + aHex;</span>
-<span class="lineNum">     245 </span><span class="lineCov">          5 :     SimpleString expectedReported = eDecimal + &quot; 0x&quot; + eHex;</span>
-<span class="lineNum">     246 </span><span class="lineCov">          3 :     message_ = createButWasString(expectedReported, actualReported);</span>
-<a name="247"><span class="lineNum">     247 </span><span class="lineCov">          8 : }</span></a>
+<span class="lineNum">     244 </span><span class="lineCov">          2 :     SimpleString actualReported = aDecimal + &quot; 0x&quot; + aHex;</span>
+<span class="lineNum">     245 </span><span class="lineCov">          2 :     SimpleString expectedReported = eDecimal + &quot; 0x&quot; + eHex;</span>
+<span class="lineNum">     246 </span><span class="lineCov">          2 :     message_ = createButWasString(expectedReported, actualReported);</span>
+<a name="247"><span class="lineNum">     247 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">     248 </span>            : 
-<span class="lineNum">     249 </span><span class="lineCov">         36 : StringEqualFailure::StringEqualFailure(UtestShell* test, const char* fileName, int lineNumber, const char* expected, const char* actual) : TestFailure(test, fileName, lineNumber)</span>
-<span class="lineNum">     250 </span><span class="lineCov">         18 : {</span>
-<span class="lineNum">     251 </span><span class="lineCov">        126 :     message_ = createButWasString(StringFromOrNull(expected), StringFromOrNull(actual));</span>
-<span class="lineNum">     252 </span><span class="lineCov">         33 :     if((expected) &amp;&amp; (actual))</span>
+<span class="lineNum">     249 </span><span class="lineCov">         18 : StringEqualFailure::StringEqualFailure(UtestShell* test, const char* fileName, int lineNumber, const char* expected, const char* actual) : TestFailure(test, fileName, lineNumber)</span>
+<span class="lineNum">     250 </span>            : {
+<span class="lineNum">     251 </span><span class="lineCov">         18 :     message_ = createButWasString(StringFromOrNull(expected), StringFromOrNull(actual));</span>
+<span class="lineNum">     252 </span><span class="lineCov">         18 :     if((expected) &amp;&amp; (actual))</span>
 <span class="lineNum">     253 </span>            :     {
-<span class="lineNum">     254 </span><span class="lineCov">         12 :         size_t failStart;</span>
-<span class="lineNum">     255 </span><span class="lineCov">        222 :         for (failStart = 0; actual[failStart] == expected[failStart]; failStart++)</span>
+<span class="lineNum">     254 </span>            :         size_t failStart;
+<span class="lineNum">     255 </span><span class="lineCov">         12 :         for (failStart = 0; actual[failStart] == expected[failStart]; failStart++)</span>
 <span class="lineNum">     256 </span>            :             ;
-<span class="lineNum">     257 </span><span class="lineCov">         60 :         message_ += createDifferenceAtPosString(actual, failStart);</span>
-<span class="lineNum">     258 </span><span class="lineCov">         12 :     }</span>
-<a name="259"><span class="lineNum">     259 </span><span class="lineCov">         36 : }</span></a>
+<span class="lineNum">     257 </span><span class="lineCov">         12 :         message_ += createDifferenceAtPosString(actual, failStart);</span>
+<span class="lineNum">     258 </span>            :     }
+<a name="259"><span class="lineNum">     259 </span><span class="lineCov">         18 : }</span></a>
 <span class="lineNum">     260 </span>            : 
-<span class="lineNum">     261 </span><span class="lineCov">         14 : StringEqualNoCaseFailure::StringEqualNoCaseFailure(UtestShell* test, const char* fileName, int lineNumber, const char* expected, const char* actual) : TestFailure(test, fileName, lineNumber)</span>
-<span class="lineNum">     262 </span><span class="lineCov">          7 : {</span>
-<span class="lineNum">     263 </span><span class="lineCov">         49 :     message_ = createButWasString(StringFromOrNull(expected), StringFromOrNull(actual));</span>
-<span class="lineNum">     264 </span><span class="lineCov">         12 :     if((expected) &amp;&amp; (actual))</span>
+<span class="lineNum">     261 </span><span class="lineCov">          7 : StringEqualNoCaseFailure::StringEqualNoCaseFailure(UtestShell* test, const char* fileName, int lineNumber, const char* expected, const char* actual) : TestFailure(test, fileName, lineNumber)</span>
+<span class="lineNum">     262 </span>            : {
+<span class="lineNum">     263 </span><span class="lineCov">          7 :     message_ = createButWasString(StringFromOrNull(expected), StringFromOrNull(actual));</span>
+<span class="lineNum">     264 </span><span class="lineCov">          7 :     if((expected) &amp;&amp; (actual))</span>
 <span class="lineNum">     265 </span>            :     {
-<span class="lineNum">     266 </span><span class="lineCov">          3 :         size_t failStart;</span>
-<span class="lineNum">     267 </span><span class="lineCov">         27 :         for (failStart = 0; SimpleString::ToLower(actual[failStart]) == SimpleString::ToLower(expected[failStart]); failStart++)</span>
+<span class="lineNum">     266 </span>            :         size_t failStart;
+<span class="lineNum">     267 </span><span class="lineCov">          3 :         for (failStart = 0; SimpleString::ToLower(actual[failStart]) == SimpleString::ToLower(expected[failStart]); failStart++)</span>
 <span class="lineNum">     268 </span>            :             ;
-<span class="lineNum">     269 </span><span class="lineCov">         15 :         message_ += createDifferenceAtPosString(actual, failStart);</span>
-<span class="lineNum">     270 </span><span class="lineCov">          3 :     }</span>
-<span class="lineNum">     271 </span><span class="lineCov">         14 : }</span>
+<span class="lineNum">     269 </span><span class="lineCov">          3 :         message_ += createDifferenceAtPosString(actual, failStart);</span>
+<span class="lineNum">     270 </span>            :     }
+<span class="lineNum">     271 </span><span class="lineCov">          7 : }</span>
 </pre>
       </td>
     </tr>

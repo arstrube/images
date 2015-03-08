@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">152</td>
-            <td class="headerCovTableEntry">157</td>
+            <td class="headerCovTableEntry">151</td>
+            <td class="headerCovTableEntry">156</td>
             <td class="headerCovTableEntryHi">96.8 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">33</td>
-            <td class="headerCovTableEntry">37</td>
-            <td class="headerCovTableEntryMed">89.2 %</td>
+            <td class="headerCovTableEntry">32</td>
+            <td class="headerCovTableEntry">35</td>
+            <td class="headerCovTableEntryHi">91.4 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -98,29 +98,29 @@
 <span class="lineNum">      36 </span><span class="lineCov">         41 :     workingEnvironment_ = workEnvironment;</span>
 <a name="37"><span class="lineNum">      37 </span><span class="lineCov">         41 : }</span></a>
 <span class="lineNum">      38 </span>            : 
-<span class="lineNum">      39 </span>            : TestOutput::WorkingEnvironment TestOutput::getWorkingEnvironment()
+<span class="lineNum">      39 </span><span class="lineCov">        126 : TestOutput::WorkingEnvironment TestOutput::getWorkingEnvironment()</span>
 <span class="lineNum">      40 </span>            : {
 <span class="lineNum">      41 </span><span class="lineCov">        126 :     if (workingEnvironment_ == TestOutput::detectEnvironment)</span>
 <span class="lineNum">      42 </span><span class="lineCov">        115 :         return PlatformSpecificGetWorkingEnvironment();</span>
 <span class="lineNum">      43 </span><span class="lineCov">         11 :     return workingEnvironment_;</span>
-<span class="lineNum">      44 </span><span class="lineCov">        126 : }</span>
+<span class="lineNum">      44 </span>            : }
 <a name="45"><span class="lineNum">      45 </span>            : </a>
 <span class="lineNum">      46 </span>            : 
-<span class="lineNum">      47 </span>            : TestOutput::TestOutput() :
-<span class="lineNum">      48 </span>            :     dotCount_(0), verbose_(false), color_(false), progressIndication_(&quot;.&quot;)
-<span class="lineNum">      49 </span><span class="lineCov">        221 : {</span>
+<span class="lineNum">      47 </span><span class="lineCov">        221 : TestOutput::TestOutput() :</span>
+<span class="lineNum">      48 </span><span class="lineCov">        221 :     dotCount_(0), verbose_(false), color_(false), progressIndication_(&quot;.&quot;)</span>
+<span class="lineNum">      49 </span>            : {
 <a name="50"><span class="lineNum">      50 </span><span class="lineCov">        221 : }</span></a>
 <span class="lineNum">      51 </span>            : 
-<span class="lineNum">      52 </span>            : TestOutput::~TestOutput()
-<span class="lineNum">      53 </span><span class="lineNoCov">          0 : {</span>
+<span class="lineNum">      52 </span><span class="lineCov">        221 : TestOutput::~TestOutput()</span>
+<span class="lineNum">      53 </span>            : {
 <a name="54"><span class="lineNum">      54 </span><span class="lineCov">        221 : }</span></a>
 <span class="lineNum">      55 </span>            : 
-<span class="lineNum">      56 </span>            : void TestOutput::verbose()
+<span class="lineNum">      56 </span><span class="lineCov">          3 : void TestOutput::verbose()</span>
 <span class="lineNum">      57 </span>            : {
 <span class="lineNum">      58 </span><span class="lineCov">          3 :     verbose_ = true;</span>
 <a name="59"><span class="lineNum">      59 </span><span class="lineCov">          3 : }</span></a>
 <span class="lineNum">      60 </span>            : 
-<span class="lineNum">      61 </span>            : void TestOutput::color()
+<span class="lineNum">      61 </span><span class="lineCov">          2 : void TestOutput::color()</span>
 <span class="lineNum">      62 </span>            : {
 <span class="lineNum">      63 </span><span class="lineCov">          2 :     color_ = true;</span>
 <a name="64"><span class="lineNum">      64 </span><span class="lineCov">          2 : }</span></a>
@@ -132,12 +132,12 @@
 <span class="lineNum">      70 </span>            : 
 <span class="lineNum">      71 </span><span class="lineCov">        700 : void TestOutput::print(long n)</span>
 <span class="lineNum">      72 </span>            : {
-<span class="lineNum">      73 </span><span class="lineCov">       2100 :     print(StringFrom(n).asCharString());</span>
+<span class="lineNum">      73 </span><span class="lineCov">        700 :     print(StringFrom(n).asCharString());</span>
 <a name="74"><span class="lineNum">      74 </span><span class="lineCov">        700 : }</span></a>
 <span class="lineNum">      75 </span>            : 
 <span class="lineNum">      76 </span><span class="lineCov">          1 : void TestOutput::printDouble(double d)</span>
 <span class="lineNum">      77 </span>            : {
-<span class="lineNum">      78 </span><span class="lineCov">          3 :     print(StringFrom(d).asCharString());</span>
+<span class="lineNum">      78 </span><span class="lineCov">          1 :     print(StringFrom(d).asCharString());</span>
 <a name="79"><span class="lineNum">      79 </span><span class="lineCov">          1 : }</span></a>
 <span class="lineNum">      80 </span>            : 
 <span class="lineNum">      81 </span><span class="lineNoCov">          0 : void TestOutput::printHex(long n)</span>
@@ -159,13 +159,13 @@
 <span class="lineNum">      97 </span>            : 
 <span class="lineNum">      98 </span><span class="lineCov">        797 : void TestOutput::printCurrentTestStarted(const UtestShell&amp; test)</span>
 <span class="lineNum">      99 </span>            : {
-<span class="lineNum">     100 </span><span class="lineCov">        809 :     if (verbose_) print(test.getFormattedName().asCharString());</span>
+<span class="lineNum">     100 </span><span class="lineCov">        797 :     if (verbose_) print(test.getFormattedName().asCharString());</span>
 <span class="lineNum">     101 </span>            : 
 <span class="lineNum">     102 </span><span class="lineCov">        797 :     if (test.willRun()) {</span>
-<span class="lineNum">     103 </span><span class="lineCov">        782 :        setProgressIndicator(&quot;.&quot;);</span>
-<span class="lineNum">     104 </span><span class="lineCov">        782 :     }</span>
+<span class="lineNum">     103 </span><span class="lineCov">        781 :        setProgressIndicator(&quot;.&quot;);</span>
+<span class="lineNum">     104 </span>            :     }
 <span class="lineNum">     105 </span>            :     else {
-<span class="lineNum">     106 </span><span class="lineCov">         15 :        setProgressIndicator(&quot;!&quot;);</span>
+<span class="lineNum">     106 </span><span class="lineCov">         16 :        setProgressIndicator(&quot;!&quot;);</span>
 <span class="lineNum">     107 </span>            :     }
 <a name="108"><span class="lineNum">     108 </span><span class="lineCov">        797 : }</span></a>
 <span class="lineNum">     109 </span>            : 
@@ -175,16 +175,16 @@
 <span class="lineNum">     113 </span><span class="lineCov">          3 :         print(&quot; - &quot;);</span>
 <span class="lineNum">     114 </span><span class="lineCov">          3 :         print(res.getCurrentTestTotalExecutionTime());</span>
 <span class="lineNum">     115 </span><span class="lineCov">          3 :         print(&quot; ms\n&quot;);</span>
-<span class="lineNum">     116 </span><span class="lineCov">          3 :     }</span>
+<span class="lineNum">     116 </span>            :     }
 <span class="lineNum">     117 </span>            :     else {
 <span class="lineNum">     118 </span><span class="lineCov">        857 :         printProgressIndicator();</span>
 <span class="lineNum">     119 </span>            :     }
 <a name="120"><span class="lineNum">     120 </span><span class="lineCov">        860 : }</span></a>
 <span class="lineNum">     121 </span>            : 
-<span class="lineNum">     122 </span>            : void TestOutput::printProgressIndicator()
+<span class="lineNum">     122 </span><span class="lineCov">        857 : void TestOutput::printProgressIndicator()</span>
 <span class="lineNum">     123 </span>            : {
 <span class="lineNum">     124 </span><span class="lineCov">        857 :     print(progressIndication_);</span>
-<span class="lineNum">     125 </span><span class="lineCov">        871 :     if (++dotCount_ % 50 == 0) print(&quot;\n&quot;);</span>
+<span class="lineNum">     125 </span><span class="lineCov">        857 :     if (++dotCount_ % 50 == 0) print(&quot;\n&quot;);</span>
 <a name="126"><span class="lineNum">     126 </span><span class="lineCov">        857 : }</span></a>
 <span class="lineNum">     127 </span>            : 
 <span class="lineNum">     128 </span><span class="lineCov">        800 : void TestOutput::setProgressIndicator(const char* indicator)</span>
@@ -192,7 +192,7 @@
 <span class="lineNum">     130 </span><span class="lineCov">        800 :     progressIndication_ = indicator;</span>
 <a name="131"><span class="lineNum">     131 </span><span class="lineCov">        800 : }</span></a>
 <span class="lineNum">     132 </span>            : 
-<span class="lineNum">     133 </span>            : void TestOutput::printTestsStarted()
+<span class="lineNum">     133 </span><span class="lineCov">         80 : void TestOutput::printTestsStarted()</span>
 <span class="lineNum">     134 </span>            : {
 <a name="135"><span class="lineNum">     135 </span><span class="lineCov">         80 : }</span></a>
 <span class="lineNum">     136 </span>            : 
@@ -204,7 +204,7 @@
 <span class="lineNum">     142 </span>            : {
 <a name="143"><span class="lineNum">     143 </span><span class="lineCov">        131 : }</span></a>
 <span class="lineNum">     144 </span>            : 
-<span class="lineNum">     145 </span>            : void TestOutput::flush()
+<span class="lineNum">     145 </span><span class="lineNoCov">          0 : void TestOutput::flush()</span>
 <span class="lineNum">     146 </span>            : {
 <a name="147"><span class="lineNum">     147 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     148 </span>            : 
@@ -214,15 +214,15 @@
 <span class="lineNum">     152 </span><span class="lineCov">         84 :     if (result.getFailureCount() &gt; 0) {</span>
 <span class="lineNum">     153 </span><span class="lineCov">         63 :         if (color_) {</span>
 <span class="lineNum">     154 </span><span class="lineCov">          1 :             print(&quot;\033[31;1m&quot;);</span>
-<span class="lineNum">     155 </span><span class="lineCov">          1 :         }</span>
+<span class="lineNum">     155 </span>            :         }
 <span class="lineNum">     156 </span><span class="lineCov">         63 :         print(&quot;Errors (&quot;);</span>
 <span class="lineNum">     157 </span><span class="lineCov">         63 :         print(result.getFailureCount());</span>
 <span class="lineNum">     158 </span><span class="lineCov">         63 :         print(&quot; failures, &quot;);</span>
-<span class="lineNum">     159 </span><span class="lineCov">         63 :     }</span>
+<span class="lineNum">     159 </span>            :     }
 <span class="lineNum">     160 </span>            :     else {
 <span class="lineNum">     161 </span><span class="lineCov">         21 :         if (color_) {</span>
 <span class="lineNum">     162 </span><span class="lineCov">          1 :             print(&quot;\033[32;1m&quot;);</span>
-<span class="lineNum">     163 </span><span class="lineCov">          1 :         }</span>
+<span class="lineNum">     163 </span>            :         }
 <span class="lineNum">     164 </span><span class="lineCov">         21 :         print(&quot;OK (&quot;);</span>
 <span class="lineNum">     165 </span>            :     }
 <span class="lineNum">     166 </span><span class="lineCov">         84 :     print(result.getTestCount());</span>
@@ -239,7 +239,7 @@
 <span class="lineNum">     177 </span><span class="lineCov">         84 :     print(&quot; ms)&quot;);</span>
 <span class="lineNum">     178 </span><span class="lineCov">         84 :     if (color_) {</span>
 <span class="lineNum">     179 </span><span class="lineCov">          2 :         print(&quot;\033[m&quot;);</span>
-<span class="lineNum">     180 </span><span class="lineCov">          2 :     }</span>
+<span class="lineNum">     180 </span>            :     }
 <span class="lineNum">     181 </span><span class="lineCov">         84 :     print(&quot;\n\n&quot;);</span>
 <a name="182"><span class="lineNum">     182 </span><span class="lineCov">         84 : }</span></a>
 <span class="lineNum">     183 </span>            : 
@@ -251,30 +251,30 @@
 <span class="lineNum">     189 </span><span class="lineCov">          1 :         print(&quot; of &quot;);</span>
 <span class="lineNum">     190 </span><span class="lineCov">          1 :         print(total);</span>
 <span class="lineNum">     191 </span><span class="lineCov">          1 :         print(&quot;\n&quot;);</span>
-<span class="lineNum">     192 </span><span class="lineCov">          1 :     }</span>
+<span class="lineNum">     192 </span>            :     }
 <a name="193"><span class="lineNum">     193 </span><span class="lineCov">          5 : }</span></a>
 <span class="lineNum">     194 </span>            : 
 <span class="lineNum">     195 </span><span class="lineCov">         70 : void TestOutput::print(const TestFailure&amp; failure)</span>
 <span class="lineNum">     196 </span>            : {
-<span class="lineNum">     197 </span><span class="lineCov">         86 :     if (failure.isOutsideTestFile() || failure.isInHelperFunction())</span>
+<span class="lineNum">     197 </span><span class="lineCov">         70 :     if (failure.isOutsideTestFile() || failure.isInHelperFunction())</span>
 <span class="lineNum">     198 </span><span class="lineCov">         56 :         printFileAndLineForTestAndFailure(failure);</span>
 <span class="lineNum">     199 </span>            :     else
 <span class="lineNum">     200 </span><span class="lineCov">         14 :         printFileAndLineForFailure(failure);</span>
 <span class="lineNum">     201 </span>            : 
-<span class="lineNum">     202 </span><span class="lineCov">        140 :     printFailureMessage(failure.getMessage());</span>
+<span class="lineNum">     202 </span><span class="lineCov">         70 :     printFailureMessage(failure.getMessage());</span>
 <a name="203"><span class="lineNum">     203 </span><span class="lineCov">         70 : }</span></a>
 <span class="lineNum">     204 </span>            : 
 <span class="lineNum">     205 </span><span class="lineCov">         56 : void TestOutput::printFileAndLineForTestAndFailure(const TestFailure&amp; failure)</span>
 <span class="lineNum">     206 </span>            : {
-<span class="lineNum">     207 </span><span class="lineCov">        168 :     printErrorInFileOnLineFormattedForWorkingEnvironment(failure.getTestFileName(), failure.getTestLineNumber());</span>
-<span class="lineNum">     208 </span><span class="lineCov">        112 :     printFailureInTest(failure.getTestName());</span>
-<span class="lineNum">     209 </span><span class="lineCov">        168 :     printErrorInFileOnLineFormattedForWorkingEnvironment(failure.getFileName(), failure.getFailureLineNumber());</span>
+<span class="lineNum">     207 </span><span class="lineCov">         56 :     printErrorInFileOnLineFormattedForWorkingEnvironment(failure.getTestFileName(), failure.getTestLineNumber());</span>
+<span class="lineNum">     208 </span><span class="lineCov">         56 :     printFailureInTest(failure.getTestName());</span>
+<span class="lineNum">     209 </span><span class="lineCov">         56 :     printErrorInFileOnLineFormattedForWorkingEnvironment(failure.getFileName(), failure.getFailureLineNumber());</span>
 <a name="210"><span class="lineNum">     210 </span><span class="lineCov">         56 : }</span></a>
 <span class="lineNum">     211 </span>            : 
 <span class="lineNum">     212 </span><span class="lineCov">         14 : void TestOutput::printFileAndLineForFailure(const TestFailure&amp; failure)</span>
 <span class="lineNum">     213 </span>            : {
-<span class="lineNum">     214 </span><span class="lineCov">         42 :     printErrorInFileOnLineFormattedForWorkingEnvironment(failure.getFileName(), failure.getFailureLineNumber());</span>
-<span class="lineNum">     215 </span><span class="lineCov">         28 :     printFailureInTest(failure.getTestName());</span>
+<span class="lineNum">     214 </span><span class="lineCov">         14 :     printErrorInFileOnLineFormattedForWorkingEnvironment(failure.getFileName(), failure.getFailureLineNumber());</span>
+<span class="lineNum">     215 </span><span class="lineCov">         14 :     printFailureInTest(failure.getTestName());</span>
 <a name="216"><span class="lineNum">     216 </span><span class="lineCov">         14 : }</span></a>
 <span class="lineNum">     217 </span>            : 
 <span class="lineNum">     218 </span><span class="lineCov">         70 : void TestOutput::printFailureInTest(SimpleString testName)</span>
@@ -294,9 +294,9 @@
 <span class="lineNum">     232 </span><span class="lineCov">        126 : void TestOutput::printErrorInFileOnLineFormattedForWorkingEnvironment(SimpleString file, int lineNumber)</span>
 <span class="lineNum">     233 </span>            : {
 <span class="lineNum">     234 </span><span class="lineCov">        126 :     if (TestOutput::getWorkingEnvironment() == TestOutput::vistualStudio)</span>
-<span class="lineNum">     235 </span><span class="lineCov">          4 :         printVistualStudioErrorInFileOnLine(file, lineNumber);</span>
+<span class="lineNum">     235 </span><span class="lineCov">          2 :         printVistualStudioErrorInFileOnLine(file, lineNumber);</span>
 <span class="lineNum">     236 </span>            :     else
-<span class="lineNum">     237 </span><span class="lineCov">        248 :         printEclipseErrorInFileOnLine(file, lineNumber);</span>
+<span class="lineNum">     237 </span><span class="lineCov">        124 :         printEclipseErrorInFileOnLine(file, lineNumber);</span>
 <a name="238"><span class="lineNum">     238 </span><span class="lineCov">        126 : }</span></a>
 <span class="lineNum">     239 </span>            : 
 <span class="lineNum">     240 </span><span class="lineCov">        124 : void TestOutput::printEclipseErrorInFileOnLine(SimpleString file, int lineNumber)</span>
@@ -324,18 +324,18 @@
 <span class="lineNum">     262 </span><span class="lineCov">       2398 :     while (*s) {</span>
 <span class="lineNum">     263 </span><span class="lineCov">        876 :         PlatformSpecificPutchar(*s);</span>
 <span class="lineNum">     264 </span><span class="lineCov">        876 :         s++;</span>
-<span class="lineNum">     265 </span><span class="lineCov">        876 :     }</span>
+<span class="lineNum">     265 </span>            :     }
 <span class="lineNum">     266 </span><span class="lineCov">        761 :     flush();</span>
 <a name="267"><span class="lineNum">     267 </span><span class="lineCov">        761 : }</span></a>
 <span class="lineNum">     268 </span>            : 
-<span class="lineNum">     269 </span>            : void ConsoleTestOutput::flush()
+<span class="lineNum">     269 </span><span class="lineCov">        761 : void ConsoleTestOutput::flush()</span>
 <span class="lineNum">     270 </span>            : {
 <span class="lineNum">     271 </span><span class="lineCov">        761 :     PlatformSpecificFlush();</span>
 <a name="272"><span class="lineNum">     272 </span><span class="lineCov">        761 : }</span></a>
 <span class="lineNum">     273 </span>            : 
-<span class="lineNum">     274 </span>            : StringBufferTestOutput::~StringBufferTestOutput()
-<span class="lineNum">     275 </span><span class="lineCov">        702 : {</span>
-<span class="lineNum">     276 </span><span class="lineCov">        739 : }</span>
+<span class="lineNum">     274 </span><span class="lineCov">        351 : StringBufferTestOutput::~StringBufferTestOutput()</span>
+<span class="lineNum">     275 </span>            : {
+<span class="lineNum">     276 </span><span class="lineCov">        351 : }</span>
 </pre>
       </td>
     </tr>

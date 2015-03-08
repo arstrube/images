@@ -31,18 +31,18 @@
             <td class="headerValue">info.txt</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">125</td>
+            <td class="headerCovTableEntry">122</td>
             <td class="headerCovTableEntry">143</td>
-            <td class="headerCovTableEntryMed">87.4 %</td>
+            <td class="headerCovTableEntryMed">85.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">31</td>
-            <td class="headerCovTableEntry">43</td>
-            <td class="headerCovTableEntryLo">72.1 %</td>
+            <td class="headerCovTableEntry">25</td>
+            <td class="headerCovTableEntry">35</td>
+            <td class="headerCovTableEntryLo">71.4 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -93,12 +93,12 @@
 <span class="lineNum">      31 </span>            : #include &quot;CppUTest/TestFailure.h&quot;
 <a name="32"><span class="lineNum">      32 </span>            : #include &quot;CppUTest/PlatformSpecificFunctions.h&quot;</a>
 <span class="lineNum">      33 </span>            : 
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">         72 : struct JUnitTestCaseResultNode</span></a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">         36 : struct JUnitTestCaseResultNode</span></a>
 <span class="lineNum">      35 </span>            : {
-<span class="lineNum">      36 </span>            :     JUnitTestCaseResultNode() :
-<span class="lineNum">      37 </span>            :         execTime_(0), failure_(0), ignored_(false), next_(0)
-<span class="lineNum">      38 </span><span class="lineCov">         36 :     {</span>
-<span class="lineNum">      39 </span><span class="lineCov">         72 :     }</span>
+<span class="lineNum">      36 </span><span class="lineCov">         36 :     JUnitTestCaseResultNode() :</span>
+<span class="lineNum">      37 </span><span class="lineCov">         36 :         execTime_(0), failure_(0), ignored_(false), next_(0)</span>
+<span class="lineNum">      38 </span>            :     {
+<span class="lineNum">      39 </span><span class="lineCov">         36 :     }</span>
 <span class="lineNum">      40 </span>            : 
 <span class="lineNum">      41 </span>            :     SimpleString name_;
 <span class="lineNum">      42 </span>            :     long execTime_;
@@ -107,12 +107,12 @@
 <span class="lineNum">      45 </span>            :     JUnitTestCaseResultNode* next_;
 <a name="46"><span class="lineNum">      46 </span>            : };</a>
 <span class="lineNum">      47 </span>            : 
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">         46 : struct JUnitTestGroupResult</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">         23 : struct JUnitTestGroupResult</span></a>
 <span class="lineNum">      49 </span>            : {
-<span class="lineNum">      50 </span>            :     JUnitTestGroupResult() :
-<span class="lineNum">      51 </span>            :         testCount_(0), failureCount_(0), startTime_(0), groupExecTime_(0), head_(0), tail_(0)
-<span class="lineNum">      52 </span><span class="lineCov">         23 :     {</span>
-<span class="lineNum">      53 </span><span class="lineCov">         46 :     }</span>
+<span class="lineNum">      50 </span><span class="lineCov">         23 :     JUnitTestGroupResult() :</span>
+<span class="lineNum">      51 </span><span class="lineCov">         23 :         testCount_(0), failureCount_(0), startTime_(0), groupExecTime_(0), head_(0), tail_(0)</span>
+<span class="lineNum">      52 </span>            :     {
+<span class="lineNum">      53 </span><span class="lineCov">         23 :     }</span>
 <span class="lineNum">      54 </span>            : 
 <span class="lineNum">      55 </span>            :     int testCount_;
 <span class="lineNum">      56 </span>            :     int failureCount_;
@@ -123,42 +123,42 @@
 <span class="lineNum">      61 </span>            :     JUnitTestCaseResultNode* tail_;
 <a name="62"><span class="lineNum">      62 </span>            : };</a>
 <span class="lineNum">      63 </span>            : 
-<span class="lineNum">      64 </span><span class="lineCov">        138 : struct JUnitTestOutputImpl</span>
+<span class="lineNum">      64 </span><span class="lineCov">         46 : struct JUnitTestOutputImpl</span>
 <span class="lineNum">      65 </span>            : {
 <span class="lineNum">      66 </span>            :     JUnitTestGroupResult results_;
 <span class="lineNum">      67 </span>            :     PlatformSpecificFile file_;
 <span class="lineNum">      68 </span>            :     SimpleString package_;
 <a name="69"><span class="lineNum">      69 </span>            : };</a>
 <span class="lineNum">      70 </span>            : 
-<span class="lineNum">      71 </span>            : JUnitTestOutput::JUnitTestOutput() :
-<span class="lineNum">      72 </span>            :     impl_(new JUnitTestOutputImpl)
-<span class="lineNum">      73 </span><span class="lineCov">         69 : {</span>
+<span class="lineNum">      71 </span><span class="lineCov">         23 : JUnitTestOutput::JUnitTestOutput() :</span>
+<span class="lineNum">      72 </span><span class="lineCov">         23 :     impl_(new JUnitTestOutputImpl)</span>
+<span class="lineNum">      73 </span>            : {
 <a name="74"><span class="lineNum">      74 </span><span class="lineCov">         23 : }</span></a>
 <span class="lineNum">      75 </span>            : 
-<span class="lineNum">      76 </span>            : JUnitTestOutput::~JUnitTestOutput()
-<span class="lineNum">      77 </span><span class="lineCov">         23 : {</span>
+<span class="lineNum">      76 </span><span class="lineCov">         46 : JUnitTestOutput::~JUnitTestOutput()</span>
+<span class="lineNum">      77 </span>            : {
 <span class="lineNum">      78 </span><span class="lineCov">         23 :     resetTestGroupResult();</span>
-<span class="lineNum">      79 </span><span class="lineCov">         69 :     delete impl_;</span>
+<span class="lineNum">      79 </span><span class="lineCov">         23 :     delete impl_;</span>
 <a name="80"><span class="lineNum">      80 </span><span class="lineCov">         23 : }</span></a>
 <span class="lineNum">      81 </span>            : 
-<span class="lineNum">      82 </span>            : void JUnitTestOutput::resetTestGroupResult()
+<span class="lineNum">      82 </span><span class="lineCov">         47 : void JUnitTestOutput::resetTestGroupResult()</span>
 <span class="lineNum">      83 </span>            : {
 <span class="lineNum">      84 </span><span class="lineCov">         47 :     impl_-&gt;results_.testCount_ = 0;</span>
 <span class="lineNum">      85 </span><span class="lineCov">         47 :     impl_-&gt;results_.failureCount_ = 0;</span>
-<span class="lineNum">      86 </span><span class="lineCov">         94 :     impl_-&gt;results_.group_ = &quot;&quot;;</span>
+<span class="lineNum">      86 </span><span class="lineCov">         47 :     impl_-&gt;results_.group_ = &quot;&quot;;</span>
 <span class="lineNum">      87 </span><span class="lineCov">         47 :     JUnitTestCaseResultNode* cur = impl_-&gt;results_.head_;</span>
 <span class="lineNum">      88 </span><span class="lineCov">        130 :     while (cur) {</span>
 <span class="lineNum">      89 </span><span class="lineCov">         36 :         JUnitTestCaseResultNode* tmp = cur-&gt;next_;</span>
 <span class="lineNum">      90 </span>            :         ;
-<span class="lineNum">      91 </span><span class="lineCov">         47 :         delete cur-&gt;failure_;</span>
-<span class="lineNum">      92 </span><span class="lineCov">        108 :         delete cur;</span>
+<span class="lineNum">      91 </span><span class="lineCov">         36 :         delete cur-&gt;failure_;</span>
+<span class="lineNum">      92 </span><span class="lineCov">         36 :         delete cur;</span>
 <span class="lineNum">      93 </span><span class="lineCov">         36 :         cur = tmp;</span>
-<span class="lineNum">      94 </span><span class="lineCov">         36 :     }</span>
+<span class="lineNum">      94 </span>            :     }
 <span class="lineNum">      95 </span><span class="lineCov">         47 :     impl_-&gt;results_.head_ = 0;</span>
 <span class="lineNum">      96 </span><span class="lineCov">         47 :     impl_-&gt;results_.tail_ = 0;</span>
 <a name="97"><span class="lineNum">      97 </span><span class="lineCov">         47 : }</span></a>
 <span class="lineNum">      98 </span>            : 
-<span class="lineNum">      99 </span>            : void JUnitTestOutput::printTestsStarted()
+<span class="lineNum">      99 </span><span class="lineCov">         22 : void JUnitTestOutput::printTestsStarted()</span>
 <span class="lineNum">     100 </span>            : {
 <a name="101"><span class="lineNum">     101 </span><span class="lineCov">         22 : }</span></a>
 <span class="lineNum">     102 </span>            : 
@@ -186,21 +186,21 @@
 <span class="lineNum">     124 </span><span class="lineCov">         36 : void JUnitTestOutput::printCurrentTestStarted(const UtestShell&amp; test)</span>
 <span class="lineNum">     125 </span>            : {
 <span class="lineNum">     126 </span><span class="lineCov">         36 :     impl_-&gt;results_.testCount_++;</span>
-<span class="lineNum">     127 </span><span class="lineCov">         72 :     impl_-&gt;results_.group_ = test.getGroup();</span>
+<span class="lineNum">     127 </span><span class="lineCov">         36 :     impl_-&gt;results_.group_ = test.getGroup();</span>
 <span class="lineNum">     128 </span><span class="lineCov">         36 :     impl_-&gt;results_.startTime_ = GetPlatformSpecificTimeInMillis();</span>
 <span class="lineNum">     129 </span>            : 
 <span class="lineNum">     130 </span><span class="lineCov">         36 :     if (impl_-&gt;results_.tail_ == 0) {</span>
-<span class="lineNum">     131 </span><span class="lineCov">         48 :         impl_-&gt;results_.head_ = impl_-&gt;results_.tail_</span>
-<span class="lineNum">     132 </span>            :                 = new JUnitTestCaseResultNode;
-<span class="lineNum">     133 </span><span class="lineCov">         24 :     }</span>
+<span class="lineNum">     131 </span>            :         impl_-&gt;results_.head_ = impl_-&gt;results_.tail_
+<span class="lineNum">     132 </span><span class="lineCov">         24 :                 = new JUnitTestCaseResultNode;</span>
+<span class="lineNum">     133 </span>            :     }
 <span class="lineNum">     134 </span>            :     else {
-<span class="lineNum">     135 </span><span class="lineCov">         24 :         impl_-&gt;results_.tail_-&gt;next_ = new JUnitTestCaseResultNode;</span>
+<span class="lineNum">     135 </span><span class="lineCov">         12 :         impl_-&gt;results_.tail_-&gt;next_ = new JUnitTestCaseResultNode;</span>
 <span class="lineNum">     136 </span><span class="lineCov">         12 :         impl_-&gt;results_.tail_ = impl_-&gt;results_.tail_-&gt;next_;</span>
 <span class="lineNum">     137 </span>            :     }
-<span class="lineNum">     138 </span><span class="lineCov">         72 :     impl_-&gt;results_.tail_-&gt;name_ = test.getName();</span>
+<span class="lineNum">     138 </span><span class="lineCov">         36 :     impl_-&gt;results_.tail_-&gt;name_ = test.getName();</span>
 <span class="lineNum">     139 </span><span class="lineCov">         36 :     if (!test.willRun()) {</span>
 <span class="lineNum">     140 </span><span class="lineCov">          1 :         impl_-&gt;results_.tail_-&gt;ignored_ = true;</span>
-<span class="lineNum">     141 </span><span class="lineCov">          1 :     }</span>
+<span class="lineNum">     141 </span>            :     }
 <a name="142"><span class="lineNum">     142 </span><span class="lineCov">         36 : }</span></a>
 <span class="lineNum">     143 </span>            : 
 <span class="lineNum">     144 </span><span class="lineCov">         25 : SimpleString JUnitTestOutput::createFileName(const SimpleString&amp; group)</span>
@@ -210,89 +210,89 @@
 <span class="lineNum">     148 </span><span class="lineCov">         25 :     fileName.replace('/', '_');</span>
 <span class="lineNum">     149 </span><span class="lineCov">         25 :     fileName += &quot;.xml&quot;;</span>
 <span class="lineNum">     150 </span><span class="lineCov">         25 :     return fileName;</span>
-<a name="151"><span class="lineNum">     151 </span><span class="lineCov">         50 : }</span></a>
+<a name="151"><span class="lineNum">     151 </span>            : }</a>
 <span class="lineNum">     152 </span>            : 
 <span class="lineNum">     153 </span><span class="lineCov">          2 : void JUnitTestOutput::setPackageName(const SimpleString&amp; package)</span>
 <span class="lineNum">     154 </span>            : {
 <span class="lineNum">     155 </span><span class="lineCov">          2 :     if (impl_ != NULL) {</span>
 <span class="lineNum">     156 </span><span class="lineCov">          2 :         impl_-&gt;package_ = package;</span>
-<span class="lineNum">     157 </span><span class="lineCov">          2 :     }</span>
+<span class="lineNum">     157 </span>            :     }
 <a name="158"><span class="lineNum">     158 </span><span class="lineCov">          2 : }</span></a>
 <span class="lineNum">     159 </span>            : 
-<span class="lineNum">     160 </span>            : void JUnitTestOutput::writeXmlHeader()
+<span class="lineNum">     160 </span><span class="lineCov">         24 : void JUnitTestOutput::writeXmlHeader()</span>
 <span class="lineNum">     161 </span>            : {
-<span class="lineNum">     162 </span><span class="lineCov">         48 :     writeToFile(&quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot; ?&gt;\n&quot;);</span>
+<span class="lineNum">     162 </span><span class="lineCov">         24 :     writeToFile(&quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot; ?&gt;\n&quot;);</span>
 <a name="163"><span class="lineNum">     163 </span><span class="lineCov">         24 : }</span></a>
 <span class="lineNum">     164 </span>            : 
-<span class="lineNum">     165 </span>            : void JUnitTestOutput::writeTestSuiteSummery()
+<span class="lineNum">     165 </span><span class="lineCov">         24 : void JUnitTestOutput::writeTestSuiteSummery()</span>
 <span class="lineNum">     166 </span>            : {
 <span class="lineNum">     167 </span>            :     SimpleString
-<span class="lineNum">     168 </span><span class="lineCov">         24 :             buf =</span>
-<span class="lineNum">     169 </span><span class="lineCov">         72 :                     StringFromFormat(</span>
+<span class="lineNum">     168 </span>            :             buf =
+<span class="lineNum">     169 </span>            :                     StringFromFormat(
 <span class="lineNum">     170 </span>            :                             &quot;&lt;testsuite errors=\&quot;0\&quot; failures=\&quot;%d\&quot; hostname=\&quot;localhost\&quot; name=\&quot;%s\&quot; tests=\&quot;%d\&quot; time=\&quot;%d.%03d\&quot; timestamp=\&quot;%s\&quot;&gt;\n&quot;,
 <span class="lineNum">     171 </span>            :                             impl_-&gt;results_.failureCount_,
-<span class="lineNum">     172 </span><span class="lineCov">         24 :                             impl_-&gt;results_.group_.asCharString(),</span>
+<span class="lineNum">     172 </span>            :                             impl_-&gt;results_.group_.asCharString(),
 <span class="lineNum">     173 </span>            :                             impl_-&gt;results_.testCount_,
-<span class="lineNum">     174 </span>            :                             (int) (impl_-&gt;results_.groupExecTime_ / 1000), (int) (impl_-&gt;results_.groupExecTime_ % 1000),
-<span class="lineNum">     175 </span><span class="lineCov">         24 :                             GetPlatformSpecificTimeString());</span>
-<span class="lineNum">     176 </span><span class="lineCov">         96 :     writeToFile(buf.asCharString());</span>
+<span class="lineNum">     174 </span><span class="lineCov">         48 :                             (int) (impl_-&gt;results_.groupExecTime_ / 1000), (int) (impl_-&gt;results_.groupExecTime_ % 1000),</span>
+<span class="lineNum">     175 </span><span class="lineCov">         72 :                             GetPlatformSpecificTimeString());</span>
+<span class="lineNum">     176 </span><span class="lineCov">         24 :     writeToFile(buf.asCharString());</span>
 <a name="177"><span class="lineNum">     177 </span><span class="lineCov">         24 : }</span></a>
 <span class="lineNum">     178 </span>            : 
-<span class="lineNum">     179 </span>            : void JUnitTestOutput::writeProperties()
+<span class="lineNum">     179 </span><span class="lineCov">         24 : void JUnitTestOutput::writeProperties()</span>
 <span class="lineNum">     180 </span>            : {
-<span class="lineNum">     181 </span><span class="lineCov">         48 :     writeToFile(&quot;&lt;properties&gt;\n&quot;);</span>
-<span class="lineNum">     182 </span><span class="lineCov">         48 :     writeToFile(&quot;&lt;/properties&gt;\n&quot;);</span>
+<span class="lineNum">     181 </span><span class="lineCov">         24 :     writeToFile(&quot;&lt;properties&gt;\n&quot;);</span>
+<span class="lineNum">     182 </span><span class="lineCov">         24 :     writeToFile(&quot;&lt;/properties&gt;\n&quot;);</span>
 <a name="183"><span class="lineNum">     183 </span><span class="lineCov">         24 : }</span></a>
 <span class="lineNum">     184 </span>            : 
-<span class="lineNum">     185 </span>            : void JUnitTestOutput::writeTestCases()
+<span class="lineNum">     185 </span><span class="lineCov">         24 : void JUnitTestOutput::writeTestCases()</span>
 <span class="lineNum">     186 </span>            : {
 <span class="lineNum">     187 </span><span class="lineCov">         24 :     JUnitTestCaseResultNode* cur = impl_-&gt;results_.head_;</span>
 <span class="lineNum">     188 </span><span class="lineCov">         84 :     while (cur) {</span>
-<span class="lineNum">     189 </span><span class="lineCov">         72 :         SimpleString buf = StringFromFormat(</span>
+<span class="lineNum">     189 </span>            :         SimpleString buf = StringFromFormat(
 <span class="lineNum">     190 </span>            :                 &quot;&lt;testcase classname=\&quot;%s%s%s\&quot; name=\&quot;%s\&quot; time=\&quot;%d.%03d\&quot;&gt;\n&quot;,
-<span class="lineNum">     191 </span><span class="lineCov">         36 :                 impl_-&gt;package_.asCharString(),</span>
+<span class="lineNum">     191 </span>            :                 impl_-&gt;package_.asCharString(),
 <span class="lineNum">     192 </span><span class="lineCov">         36 :                 impl_-&gt;package_.isEmpty() == true ? &quot;&quot; : &quot;.&quot;,</span>
-<span class="lineNum">     193 </span><span class="lineCov">         36 :                 impl_-&gt;results_.group_.asCharString(),</span>
-<span class="lineNum">     194 </span><span class="lineCov">         36 :                 cur-&gt;name_.asCharString(), (int) (cur-&gt;execTime_ / 1000), (int)(cur-&gt;execTime_ % 1000));</span>
-<span class="lineNum">     195 </span><span class="lineCov">        144 :         writeToFile(buf.asCharString());</span>
+<span class="lineNum">     193 </span>            :                 impl_-&gt;results_.group_.asCharString(),
+<span class="lineNum">     194 </span><span class="lineCov">         72 :                 cur-&gt;name_.asCharString(), (int) (cur-&gt;execTime_ / 1000), (int)(cur-&gt;execTime_ % 1000));</span>
+<span class="lineNum">     195 </span><span class="lineCov">         36 :         writeToFile(buf.asCharString());</span>
 <span class="lineNum">     196 </span>            : 
 <span class="lineNum">     197 </span><span class="lineCov">         36 :         if (cur-&gt;failure_) {</span>
 <span class="lineNum">     198 </span><span class="lineCov">         11 :             writeFailure(cur);</span>
-<span class="lineNum">     199 </span><span class="lineCov">         11 :         }</span>
+<span class="lineNum">     199 </span>            :         }
 <span class="lineNum">     200 </span><span class="lineCov">         25 :         else if (cur-&gt;ignored_) {</span>
-<span class="lineNum">     201 </span><span class="lineCov">          3 :             writeToFile(&quot;&lt;skipped /&gt;\n&quot;);</span>
-<span class="lineNum">     202 </span><span class="lineCov">          1 :         }</span>
-<span class="lineNum">     203 </span><span class="lineCov">        108 :         writeToFile(&quot;&lt;/testcase&gt;\n&quot;);</span>
+<span class="lineNum">     201 </span><span class="lineCov">          1 :             writeToFile(&quot;&lt;skipped /&gt;\n&quot;);</span>
+<span class="lineNum">     202 </span>            :         }
+<span class="lineNum">     203 </span><span class="lineCov">         36 :         writeToFile(&quot;&lt;/testcase&gt;\n&quot;);</span>
 <span class="lineNum">     204 </span><span class="lineCov">         36 :         cur = cur-&gt;next_;</span>
 <span class="lineNum">     205 </span><span class="lineCov">         36 :     }</span>
 <a name="206"><span class="lineNum">     206 </span><span class="lineCov">         24 : }</span></a>
 <span class="lineNum">     207 </span>            : 
 <span class="lineNum">     208 </span><span class="lineCov">         11 : void JUnitTestOutput::writeFailure(JUnitTestCaseResultNode* node)</span>
 <span class="lineNum">     209 </span>            : {
-<span class="lineNum">     210 </span><span class="lineCov">         33 :     SimpleString message = node-&gt;failure_-&gt;getMessage().asCharString();</span>
+<span class="lineNum">     210 </span><span class="lineCov">         11 :     SimpleString message = node-&gt;failure_-&gt;getMessage().asCharString();</span>
 <span class="lineNum">     211 </span><span class="lineCov">         11 :     message.replace('&quot;', '\'');</span>
 <span class="lineNum">     212 </span><span class="lineCov">         11 :     message.replace('&lt;', '[');</span>
 <span class="lineNum">     213 </span><span class="lineCov">         11 :     message.replace('&gt;', ']');</span>
 <span class="lineNum">     214 </span><span class="lineCov">         11 :     message.replace(&quot;&amp;&quot;, &quot;&amp;amp;&quot;);</span>
 <span class="lineNum">     215 </span><span class="lineCov">         11 :     message.replace(&quot;\n&quot;, &quot;{newline}&quot;);</span>
-<span class="lineNum">     216 </span><span class="lineCov">         33 :     SimpleString buf = StringFromFormat(</span>
+<span class="lineNum">     216 </span>            :     SimpleString buf = StringFromFormat(
 <span class="lineNum">     217 </span>            :             &quot;&lt;failure message=\&quot;%s:%d: %s\&quot; type=\&quot;AssertionFailedError\&quot;&gt;\n&quot;,
-<span class="lineNum">     218 </span><span class="lineCov">         22 :             node-&gt;failure_-&gt;getFileName().asCharString(),</span>
-<span class="lineNum">     219 </span><span class="lineCov">         22 :             node-&gt;failure_-&gt;getFailureLineNumber(), message.asCharString());</span>
-<span class="lineNum">     220 </span><span class="lineCov">         44 :     writeToFile(buf.asCharString());</span>
-<span class="lineNum">     221 </span><span class="lineCov">         33 :     writeToFile(&quot;&lt;/failure&gt;\n&quot;);</span>
-<a name="222"><span class="lineNum">     222 </span><span class="lineCov">         22 : }</span></a>
+<span class="lineNum">     218 </span><span class="lineCov">         11 :             node-&gt;failure_-&gt;getFileName().asCharString(),</span>
+<span class="lineNum">     219 </span><span class="lineCov">         33 :             node-&gt;failure_-&gt;getFailureLineNumber(), message.asCharString());</span>
+<span class="lineNum">     220 </span><span class="lineCov">         11 :     writeToFile(buf.asCharString());</span>
+<span class="lineNum">     221 </span><span class="lineCov">         22 :     writeToFile(&quot;&lt;/failure&gt;\n&quot;);</span>
+<a name="222"><span class="lineNum">     222 </span><span class="lineCov">         11 : }</span></a>
 <span class="lineNum">     223 </span>            : 
-<span class="lineNum">     224 </span>            : void JUnitTestOutput::writeFileEnding()
+<span class="lineNum">     224 </span><span class="lineCov">         24 : void JUnitTestOutput::writeFileEnding()</span>
 <span class="lineNum">     225 </span>            : {
-<span class="lineNum">     226 </span><span class="lineCov">         48 :     writeToFile(&quot;&lt;system-out&gt;&lt;/system-out&gt;\n&quot;);</span>
-<span class="lineNum">     227 </span><span class="lineCov">         48 :     writeToFile(&quot;&lt;system-err&gt;&lt;/system-err&gt;\n&quot;);</span>
-<span class="lineNum">     228 </span><span class="lineCov">         48 :     writeToFile(&quot;&lt;/testsuite&gt;&quot;);</span>
+<span class="lineNum">     226 </span><span class="lineCov">         24 :     writeToFile(&quot;&lt;system-out&gt;&lt;/system-out&gt;\n&quot;);</span>
+<span class="lineNum">     227 </span><span class="lineCov">         24 :     writeToFile(&quot;&lt;system-err&gt;&lt;/system-err&gt;\n&quot;);</span>
+<span class="lineNum">     228 </span><span class="lineCov">         24 :     writeToFile(&quot;&lt;/testsuite&gt;&quot;);</span>
 <a name="229"><span class="lineNum">     229 </span><span class="lineCov">         24 : }</span></a>
 <span class="lineNum">     230 </span>            : 
-<span class="lineNum">     231 </span>            : void JUnitTestOutput::writeTestGroupToFile()
+<span class="lineNum">     231 </span><span class="lineCov">         24 : void JUnitTestOutput::writeTestGroupToFile()</span>
 <span class="lineNum">     232 </span>            : {
-<span class="lineNum">     233 </span><span class="lineCov">         48 :     openFileForWrite(createFileName(impl_-&gt;results_.group_));</span>
+<span class="lineNum">     233 </span><span class="lineCov">         24 :     openFileForWrite(createFileName(impl_-&gt;results_.group_));</span>
 <span class="lineNum">     234 </span><span class="lineCov">         24 :     writeXmlHeader();</span>
 <span class="lineNum">     235 </span><span class="lineCov">         24 :     writeTestSuiteSummery();</span>
 <span class="lineNum">     236 </span><span class="lineCov">         24 :     writeProperties();</span>
@@ -301,7 +301,7 @@
 <span class="lineNum">     239 </span><span class="lineCov">         24 :     closeFile();</span>
 <a name="240"><span class="lineNum">     240 </span><span class="lineCov">         24 : }</span></a>
 <span class="lineNum">     241 </span>            : 
-<span class="lineNum">     242 </span>            : void JUnitTestOutput::verbose()
+<span class="lineNum">     242 </span><span class="lineNoCov">          0 : void JUnitTestOutput::verbose()</span>
 <span class="lineNum">     243 </span>            : {
 <a name="244"><span class="lineNum">     244 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     245 </span>            : 
@@ -321,15 +321,15 @@
 <span class="lineNum">     259 </span>            : {
 <span class="lineNum">     260 </span><span class="lineCov">         11 :     if (impl_-&gt;results_.tail_-&gt;failure_ == 0) {</span>
 <span class="lineNum">     261 </span><span class="lineCov">         11 :         impl_-&gt;results_.failureCount_++;</span>
-<span class="lineNum">     262 </span><span class="lineCov">         22 :         impl_-&gt;results_.tail_-&gt;failure_ = new TestFailure(failure);</span>
-<span class="lineNum">     263 </span><span class="lineCov">         11 :     }</span>
+<span class="lineNum">     262 </span><span class="lineCov">         11 :         impl_-&gt;results_.tail_-&gt;failure_ = new TestFailure(failure);</span>
+<span class="lineNum">     263 </span>            :     }
 <a name="264"><span class="lineNum">     264 </span><span class="lineCov">         11 : }</span></a>
 <span class="lineNum">     265 </span>            : 
 <span class="lineNum">     266 </span><span class="lineNoCov">          0 : void JUnitTestOutput::printTestRun(int /*number*/, int /*total*/)</span>
 <span class="lineNum">     267 </span>            : {
 <a name="268"><span class="lineNum">     268 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     269 </span>            : 
-<span class="lineNum">     270 </span>            : void JUnitTestOutput::flush()
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 : void JUnitTestOutput::flush()</span>
 <span class="lineNum">     271 </span>            : {
 <a name="272"><span class="lineNum">     272 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     273 </span>            : 
@@ -343,7 +343,7 @@
 <span class="lineNum">     281 </span><span class="lineNoCov">          0 :     PlatformSpecificFPuts(buffer.asCharString(), impl_-&gt;file_);</span>
 <a name="282"><span class="lineNum">     282 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     283 </span>            : 
-<span class="lineNum">     284 </span>            : void JUnitTestOutput::closeFile()
+<span class="lineNum">     284 </span><span class="lineNoCov">          0 : void JUnitTestOutput::closeFile()</span>
 <span class="lineNum">     285 </span>            : {
 <span class="lineNum">     286 </span><span class="lineNoCov">          0 :     PlatformSpecificFClose(impl_-&gt;file_);</span>
 <span class="lineNum">     287 </span><span class="lineNoCov">          0 : }</span>

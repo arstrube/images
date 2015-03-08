@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td class="headerValue">2015-03-08 20:13:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">9</td>
-            <td class="headerCovTableEntry">13</td>
-            <td class="headerCovTableEntryLo">69.2 %</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryLo">60.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -110,9 +110,9 @@
 <span class="lineNum">      48 </span>            :     typedef bool (*isEqualFunction)(const void*, const void*);
 <a name="49"><span class="lineNum">      49 </span>            :     typedef SimpleString (*valueToStringFunction)(const void*);</a>
 <span class="lineNum">      50 </span>            : 
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">          2 :     MockFunctionComparator(isEqualFunction equal, valueToStringFunction valToString)</span></a>
-<span class="lineNum">      52 </span><span class="lineCov">          2 :         : equal_(equal), valueToString_(valToString) {}</span>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">          2 :     virtual ~MockFunctionComparator(){}</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">          1 :     MockFunctionComparator(isEqualFunction equal, valueToStringFunction valToString)</span></a>
+<span class="lineNum">      52 </span><span class="lineCov">          1 :         : equal_(equal), valueToString_(valToString) {}</span>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">          1 :     virtual ~MockFunctionComparator(){}</span></a>
 <a name="54"><span class="lineNum">      54 </span>            : </a>
 <span class="lineNum">      55 </span><span class="lineCov">          1 :     virtual bool isEqual(const void* object1, const void* object2) _override { return equal_(object1, object2); }</span>
 <span class="lineNum">      56 </span><span class="lineNoCov">          0 :     virtual SimpleString valueToString(const void* object) _override { return valueToString_(object); }</span>
@@ -129,7 +129,7 @@
 <span class="lineNum">      67 </span>            :  */
 <a name="68"><span class="lineNum">      68 </span>            : </a>
 <span class="lineNum">      69 </span>            : class MockNamedValueComparatorRepository;
-<span class="lineNum">      70 </span><span class="lineCov">       1464 : class MockNamedValue</span>
+<span class="lineNum">      70 </span><span class="lineCov">        488 : class MockNamedValue</span>
 <span class="lineNum">      71 </span>            : {
 <span class="lineNum">      72 </span>            : public:
 <span class="lineNum">      73 </span>            :     MockNamedValue(const SimpleString&amp; name);
