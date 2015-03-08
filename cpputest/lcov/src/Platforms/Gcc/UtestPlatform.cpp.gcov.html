@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - info.txt - src/Platforms/Gcc/UtestPlatform.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">src/Platforms/Gcc</a> - UtestPlatform.cpp<span style="font-size: 80%;"> (source / <a href="UtestPlatform.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">info.txt</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">76</td>
+            <td class="headerCovTableEntry">95</td>
+            <td class="headerCovTableEntryMed">80.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">20</td>
+            <td class="headerCovTableEntry">26</td>
+            <td class="headerCovTableEntryMed">76.9 %</td>
+          </tr>
+          <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            :  * Copyright (c) 2007, Michael Feathers, James Grenning and Bas Vodde
+<span class="lineNum">       3 </span>            :  * All rights reserved.
+<span class="lineNum">       4 </span>            :  *
+<span class="lineNum">       5 </span>            :  * Redistribution and use in source and binary forms, with or without
+<span class="lineNum">       6 </span>            :  * modification, are permitted provided that the following conditions are met:
+<span class="lineNum">       7 </span>            :  *     * Redistributions of source code must retain the above copyright
+<span class="lineNum">       8 </span>            :  *       notice, this list of conditions and the following disclaimer.
+<span class="lineNum">       9 </span>            :  *     * Redistributions in binary form must reproduce the above copyright
+<span class="lineNum">      10 </span>            :  *       notice, this list of conditions and the following disclaimer in the
+<span class="lineNum">      11 </span>            :  *       documentation and/or other materials provided with the distribution.
+<span class="lineNum">      12 </span>            :  *     * Neither the name of the &lt;organization&gt; nor the
+<span class="lineNum">      13 </span>            :  *       names of its contributors may be used to endorse or promote products
+<span class="lineNum">      14 </span>            :  *       derived from this software without specific prior written permission.
+<span class="lineNum">      15 </span>            :  *
+<span class="lineNum">      16 </span>            :  * THIS SOFTWARE IS PROVIDED BY THE EARLIER MENTIONED AUTHORS ``AS IS'' AND ANY
+<span class="lineNum">      17 </span>            :  * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      18 </span>            :  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      19 </span>            :  * DISCLAIMED. IN NO EVENT SHALL &lt;copyright holder&gt; BE LIABLE FOR ANY
+<span class="lineNum">      20 </span>            :  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      21 </span>            :  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      22 </span>            :  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      23 </span>            :  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      24 </span>            :  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      25 </span>            :  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      26 </span>            :  */
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : #include &lt;stdlib.h&gt;
+<span class="lineNum">      29 </span>            : #include &quot;CppUTest/TestHarness.h&quot;
+<span class="lineNum">      30 </span>            : #undef malloc
+<span class="lineNum">      31 </span>            : #undef free
+<span class="lineNum">      32 </span>            : #undef calloc
+<span class="lineNum">      33 </span>            : #undef realloc
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span>            : #include &lt;sys/time.h&gt;
+<span class="lineNum">      36 </span>            : #include &lt;time.h&gt;
+<span class="lineNum">      37 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      38 </span>            : #include &lt;stdarg.h&gt;
+<span class="lineNum">      39 </span>            : #include &lt;setjmp.h&gt;
+<span class="lineNum">      40 </span>            : #include &lt;string.h&gt;
+<span class="lineNum">      41 </span>            : #include &lt;math.h&gt;
+<span class="lineNum">      42 </span>            : #include &lt;ctype.h&gt;
+<span class="lineNum">      43 </span>            : #include &lt;unistd.h&gt;
+<span class="lineNum">      44 </span>            : #include &lt;signal.h&gt;
+<span class="lineNum">      45 </span>            : #ifndef __MINGW32__
+<span class="lineNum">      46 </span>            : #include &lt;sys/wait.h&gt;
+<span class="lineNum">      47 </span>            : #endif
+<span class="lineNum">      48 </span>            : #include &lt;pthread.h&gt;
+<span class="lineNum">      49 </span>            : 
+<span class="lineNum">      50 </span>            : #include &quot;CppUTest/PlatformSpecificFunctions.h&quot;
+<span class="lineNum">      51 </span>            : 
+<span class="lineNum">      52 </span>            : static jmp_buf test_exit_jmp_buf[10];
+<span class="lineNum">      53 </span>            : static int jmp_buf_index = 0;
+<span class="lineNum">      54 </span>            : 
+<span class="lineNum">      55 </span>            : #ifdef __MINGW32__
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            : static void GccNoPThreadPlatformSpecificRunTestInASeperateProcess(UtestShell* shell, TestPlugin*, TestResult* result)
+<span class="lineNum">      58 </span>            : {
+<span class="lineNum">      59 </span>            :     result-&gt;addFailure(TestFailure(shell, &quot;-p doesn't work on MinGW as it is lacking fork.\b&quot;));
+<span class="lineNum">      60 </span>            : }
+<span class="lineNum">      61 </span>            : 
+<span class="lineNum">      62 </span>            : void (*PlatformSpecificRunTestInASeperateProcess)(UtestShell* shell, TestPlugin* plugin, TestResult* result) =
+<span class="lineNum">      63 </span>            :         GccNoPThreadPlatformSpecificRunTestInASeperateProcess;
+<span class="lineNum">      64 </span>            : 
+<a name="65"><span class="lineNum">      65 </span>            : #else</a>
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span><span class="lineCov">          7 : static void GccCygwinPlatformSpecificRunTestInASeperateProcess(UtestShell* shell, TestPlugin* plugin, TestResult* result)</span>
+<span class="lineNum">      68 </span>            : {
+<span class="lineNum">      69 </span><span class="lineCov">          7 :     pid_t cpid, w;</span>
+<span class="lineNum">      70 </span><span class="lineCov">          7 :     int status;</span>
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span><span class="lineCov">          7 :     cpid = PlatformSpecificFork();</span>
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span><span class="lineCov">          7 :     if (cpid == -1) {</span>
+<span class="lineNum">      75 </span><span class="lineCov">          4 :         result-&gt;addFailure(TestFailure(shell, &quot;Call to fork() failed&quot;));</span>
+<span class="lineNum">      76 </span><span class="lineCov">          1 :         return;</span>
+<span class="lineNum">      77 </span>            :     }
+<span class="lineNum">      78 </span>            : 
+<span class="lineNum">      79 </span><span class="lineCov">          6 :     if (cpid == 0) {            /* Code executed by child */</span>
+<span class="lineNum">      80 </span>            :         shell-&gt;runOneTestInCurrentProcess(plugin, *result);   // LCOV_EXCL_LINE
+<span class="lineNum">      81 </span>            :         _exit(result-&gt;getFailureCount());                     // LCOV_EXCL_LINE
+<span class="lineNum">      82 </span>            :     } else {                    /* Code executed by parent */
+<span class="lineNum">      83 </span><span class="lineCov">          6 :         do {</span>
+<span class="lineNum">      84 </span><span class="lineCov">          6 :             w = PlatformSpecificWaitPid(cpid, &amp;status, WUNTRACED);</span>
+<span class="lineNum">      85 </span><span class="lineCov">          6 :             if (w == -1) {</span>
+<span class="lineNum">      86 </span><span class="lineCov">          4 :                 result-&gt;addFailure(TestFailure(shell, &quot;Call to waitpid() failed&quot;));</span>
+<span class="lineNum">      87 </span><span class="lineCov">          1 :                 return;</span>
+<span class="lineNum">      88 </span>            :             }
+<span class="lineNum">      89 </span>            : 
+<span class="lineNum">      90 </span><span class="lineCov">          6 :             if (WIFEXITED(status) &amp;&amp; WEXITSTATUS(status) &gt; result-&gt;getFailureCount()) {</span>
+<span class="lineNum">      91 </span><span class="lineCov">          4 :                 result-&gt;addFailure(TestFailure(shell, &quot;Failed in separate process&quot;));</span>
+<span class="lineNum">      92 </span><span class="lineCov">          8 :             } else if (WIFSIGNALED(status)) {</span>
+<span class="lineNum">      93 </span><span class="lineCov">          3 :                 SimpleString signal(StringFrom(WTERMSIG(status)));</span>
+<span class="lineNum">      94 </span>            :                 {
+<span class="lineNum">      95 </span><span class="lineCov">          3 :                     SimpleString message(&quot;Failed in separate process - killed by signal &quot;);</span>
+<span class="lineNum">      96 </span><span class="lineCov">          3 :                     message += signal;</span>
+<span class="lineNum">      97 </span><span class="lineCov">          9 :                     result-&gt;addFailure(TestFailure(shell, message));</span>
+<span class="lineNum">      98 </span><span class="lineCov">          3 :                 }</span>
+<span class="lineNum">      99 </span><span class="lineCov">          5 :             } else if (WIFSTOPPED(status)) {</span>
+<span class="lineNum">     100 </span><span class="lineCov">          4 :                 result-&gt;addFailure(TestFailure(shell, &quot;Stopped in separate process - forcing terminate&quot;));</span>
+<span class="lineNum">     101 </span><span class="lineCov">          1 :                 kill(w, SIGTERM);</span>
+<span class="lineNum">     102 </span><span class="lineCov">          1 :                 return;</span>
+<span class="lineNum">     103 </span>            :             }
+<span class="lineNum">     104 </span><span class="lineCov">         14 :         } while (!WIFEXITED(status) &amp;&amp; !WIFSIGNALED(status));</span>
+<span class="lineNum">     105 </span>            :     }
+<span class="lineNum">     106 </span><span class="lineCov">          7 : }</span>
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span>            : void (*PlatformSpecificRunTestInASeperateProcess)(UtestShell* shell, TestPlugin* plugin, TestResult* result) =
+<span class="lineNum">     109 </span>            :         GccCygwinPlatformSpecificRunTestInASeperateProcess;
+<span class="lineNum">     110 </span>            : 
+<a name="111"><span class="lineNum">     111 </span>            : #endif</a>
+<span class="lineNum">     112 </span>            : 
+<span class="lineNum">     113 </span>            : static pid_t PlatformSpecificForkImplementation(void)
+<span class="lineNum">     114 </span>            : {
+<span class="lineNum">     115 </span><span class="lineCov">          6 :     return fork();</span>
+<span class="lineNum">     116 </span>            : }
+<span class="lineNum">     117 </span>            : 
+<a name="118"><span class="lineNum">     118 </span>            : int (*PlatformSpecificFork)(void) = PlatformSpecificForkImplementation;</a>
+<span class="lineNum">     119 </span>            : 
+<span class="lineNum">     120 </span><span class="lineCov">          5 : static int PlatformSpecificWaitPidImplementation(int pid, int* status, int options)</span>
+<span class="lineNum">     121 </span>            : {
+<span class="lineNum">     122 </span><span class="lineCov">          5 :     return waitpid(pid, status, options);</span>
+<span class="lineNum">     123 </span>            : }
+<span class="lineNum">     124 </span>            : 
+<a name="125"><span class="lineNum">     125 </span>            : int (*PlatformSpecificWaitPid)(int, int*, int) = PlatformSpecificWaitPidImplementation;</a>
+<span class="lineNum">     126 </span>            : 
+<span class="lineNum">     127 </span>            : TestOutput::WorkingEnvironment PlatformSpecificGetWorkingEnvironment()
+<span class="lineNum">     128 </span>            : {
+<span class="lineNum">     129 </span><span class="lineCov">        115 :     return TestOutput::eclipse;</span>
+<span class="lineNum">     130 </span>            : }
+<span class="lineNum">     131 </span>            : 
+<a name="132"><span class="lineNum">     132 </span>            : extern &quot;C&quot; {</a>
+<span class="lineNum">     133 </span>            : 
+<span class="lineNum">     134 </span><span class="lineCov">       3102 : int PlatformSpecificSetJmp(void (*function) (void* data), void* data)</span>
+<span class="lineNum">     135 </span>            : {
+<span class="lineNum">     136 </span><span class="lineCov">       3102 :     if (0 == setjmp(test_exit_jmp_buf[jmp_buf_index])) {</span>
+<span class="lineNum">     137 </span><span class="lineCov">       3093 :         jmp_buf_index++;</span>
+<span class="lineNum">     138 </span><span class="lineCov">       3093 :         function(data);</span>
+<span class="lineNum">     139 </span><span class="lineCov">       3093 :         jmp_buf_index--;</span>
+<span class="lineNum">     140 </span><span class="lineCov">       3093 :         return 1;</span>
+<span class="lineNum">     141 </span>            :     }
+<span class="lineNum">     142 </span><span class="lineCov">          9 :     return 0;</span>
+<span class="lineNum">     143 </span><span class="lineCov">       3049 : }</span>
+<span class="lineNum">     144 </span>            : 
+<span class="lineNum">     145 </span>            : /*
+<span class="lineNum">     146 </span>            :  * MacOSX clang 3.0 doesn't seem to recognize longjmp and thus complains about __no_return_.
+<span class="lineNum">     147 </span>            :  * The later clang compilers complain when it isn't there. So only way is to check the clang compiler here :(
+<span class="lineNum">     148 </span>            :  */
+<span class="lineNum">     149 </span>            : #if !((__clang_major__ == 3) &amp;&amp; (__clang_minor__ == 0))
+<a name="150"><span class="lineNum">     150 </span>            : __no_return__</a>
+<span class="lineNum">     151 </span>            : #endif
+<span class="lineNum">     152 </span>            : void PlatformSpecificLongJmp()
+<span class="lineNum">     153 </span>            : {
+<span class="lineNum">     154 </span><span class="lineCov">          9 :     jmp_buf_index--;</span>
+<span class="lineNum">     155 </span><span class="lineCov">          9 :     longjmp(test_exit_jmp_buf[jmp_buf_index], 1);</span>
+<a name="156"><span class="lineNum">     156 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     157 </span>            : 
+<span class="lineNum">     158 </span>            : void PlatformSpecificRestoreJumpBuffer()
+<span class="lineNum">     159 </span>            : {
+<span class="lineNum">     160 </span><span class="lineCov">         44 :     jmp_buf_index--;</span>
+<span class="lineNum">     161 </span><span class="lineCov">         44 : }</span>
+<span class="lineNum">     162 </span>            : 
+<a name="163"><span class="lineNum">     163 </span>            : ///////////// Time in millis</a>
+<span class="lineNum">     164 </span>            : 
+<span class="lineNum">     165 </span>            : static long TimeInMillisImplementation()
+<span class="lineNum">     166 </span>            : {
+<span class="lineNum">     167 </span><span class="lineCov">       2010 :     struct timeval tv;</span>
+<span class="lineNum">     168 </span><span class="lineCov">       2010 :     struct timezone tz;</span>
+<span class="lineNum">     169 </span><span class="lineCov">       2010 :     gettimeofday(&amp;tv, &amp;tz);</span>
+<span class="lineNum">     170 </span><span class="lineCov">       2010 :     return (tv.tv_sec * 1000) + (long)((double)tv.tv_usec * 0.001);</span>
+<span class="lineNum">     171 </span>            : }
+<span class="lineNum">     172 </span>            : 
+<a name="173"><span class="lineNum">     173 </span>            : long (*GetPlatformSpecificTimeInMillis)() = TimeInMillisImplementation;</a>
+<span class="lineNum">     174 </span>            : 
+<span class="lineNum">     175 </span>            : static const char* TimeStringImplementation()
+<span class="lineNum">     176 </span>            : {
+<span class="lineNum">     177 </span><span class="lineNoCov">          0 :     time_t tm = time(NULL);</span>
+<span class="lineNum">     178 </span>            :     static char dateTime[80];
+<span class="lineNum">     179 </span><span class="lineNoCov">          0 :     struct tm *tmp = localtime(&amp;tm);</span>
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 :     strftime(dateTime, 80, &quot;%Y-%m-%dT%H:%M:%S&quot;, tmp);</span>
+<span class="lineNum">     181 </span><span class="lineNoCov">          0 :     return dateTime;</span>
+<span class="lineNum">     182 </span>            : }
+<span class="lineNum">     183 </span>            : 
+<span class="lineNum">     184 </span>            : const char* (*GetPlatformSpecificTimeString)() = TimeStringImplementation;
+<span class="lineNum">     185 </span>            : 
+<span class="lineNum">     186 </span>            : /* Wish we could add an attribute to the format for discovering mis-use... but the __attribute__(format) seems to not work on va_list */
+<span class="lineNum">     187 </span>            : #ifdef __clang__
+<span class="lineNum">     188 </span>            : #pragma clang diagnostic ignored &quot;-Wformat-nonliteral&quot;
+<a name="189"><span class="lineNum">     189 </span>            : #endif</a>
+<span class="lineNum">     190 </span>            : 
+<span class="lineNum">     191 </span><span class="lineCov">      18760 : int PlatformSpecificVSNprintf(char *str, size_t size, const char* format, va_list args)</span>
+<span class="lineNum">     192 </span>            : {
+<span class="lineNum">     193 </span><span class="lineCov">      18760 :    return vsnprintf( str, size, format, args);</span>
+<a name="194"><span class="lineNum">     194 </span>            : }</a>
+<span class="lineNum">     195 </span>            : 
+<span class="lineNum">     196 </span><span class="lineNoCov">          0 : PlatformSpecificFile PlatformSpecificFOpen(const char* filename, const char* flag)</span>
+<span class="lineNum">     197 </span>            : {
+<span class="lineNum">     198 </span><span class="lineNoCov">          0 :    return fopen(filename, flag);</span>
+<span class="lineNum">     199 </span>            : }
+<a name="200"><span class="lineNum">     200 </span>            : </a>
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span><span class="lineNoCov">          0 : void PlatformSpecificFPuts(const char* str, PlatformSpecificFile file)</span>
+<span class="lineNum">     203 </span>            : {
+<span class="lineNum">     204 </span><span class="lineNoCov">          0 :    fputs(str, (FILE*)file);</span>
+<a name="205"><span class="lineNum">     205 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     206 </span>            : 
+<span class="lineNum">     207 </span><span class="lineNoCov">          0 : void PlatformSpecificFClose(PlatformSpecificFile file)</span>
+<span class="lineNum">     208 </span>            : {
+<span class="lineNum">     209 </span><span class="lineNoCov">          0 :    fclose((FILE*)file);</span>
+<a name="210"><span class="lineNum">     210 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     211 </span>            : 
+<span class="lineNum">     212 </span>            : void PlatformSpecificFlush()
+<span class="lineNum">     213 </span>            : {
+<span class="lineNum">     214 </span><span class="lineCov">        761 :   fflush(stdout);</span>
+<a name="215"><span class="lineNum">     215 </span><span class="lineCov">        761 : }</span></a>
+<span class="lineNum">     216 </span>            : 
+<span class="lineNum">     217 </span><span class="lineCov">        876 : int PlatformSpecificPutchar(int c)</span>
+<span class="lineNum">     218 </span>            : {
+<span class="lineNum">     219 </span><span class="lineCov">        876 :   return putchar(c);</span>
+<a name="220"><span class="lineNum">     220 </span>            : }</a>
+<span class="lineNum">     221 </span>            : 
+<span class="lineNum">     222 </span><span class="lineCov">     249732 : void* PlatformSpecificMalloc(size_t size)</span>
+<span class="lineNum">     223 </span>            : {
+<span class="lineNum">     224 </span><span class="lineCov">     249732 :    return malloc(size);</span>
+<a name="225"><span class="lineNum">     225 </span>            : }</a>
+<span class="lineNum">     226 </span>            : 
+<span class="lineNum">     227 </span><span class="lineCov">          6 : void* PlatformSpecificRealloc (void* memory, size_t size)</span>
+<span class="lineNum">     228 </span>            : {
+<span class="lineNum">     229 </span><span class="lineCov">          6 :    return realloc(memory, size);</span>
+<a name="230"><span class="lineNum">     230 </span>            : }</a>
+<span class="lineNum">     231 </span>            : 
+<span class="lineNum">     232 </span><span class="lineCov">     249226 : void PlatformSpecificFree(void* memory)</span>
+<span class="lineNum">     233 </span>            : {
+<span class="lineNum">     234 </span><span class="lineCov">     249226 :    free(memory);</span>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">     249226 : }</span></a>
+<span class="lineNum">     236 </span>            : 
+<span class="lineNum">     237 </span><span class="lineCov">         16 : void* PlatformSpecificMemCpy(void* s1, const void* s2, size_t size)</span>
+<span class="lineNum">     238 </span>            : {
+<span class="lineNum">     239 </span><span class="lineCov">         16 :    return memcpy(s1, s2, size);</span>
+<a name="240"><span class="lineNum">     240 </span>            : }</a>
+<span class="lineNum">     241 </span>            : 
+<span class="lineNum">     242 </span><span class="lineCov">       5323 : void* PlatformSpecificMemset(void* mem, int c, size_t size)</span>
+<span class="lineNum">     243 </span>            : {
+<span class="lineNum">     244 </span><span class="lineCov">       5323 :     return memset(mem, c, size);</span>
+<span class="lineNum">     245 </span>            : }
+<a name="246"><span class="lineNum">     246 </span>            : </a>
+<span class="lineNum">     247 </span>            : 
+<span class="lineNum">     248 </span><span class="lineCov">         39 : double PlatformSpecificFabs(double d)</span>
+<span class="lineNum">     249 </span>            : {
+<span class="lineNum">     250 </span><span class="lineCov">         39 :    return fabs(d);</span>
+<a name="251"><span class="lineNum">     251 </span>            : }</a>
+<span class="lineNum">     252 </span>            : 
+<span class="lineNum">     253 </span><span class="lineCov">        159 : static int IsNanImplementation(double d)</span>
+<span class="lineNum">     254 </span>            : {
+<span class="lineNum">     255 </span><span class="lineCov">        159 :     return isnan((float)d);</span>
+<span class="lineNum">     256 </span>            : }
+<span class="lineNum">     257 </span>            : 
+<span class="lineNum">     258 </span>            : int (*PlatformSpecificIsNan)(double) = IsNanImplementation;
+<a name="259"><span class="lineNum">     259 </span>            : </a>
+<span class="lineNum">     260 </span>            : 
+<span class="lineNum">     261 </span>            : static PlatformSpecificMutex PThreadMutexCreate(void)
+<span class="lineNum">     262 </span>            : {
+<span class="lineNum">     263 </span><span class="lineCov">         96 :     pthread_mutex_t *mutex = new pthread_mutex_t;</span>
+<span class="lineNum">     264 </span>            : 
+<span class="lineNum">     265 </span><span class="lineCov">         48 :     pthread_mutex_init(mutex, NULL);</span>
+<span class="lineNum">     266 </span>            : 
+<span class="lineNum">     267 </span><span class="lineCov">         48 :     return (PlatformSpecificMutex)mutex;</span>
+<a name="268"><span class="lineNum">     268 </span>            : }</a>
+<span class="lineNum">     269 </span>            : 
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 : static void PThreadMutexLock(PlatformSpecificMutex mtx)</span>
+<span class="lineNum">     271 </span>            : {
+<span class="lineNum">     272 </span><span class="lineNoCov">          0 :     pthread_mutex_lock((pthread_mutex_t *)mtx);</span>
+<a name="273"><span class="lineNum">     273 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     274 </span>            : 
+<span class="lineNum">     275 </span><span class="lineNoCov">          0 : static void PThreadMutexUnlock(PlatformSpecificMutex mtx)</span>
+<span class="lineNum">     276 </span>            : {
+<span class="lineNum">     277 </span><span class="lineNoCov">          0 :     pthread_mutex_unlock((pthread_mutex_t *)mtx);</span>
+<a name="278"><span class="lineNum">     278 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     279 </span>            : 
+<span class="lineNum">     280 </span><span class="lineCov">         48 : static void PThreadMutexDestroy(PlatformSpecificMutex mtx)</span>
+<span class="lineNum">     281 </span>            : {
+<span class="lineNum">     282 </span><span class="lineCov">         48 :     pthread_mutex_t *mutex = (pthread_mutex_t *)mtx;</span>
+<span class="lineNum">     283 </span><span class="lineCov">         48 :     pthread_mutex_destroy(mutex);</span>
+<span class="lineNum">     284 </span><span class="lineCov">         96 :     delete mutex;</span>
+<span class="lineNum">     285 </span><span class="lineCov">         48 : }</span>
+<span class="lineNum">     286 </span>            : 
+<span class="lineNum">     287 </span>            : PlatformSpecificMutex (*PlatformSpecificMutexCreate)(void) = PThreadMutexCreate;
+<span class="lineNum">     288 </span>            : void (*PlatformSpecificMutexLock)(PlatformSpecificMutex) = PThreadMutexLock;
+<span class="lineNum">     289 </span>            : void (*PlatformSpecificMutexUnlock)(PlatformSpecificMutex) = PThreadMutexUnlock;
+<span class="lineNum">     290 </span>            : void (*PlatformSpecificMutexDestroy)(PlatformSpecificMutex) = PThreadMutexDestroy;
+<span class="lineNum">     291 </span>            : 
+<span class="lineNum">     292 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

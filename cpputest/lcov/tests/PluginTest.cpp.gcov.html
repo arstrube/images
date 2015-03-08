@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - info.txt - tests/PluginTest.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">tests</a> - PluginTest.cpp<span style="font-size: 80%;"> (source / <a href="PluginTest.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">info.txt</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">87</td>
+            <td class="headerCovTableEntry">87</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">121</td>
+            <td class="headerCovTableEntry">131</td>
+            <td class="headerCovTableEntryHi">92.4 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            :  * Copyright (c) 2007, Michael Feathers, James Grenning and Bas Vodde
+<span class="lineNum">       3 </span>            :  * All rights reserved.
+<span class="lineNum">       4 </span>            :  *
+<span class="lineNum">       5 </span>            :  * Redistribution and use in source and binary forms, with or without
+<span class="lineNum">       6 </span>            :  * modification, are permitted provided that the following conditions are met:
+<span class="lineNum">       7 </span>            :  *     * Redistributions of source code must retain the above copyright
+<span class="lineNum">       8 </span>            :  *       notice, this list of conditions and the following disclaimer.
+<span class="lineNum">       9 </span>            :  *     * Redistributions in binary form must reproduce the above copyright
+<span class="lineNum">      10 </span>            :  *       notice, this list of conditions and the following disclaimer in the
+<span class="lineNum">      11 </span>            :  *       documentation and/or other materials provided with the distribution.
+<span class="lineNum">      12 </span>            :  *     * Neither the name of the &lt;organization&gt; nor the
+<span class="lineNum">      13 </span>            :  *       names of its contributors may be used to endorse or promote products
+<span class="lineNum">      14 </span>            :  *       derived from this software without specific prior written permission.
+<span class="lineNum">      15 </span>            :  *
+<span class="lineNum">      16 </span>            :  * THIS SOFTWARE IS PROVIDED BY THE EARLIER MENTIONED AUTHORS ``AS IS'' AND ANY
+<span class="lineNum">      17 </span>            :  * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      18 </span>            :  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      19 </span>            :  * DISCLAIMED. IN NO EVENT SHALL &lt;copyright holder&gt; BE LIABLE FOR ANY
+<span class="lineNum">      20 </span>            :  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      21 </span>            :  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      22 </span>            :  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      23 </span>            :  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      24 </span>            :  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      25 </span>            :  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      26 </span>            :  */
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : #include &quot;CppUTest/TestHarness.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;CppUTest/TestRegistry.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;CppUTest/TestOutput.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;CppUTest/TestTestingFixture.h&quot;
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span>            : #define GENERIC_PLUGIN  &quot;GenericPlugin&quot;
+<span class="lineNum">      34 </span>            : #define GENERIC_PLUGIN2 &quot;GenericPlugin2&quot;
+<span class="lineNum">      35 </span>            : #define GENERIC_PLUGIN3 &quot;GenericPlugin3&quot;
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : static int sequenceNumber;
+<span class="lineNum">      38 </span>            : 
+<span class="lineNum">      39 </span>            : class DummyPlugin: public TestPlugin
+<a name="40"><span class="lineNum">      40 </span>            : {</a>
+<span class="lineNum">      41 </span>            : public:
+<span class="lineNum">      42 </span><span class="lineCov">         40 :     DummyPlugin(const SimpleString&amp; name) :</span>
+<span class="lineNum">      43 </span>            :         TestPlugin(name), preAction(0), preActionSequence(0), postAction(0), postActionSequence(0)
+<span class="lineNum">      44 </span><span class="lineCov">         24 :     {</span>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         40 :     }</span></a>
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            :     virtual ~DummyPlugin()
+<span class="lineNum">      48 </span><span class="lineCov">         48 :     {</span>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">         56 :     }</span></a>
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span><span class="lineCov">          7 :     virtual void preTestAction(UtestShell&amp;, TestResult&amp;)</span>
+<span class="lineNum">      52 </span>            :     {
+<span class="lineNum">      53 </span><span class="lineCov">          7 :         preAction++;</span>
+<span class="lineNum">      54 </span><span class="lineCov">          7 :         preActionSequence = sequenceNumber++;</span>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">          7 :     }</span></a>
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span><span class="lineCov">          7 :     virtual void postTestAction(UtestShell&amp;, TestResult&amp;)</span>
+<span class="lineNum">      58 </span>            :     {
+<span class="lineNum">      59 </span><span class="lineCov">          7 :         postAction++;</span>
+<span class="lineNum">      60 </span><span class="lineCov">          7 :         postActionSequence = sequenceNumber++;</span>
+<span class="lineNum">      61 </span><span class="lineCov">          7 :     }</span>
+<span class="lineNum">      62 </span>            : 
+<span class="lineNum">      63 </span>            :     int preAction;
+<span class="lineNum">      64 </span>            :     int preActionSequence;
+<span class="lineNum">      65 </span>            :     int postAction;
+<span class="lineNum">      66 </span>            :     int postActionSequence;
+<a name="67"><span class="lineNum">      67 </span>            : };</a>
+<span class="lineNum">      68 </span>            : 
+<span class="lineNum">      69 </span><span class="lineCov">         32 : class DummyPluginWhichAcceptsParameters: public DummyPlugin</span>
+<a name="70"><span class="lineNum">      70 </span>            : {</a>
+<span class="lineNum">      71 </span>            : public:
+<span class="lineNum">      72 </span><span class="lineCov">         16 :     DummyPluginWhichAcceptsParameters(const SimpleString&amp; name) :</span>
+<span class="lineNum">      73 </span>            :         DummyPlugin(name)
+<span class="lineNum">      74 </span><span class="lineCov">          8 :     {</span>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">         16 :     }</span></a>
+<span class="lineNum">      76 </span>            : 
+<span class="lineNum">      77 </span><span class="lineCov">          2 :     virtual bool parseArguments(int ac, const char** av, int index)</span>
+<span class="lineNum">      78 </span>            :     {
+<span class="lineNum">      79 </span><span class="lineCov">          2 :         SimpleString argument (av[index]);</span>
+<span class="lineNum">      80 </span><span class="lineCov">          8 :         if (argument == &quot;-paccept&quot;)</span>
+<span class="lineNum">      81 </span><span class="lineCov">          1 :             return true;</span>
+<span class="lineNum">      82 </span><span class="lineCov">          2 :         return TestPlugin::parseArguments(ac, av, index);</span>
+<span class="lineNum">      83 </span><span class="lineCov">          2 :     }</span>
+<span class="lineNum">      84 </span>            : 
+<span class="lineNum">      85 </span>            : };
+<a name="86"><span class="lineNum">      86 </span>            : </a>
+<span class="lineNum">      87 </span>            : 
+<span class="lineNum">      88 </span><span class="lineCov">         16 : TEST_GROUP(PluginTest)</span>
+<span class="lineNum">      89 </span>            : {
+<span class="lineNum">      90 </span>            :     DummyPlugin* firstPlugin;
+<span class="lineNum">      91 </span>            :     DummyPluginWhichAcceptsParameters* secondPlugin;
+<span class="lineNum">      92 </span>            :     DummyPlugin* thirdPlugin;
+<a name="93"><span class="lineNum">      93 </span>            :     TestTestingFixture *genFixture;</a>
+<span class="lineNum">      94 </span>            :     TestRegistry *registry;
+<span class="lineNum">      95 </span>            :     void setup()
+<span class="lineNum">      96 </span>            :     {
+<span class="lineNum">      97 </span><span class="lineCov">         24 :         firstPlugin = new DummyPlugin(GENERIC_PLUGIN);</span>
+<span class="lineNum">      98 </span><span class="lineCov">         24 :         secondPlugin = new DummyPluginWhichAcceptsParameters(GENERIC_PLUGIN2);</span>
+<span class="lineNum">      99 </span><span class="lineCov">         24 :         thirdPlugin = new DummyPlugin(GENERIC_PLUGIN3);</span>
+<span class="lineNum">     100 </span><span class="lineCov">         16 :         genFixture = new TestTestingFixture;</span>
+<span class="lineNum">     101 </span><span class="lineCov">          8 :         registry = genFixture-&gt;registry_;</span>
+<span class="lineNum">     102 </span><span class="lineCov">          8 :         registry-&gt;installPlugin(firstPlugin);</span>
+<span class="lineNum">     103 </span><span class="lineCov">          8 :         sequenceNumber = 1;</span>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">          8 :     }</span></a>
+<span class="lineNum">     105 </span>            : 
+<span class="lineNum">     106 </span>            :     void teardown()
+<span class="lineNum">     107 </span>            :     {
+<span class="lineNum">     108 </span><span class="lineCov">         16 :         delete firstPlugin;</span>
+<span class="lineNum">     109 </span><span class="lineCov">         16 :         delete secondPlugin;</span>
+<span class="lineNum">     110 </span><span class="lineCov">         16 :         delete thirdPlugin;</span>
+<span class="lineNum">     111 </span><span class="lineCov">         16 :         delete genFixture;</span>
+<span class="lineNum">     112 </span><span class="lineCov">          8 :     }</span>
+<span class="lineNum">     113 </span>            : };
+<span class="lineNum">     114 </span>            : 
+<a name="115"><span class="lineNum">     115 </span>            : #define GENERIC_PLUGIN  &quot;GenericPlugin&quot;</a>
+<span class="lineNum">     116 </span>            : 
+<span class="lineNum">     117 </span><span class="lineCov">         14 : TEST(PluginTest, PluginHasName)</span>
+<span class="lineNum">     118 </span>            : {
+<span class="lineNum">     119 </span><span class="lineCov">          2 :     STRCMP_EQUAL(GENERIC_PLUGIN, firstPlugin-&gt;getName().asCharString());</span>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     121 </span>            : 
+<span class="lineNum">     122 </span><span class="lineCov">         14 : TEST(PluginTest, InstallPlugin)</span>
+<span class="lineNum">     123 </span>            : {
+<span class="lineNum">     124 </span><span class="lineCov">          3 :     CHECK_EQUAL(firstPlugin, registry-&gt;getFirstPlugin());</span>
+<span class="lineNum">     125 </span><span class="lineCov">          4 :     CHECK_EQUAL(firstPlugin, registry-&gt;getPluginByName(GENERIC_PLUGIN));</span>
+<span class="lineNum">     126 </span><span class="lineCov">          2 :     LONGS_EQUAL(1, registry-&gt;countPlugins());</span>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     128 </span>            : 
+<span class="lineNum">     129 </span><span class="lineCov">         14 : TEST(PluginTest, InstallMultiplePlugins)</span>
+<span class="lineNum">     130 </span>            : {
+<span class="lineNum">     131 </span><span class="lineCov">          1 :     registry-&gt;installPlugin(thirdPlugin);</span>
+<span class="lineNum">     132 </span><span class="lineCov">          4 :     CHECK_EQUAL(firstPlugin, registry-&gt;getPluginByName(GENERIC_PLUGIN));</span>
+<span class="lineNum">     133 </span><span class="lineCov">          4 :     CHECK_EQUAL(thirdPlugin, registry-&gt;getPluginByName(GENERIC_PLUGIN3));</span>
+<span class="lineNum">     134 </span><span class="lineCov">          4 :     CHECK_EQUAL(0, registry-&gt;getPluginByName(&quot;I do not exist&quot;));</span>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     136 </span>            : 
+<span class="lineNum">     137 </span><span class="lineCov">         14 : TEST(PluginTest, ActionsAllRun)</span>
+<span class="lineNum">     138 </span>            : {
+<span class="lineNum">     139 </span><span class="lineCov">          1 :     genFixture-&gt;runAllTests();</span>
+<span class="lineNum">     140 </span><span class="lineCov">          1 :     genFixture-&gt;runAllTests();</span>
+<span class="lineNum">     141 </span><span class="lineCov">          3 :     CHECK_EQUAL(2, firstPlugin-&gt;preAction);</span>
+<span class="lineNum">     142 </span><span class="lineCov">          3 :     CHECK_EQUAL(2, firstPlugin-&gt;postAction);</span>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     144 </span>            : 
+<span class="lineNum">     145 </span><span class="lineCov">         14 : TEST(PluginTest, Sequence)</span>
+<span class="lineNum">     146 </span>            : {
+<span class="lineNum">     147 </span><span class="lineCov">          1 :     registry-&gt;installPlugin(thirdPlugin);</span>
+<span class="lineNum">     148 </span><span class="lineCov">          1 :     genFixture-&gt;runAllTests();</span>
+<span class="lineNum">     149 </span><span class="lineCov">          3 :     CHECK_EQUAL(1, thirdPlugin-&gt;preActionSequence);</span>
+<span class="lineNum">     150 </span><span class="lineCov">          3 :     CHECK_EQUAL(2, firstPlugin-&gt;preActionSequence);</span>
+<span class="lineNum">     151 </span><span class="lineCov">          3 :     CHECK_EQUAL(3, firstPlugin-&gt;postActionSequence);</span>
+<span class="lineNum">     152 </span><span class="lineCov">          3 :     CHECK_EQUAL(4, thirdPlugin-&gt;postActionSequence);</span>
+<span class="lineNum">     153 </span><span class="lineCov">          2 :     LONGS_EQUAL(2, registry-&gt;countPlugins());</span>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     155 </span>            : 
+<span class="lineNum">     156 </span><span class="lineCov">         14 : TEST(PluginTest, DisablesPluginsDontRun)</span>
+<span class="lineNum">     157 </span>            : {
+<span class="lineNum">     158 </span><span class="lineCov">          1 :     registry-&gt;installPlugin(thirdPlugin);</span>
+<span class="lineNum">     159 </span><span class="lineCov">          1 :     thirdPlugin-&gt;disable();</span>
+<span class="lineNum">     160 </span><span class="lineCov">          1 :     genFixture-&gt;runAllTests();</span>
+<span class="lineNum">     161 </span><span class="lineCov">          2 :     CHECK(!thirdPlugin-&gt;isEnabled());</span>
+<span class="lineNum">     162 </span><span class="lineCov">          1 :     thirdPlugin-&gt;enable();</span>
+<span class="lineNum">     163 </span><span class="lineCov">          1 :     genFixture-&gt;runAllTests();</span>
+<span class="lineNum">     164 </span><span class="lineCov">          3 :     CHECK_EQUAL(2, firstPlugin-&gt;preAction);</span>
+<span class="lineNum">     165 </span><span class="lineCov">          3 :     CHECK_EQUAL(1, thirdPlugin-&gt;preAction);</span>
+<span class="lineNum">     166 </span><span class="lineCov">          2 :     CHECK(thirdPlugin-&gt;isEnabled());</span>
+<a name="167"><span class="lineNum">     167 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     168 </span>            : 
+<span class="lineNum">     169 </span><span class="lineCov">         14 : TEST(PluginTest, ParseArgumentsForUnknownArgumentsFails)</span>
+<span class="lineNum">     170 </span>            : {
+<span class="lineNum">     171 </span><span class="lineCov">          1 :     registry-&gt;installPlugin(secondPlugin);</span>
+<span class="lineNum">     172 </span><span class="lineCov">          1 :     const char *cmd_line[] = {&quot;nonsense&quot;, &quot;andmorenonsense&quot;};</span>
+<span class="lineNum">     173 </span><span class="lineCov">          2 :     CHECK(registry-&gt;getFirstPlugin()-&gt;parseAllArguments(2, cmd_line, 0) == false  );</span>
+<a name="174"><span class="lineNum">     174 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     175 </span>            : 
+<span class="lineNum">     176 </span><span class="lineCov">         14 : TEST(PluginTest, ParseArgumentsContinuesAndSucceedsWhenAPluginCanParse)</span>
+<span class="lineNum">     177 </span>            : {
+<span class="lineNum">     178 </span><span class="lineCov">          1 :     registry-&gt;installPlugin(secondPlugin);</span>
+<span class="lineNum">     179 </span><span class="lineCov">          1 :     const char *cmd_line[] = {&quot;-paccept&quot;, &quot;andmorenonsense&quot;};</span>
+<span class="lineNum">     180 </span><span class="lineCov">          2 :     CHECK(registry-&gt;getFirstPlugin()-&gt;parseAllArguments(2, cmd_line, 0));</span>
+<span class="lineNum">     181 </span><span class="lineCov">          1 : }</span>
+<span class="lineNum">     182 </span>            : 
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

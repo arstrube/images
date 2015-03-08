@@ -1,0 +1,645 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - info.txt - src/CppUTest/MemoryLeakWarningPlugin.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">src/CppUTest</a> - MemoryLeakWarningPlugin.cpp<span style="font-size: 80%;"> (source / <a href="MemoryLeakWarningPlugin.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">info.txt</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">230</td>
+            <td class="headerCovTableEntry">288</td>
+            <td class="headerCovTableEntryMed">79.9 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">69</td>
+            <td class="headerCovTableEntry">78</td>
+            <td class="headerCovTableEntryMed">88.5 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            :  * Copyright (c) 2007, Michael Feathers, James Grenning and Bas Vodde
+<span class="lineNum">       3 </span>            :  * All rights reserved.
+<span class="lineNum">       4 </span>            :  *
+<span class="lineNum">       5 </span>            :  * Redistribution and use in source and binary forms, with or without
+<span class="lineNum">       6 </span>            :  * modification, are permitted provided that the following conditions are met:
+<span class="lineNum">       7 </span>            :  *     * Redistributions of source code must retain the above copyright
+<span class="lineNum">       8 </span>            :  *       notice, this list of conditions and the following disclaimer.
+<span class="lineNum">       9 </span>            :  *     * Redistributions in binary form must reproduce the above copyright
+<span class="lineNum">      10 </span>            :  *       notice, this list of conditions and the following disclaimer in the
+<span class="lineNum">      11 </span>            :  *       documentation and/or other materials provided with the distribution.
+<span class="lineNum">      12 </span>            :  *     * Neither the name of the &lt;organization&gt; nor the
+<span class="lineNum">      13 </span>            :  *       names of its contributors may be used to endorse or promote products
+<span class="lineNum">      14 </span>            :  *       derived from this software without specific prior written permission.
+<span class="lineNum">      15 </span>            :  *
+<span class="lineNum">      16 </span>            :  * THIS SOFTWARE IS PROVIDED BY THE EARLIER MENTIONED AUTHORS ``AS IS'' AND ANY
+<span class="lineNum">      17 </span>            :  * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      18 </span>            :  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      19 </span>            :  * DISCLAIMED. IN NO EVENT SHALL &lt;copyright holder&gt; BE LIABLE FOR ANY
+<span class="lineNum">      20 </span>            :  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      21 </span>            :  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      22 </span>            :  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      23 </span>            :  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      24 </span>            :  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      25 </span>            :  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      26 </span>            :  */
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : #include &quot;CppUTest/TestHarness.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;CppUTest/MemoryLeakWarningPlugin.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;CppUTest/MemoryLeakDetector.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;CppUTest/TestMemoryAllocator.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;CppUTest/PlatformSpecificFunctions.h&quot;
+<span class="lineNum">      33 </span>            : #include &quot;CppUTest/SimpleMutex.h&quot;
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span>            : /********** Enabling and disabling for C also *********/
+<span class="lineNum">      36 </span>            : 
+<a name="37"><span class="lineNum">      37 </span>            : #if CPPUTEST_USE_MEM_LEAK_DETECTION</a>
+<span class="lineNum">      38 </span>            : 
+<span class="lineNum">      39 </span><span class="lineCov">          8 : class MemLeakScopedMutex</span>
+<a name="40"><span class="lineNum">      40 </span>            : {</a>
+<span class="lineNum">      41 </span>            : public:
+<span class="lineNum">      42 </span><span class="lineCov">          8 :     MemLeakScopedMutex() : lock(MemoryLeakWarningPlugin::getGlobalDetector()-&gt;getMutex()) { }</span>
+<span class="lineNum">      43 </span>            : private:
+<span class="lineNum">      44 </span>            :     ScopedMutexLock lock;
+<a name="45"><span class="lineNum">      45 </span>            : };</a>
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span><span class="lineNoCov">          0 : static void* threadsafe_mem_leak_malloc(size_t size, const char* file, int line)</span>
+<span class="lineNum">      48 </span>            : {
+<span class="lineNum">      49 </span><span class="lineNoCov">          0 :     MemLeakScopedMutex lock;</span>
+<span class="lineNum">      50 </span><span class="lineNoCov">          0 :     return MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentMallocAllocator(), size, file, line, true);</span>
+<a name="51"><span class="lineNum">      51 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      52 </span>            : 
+<span class="lineNum">      53 </span><span class="lineNoCov">          0 : static void threadsafe_mem_leak_free(void* buffer, const char* file, int line)</span>
+<span class="lineNum">      54 </span>            : {
+<span class="lineNum">      55 </span><span class="lineNoCov">          0 :     MemLeakScopedMutex lock;</span>
+<span class="lineNum">      56 </span><span class="lineNoCov">          0 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;invalidateMemory((char*) buffer);</span>
+<span class="lineNum">      57 </span><span class="lineNoCov">          0 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;deallocMemory(getCurrentMallocAllocator(), (char*) buffer, file, line, true);</span>
+<a name="58"><span class="lineNum">      58 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span><span class="lineNoCov">          0 : static void* threadsafe_mem_leak_realloc(void* memory, size_t size, const char* file, int line)</span>
+<span class="lineNum">      61 </span>            : {
+<span class="lineNum">      62 </span><span class="lineNoCov">          0 :     MemLeakScopedMutex lock;</span>
+<span class="lineNum">      63 </span><span class="lineNoCov">          0 :     return MemoryLeakWarningPlugin::getGlobalDetector()-&gt;reallocMemory(getCurrentMallocAllocator(), (char*) memory, size, file, line, true);</span>
+<span class="lineNum">      64 </span><span class="lineNoCov">          0 : }</span>
+<a name="65"><span class="lineNum">      65 </span>            : </a>
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span><span class="lineCov">         25 : static void* mem_leak_malloc(size_t size, const char* file, int line)</span>
+<span class="lineNum">      68 </span>            : {
+<span class="lineNum">      69 </span><span class="lineCov">         25 :     return MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentMallocAllocator(), size, file, line, true);</span>
+<a name="70"><span class="lineNum">      70 </span>            : }</a>
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span><span class="lineCov">         20 : static void mem_leak_free(void* buffer, const char* file, int line)</span>
+<span class="lineNum">      73 </span>            : {
+<span class="lineNum">      74 </span><span class="lineCov">         20 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;invalidateMemory((char*) buffer);</span>
+<span class="lineNum">      75 </span><span class="lineCov">         20 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;deallocMemory(getCurrentMallocAllocator(), (char*) buffer, file, line, true);</span>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">         20 : }</span></a>
+<span class="lineNum">      77 </span>            : 
+<span class="lineNum">      78 </span><span class="lineCov">          2 : static void* mem_leak_realloc(void* memory, size_t size, const char* file, int line)</span>
+<span class="lineNum">      79 </span>            : {
+<span class="lineNum">      80 </span><span class="lineCov">          2 :     return MemoryLeakWarningPlugin::getGlobalDetector()-&gt;reallocMemory(getCurrentMallocAllocator(), (char*) memory, size, file, line, true);</span>
+<span class="lineNum">      81 </span>            : }
+<span class="lineNum">      82 </span>            : 
+<a name="83"><span class="lineNum">      83 </span>            : #endif</a>
+<span class="lineNum">      84 </span>            : 
+<span class="lineNum">      85 </span><span class="lineCov">          1 : static void* normal_malloc(size_t size, const char*, int)</span>
+<span class="lineNum">      86 </span>            : {
+<span class="lineNum">      87 </span><span class="lineCov">          1 :     return PlatformSpecificMalloc(size);</span>
+<a name="88"><span class="lineNum">      88 </span>            : }</a>
+<span class="lineNum">      89 </span>            : 
+<span class="lineNum">      90 </span><span class="lineCov">          1 : static void* normal_realloc(void* memory, size_t size, const char*, int)</span>
+<span class="lineNum">      91 </span>            : {
+<span class="lineNum">      92 </span><span class="lineCov">          1 :     return PlatformSpecificRealloc(memory, size);</span>
+<a name="93"><span class="lineNum">      93 </span>            : }</a>
+<span class="lineNum">      94 </span>            : 
+<span class="lineNum">      95 </span><span class="lineCov">          2 : static void normal_free(void* buffer, const char*, int)</span>
+<span class="lineNum">      96 </span>            : {
+<span class="lineNum">      97 </span><span class="lineCov">          2 :     PlatformSpecificFree(buffer);</span>
+<span class="lineNum">      98 </span><span class="lineCov">          2 : }</span>
+<span class="lineNum">      99 </span>            : 
+<span class="lineNum">     100 </span>            : #if CPPUTEST_USE_MEM_LEAK_DETECTION
+<span class="lineNum">     101 </span>            : static void *(*malloc_fptr)(size_t size, const char* file, int line) = mem_leak_malloc;
+<span class="lineNum">     102 </span>            : static void (*free_fptr)(void* mem, const char* file, int line) = mem_leak_free;
+<span class="lineNum">     103 </span>            : static void*(*realloc_fptr)(void* memory, size_t size, const char* file, int line) = mem_leak_realloc;
+<span class="lineNum">     104 </span>            : #else
+<span class="lineNum">     105 </span>            : static void *(*malloc_fptr)(size_t size, const char* file, int line) = normal_malloc;
+<span class="lineNum">     106 </span>            : static void (*free_fptr)(void* mem, const char* file, int line) = normal_free;
+<span class="lineNum">     107 </span>            : static void*(*realloc_fptr)(void* memory, size_t size, const char* file, int line) = normal_realloc;
+<a name="108"><span class="lineNum">     108 </span>            : #endif</a>
+<span class="lineNum">     109 </span>            : 
+<span class="lineNum">     110 </span><span class="lineCov">         26 : void* cpputest_malloc_location_with_leak_detection(size_t size, const char* file, int line)</span>
+<span class="lineNum">     111 </span>            : {
+<span class="lineNum">     112 </span><span class="lineCov">         26 :     return malloc_fptr(size, file, line);</span>
+<a name="113"><span class="lineNum">     113 </span>            : }</a>
+<span class="lineNum">     114 </span>            : 
+<span class="lineNum">     115 </span><span class="lineCov">          3 : void* cpputest_realloc_location_with_leak_detection(void* memory, size_t size, const char* file, int line)</span>
+<span class="lineNum">     116 </span>            : {
+<span class="lineNum">     117 </span><span class="lineCov">          3 :     return realloc_fptr(memory, size, file, line);</span>
+<a name="118"><span class="lineNum">     118 </span>            : }</a>
+<span class="lineNum">     119 </span>            : 
+<span class="lineNum">     120 </span><span class="lineCov">         22 : void cpputest_free_location_with_leak_detection(void* buffer, const char* file, int line)</span>
+<span class="lineNum">     121 </span>            : {
+<span class="lineNum">     122 </span><span class="lineCov">         22 :     free_fptr(buffer, file, line);</span>
+<span class="lineNum">     123 </span><span class="lineCov">         22 : }</span>
+<span class="lineNum">     124 </span>            : 
+<span class="lineNum">     125 </span>            : /********** C++ *************/
+<span class="lineNum">     126 </span>            : 
+<span class="lineNum">     127 </span>            : #if CPPUTEST_USE_MEM_LEAK_DETECTION
+<span class="lineNum">     128 </span>            : #undef new
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span>            : #if CPPUTEST_USE_STD_CPP_LIB
+<span class="lineNum">     131 </span>            : #define UT_THROW_BAD_ALLOC_WHEN_NULL(memory) if (memory == NULL) throw std::bad_alloc();
+<span class="lineNum">     132 </span>            : #else
+<span class="lineNum">     133 </span>            : #define UT_THROW_BAD_ALLOC_WHEN_NULL(memory)
+<a name="134"><span class="lineNum">     134 </span>            : #endif</a>
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span><span class="lineNoCov">          0 : static void* threadsafe_mem_leak_operator_new (size_t size) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     137 </span>            : {
+<span class="lineNum">     138 </span><span class="lineNoCov">          0 :     MemLeakScopedMutex lock;</span>
+<span class="lineNum">     139 </span><span class="lineNoCov">          0 :     void* memory = MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewAllocator(), size);</span>
+<span class="lineNum">     140 </span><span class="lineNoCov">          0 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     141 </span><span class="lineNoCov">          0 :     return memory;</span>
+<a name="142"><span class="lineNum">     142 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     143 </span>            : 
+<span class="lineNum">     144 </span><span class="lineNoCov">          0 : static void* threadsafe_mem_leak_operator_new_nothrow (size_t size) UT_NOTHROW</span>
+<span class="lineNum">     145 </span>            : {
+<span class="lineNum">     146 </span><span class="lineNoCov">          0 :     MemLeakScopedMutex lock;</span>
+<span class="lineNum">     147 </span><span class="lineNoCov">          0 :     return MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewAllocator(), size);</span>
+<a name="148"><span class="lineNum">     148 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span><span class="lineCov">          1 : static void* threadsafe_mem_leak_operator_new_debug (size_t size, const char* file, int line) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     151 </span>            : {
+<span class="lineNum">     152 </span><span class="lineCov">          1 :     MemLeakScopedMutex lock;</span>
+<span class="lineNum">     153 </span><span class="lineCov">          4 :     void *memory = MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewAllocator(), size, (char*) file, line);</span>
+<span class="lineNum">     154 </span><span class="lineCov">          1 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     155 </span><span class="lineCov">          1 :     return memory;</span>
+<a name="156"><span class="lineNum">     156 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     157 </span>            : 
+<span class="lineNum">     158 </span><span class="lineNoCov">          0 : static void* threadsafe_mem_leak_operator_new_array (size_t size) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     159 </span>            : {
+<span class="lineNum">     160 </span><span class="lineNoCov">          0 :     MemLeakScopedMutex lock;</span>
+<span class="lineNum">     161 </span><span class="lineNoCov">          0 :     void* memory = MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewArrayAllocator(), size);</span>
+<span class="lineNum">     162 </span><span class="lineNoCov">          0 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     163 </span><span class="lineNoCov">          0 :     return memory;</span>
+<a name="164"><span class="lineNum">     164 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     165 </span>            : 
+<span class="lineNum">     166 </span><span class="lineNoCov">          0 : static void* threadsafe_mem_leak_operator_new_array_nothrow (size_t size) UT_NOTHROW</span>
+<span class="lineNum">     167 </span>            : {
+<span class="lineNum">     168 </span><span class="lineNoCov">          0 :     MemLeakScopedMutex lock;</span>
+<span class="lineNum">     169 </span><span class="lineNoCov">          0 :     return MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewArrayAllocator(), size);</span>
+<a name="170"><span class="lineNum">     170 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     171 </span>            : 
+<span class="lineNum">     172 </span><span class="lineCov">          1 : static void* threadsafe_mem_leak_operator_new_array_debug (size_t size, const char* file, int line) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     173 </span>            : {
+<span class="lineNum">     174 </span><span class="lineCov">          1 :     MemLeakScopedMutex lock;</span>
+<span class="lineNum">     175 </span><span class="lineCov">          4 :     void* memory = MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewArrayAllocator(), size, (char*) file, line);</span>
+<span class="lineNum">     176 </span><span class="lineCov">          1 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     177 </span><span class="lineCov">          1 :     return memory;</span>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     179 </span>            : 
+<span class="lineNum">     180 </span><span class="lineCov">          1 : static void threadsafe_mem_leak_operator_delete (void* mem) UT_NOTHROW</span>
+<span class="lineNum">     181 </span>            : {
+<span class="lineNum">     182 </span><span class="lineCov">          1 :     MemLeakScopedMutex lock;</span>
+<span class="lineNum">     183 </span><span class="lineCov">          2 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;invalidateMemory((char*) mem);</span>
+<span class="lineNum">     184 </span><span class="lineCov">          3 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;deallocMemory(getCurrentNewAllocator(), (char*) mem);</span>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     186 </span>            : 
+<span class="lineNum">     187 </span><span class="lineCov">          1 : static void threadsafe_mem_leak_operator_delete_array (void* mem) UT_NOTHROW</span>
+<span class="lineNum">     188 </span>            : {
+<span class="lineNum">     189 </span><span class="lineCov">          1 :     MemLeakScopedMutex lock;</span>
+<span class="lineNum">     190 </span><span class="lineCov">          2 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;invalidateMemory((char*) mem);</span>
+<span class="lineNum">     191 </span><span class="lineCov">          3 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;deallocMemory(getCurrentNewArrayAllocator(), (char*) mem);</span>
+<span class="lineNum">     192 </span><span class="lineCov">          2 : }</span>
+<a name="193"><span class="lineNum">     193 </span>            : </a>
+<span class="lineNum">     194 </span>            : 
+<span class="lineNum">     195 </span><span class="lineCov">          6 : static void* mem_leak_operator_new (size_t size) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     196 </span>            : {
+<span class="lineNum">     197 </span><span class="lineCov">         24 :     void* memory = MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewAllocator(), size);</span>
+<span class="lineNum">     198 </span><span class="lineCov">          6 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     199 </span><span class="lineCov">          5 :     return memory;</span>
+<a name="200"><span class="lineNum">     200 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span><span class="lineCov">          1 : static void* mem_leak_operator_new_nothrow (size_t size) UT_NOTHROW</span>
+<span class="lineNum">     203 </span>            : {
+<span class="lineNum">     204 </span><span class="lineCov">          4 :     return MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewAllocator(), size);</span>
+<a name="205"><span class="lineNum">     205 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     206 </span>            : 
+<span class="lineNum">     207 </span><span class="lineCov">       5231 : static void* mem_leak_operator_new_debug (size_t size, const char* file, int line) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     208 </span>            : {
+<span class="lineNum">     209 </span><span class="lineCov">      20924 :     void *memory = MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewAllocator(), size, (char*) file, line);</span>
+<span class="lineNum">     210 </span><span class="lineCov">       5231 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     211 </span><span class="lineCov">       5230 :     return memory;</span>
+<a name="212"><span class="lineNum">     212 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     213 </span>            : 
+<span class="lineNum">     214 </span><span class="lineCov">          3 : static void* mem_leak_operator_new_array (size_t size) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     215 </span>            : {
+<span class="lineNum">     216 </span><span class="lineCov">         12 :     void* memory = MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewArrayAllocator(), size);</span>
+<span class="lineNum">     217 </span><span class="lineCov">          3 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     218 </span><span class="lineCov">          2 :     return memory;</span>
+<a name="219"><span class="lineNum">     219 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     220 </span>            : 
+<span class="lineNum">     221 </span><span class="lineCov">          1 : static void* mem_leak_operator_new_array_nothrow (size_t size) UT_NOTHROW</span>
+<span class="lineNum">     222 </span>            : {
+<span class="lineNum">     223 </span><span class="lineCov">          4 :     return MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewArrayAllocator(), size);</span>
+<a name="224"><span class="lineNum">     224 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     225 </span>            : 
+<span class="lineNum">     226 </span><span class="lineCov">         59 : static void* mem_leak_operator_new_array_debug (size_t size, const char* file, int line) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     227 </span>            : {
+<span class="lineNum">     228 </span><span class="lineCov">        236 :     void* memory = MemoryLeakWarningPlugin::getGlobalDetector()-&gt;allocMemory(getCurrentNewArrayAllocator(), size, (char*) file, line);</span>
+<span class="lineNum">     229 </span><span class="lineCov">         59 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     230 </span><span class="lineCov">         58 :     return memory;</span>
+<a name="231"><span class="lineNum">     231 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     232 </span>            : 
+<span class="lineNum">     233 </span><span class="lineCov">       5237 : static void mem_leak_operator_delete (void* mem) UT_NOTHROW</span>
+<span class="lineNum">     234 </span>            : {
+<span class="lineNum">     235 </span><span class="lineCov">      10474 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;invalidateMemory((char*) mem);</span>
+<span class="lineNum">     236 </span><span class="lineCov">      15710 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;deallocMemory(getCurrentNewAllocator(), (char*) mem);</span>
+<a name="237"><span class="lineNum">     237 </span><span class="lineCov">       5236 : }</span></a>
+<span class="lineNum">     238 </span>            : 
+<span class="lineNum">     239 </span><span class="lineCov">         59 : static void mem_leak_operator_delete_array (void* mem) UT_NOTHROW</span>
+<span class="lineNum">     240 </span>            : {
+<span class="lineNum">     241 </span><span class="lineCov">        118 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;invalidateMemory((char*) mem);</span>
+<span class="lineNum">     242 </span><span class="lineCov">        177 :     MemoryLeakWarningPlugin::getGlobalDetector()-&gt;deallocMemory(getCurrentNewArrayAllocator(), (char*) mem);</span>
+<a name="243"><span class="lineNum">     243 </span><span class="lineCov">         59 : }</span></a>
+<span class="lineNum">     244 </span>            : 
+<span class="lineNum">     245 </span><span class="lineCov">          6 : static void* normal_operator_new (size_t size) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     246 </span>            : {
+<span class="lineNum">     247 </span><span class="lineCov">         12 :     void* memory = PlatformSpecificMalloc(size);</span>
+<span class="lineNum">     248 </span><span class="lineCov">          6 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     249 </span><span class="lineCov">          6 :     return memory;</span>
+<a name="250"><span class="lineNum">     250 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     251 </span>            : 
+<span class="lineNum">     252 </span><span class="lineCov">          1 : static void* normal_operator_new_nothrow (size_t size) UT_NOTHROW</span>
+<span class="lineNum">     253 </span>            : {
+<span class="lineNum">     254 </span><span class="lineCov">          2 :     return PlatformSpecificMalloc(size);</span>
+<a name="255"><span class="lineNum">     255 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     256 </span>            : 
+<span class="lineNum">     257 </span><span class="lineCov">         48 : static void* normal_operator_new_debug (size_t size, const char* /*file*/, int /*line*/) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     258 </span>            : {
+<span class="lineNum">     259 </span><span class="lineCov">         96 :     void* memory = PlatformSpecificMalloc(size);</span>
+<span class="lineNum">     260 </span><span class="lineCov">         48 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     261 </span><span class="lineCov">         48 :     return memory;</span>
+<a name="262"><span class="lineNum">     262 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     263 </span>            : 
+<span class="lineNum">     264 </span><span class="lineNoCov">          0 : static void* normal_operator_new_array (size_t size) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     265 </span>            : {
+<span class="lineNum">     266 </span><span class="lineNoCov">          0 :     void* memory = PlatformSpecificMalloc(size);</span>
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     268 </span><span class="lineNoCov">          0 :     return memory;</span>
+<a name="269"><span class="lineNum">     269 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     270 </span>            : 
+<span class="lineNum">     271 </span><span class="lineCov">          1 : static void* normal_operator_new_array_nothrow (size_t size) UT_NOTHROW</span>
+<span class="lineNum">     272 </span>            : {
+<span class="lineNum">     273 </span><span class="lineCov">          2 :     return PlatformSpecificMalloc(size);</span>
+<a name="274"><span class="lineNum">     274 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     275 </span>            : 
+<span class="lineNum">     276 </span><span class="lineCov">          1 : static void* normal_operator_new_array_debug (size_t size, const char* /*file*/, int /*line*/) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     277 </span>            : {
+<span class="lineNum">     278 </span><span class="lineCov">          2 :     void* memory = PlatformSpecificMalloc(size);</span>
+<span class="lineNum">     279 </span><span class="lineCov">          1 :     UT_THROW_BAD_ALLOC_WHEN_NULL(memory);</span>
+<span class="lineNum">     280 </span><span class="lineCov">          1 :     return memory;</span>
+<a name="281"><span class="lineNum">     281 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     282 </span>            : 
+<span class="lineNum">     283 </span><span class="lineCov">         56 : static void normal_operator_delete (void* mem) UT_NOTHROW</span>
+<span class="lineNum">     284 </span>            : {
+<span class="lineNum">     285 </span><span class="lineCov">         56 :     PlatformSpecificFree(mem);</span>
+<a name="286"><span class="lineNum">     286 </span><span class="lineCov">         56 : }</span></a>
+<span class="lineNum">     287 </span>            : 
+<span class="lineNum">     288 </span><span class="lineCov">          1 : static void normal_operator_delete_array (void* mem) UT_NOTHROW</span>
+<span class="lineNum">     289 </span>            : {
+<span class="lineNum">     290 </span><span class="lineCov">          1 :     PlatformSpecificFree(mem);</span>
+<span class="lineNum">     291 </span><span class="lineCov">          1 : }</span>
+<span class="lineNum">     292 </span>            : 
+<span class="lineNum">     293 </span>            : static void *(*operator_new_fptr)(size_t size) UT_THROW(std::bad_alloc) = mem_leak_operator_new;
+<span class="lineNum">     294 </span>            : static void *(*operator_new_nothrow_fptr)(size_t size) UT_NOTHROW = mem_leak_operator_new_nothrow;
+<span class="lineNum">     295 </span>            : static void *(*operator_new_debug_fptr)(size_t size, const char* file, int line) UT_THROW(std::bad_alloc) = mem_leak_operator_new_debug;
+<span class="lineNum">     296 </span>            : static void *(*operator_new_array_fptr)(size_t size) UT_THROW(std::bad_alloc) = mem_leak_operator_new_array;
+<span class="lineNum">     297 </span>            : static void *(*operator_new_array_nothrow_fptr)(size_t size) UT_NOTHROW = mem_leak_operator_new_array_nothrow;
+<span class="lineNum">     298 </span>            : static void *(*operator_new_array_debug_fptr)(size_t size, const char* file, int line) UT_THROW(std::bad_alloc) = mem_leak_operator_new_array_debug;
+<span class="lineNum">     299 </span>            : static void (*operator_delete_fptr)(void* mem) UT_NOTHROW = mem_leak_operator_delete;
+<a name="300"><span class="lineNum">     300 </span>            : static void (*operator_delete_array_fptr)(void* mem) UT_NOTHROW = mem_leak_operator_delete_array;</a>
+<span class="lineNum">     301 </span>            : 
+<span class="lineNum">     302 </span><span class="lineCov">         11 : void* operator new(size_t size) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     303 </span>            : {
+<span class="lineNum">     304 </span><span class="lineCov">         22 :     return operator_new_fptr(size);</span>
+<a name="305"><span class="lineNum">     305 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     306 </span>            : 
+<span class="lineNum">     307 </span><span class="lineCov">       5279 : void* operator new(size_t size, const char* file, int line) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     308 </span>            : {
+<span class="lineNum">     309 </span><span class="lineCov">      10558 :     return operator_new_debug_fptr(size, file, line);</span>
+<a name="310"><span class="lineNum">     310 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     311 </span>            : 
+<span class="lineNum">     312 </span><span class="lineCov">       5292 : void operator delete(void* mem) UT_NOTHROW</span>
+<span class="lineNum">     313 </span>            : {
+<span class="lineNum">     314 </span><span class="lineCov">       5292 :     operator_delete_fptr(mem);</span>
+<a name="315"><span class="lineNum">     315 </span><span class="lineCov">       5292 : }</span></a>
+<span class="lineNum">     316 </span>            : 
+<span class="lineNum">     317 </span><span class="lineCov">          1 : void operator delete(void* mem, const char*, int) UT_NOTHROW</span>
+<span class="lineNum">     318 </span>            : {
+<span class="lineNum">     319 </span><span class="lineCov">          1 :     operator_delete_fptr(mem);</span>
+<a name="320"><span class="lineNum">     320 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     321 </span>            : 
+<span class="lineNum">     322 </span><span class="lineCov">          2 : void* operator new[](size_t size) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     323 </span>            : {
+<span class="lineNum">     324 </span><span class="lineCov">          4 :     return operator_new_array_fptr(size);</span>
+<a name="325"><span class="lineNum">     325 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     326 </span>            : 
+<span class="lineNum">     327 </span><span class="lineCov">         60 : void* operator new [](size_t size, const char* file, int line) UT_THROW(std::bad_alloc)</span>
+<span class="lineNum">     328 </span>            : {
+<span class="lineNum">     329 </span><span class="lineCov">        120 :     return operator_new_array_debug_fptr(size, file, line);</span>
+<a name="330"><span class="lineNum">     330 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     331 </span>            : 
+<span class="lineNum">     332 </span><span class="lineCov">         60 : void operator delete[](void* mem) UT_NOTHROW</span>
+<span class="lineNum">     333 </span>            : {
+<span class="lineNum">     334 </span><span class="lineCov">         60 :      operator_delete_array_fptr(mem);</span>
+<a name="335"><span class="lineNum">     335 </span><span class="lineCov">         60 : }</span></a>
+<span class="lineNum">     336 </span>            : 
+<span class="lineNum">     337 </span><span class="lineCov">          1 : void operator delete[](void* mem, const char*, int) UT_NOTHROW</span>
+<span class="lineNum">     338 </span>            : {
+<span class="lineNum">     339 </span><span class="lineCov">          1 :      operator_delete_array_fptr(mem);</span>
+<span class="lineNum">     340 </span><span class="lineCov">          1 : }</span>
+<span class="lineNum">     341 </span>            : 
+<span class="lineNum">     342 </span>            : 
+<a name="343"><span class="lineNum">     343 </span>            : #if CPPUTEST_USE_STD_CPP_LIB</a>
+<span class="lineNum">     344 </span>            : 
+<span class="lineNum">     345 </span><span class="lineCov">          2 : void* operator new(size_t size, const std::nothrow_t&amp;) UT_NOTHROW</span>
+<span class="lineNum">     346 </span>            : {
+<span class="lineNum">     347 </span><span class="lineCov">          4 :     return operator_new_nothrow_fptr(size);</span>
+<a name="348"><span class="lineNum">     348 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     349 </span>            : 
+<span class="lineNum">     350 </span><span class="lineCov">          2 : void* operator new[](size_t size, const std::nothrow_t&amp;) UT_NOTHROW</span>
+<span class="lineNum">     351 </span>            : {
+<span class="lineNum">     352 </span><span class="lineCov">          4 :     return operator_new_array_nothrow_fptr(size);</span>
+<span class="lineNum">     353 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     354 </span>            : 
+<span class="lineNum">     355 </span>            : #else
+<span class="lineNum">     356 </span>            : 
+<span class="lineNum">     357 </span>            : /* Have a similar method. This avoid unused operator_new_nothrow_fptr warning */
+<span class="lineNum">     358 </span>            : 
+<span class="lineNum">     359 </span>            : extern void* operator_new_nothrow(size_t size) UT_NOTHROW;
+<span class="lineNum">     360 </span>            : extern void* operator_new_array_nothrow(size_t size) UT_NOTHROW;
+<span class="lineNum">     361 </span>            : 
+<span class="lineNum">     362 </span>            : void* operator_new_nothrow(size_t size) UT_NOTHROW
+<span class="lineNum">     363 </span>            : {
+<span class="lineNum">     364 </span>            :     return operator_new_nothrow_fptr(size);
+<span class="lineNum">     365 </span>            : }
+<span class="lineNum">     366 </span>            : 
+<span class="lineNum">     367 </span>            : void* operator_new_array_nothrow(size_t size) UT_NOTHROW
+<span class="lineNum">     368 </span>            : {
+<span class="lineNum">     369 </span>            :     return operator_new_array_nothrow_fptr(size);
+<span class="lineNum">     370 </span>            : }
+<span class="lineNum">     371 </span>            : 
+<span class="lineNum">     372 </span>            : #endif
+<a name="373"><span class="lineNum">     373 </span>            : #endif</a>
+<span class="lineNum">     374 </span>            : 
+<span class="lineNum">     375 </span>            : void MemoryLeakWarningPlugin::turnOffNewDeleteOverloads()
+<span class="lineNum">     376 </span>            : {
+<span class="lineNum">     377 </span>            : #if CPPUTEST_USE_MEM_LEAK_DETECTION
+<span class="lineNum">     378 </span><span class="lineCov">         34 :     operator_new_fptr = normal_operator_new;</span>
+<span class="lineNum">     379 </span><span class="lineCov">         34 :     operator_new_nothrow_fptr = normal_operator_new_nothrow;</span>
+<span class="lineNum">     380 </span><span class="lineCov">         34 :     operator_new_debug_fptr = normal_operator_new_debug;</span>
+<span class="lineNum">     381 </span><span class="lineCov">         34 :     operator_new_array_fptr = normal_operator_new_array;</span>
+<span class="lineNum">     382 </span><span class="lineCov">         34 :     operator_new_array_nothrow_fptr = normal_operator_new_array_nothrow;</span>
+<span class="lineNum">     383 </span><span class="lineCov">         34 :     operator_new_array_debug_fptr = normal_operator_new_array_debug;</span>
+<span class="lineNum">     384 </span><span class="lineCov">         34 :     operator_delete_fptr = normal_operator_delete;</span>
+<span class="lineNum">     385 </span><span class="lineCov">         34 :     operator_delete_array_fptr = normal_operator_delete_array;</span>
+<span class="lineNum">     386 </span><span class="lineCov">         34 :     malloc_fptr = normal_malloc;</span>
+<span class="lineNum">     387 </span><span class="lineCov">         34 :     realloc_fptr = normal_realloc;</span>
+<span class="lineNum">     388 </span><span class="lineCov">         34 :     free_fptr = normal_free;</span>
+<span class="lineNum">     389 </span>            : 
+<span class="lineNum">     390 </span>            : #endif
+<a name="391"><span class="lineNum">     391 </span><span class="lineCov">         34 : }</span></a>
+<span class="lineNum">     392 </span>            : 
+<span class="lineNum">     393 </span>            : void MemoryLeakWarningPlugin::turnOnNewDeleteOverloads()
+<span class="lineNum">     394 </span>            : {
+<span class="lineNum">     395 </span>            : #if CPPUTEST_USE_MEM_LEAK_DETECTION
+<span class="lineNum">     396 </span><span class="lineCov">         19 :     operator_new_fptr = mem_leak_operator_new;</span>
+<span class="lineNum">     397 </span><span class="lineCov">         19 :     operator_new_nothrow_fptr = mem_leak_operator_new_nothrow;</span>
+<span class="lineNum">     398 </span><span class="lineCov">         19 :     operator_new_debug_fptr = mem_leak_operator_new_debug;</span>
+<span class="lineNum">     399 </span><span class="lineCov">         19 :     operator_new_array_fptr = mem_leak_operator_new_array;</span>
+<span class="lineNum">     400 </span><span class="lineCov">         19 :     operator_new_array_nothrow_fptr = mem_leak_operator_new_array_nothrow;</span>
+<span class="lineNum">     401 </span><span class="lineCov">         19 :     operator_new_array_debug_fptr = mem_leak_operator_new_array_debug;</span>
+<span class="lineNum">     402 </span><span class="lineCov">         19 :     operator_delete_fptr = mem_leak_operator_delete;</span>
+<span class="lineNum">     403 </span><span class="lineCov">         19 :     operator_delete_array_fptr = mem_leak_operator_delete_array;</span>
+<span class="lineNum">     404 </span><span class="lineCov">         19 :     malloc_fptr = mem_leak_malloc;</span>
+<span class="lineNum">     405 </span><span class="lineCov">         19 :     realloc_fptr = mem_leak_realloc;</span>
+<span class="lineNum">     406 </span><span class="lineCov">         19 :     free_fptr = mem_leak_free;</span>
+<span class="lineNum">     407 </span>            : #endif
+<a name="408"><span class="lineNum">     408 </span><span class="lineCov">         19 : }</span></a>
+<span class="lineNum">     409 </span>            : 
+<span class="lineNum">     410 </span>            : bool MemoryLeakWarningPlugin::areNewDeleteOverloaded()
+<span class="lineNum">     411 </span>            : {
+<span class="lineNum">     412 </span>            : #if CPPUTEST_USE_MEM_LEAK_DETECTION
+<span class="lineNum">     413 </span><span class="lineCov">          6 :     return operator_new_fptr == mem_leak_operator_new;</span>
+<span class="lineNum">     414 </span>            : #else
+<span class="lineNum">     415 </span>            :     return false;
+<span class="lineNum">     416 </span>            : #endif
+<a name="417"><span class="lineNum">     417 </span>            : }</a>
+<span class="lineNum">     418 </span>            : 
+<span class="lineNum">     419 </span>            : void MemoryLeakWarningPlugin::turnOnThreadSafeNewDeleteOverloads()
+<span class="lineNum">     420 </span>            : {
+<span class="lineNum">     421 </span>            : #if CPPUTEST_USE_MEM_LEAK_DETECTION
+<span class="lineNum">     422 </span><span class="lineCov">          1 :     operator_new_fptr = threadsafe_mem_leak_operator_new;</span>
+<span class="lineNum">     423 </span><span class="lineCov">          1 :     operator_new_nothrow_fptr = threadsafe_mem_leak_operator_new_nothrow;</span>
+<span class="lineNum">     424 </span><span class="lineCov">          1 :     operator_new_debug_fptr = threadsafe_mem_leak_operator_new_debug;</span>
+<span class="lineNum">     425 </span><span class="lineCov">          1 :     operator_new_array_fptr = threadsafe_mem_leak_operator_new_array;</span>
+<span class="lineNum">     426 </span><span class="lineCov">          1 :     operator_new_array_nothrow_fptr = threadsafe_mem_leak_operator_new_array_nothrow;</span>
+<span class="lineNum">     427 </span><span class="lineCov">          1 :     operator_new_array_debug_fptr = threadsafe_mem_leak_operator_new_array_debug;</span>
+<span class="lineNum">     428 </span><span class="lineCov">          1 :     operator_delete_fptr = threadsafe_mem_leak_operator_delete;</span>
+<span class="lineNum">     429 </span><span class="lineCov">          1 :     operator_delete_array_fptr = threadsafe_mem_leak_operator_delete_array;</span>
+<span class="lineNum">     430 </span><span class="lineCov">          1 :     malloc_fptr = threadsafe_mem_leak_malloc;</span>
+<span class="lineNum">     431 </span><span class="lineCov">          1 :     realloc_fptr = threadsafe_mem_leak_realloc;</span>
+<span class="lineNum">     432 </span><span class="lineCov">          1 :     free_fptr = threadsafe_mem_leak_free;</span>
+<span class="lineNum">     433 </span>            : #endif
+<a name="434"><span class="lineNum">     434 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     435 </span>            : 
+<span class="lineNum">     436 </span><span class="lineCov">          3 : void crash_on_allocation_number(unsigned alloc_number)</span>
+<span class="lineNum">     437 </span>            : {
+<span class="lineNum">     438 </span><span class="lineCov">          6 :     static CrashOnAllocationAllocator crashAllocator;</span>
+<span class="lineNum">     439 </span><span class="lineCov">          3 :     crashAllocator.setNumberToCrashOn(alloc_number);</span>
+<span class="lineNum">     440 </span><span class="lineCov">          3 :     setCurrentMallocAllocator(&amp;crashAllocator);</span>
+<span class="lineNum">     441 </span><span class="lineCov">          3 :     setCurrentNewAllocator(&amp;crashAllocator);</span>
+<span class="lineNum">     442 </span><span class="lineCov">          3 :     setCurrentNewArrayAllocator(&amp;crashAllocator);</span>
+<a name="443"><span class="lineNum">     443 </span><span class="lineCov">          3 : }</span></a>
+<span class="lineNum">     444 </span>            : 
+<span class="lineNum">     445 </span><span class="lineCov">          6 : class MemoryLeakWarningReporter: public MemoryLeakFailure</span>
+<a name="446"><span class="lineNum">     446 </span>            : {</a>
+<span class="lineNum">     447 </span>            : public:
+<span class="lineNum">     448 </span>            :     virtual ~MemoryLeakWarningReporter()
+<span class="lineNum">     449 </span><span class="lineCov">          9 :     {</span>
+<a name="450"><span class="lineNum">     450 </span><span class="lineCov">          9 :     }</span></a>
+<span class="lineNum">     451 </span>            : 
+<span class="lineNum">     452 </span><span class="lineCov">          1 :     virtual void fail(char* fail_string)</span>
+<span class="lineNum">     453 </span>            :     {
+<span class="lineNum">     454 </span><span class="lineCov">          1 :         UtestShell* currentTest = UtestShell::getCurrent();</span>
+<span class="lineNum">     455 </span><span class="lineCov">          4 :         currentTest-&gt;failWith(FailFailure(currentTest, currentTest-&gt;getName().asCharString(), currentTest-&gt;getLineNumber(), fail_string), TestTerminatorWithoutExceptions());</span>
+<span class="lineNum">     456 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">     457 </span>            : };
+<span class="lineNum">     458 </span>            : 
+<span class="lineNum">     459 </span>            : static MemoryLeakFailure* globalReporter = 0;
+<a name="460"><span class="lineNum">     460 </span>            : static MemoryLeakDetector* globalDetector = 0;</a>
+<span class="lineNum">     461 </span>            : 
+<span class="lineNum">     462 </span>            : MemoryLeakDetector* MemoryLeakWarningPlugin::getGlobalDetector()
+<span class="lineNum">     463 </span>            : {
+<span class="lineNum">     464 </span><span class="lineCov">      16002 :     if (globalDetector == 0) {</span>
+<span class="lineNum">     465 </span><span class="lineCov">          3 :         bool newDeleteOverloaded = areNewDeleteOverloaded();</span>
+<span class="lineNum">     466 </span><span class="lineCov">          3 :         turnOffNewDeleteOverloads();</span>
+<span class="lineNum">     467 </span>            : 
+<span class="lineNum">     468 </span><span class="lineCov">          3 :         globalReporter = new MemoryLeakWarningReporter;</span>
+<span class="lineNum">     469 </span><span class="lineCov">          6 :         globalDetector = new MemoryLeakDetector(globalReporter);</span>
+<span class="lineNum">     470 </span>            : 
+<span class="lineNum">     471 </span><span class="lineCov">          5 :         if (newDeleteOverloaded) turnOnNewDeleteOverloads();</span>
+<span class="lineNum">     472 </span><span class="lineCov">          3 :     }</span>
+<span class="lineNum">     473 </span><span class="lineCov">      16002 :     return globalDetector;</span>
+<a name="474"><span class="lineNum">     474 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     475 </span>            : 
+<span class="lineNum">     476 </span>            : MemoryLeakFailure* MemoryLeakWarningPlugin::getGlobalFailureReporter()
+<span class="lineNum">     477 </span>            : {
+<span class="lineNum">     478 </span><span class="lineCov">         13 :     return globalReporter;</span>
+<a name="479"><span class="lineNum">     479 </span>            : }</a>
+<span class="lineNum">     480 </span>            : 
+<span class="lineNum">     481 </span><span class="lineCov">          3 : void MemoryLeakWarningPlugin::destroyGlobalDetectorAndTurnOffMemoryLeakDetectionInDestructor(bool des)</span>
+<span class="lineNum">     482 </span>            : {
+<span class="lineNum">     483 </span><span class="lineCov">          3 :     destroyGlobalDetectorAndTurnOfMemoryLeakDetectionInDestructor_ = des;</span>
+<a name="484"><span class="lineNum">     484 </span><span class="lineCov">          3 : }</span></a>
+<span class="lineNum">     485 </span>            : 
+<span class="lineNum">     486 </span><span class="lineCov">         16 : void MemoryLeakWarningPlugin::setGlobalDetector(MemoryLeakDetector* detector, MemoryLeakFailure* reporter)</span>
+<span class="lineNum">     487 </span>            : {
+<span class="lineNum">     488 </span><span class="lineCov">         16 :     globalDetector = detector;</span>
+<span class="lineNum">     489 </span><span class="lineCov">         16 :     globalReporter = reporter;</span>
+<a name="490"><span class="lineNum">     490 </span><span class="lineCov">         16 : }</span></a>
+<span class="lineNum">     491 </span>            : 
+<span class="lineNum">     492 </span>            : void MemoryLeakWarningPlugin::destroyGlobalDetector()
+<span class="lineNum">     493 </span>            : {
+<span class="lineNum">     494 </span><span class="lineCov">          4 :     turnOffNewDeleteOverloads();</span>
+<span class="lineNum">     495 </span><span class="lineCov">          8 :     delete globalDetector;</span>
+<span class="lineNum">     496 </span><span class="lineCov">          8 :     delete globalReporter;</span>
+<span class="lineNum">     497 </span><span class="lineCov">          4 :     globalDetector = NULL;</span>
+<span class="lineNum">     498 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     499 </span>            : 
+<span class="lineNum">     500 </span>            : 
+<a name="501"><span class="lineNum">     501 </span>            : MemoryLeakWarningPlugin* MemoryLeakWarningPlugin::firstPlugin_ = 0;</a>
+<span class="lineNum">     502 </span>            : 
+<span class="lineNum">     503 </span>            : MemoryLeakWarningPlugin* MemoryLeakWarningPlugin::getFirstPlugin()
+<span class="lineNum">     504 </span>            : {
+<span class="lineNum">     505 </span><span class="lineCov">          4 :     return firstPlugin_;</span>
+<a name="506"><span class="lineNum">     506 </span>            : }</a>
+<span class="lineNum">     507 </span>            : 
+<span class="lineNum">     508 </span>            : MemoryLeakDetector* MemoryLeakWarningPlugin::getMemoryLeakDetector()
+<span class="lineNum">     509 </span>            : {
+<span class="lineNum">     510 </span><span class="lineNoCov">          0 :     return memLeakDetector_;</span>
+<a name="511"><span class="lineNum">     511 </span>            : }</a>
+<span class="lineNum">     512 </span>            : 
+<span class="lineNum">     513 </span>            : void MemoryLeakWarningPlugin::ignoreAllLeaksInTest()
+<span class="lineNum">     514 </span>            : {
+<span class="lineNum">     515 </span><span class="lineCov">          4 :     ignoreAllWarnings_ = true;</span>
+<a name="516"><span class="lineNum">     516 </span><span class="lineCov">          4 : }</span></a>
+<span class="lineNum">     517 </span>            : 
+<span class="lineNum">     518 </span><span class="lineCov">          1 : void MemoryLeakWarningPlugin::expectLeaksInTest(int n)</span>
+<span class="lineNum">     519 </span>            : {
+<span class="lineNum">     520 </span><span class="lineCov">          1 :     expectedLeaks_ = n;</span>
+<a name="521"><span class="lineNum">     521 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     522 </span>            : 
+<span class="lineNum">     523 </span><span class="lineCov">         12 : MemoryLeakWarningPlugin::MemoryLeakWarningPlugin(const SimpleString&amp; name, MemoryLeakDetector* localDetector) :</span>
+<span class="lineNum">     524 </span>            :     TestPlugin(name), ignoreAllWarnings_(false), destroyGlobalDetectorAndTurnOfMemoryLeakDetectionInDestructor_(false), expectedLeaks_(0)
+<span class="lineNum">     525 </span><span class="lineCov">          6 : {</span>
+<span class="lineNum">     526 </span><span class="lineCov">          8 :     if (firstPlugin_ == 0) firstPlugin_ = this;</span>
+<span class="lineNum">     527 </span>            : 
+<span class="lineNum">     528 </span><span class="lineCov">          9 :     if (localDetector) memLeakDetector_ = localDetector;</span>
+<span class="lineNum">     529 </span><span class="lineCov">          6 :     else memLeakDetector_ = getGlobalDetector();</span>
+<span class="lineNum">     530 </span>            : 
+<span class="lineNum">     531 </span><span class="lineCov">          6 :     memLeakDetector_-&gt;enable();</span>
+<a name="532"><span class="lineNum">     532 </span><span class="lineCov">         12 : }</span></a>
+<span class="lineNum">     533 </span>            : 
+<span class="lineNum">     534 </span>            : MemoryLeakWarningPlugin::~MemoryLeakWarningPlugin()
+<span class="lineNum">     535 </span><span class="lineCov">         20 : {</span>
+<span class="lineNum">     536 </span><span class="lineCov">          6 :     if (destroyGlobalDetectorAndTurnOfMemoryLeakDetectionInDestructor_) {</span>
+<span class="lineNum">     537 </span><span class="lineCov">          3 :         MemoryLeakWarningPlugin::turnOffNewDeleteOverloads();</span>
+<span class="lineNum">     538 </span><span class="lineCov">          3 :         MemoryLeakWarningPlugin::destroyGlobalDetector();</span>
+<span class="lineNum">     539 </span><span class="lineCov">          3 :     }</span>
+<a name="540"><span class="lineNum">     540 </span><span class="lineCov">         16 : }</span></a>
+<span class="lineNum">     541 </span>            : 
+<span class="lineNum">     542 </span><span class="lineCov">        706 : void MemoryLeakWarningPlugin::preTestAction(UtestShell&amp; /*test*/, TestResult&amp; result)</span>
+<span class="lineNum">     543 </span>            : {
+<span class="lineNum">     544 </span><span class="lineCov">        706 :     memLeakDetector_-&gt;startChecking();</span>
+<span class="lineNum">     545 </span><span class="lineCov">        706 :     failureCount_ = result.getFailureCount();</span>
+<a name="546"><span class="lineNum">     546 </span><span class="lineCov">        706 : }</span></a>
+<span class="lineNum">     547 </span>            : 
+<span class="lineNum">     548 </span><span class="lineCov">        706 : void MemoryLeakWarningPlugin::postTestAction(UtestShell&amp; test, TestResult&amp; result)</span>
+<span class="lineNum">     549 </span>            : {
+<span class="lineNum">     550 </span><span class="lineCov">        706 :     memLeakDetector_-&gt;stopChecking();</span>
+<span class="lineNum">     551 </span><span class="lineCov">        706 :     int leaks = memLeakDetector_-&gt;totalMemoryLeaks(mem_leak_period_checking);</span>
+<span class="lineNum">     552 </span>            : 
+<span class="lineNum">     553 </span><span class="lineCov">       1410 :     if (!ignoreAllWarnings_ &amp;&amp; expectedLeaks_ != leaks &amp;&amp; failureCount_ == result.getFailureCount()) {</span>
+<span class="lineNum">     554 </span><span class="lineCov">          2 :         TestFailure f(&amp;test, memLeakDetector_-&gt;report(mem_leak_period_checking));</span>
+<span class="lineNum">     555 </span><span class="lineCov">          1 :         result.addFailure(f);</span>
+<span class="lineNum">     556 </span><span class="lineCov">          1 :     }</span>
+<span class="lineNum">     557 </span><span class="lineCov">        706 :     memLeakDetector_-&gt;markCheckingPeriodLeaksAsNonCheckingPeriod();</span>
+<span class="lineNum">     558 </span><span class="lineCov">        706 :     ignoreAllWarnings_ = false;</span>
+<span class="lineNum">     559 </span><span class="lineCov">        706 :     expectedLeaks_ = 0;</span>
+<a name="560"><span class="lineNum">     560 </span><span class="lineCov">        706 : }</span></a>
+<span class="lineNum">     561 </span>            : 
+<span class="lineNum">     562 </span><span class="lineCov">          2 : const char* MemoryLeakWarningPlugin::FinalReport(int toBeDeletedLeaks)</span>
+<span class="lineNum">     563 </span>            : {
+<span class="lineNum">     564 </span><span class="lineCov">          2 :     int leaks = memLeakDetector_-&gt;totalMemoryLeaks(mem_leak_period_enabled);</span>
+<span class="lineNum">     565 </span><span class="lineCov">          2 :     if (leaks != toBeDeletedLeaks) return memLeakDetector_-&gt;report(mem_leak_period_enabled);</span>
+<span class="lineNum">     566 </span><span class="lineCov">          2 :     return &quot;&quot;;</span>
+<span class="lineNum">     567 </span><span class="lineCov">          2 : }</span>
+<span class="lineNum">     568 </span>            : 
+<span class="lineNum">     569 </span>            : 
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

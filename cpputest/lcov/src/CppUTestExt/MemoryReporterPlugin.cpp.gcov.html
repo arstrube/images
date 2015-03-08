@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - info.txt - src/CppUTestExt/MemoryReporterPlugin.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">src/CppUTestExt</a> - MemoryReporterPlugin.cpp<span style="font-size: 80%;"> (source / <a href="MemoryReporterPlugin.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">info.txt</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">55</td>
+            <td class="headerCovTableEntry">62</td>
+            <td class="headerCovTableEntryMed">88.7 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2015-03-08 18:15:48</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntryMed">84.6 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            :  * Copyright (c) 2007, Michael Feathers, James Grenning and Bas Vodde
+<span class="lineNum">       3 </span>            :  * All rights reserved.
+<span class="lineNum">       4 </span>            :  *
+<span class="lineNum">       5 </span>            :  * Redistribution and use in source and binary forms, with or without
+<span class="lineNum">       6 </span>            :  * modification, are permitted provided that the following conditions are met:
+<span class="lineNum">       7 </span>            :  *     * Redistributions of source code must retain the above copyright
+<span class="lineNum">       8 </span>            :  *       notice, this list of conditions and the following disclaimer.
+<span class="lineNum">       9 </span>            :  *     * Redistributions in binary form must reproduce the above copyright
+<span class="lineNum">      10 </span>            :  *       notice, this list of conditions and the following disclaimer in the
+<span class="lineNum">      11 </span>            :  *       documentation and/or other materials provided with the distribution.
+<span class="lineNum">      12 </span>            :  *     * Neither the name of the &lt;organization&gt; nor the
+<span class="lineNum">      13 </span>            :  *       names of its contributors may be used to endorse or promote products
+<span class="lineNum">      14 </span>            :  *       derived from this software without specific prior written permission.
+<span class="lineNum">      15 </span>            :  *
+<span class="lineNum">      16 </span>            :  * THIS SOFTWARE IS PROVIDED BY THE EARLIER MENTIONED AUTHORS ``AS IS'' AND ANY
+<span class="lineNum">      17 </span>            :  * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      18 </span>            :  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      19 </span>            :  * DISCLAIMED. IN NO EVENT SHALL &lt;copyright holder&gt; BE LIABLE FOR ANY
+<span class="lineNum">      20 </span>            :  * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      21 </span>            :  * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      22 </span>            :  * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      23 </span>            :  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      24 </span>            :  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      25 </span>            :  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      26 </span>            :  */
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : #include &quot;CppUTest/TestHarness.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;CppUTestExt/MemoryReporterPlugin.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;CppUTestExt/MemoryReportFormatter.h&quot;
+<a name="31"><span class="lineNum">      31 </span>            : #include &quot;CppUTestExt/CodeMemoryReportFormatter.h&quot;</a>
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span>            : MemoryReporterPlugin::MemoryReporterPlugin()
+<span class="lineNum">      34 </span>            :     : TestPlugin(&quot;MemoryReporterPlugin&quot;), formatter_(NULL)
+<span class="lineNum">      35 </span><span class="lineCov">         75 : {</span>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">         16 : }</span></a>
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span>            : MemoryReporterPlugin::~MemoryReporterPlugin()
+<span class="lineNum">      39 </span><span class="lineCov">         16 : {</span>
+<span class="lineNum">      40 </span><span class="lineCov">         15 :     removeGlobalMemoryReportAllocators();</span>
+<span class="lineNum">      41 </span><span class="lineCov">         15 :     destroyMemoryFormatter(formatter_);</span>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">         76 : }</span></a>
+<span class="lineNum">      43 </span>            : 
+<span class="lineNum">      44 </span><span class="lineCov">         15 : bool MemoryReporterPlugin::parseArguments(int /* ac */, const char** av, int index)</span>
+<span class="lineNum">      45 </span>            : {
+<span class="lineNum">      46 </span><span class="lineCov">         15 :     SimpleString argument (av[index]);</span>
+<span class="lineNum">      47 </span><span class="lineCov">         60 :     if (argument.contains(&quot;-pmemoryreport=&quot;)) {</span>
+<span class="lineNum">      48 </span><span class="lineCov">         14 :         argument.replace(&quot;-pmemoryreport=&quot;, &quot;&quot;);</span>
+<span class="lineNum">      49 </span>            : 
+<span class="lineNum">      50 </span><span class="lineCov">         14 :         destroyMemoryFormatter(formatter_);</span>
+<span class="lineNum">      51 </span><span class="lineCov">         28 :         formatter_ = createMemoryFormatter(argument);</span>
+<span class="lineNum">      52 </span><span class="lineCov">         14 :         return true;</span>
+<span class="lineNum">      53 </span>            :     }
+<span class="lineNum">      54 </span><span class="lineCov">         16 :     return false;</span>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">         15 : }</span></a>
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span><span class="lineNoCov">          0 : MemoryReportFormatter* MemoryReporterPlugin::createMemoryFormatter(const SimpleString&amp; type)</span>
+<span class="lineNum">      58 </span>            : {
+<span class="lineNum">      59 </span><span class="lineNoCov">          0 :     if (type == &quot;normal&quot;) {</span>
+<span class="lineNum">      60 </span><span class="lineNoCov">          0 :         return  new NormalMemoryReportFormatter;</span>
+<span class="lineNum">      61 </span>            :     }
+<span class="lineNum">      62 </span><span class="lineNoCov">          0 :     else if (type == &quot;code&quot;) {</span>
+<span class="lineNum">      63 </span><span class="lineNoCov">          0 :         return new CodeMemoryReportFormatter(defaultMallocAllocator());</span>
+<span class="lineNum">      64 </span>            :     }
+<span class="lineNum">      65 </span><span class="lineNoCov">          0 :     return NULL;</span>
+<a name="66"><span class="lineNum">      66 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span><span class="lineCov">         29 : void MemoryReporterPlugin::destroyMemoryFormatter(MemoryReportFormatter* formatter)</span>
+<span class="lineNum">      69 </span>            : {
+<span class="lineNum">      70 </span><span class="lineCov">         43 :     delete formatter;</span>
+<span class="lineNum">      71 </span><span class="lineCov">         29 : }</span>
+<a name="72"><span class="lineNum">      72 </span>            : </a>
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span>            : void MemoryReporterPlugin::setGlobalMemoryReportAllocators()
+<span class="lineNum">      75 </span>            : {
+<span class="lineNum">      76 </span><span class="lineCov">         12 :     mallocAllocator.setRealAllocator(getCurrentMallocAllocator());</span>
+<span class="lineNum">      77 </span><span class="lineCov">         12 :     setCurrentMallocAllocator(&amp;mallocAllocator);</span>
+<span class="lineNum">      78 </span>            : 
+<span class="lineNum">      79 </span><span class="lineCov">         12 :     newAllocator.setRealAllocator(getCurrentNewAllocator());</span>
+<span class="lineNum">      80 </span><span class="lineCov">         12 :     setCurrentNewAllocator(&amp;newAllocator);</span>
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span><span class="lineCov">         12 :     newArrayAllocator.setRealAllocator(getCurrentNewArrayAllocator());</span>
+<span class="lineNum">      83 </span><span class="lineCov">         12 :     setCurrentNewArrayAllocator(&amp;newArrayAllocator);</span>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">         12 : }</span></a>
+<span class="lineNum">      85 </span>            : 
+<span class="lineNum">      86 </span>            : void MemoryReporterPlugin::removeGlobalMemoryReportAllocators()
+<span class="lineNum">      87 </span>            : {
+<span class="lineNum">      88 </span><span class="lineCov">         22 :     if (getCurrentNewAllocator() == &amp;newAllocator)</span>
+<span class="lineNum">      89 </span><span class="lineCov">         12 :         setCurrentNewAllocator(newAllocator.getRealAllocator());</span>
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span><span class="lineCov">         22 :     if (getCurrentNewArrayAllocator() == &amp;newArrayAllocator)</span>
+<span class="lineNum">      92 </span><span class="lineCov">         12 :         setCurrentNewArrayAllocator(newArrayAllocator.getRealAllocator());</span>
+<span class="lineNum">      93 </span>            : 
+<span class="lineNum">      94 </span><span class="lineCov">         22 :     if (getCurrentMallocAllocator() == &amp;mallocAllocator)</span>
+<span class="lineNum">      95 </span><span class="lineCov">         12 :         setCurrentMallocAllocator(mallocAllocator.getRealAllocator());</span>
+<span class="lineNum">      96 </span><span class="lineCov">         22 : }</span>
+<a name="97"><span class="lineNum">      97 </span>            : </a>
+<span class="lineNum">      98 </span>            : 
+<span class="lineNum">      99 </span><span class="lineCov">         36 : void MemoryReporterPlugin::initializeAllocator(MemoryReportAllocator* allocator, TestResult &amp; result)</span>
+<span class="lineNum">     100 </span>            : {
+<span class="lineNum">     101 </span><span class="lineCov">         36 :     allocator-&gt;setFormatter(formatter_);</span>
+<span class="lineNum">     102 </span><span class="lineCov">         36 :     allocator-&gt;setTestResult((&amp;result));</span>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">         36 : }</span></a>
+<span class="lineNum">     104 </span>            : 
+<span class="lineNum">     105 </span><span class="lineCov">        304 : void MemoryReporterPlugin::preTestAction(UtestShell&amp; test, TestResult&amp; result)</span>
+<span class="lineNum">     106 </span>            : {
+<span class="lineNum">     107 </span><span class="lineCov">        596 :     if (formatter_ == NULL) return;</span>
+<span class="lineNum">     108 </span>            : 
+<span class="lineNum">     109 </span><span class="lineCov">         12 :     initializeAllocator(&amp;mallocAllocator, result);</span>
+<span class="lineNum">     110 </span><span class="lineCov">         12 :     initializeAllocator(&amp;newAllocator, result);</span>
+<span class="lineNum">     111 </span><span class="lineCov">         12 :     initializeAllocator(&amp;newArrayAllocator, result);</span>
+<span class="lineNum">     112 </span>            : 
+<span class="lineNum">     113 </span><span class="lineCov">         12 :     setGlobalMemoryReportAllocators();</span>
+<span class="lineNum">     114 </span>            : 
+<span class="lineNum">     115 </span><span class="lineCov">         24 :     if (test.getGroup() != currentTestGroup_) {</span>
+<span class="lineNum">     116 </span><span class="lineCov">         10 :         formatter_-&gt;report_testgroup_start(&amp;result, test);</span>
+<span class="lineNum">     117 </span><span class="lineCov">         20 :         currentTestGroup_ = test.getGroup();</span>
+<span class="lineNum">     118 </span><span class="lineCov">         10 :     }</span>
+<span class="lineNum">     119 </span>            : 
+<span class="lineNum">     120 </span><span class="lineCov">         12 :     formatter_-&gt;report_test_start(&amp;result, test);</span>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">        316 : }</span></a>
+<span class="lineNum">     122 </span>            : 
+<span class="lineNum">     123 </span><span class="lineCov">        299 : void MemoryReporterPlugin::postTestAction(UtestShell&amp; test, TestResult&amp; result)</span>
+<span class="lineNum">     124 </span>            : {
+<span class="lineNum">     125 </span><span class="lineCov">        591 :     if (formatter_ == NULL) return;</span>
+<span class="lineNum">     126 </span>            : 
+<span class="lineNum">     127 </span><span class="lineCov">          7 :     removeGlobalMemoryReportAllocators();</span>
+<span class="lineNum">     128 </span><span class="lineCov">          7 :     formatter_-&gt;report_test_end(&amp;result, test);</span>
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span><span class="lineCov">         30 :     if (test.getNext() == NULL || test.getNext()-&gt;getGroup() != currentTestGroup_)</span>
+<span class="lineNum">     131 </span><span class="lineCov">          5 :         formatter_-&gt;report_testgroup_end(&amp;result, test);</span>
+<span class="lineNum">     132 </span><span class="lineCov">        299 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
